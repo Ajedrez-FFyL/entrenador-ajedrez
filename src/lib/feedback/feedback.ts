@@ -5,7 +5,7 @@ import type { IdSeccion } from '../secciones.ts'
  * URL del Google Apps Script Web App desplegado por Mati (ver docs/contexto/feedback.md).
  * Si está vacía, el botón de feedback avisa que todavía no está configurado.
  */
-export const URL_FEEDBACK = ''
+export const URL_FEEDBACK = 'https://script.google.com/macros/s/AKfycbzzxC6_8qRbbVAGHlB7L-bmNDoVIgV1UEoXoTtBbdd0KbXk57BHJhZtOvcovqNpJqAGJA/exec'
 
 export type TipoFeedback = 'bug' | 'opinion' | 'sugerencia'
 
