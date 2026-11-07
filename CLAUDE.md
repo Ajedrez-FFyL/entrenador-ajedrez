@@ -99,19 +99,26 @@ Contexto del jugador: `docs/contexto/analisis-partidas-avatargs.md` y `docs/cont
 
 **Progreso y pendientes al día: ver `PROGRESO.md`.**
 
-## Estado actual (2026-10-06)
+## Estado actual (2026-11-07)
 
 - Publicada en https://matduer.github.io/entrenador-ajedrez/ (repo público `matduer/entrenador-ajedrez`, Pages con fuente "GitHub Actions"). Cada push a `main` publica.
 - Resumen de la etapa 0: https://claude.ai/code/artifact/5b9365d9-6bcd-4878-bc38-93eb32cf98e6
 - Resumen de las etapas 1 a 6 (hallazgos, decisiones, pendientes): https://claude.ai/code/artifact/f0fda316-1db4-4e28-8998-249168a9573a
 - Git y Node 24 LTS instalados con winget. Si `node`/`git` no se encuentran en PowerShell: `$env:Path = [Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [Environment]::GetEnvironmentVariable('Path','User')`.
 - Push: credencial guardada en el Git Credential Manager. Si falla por "terminal prompts disabled", abrir una ventana aparte (`Start-Process powershell -NoExit`) con `$env:GCM_INTERACTIVE='auto'`.
+- **Compartida con el equipo (2026-11-07)**: confirmado que no hace falta ningún cambio de código — sin backend ni usuarios, cada quien tiene su base (IndexedDB/Dexie) aislada por navegador/dispositivo; partidas, "mis errores" y "de mis partidas" en finales ya son exclusivos de cada uno por diseño, y problemas de Lichess/libros y temario/posición libre de finales ya son abiertos para todos. Se agregaron tres cosas nuevas:
+  - **Pestaña Ayuda** (`src/pantallas/Tutoriales.svelte`): qué hace cada pestaña, glosario, preguntas frecuentes.
+  - **Feedback flotante** (`src/lib/feedback/`): botón 💬 en cualquier pestaña (nombre, tipo bug/opinión/sugerencia, texto) → Google Apps Script → Sheet privada de Mati. Instrucciones en `docs/contexto/feedback.md`.
+  - **Respaldo automático a Google Drive por usuario** (`src/lib/drive/`): OAuth (Google Identity Services, scope `drive.appdata`, carpeta privada por cuenta), sincroniza al abrir la app y con botón manual en Ajustes. Instrucciones en `docs/contexto/drive-sync.md`.
+  - Guía de instalación para el equipo: https://claude.ai/artifact/8rZWdHh1eWs3WzC3o3kprt
+  - Pendiente: confirmar que Mati probó Drive de punta a punta; sumar los mails del equipo como test users en Google Cloud Console; transferir el repo a una organización de GitHub (al final de todo, pedido explícito — hoy el link sigue mostrando `matduer`).
 
 ## Pendiente de decisión o acción del usuario (no resolver por cuenta propia)
 
 1. **Cargar su análisis previo en la app**: Ajustes → Importar respaldo → `datos-privados/analisis-previo.json` (en la compu). Para el celular: exportar respaldo en la compu e importarlo allá.
 2. **Token de Lichess** (opcional): para ver Masters en el explorador. Con el token se puede además generar un snapshot offline de frecuencias Masters para los niveles (script por hacer).
 3. Revisar el orden de las explicaciones de aperturas que siguen.
+4. Transferir el repo a una organización de GitHub (al final de todo); sumar los mails del equipo como test users en Google Cloud Console para que puedan usar el respaldo a Drive.
 
 ## Comandos
 
