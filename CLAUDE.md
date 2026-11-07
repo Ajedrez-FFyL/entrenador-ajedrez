@@ -112,14 +112,15 @@ Contexto del jugador: `docs/contexto/analisis-partidas-avatargs.md` y `docs/cont
   - **Respaldo automático a Google Drive por usuario** (`src/lib/drive/`): OAuth (Google Identity Services, scope `drive.appdata`, carpeta privada por cuenta), sincroniza al abrir la app y con botón manual en Ajustes. Instrucciones en `docs/contexto/drive-sync.md`.
   - Guía de instalación para el equipo: https://claude.ai/artifact/8rZWdHh1eWs3WzC3o3kprt
   - Drive probado por Mati (07/11, conectado con su propio mail como test user).
-  - **Repo transferido a la organización GitHub `ajedrez-ffyl`** (07/11/2026): el link ya no muestra `matduer` (ahora https://ajedrez-ffyl.github.io/entrenador-ajedrez/). Pendiente: Mati tiene que agregar `https://ajedrez-ffyl.github.io` como origen autorizado en el OAuth Client ID de Google Cloud Console (ver `docs/contexto/drive-sync.md`) antes de que el respaldo a Drive funcione desde el link nuevo; hasta entonces sigue andando desde el link viejo si GitHub Pages lo redirige. Pendiente también: sumar los mails del equipo como test users en Google Cloud Console (sin esto no pueden conectar).
+  - **Repo transferido a la organización GitHub `ajedrez-ffyl`** (07/11/2026): el link ya no muestra `matduer`. Hecho: origen `https://ajedrez-ffyl.github.io` agregado en el OAuth Client ID de Google Cloud Console; GitHub App de Claude autorizada para la organización; links actualizados en README, Ajustes, `docs/contexto/drive-sync.md` y en la guía de instalación (https://claude.ai/artifact/8rZWdHh1eWs3WzC3o3kprt).
+  - **Único pendiente real para terminar de compartirla**: sumar los mails del equipo como test users en Google Cloud Console (sin esto no pueden conectar Drive) y pasarles el link + la guía de instalación.
 
 ## Pendiente de decisión o acción del usuario (no resolver por cuenta propia)
 
 1. **Cargar su análisis previo en la app**: Ajustes → Importar respaldo → `datos-privados/analisis-previo.json` (en la compu). Para el celular: exportar respaldo en la compu e importarlo allá.
 2. **Token de Lichess** (opcional): para ver Masters en el explorador. Con el token se puede además generar un snapshot offline de frecuencias Masters para los niveles (script por hacer).
 3. Revisar el orden de las explicaciones de aperturas que siguen.
-4. Agregar `https://ajedrez-ffyl.github.io` como origen OAuth autorizado en Google Cloud Console, y sumar los mails del equipo como test users para que puedan usar el respaldo a Drive (Mati ya lo probó con el suyo).
+4. Sumar los mails del equipo como test users en Google Cloud Console para que puedan usar el respaldo a Drive (Mati ya lo probó con el suyo; el origen OAuth y la transferencia del repo ya están hechos), y pasarles el link + la guía de instalación.
 
 ## Comandos
 
