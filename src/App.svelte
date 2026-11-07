@@ -7,6 +7,8 @@
   import Progreso from './pantallas/Progreso.svelte'
   import MisPartidas from './pantallas/MisPartidas.svelte'
   import Tactica from './pantallas/Tactica.svelte'
+  import Tutoriales from './pantallas/Tutoriales.svelte'
+  import Feedback from './lib/feedback/Feedback.svelte'
 
   function seccionDesdeHash(): IdSeccion {
     const id = location.hash.replace('#/', '')
@@ -48,6 +50,8 @@
       <Finales />
     {:else if actual === 'progreso'}
       <Progreso />
+    {:else if actual === 'tutoriales'}
+      <Tutoriales />
     {:else if actual === 'ajustes'}
       <Ajustes />
     {:else}
@@ -59,6 +63,7 @@
 </div>
 
 <AvisoActualizacion />
+<Feedback pestanaActual={actual} />
 
 <style>
   .marco {
