@@ -2,7 +2,7 @@
 
 App personal de entrenamiento de ajedrez: partidas propias analizadas con Stockfish, aperturas, táctica y finales. Es una PWA: se instala desde el navegador en el celular o la compu y funciona sin conexión (salvo importar partidas y las consultas opcionales).
 
-**Usarla:** https://matduer.github.io/entrenador-ajedrez/
+**Usarla:** https://ajedrez-ffyl.github.io/entrenador-ajedrez/
 
 - **Android (Chrome):** menú ⋮ → "Instalar app" o "Agregar a la pantalla principal".
 - **iPhone (Safari):** botón Compartir → "Agregar a inicio". En iOS conviene instalarla: si no, Safari puede borrar los datos de la app tras unas semanas sin usarla.

@@ -1,6 +1,6 @@
 # Entrenador de ajedrez — PWA personal
 
-App de entrenamiento de ajedrez de Mati (Lichess y Chess.com: `avatargs`, GitHub: `matduer`). Código abierto (GPL-3.0), uso personal y para algunos amigos, sin tiendas. Objetivo de juego: **1700-1800 FIDE**.
+App de entrenamiento de ajedrez de Mati (Lichess y Chess.com: `avatargs`, GitHub personal: `matduer`; repo en la organización `ajedrez-ffyl` desde el 07/11/2026). Código abierto (GPL-3.0), uso personal y para algunos amigos, sin tiendas. Objetivo de juego: **1700-1800 FIDE**.
 
 Contexto del jugador: `docs/contexto/analisis-partidas-avatargs.md` y `docs/contexto/plan-entrenamiento-1700-1800.md`. **Leerlos antes de priorizar contenido.** Resumen: 17,6 % de las partidas terminan por tiempo (68 % perdidas); 75 % de las pérdidas de material, en el medio juego; balance negativo contra la Caro-Kann con blancas; repertorio disperso contra 1.d4.
 
@@ -26,7 +26,7 @@ Contexto del jugador: `docs/contexto/analisis-partidas-avatargs.md` y `docs/cont
 | Motor | Stockfish 17 **lite WASM monohilo** en Web Worker (~7 MB). La versión multihilo necesita COOP/COEP, que GitHub Pages no permite → mejora opcional futura |
 | Datos | IndexedDB vía **Dexie**; exportar/importar progreso como archivo para pasar entre dispositivos |
 | Repaso espaciado | **ts-fsrs** (FSRS) |
-| Hosting | GitHub Pages (`https://matduer.github.io/entrenador-ajedrez/`), deploy con GitHub Actions en cada push a `main`. `base` de Vite = `/entrenador-ajedrez/` solo cuando `GITHUB_ACTIONS` está definido |
+| Hosting | GitHub Pages (`https://ajedrez-ffyl.github.io/entrenador-ajedrez/`), deploy con GitHub Actions en cada push a `main`. `base` de Vite = `/entrenador-ajedrez/` solo cuando `GITHUB_ACTIONS` está definido |
 | Multiusuario | Nada fijo en el código: usuarios de Lichess/Chess.com en configuración, datos en cada dispositivo |
 | Navegación | Rutas por hash (`#/partidas`, `#/aperturas`…): funciona en Pages sin reescrituras |
 
@@ -101,7 +101,7 @@ Contexto del jugador: `docs/contexto/analisis-partidas-avatargs.md` y `docs/cont
 
 ## Estado actual (2026-11-07)
 
-- Publicada en https://matduer.github.io/entrenador-ajedrez/ (repo público `matduer/entrenador-ajedrez`, Pages con fuente "GitHub Actions"). Cada push a `main` publica.
+- Publicada en https://ajedrez-ffyl.github.io/entrenador-ajedrez/ (repo público `ajedrez-ffyl/entrenador-ajedrez`, transferido desde `matduer/entrenador-ajedrez` el 07/11/2026; Pages con fuente "GitHub Actions"). Cada push a `main` publica.
 - Resumen de la etapa 0: https://claude.ai/code/artifact/5b9365d9-6bcd-4878-bc38-93eb32cf98e6
 - Resumen de las etapas 1 a 6 (hallazgos, decisiones, pendientes): https://claude.ai/code/artifact/f0fda316-1db4-4e28-8998-249168a9573a
 - Git y Node 24 LTS instalados con winget. Si `node`/`git` no se encuentran en PowerShell: `$env:Path = [Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [Environment]::GetEnvironmentVariable('Path','User')`.
@@ -111,14 +111,15 @@ Contexto del jugador: `docs/contexto/analisis-partidas-avatargs.md` y `docs/cont
   - **Feedback flotante** (`src/lib/feedback/`): botón 💬 en cualquier pestaña (nombre, tipo bug/opinión/sugerencia, texto) → Google Apps Script → Sheet privada de Mati. Instrucciones en `docs/contexto/feedback.md`.
   - **Respaldo automático a Google Drive por usuario** (`src/lib/drive/`): OAuth (Google Identity Services, scope `drive.appdata`, carpeta privada por cuenta), sincroniza al abrir la app y con botón manual en Ajustes. Instrucciones en `docs/contexto/drive-sync.md`.
   - Guía de instalación para el equipo: https://claude.ai/artifact/8rZWdHh1eWs3WzC3o3kprt
-  - Drive probado por Mati (07/11, conectado con su propio mail como test user). Pendiente: sumar los mails del equipo como test users en Google Cloud Console (sin esto no pueden conectar); transferir el repo a una organización de GitHub (al final de todo, pedido explícito — hoy el link sigue mostrando `matduer`).
+  - Drive probado por Mati (07/11, conectado con su propio mail como test user).
+  - **Repo transferido a la organización GitHub `ajedrez-ffyl`** (07/11/2026): el link ya no muestra `matduer` (ahora https://ajedrez-ffyl.github.io/entrenador-ajedrez/). Pendiente: Mati tiene que agregar `https://ajedrez-ffyl.github.io` como origen autorizado en el OAuth Client ID de Google Cloud Console (ver `docs/contexto/drive-sync.md`) antes de que el respaldo a Drive funcione desde el link nuevo; hasta entonces sigue andando desde el link viejo si GitHub Pages lo redirige. Pendiente también: sumar los mails del equipo como test users en Google Cloud Console (sin esto no pueden conectar).
 
 ## Pendiente de decisión o acción del usuario (no resolver por cuenta propia)
 
 1. **Cargar su análisis previo en la app**: Ajustes → Importar respaldo → `datos-privados/analisis-previo.json` (en la compu). Para el celular: exportar respaldo en la compu e importarlo allá.
 2. **Token de Lichess** (opcional): para ver Masters en el explorador. Con el token se puede además generar un snapshot offline de frecuencias Masters para los niveles (script por hacer).
 3. Revisar el orden de las explicaciones de aperturas que siguen.
-4. Transferir el repo a una organización de GitHub (al final de todo); sumar los mails del equipo como test users en Google Cloud Console para que puedan usar el respaldo a Drive (Mati ya lo probó con el suyo).
+4. Agregar `https://ajedrez-ffyl.github.io` como origen OAuth autorizado en Google Cloud Console, y sumar los mails del equipo como test users para que puedan usar el respaldo a Drive (Mati ya lo probó con el suyo).
 
 ## Comandos
 
