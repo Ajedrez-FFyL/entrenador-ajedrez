@@ -5,7 +5,7 @@ import { crearRespaldo, importarRespaldo, type ResumenImportacion } from '../dat
  * Client ID de OAuth de Google Cloud Console (tipo "Aplicación web"). Lo completa Mati una vez
  * creado (ver docs/contexto/drive-sync.md). Sin esto, la sincronización queda desactivada.
  */
-export const CLIENT_ID = ''
+export const CLIENT_ID = '112350881931-tcthfr0qfmhnf87u6tj195n6oqtoaep2.apps.googleusercontent.com'
 
 const SCOPE = 'https://www.googleapis.com/auth/drive.appdata'
 const NOMBRE_ARCHIVO = 'respaldo.json'
