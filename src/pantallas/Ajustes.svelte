@@ -4,6 +4,7 @@
   import type { Usuarios } from '../lib/datos/normalizar.ts'
   import { descargarRespaldo, importarRespaldo } from '../lib/datos/respaldo.ts'
   import { completarRelojesLichess, importarArchivoPgn, mensajeDeError } from '../lib/importar/importar.ts'
+  import { CLIENT_ID as DRIVE_CLIENT_ID, conectarDrive, desconectarDrive, leerCuentaDrive, leerUltimaSincroDrive, sincronizarDrive } from '../lib/drive/drive.ts'
 
   let usuarios = $state<Usuarios>({})
   let token = $state('')
@@ -57,6 +58,49 @@
     } finally {
       ocupado = false
     }
+  }
+
+  let cuentaDrive = $state('')
+  let ultimaSincroDrive = $state<number>()
+  let mensajeDrive = $state('')
+  leerCuentaDrive().then((c) => (cuentaDrive = c))
+  leerUltimaSincroDrive().then((t) => (ultimaSincroDrive = t))
+
+  async function alConectarDrive() {
+    ocupado = true
+    mensajeDrive = ''
+    try {
+      cuentaDrive = await conectarDrive()
+      await sincronizar()
+    } catch (err) {
+      mensajeDrive = mensajeDeError(err)
+    } finally {
+      ocupado = false
+    }
+  }
+
+  async function sincronizar() {
+    ocupado = true
+    mensajeDrive = 'Sincronizando…'
+    try {
+      const r = await sincronizarDrive(true)
+      mensajeDrive = r
+        ? `Listo: ${r.partidasNuevas} partidas nuevas, ${r.erroresNuevos} errores nuevos desde Drive.`
+        : 'Listo: subido a Drive (todavía no había nada ahí).'
+      ultimaSincroDrive = Date.now()
+      await contarPendientes()
+      await cargar()
+    } catch (err) {
+      mensajeDrive = mensajeDeError(err)
+    } finally {
+      ocupado = false
+    }
+  }
+
+  async function alDesconectarDrive() {
+    await desconectarDrive()
+    cuentaDrive = ''
+    mensajeDrive = ''
   }
 
   let mensajeRelojes = $state('')
@@ -143,6 +187,30 @@
     </label>
   </div>
   {#if mensajeRespaldo}<p>{mensajeRespaldo}</p>{/if}
+</section>
+
+<section class="tarjeta">
+  <h2>Respaldo automático a Google Drive</h2>
+  {#if !DRIVE_CLIENT_ID}
+    <p class="suave">Todavía no está activado en esta versión de la app.</p>
+  {:else if cuentaDrive}
+    <p class="suave">
+      Conectado con <b>{cuentaDrive}</b>. Se guarda en una carpeta privada de tu Drive, que solo ve esta app (no accede al
+      resto de tu Drive).
+      {#if ultimaSincroDrive}Última sincronización: {new Date(ultimaSincroDrive).toLocaleString('es-AR')}.{/if}
+    </p>
+    <div class="fila">
+      <button class="boton" onclick={sincronizar} disabled={ocupado || !navigator.onLine}>Sincronizar ahora</button>
+      <button class="boton" onclick={alDesconectarDrive} disabled={ocupado}>Desconectar</button>
+    </div>
+  {:else}
+    <p class="suave">
+      Conectá tu cuenta de Google para que tu progreso se guarde solo (y sobreviva a cambiar de navegador o de celular), sin
+      tener que exportar/importar a mano. Nadie más del equipo ve tus datos: cada uno sincroniza con su propia cuenta.
+    </p>
+    <button class="boton" onclick={alConectarDrive} disabled={ocupado || !navigator.onLine}>Conectar Google Drive</button>
+  {/if}
+  {#if mensajeDrive}<p>{mensajeDrive}</p>{/if}
 </section>
 
 <section class="tarjeta">

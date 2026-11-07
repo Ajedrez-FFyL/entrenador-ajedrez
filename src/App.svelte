@@ -9,6 +9,13 @@
   import Tactica from './pantallas/Tactica.svelte'
   import Tutoriales from './pantallas/Tutoriales.svelte'
   import Feedback from './lib/feedback/Feedback.svelte'
+  import { leerCuentaDrive, sincronizarDrive } from './lib/drive/drive.ts'
+
+  // Si Drive ya está conectado, sincroniza en silencio al abrir la app (sin popup; si hace falta
+  // interacción, no insiste: queda para que el usuario sincronice a mano desde Ajustes).
+  leerCuentaDrive().then((cuenta) => {
+    if (cuenta) sincronizarDrive(false).catch(() => undefined)
+  })
 
   function seccionDesdeHash(): IdSeccion {
     const id = location.hash.replace('#/', '')
