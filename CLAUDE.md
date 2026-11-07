@@ -111,14 +111,14 @@ Contexto del jugador: `docs/contexto/analisis-partidas-avatargs.md` y `docs/cont
   - **Feedback flotante** (`src/lib/feedback/`): botón 💬 en cualquier pestaña (nombre, tipo bug/opinión/sugerencia, texto) → Google Apps Script → Sheet privada de Mati. Instrucciones en `docs/contexto/feedback.md`.
   - **Respaldo automático a Google Drive por usuario** (`src/lib/drive/`): OAuth (Google Identity Services, scope `drive.appdata`, carpeta privada por cuenta), sincroniza al abrir la app y con botón manual en Ajustes. Instrucciones en `docs/contexto/drive-sync.md`.
   - Guía de instalación para el equipo: https://claude.ai/artifact/8rZWdHh1eWs3WzC3o3kprt
-  - Pendiente: confirmar que Mati probó Drive de punta a punta; sumar los mails del equipo como test users en Google Cloud Console; transferir el repo a una organización de GitHub (al final de todo, pedido explícito — hoy el link sigue mostrando `matduer`).
+  - Drive probado por Mati (07/11, conectado con su propio mail como test user). Pendiente: sumar los mails del equipo como test users en Google Cloud Console (sin esto no pueden conectar); transferir el repo a una organización de GitHub (al final de todo, pedido explícito — hoy el link sigue mostrando `matduer`).
 
 ## Pendiente de decisión o acción del usuario (no resolver por cuenta propia)
 
 1. **Cargar su análisis previo en la app**: Ajustes → Importar respaldo → `datos-privados/analisis-previo.json` (en la compu). Para el celular: exportar respaldo en la compu e importarlo allá.
 2. **Token de Lichess** (opcional): para ver Masters en el explorador. Con el token se puede además generar un snapshot offline de frecuencias Masters para los niveles (script por hacer).
 3. Revisar el orden de las explicaciones de aperturas que siguen.
-4. Transferir el repo a una organización de GitHub (al final de todo); sumar los mails del equipo como test users en Google Cloud Console para que puedan usar el respaldo a Drive.
+4. Transferir el repo a una organización de GitHub (al final de todo); sumar los mails del equipo como test users en Google Cloud Console para que puedan usar el respaldo a Drive (Mati ya lo probó con el suyo).
 
 ## Comandos
 
