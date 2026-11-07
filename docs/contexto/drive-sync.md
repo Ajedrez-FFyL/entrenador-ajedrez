@@ -22,7 +22,7 @@ Drive v3), tipos mínimos del cliente GIS en `src/lib/drive/gis.d.ts`, UI en `sr
 5. **APIs y servicios → Credenciales → Crear credenciales → ID de cliente de OAuth**:
    - Tipo de aplicación: **Aplicación web**
    - Nombre: lo que quieras
-   - **Orígenes autorizados de JavaScript**: agregar `https://matduer.github.io` (sin la parte `/entrenador-ajedrez/`: el origen es solo protocolo+dominio). Si después se cambia de dominio (ver transferencia a organización), hay que agregar el nuevo origen acá también.
+   - **Orígenes autorizados de JavaScript**: agregar `https://ajedrez-ffyl.github.io` (sin la parte `/entrenador-ajedrez/`: el origen es solo protocolo+dominio; el repo se transfirió a esta organización el 07/11/2026, así que el origen viejo `https://matduer.github.io` ya no sirve y se puede sacar una vez confirmado que todo funciona).
    - No hace falta "URI de redireccionamiento": el flujo que usa la app (Google Identity Services, token client) no redirige.
 6. Copiar el **Client ID** (termina en `.apps.googleusercontent.com`) y pasármelo para completar `CLIENT_ID` en `src/lib/drive/drive.ts`.
 
