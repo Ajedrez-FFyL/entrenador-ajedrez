@@ -236,7 +236,7 @@
 <section class="tarjeta">
   <h2>Acerca de</h2>
   <p class="suave">
-    Código abierto (GPL-3.0): <a href="https://github.com/matduer/entrenador-ajedrez" target="_blank" rel="noopener">github.com/matduer/entrenador-ajedrez</a>.
+    Código abierto (GPL-3.0): <a href="https://github.com/ajedrez-ffyl/entrenador-ajedrez" target="_blank" rel="noopener">github.com/ajedrez-ffyl/entrenador-ajedrez</a>.
     Usa Stockfish 19 (motor que corre en el dispositivo), chessground y chessops.
   </p>
 </section>
