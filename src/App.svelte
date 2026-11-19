@@ -195,9 +195,35 @@
       border-top: none;
       border-right: 1px solid var(--borde);
       padding: 16px 8px;
+      overflow: hidden;
+    }
+
+    /* El riel de navegación queda con mucho espacio vacío debajo de los ítems
+       (sobre todo en pantallas altas): un caballo del club, apenas visible, lo llena. */
+    nav::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -30px;
+      width: 230px;
+      height: 260px;
+      transform: translateX(-50%);
+      background-color: var(--texto);
+      opacity: 0.05;
+      mask-image: url('/marca/piezas/caballo.svg');
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: contain;
+      -webkit-mask-image: url('/marca/piezas/caballo.svg');
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      -webkit-mask-size: contain;
+      pointer-events: none;
     }
 
     nav a {
+      position: relative;
+      z-index: 1;
       flex: none;
       flex-direction: row;
       gap: 10px;
