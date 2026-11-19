@@ -43,18 +43,12 @@
       <span class="tema-icono" aria-hidden="true">{ICONO[tema]}</span>
       <span class="tema-etiqueta">{ETIQUETA[tema]}</span>
     </button>
-    <a
-      class="facultad"
-      href="https://filo.uba.ar"
-      target="_blank"
-      rel="noopener"
-      title="Facultad de Filosofía y Letras — UBA"
-    >
+    <div class="facultad" title="Facultad de Filosofía y Letras — UBA">
       <span class="sello">
         <img src="/marca/sello-uba.png" alt="Universidad de Buenos Aires" />
       </span>
       <span class="sigla">FFyL</span>
-    </a>
+    </div>
   </div>
 </header>
 
