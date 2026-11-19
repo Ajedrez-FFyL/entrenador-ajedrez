@@ -71,7 +71,7 @@
   }
 
   .nombre {
-    font-family: 'Piazzolla', Georgia, serif;
+    font-family: 'Bitter', Georgia, serif;
     font-weight: 600;
     font-size: 1rem;
     color: var(--texto);
@@ -140,7 +140,7 @@
   }
 
   .sigla {
-    font-family: 'Piazzolla', Georgia, serif;
+    font-family: 'Bitter', Georgia, serif;
     font-weight: 600;
     font-size: 0.85rem;
     color: var(--texto);
