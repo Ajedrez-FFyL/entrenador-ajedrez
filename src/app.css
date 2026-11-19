@@ -1,28 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Archivo:wght@400;500;600&display=swap');
+
 :root {
-  --fondo: #f6f3ee;
-  --superficie: #ffffff;
-  --texto: #23201c;
-  --texto-suave: #6b645a;
-  --borde: #e2dcd2;
-  --acento: #a8741a;
+  /* Paleta Ajedrez FFyL, alineada a los colores reales de filo.uba.ar
+     (navy #1e2655/#222751 y verde-azulado #48c0aa, relevados del sitio en vivo).
+     El acento se oscurece sobre crema para cumplir contraste AA (4.8:1). */
+  --fondo: #f4efe4; /* crema */
+  --superficie: #fffdf8;
+  --texto: #1e2655; /* marino FFyL */
+  --texto-suave: #52607a;
+  --borde: #ded6c4; /* crema oscurecida */
+  --acento: #257567; /* verde-azulado FFyL, oscurecido para contraste sobre crema */
   --acento-texto: #ffffff;
+  --marino: #1e2655;
+  --azul: #257567;
+  --celeste: #bfe3da; /* tinte suave del verde-azulado, para fondos/hover */
+  --celeste-claro: #d8eee8;
+  --madera: #5a3a22;
   --radio: 12px;
   color-scheme: light;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --fondo: #1f1d1a;
-    --superficie: #2a2723;
-    --texto: #ece6dc;
-    --texto-suave: #a69e91;
-    --borde: #3a3630;
-    --acento: #e8c27a;
-    --acento-texto: #1f1d1a;
+  :root:not([data-tema='claro']) {
+    --fondo: #182540;
+    --superficie: #20325a;
+    --texto: #eef2f7;
+    --texto-suave: #a9bad0;
+    --borde: #32456b;
+    --acento: #6fd9c4; /* verde-azulado claro: contraste 9:1 sobre el fondo marino oscuro */
+    --acento-texto: #0f2e28;
+    --marino: #a9cbe8;
+    --azul: #6fd9c4;
+    --celeste: #1f4a44;
+    --celeste-claro: #28584f;
+    --madera: #c08a4e;
     color-scheme: dark;
   }
+}
+
+/* Mismas variables que el bloque de arriba, pero activadas por el selector manual
+   de tema (botón en la franja de marca) en vez de por el sistema operativo. */
+:root[data-tema='oscuro'] {
+  --fondo: #182540;
+  --superficie: #20325a;
+  --texto: #eef2f7;
+  --texto-suave: #a9bad0;
+  --borde: #32456b;
+  --acento: #6fd9c4;
+  --acento-texto: #0f2e28;
+  --marino: #a9cbe8;
+  --azul: #6fd9c4;
+  --celeste: #1f4a44;
+  --celeste-claro: #28584f;
+  --madera: #c08a4e;
+  color-scheme: dark;
 }
 
 * {
@@ -39,6 +72,8 @@ body {
 h1,
 h2,
 h3 {
+  font-family: 'Bitter', Georgia, serif;
+  font-weight: 600;
   line-height: 1.2;
   margin: 0 0 0.5rem;
 }

@@ -4,6 +4,8 @@ export interface Seccion {
   id: IdSeccion
   titulo: string
   icono: string
+  /** Si está, se usa la pieza propia del club (public/marca/piezas/<pieza>.svg) en vez de `icono`. */
+  pieza?: 'peon' | 'caballo' | 'rey'
   descripcion: string
 }
 
@@ -12,12 +14,14 @@ export const SECCIONES: Seccion[] = [
     id: 'partidas',
     titulo: 'Partidas',
     icono: '♟',
+    pieza: 'peon',
     descripcion: 'Importación desde Lichess y Chess.com, errores detectados por Stockfish y estadísticas.',
   },
   {
     id: 'aperturas',
     titulo: 'Aperturas',
     icono: '♞',
+    pieza: 'caballo',
     descripcion: 'Explorador de cualquier apertura, mi repertorio, práctica por niveles y explicaciones de por qué sí y por qué no.',
   },
   {
@@ -30,6 +34,7 @@ export const SECCIONES: Seccion[] = [
     id: 'finales',
     titulo: 'Finales',
     icono: '♚',
+    pieza: 'rey',
     descripcion: 'Temario progresivo y editor para jugar cualquier final contra Stockfish.',
   },
   {

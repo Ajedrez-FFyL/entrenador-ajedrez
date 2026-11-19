@@ -5,9 +5,19 @@
     <link rel="icon" type="image/png" href="/icono-192.png" />
     <link rel="apple-touch-icon" href="/icono-192.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#1f1d1a" />
+    <meta name="theme-color" content="#1e2655" />
     <meta name="description" content="Entrenamiento personal de ajedrez que funciona sin conexión." />
     <title>Entrenador de ajedrez</title>
+    <script>
+      // Aplica el tema elegido a mano (si lo hay) antes de pintar, para que no se vea
+      // un flash del tema del sistema operativo cuando el usuario forzó el otro.
+      (function () {
+        try {
+          var t = localStorage.getItem('ffyl-tema')
+          if (t === 'claro' || t === 'oscuro') document.documentElement.setAttribute('data-tema', t)
+        } catch (e) {}
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>
