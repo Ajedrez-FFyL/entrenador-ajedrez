@@ -46,7 +46,7 @@
 
   {#if progreso.problemasPorTema.length}
     <section class="tarjeta">
-      <h2>Problemas de Lichess por tema</h2>
+      <h2>Táctica general por tema</h2>
       <div class="tabla-scroll">
         <table>
           <thead><tr><th>Tema</th><th class="num">Practicados</th><th class="num">Acierto</th><th class="num">Para repasar</th></tr></thead>

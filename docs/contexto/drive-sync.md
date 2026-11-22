@@ -30,3 +30,20 @@ Drive v3), tipos mínimos del cliente GIS en `src/lib/drive/gis.d.ts`, UI en `sr
 
 - Código y UI listos, a la espera del Client ID.
 - Nota para cuando se transfiera el repo a una organización de GitHub (al final del plan): agregar el nuevo origen `https://<org>.github.io` a la pantalla de consentimiento y volver a probar.
+
+## Drive solo para invitados (A6, 22/11/2026)
+
+La app de Google está en modo Prueba y **el respaldo en Drive está oculto por defecto**: nadie ve el
+bloque de Ajustes ni la ayuda de Drive. Se habilita por navegador con un link especial
+(`driveHabilitado()` lee `localStorage['ffyl-drive'] === '1'`; `src/main.ts` lo guarda al arrancar si la
+URL trae `?drive=1` y limpia el parámetro de la barra; `?drive=0` lo borra).
+
+Procedimiento para sumar a una persona:
+
+1. Agregar su mail en Google Cloud Console → APIs y servicios → Pantalla de consentimiento OAuth → Usuarios de prueba (máx. 100).
+2. Mandarle el link `https://ajedrez-ffyl.github.io/entrenador-ajedrez/?drive=1` (abrirlo una vez alcanza; queda habilitado en ese navegador).
+3. Avisarle que Google le pedirá reconectar cada 7 días (limitación del modo Prueba).
+
+Si alguien con el link especial intenta conectar y Google lo rechaza (no está en la lista), la app dice:
+«Tu cuenta no está habilitada para el respaldo en Drive. Pedíselo a quien te pasó la app, o usá el respaldo con archivo.»
+La sincronización silenciosa al abrir la app solo corre si el link especial fue usado y ya había una cuenta conectada.

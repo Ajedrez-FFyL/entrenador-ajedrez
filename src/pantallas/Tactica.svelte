@@ -119,7 +119,7 @@
   <h1>Táctica</h1>
   <div class="pestanas" role="tablist">
     <button role="tab" aria-selected={fuente === 'propios'} onclick={() => (fuente = 'propios')}>Mis errores</button>
-    <button role="tab" aria-selected={fuente === 'lichess'} onclick={() => (fuente = 'lichess')}>Problemas de Lichess</button>
+    <button role="tab" aria-selected={fuente === 'lichess'} onclick={() => (fuente = 'lichess')}>Táctica general</button>
     <button role="tab" aria-selected={fuente === 'libros'} onclick={() => (fuente = 'libros')}>Problemas de libros</button>
     <button role="tab" aria-selected={fuente === 'mezcla'} onclick={() => (fuente = 'mezcla')}>Todo mezclado</button>
   </div>

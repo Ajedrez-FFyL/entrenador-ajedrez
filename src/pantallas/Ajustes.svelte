@@ -4,7 +4,7 @@
   import type { Usuarios } from '../lib/datos/normalizar.ts'
   import { descargarRespaldo, importarRespaldo } from '../lib/datos/respaldo.ts'
   import { completarRelojesLichess, importarArchivoPgn, mensajeDeError } from '../lib/importar/importar.ts'
-  import { CLIENT_ID as DRIVE_CLIENT_ID, conectarDrive, desconectarDrive, leerCuentaDrive, leerUltimaSincroDrive, sincronizarDrive } from '../lib/drive/drive.ts'
+  import { CLIENT_ID as DRIVE_CLIENT_ID, conectarDrive, desconectarDrive, driveHabilitado, leerCuentaDrive, leerUltimaSincroDrive, sincronizarDrive } from '../lib/drive/drive.ts'
 
   let usuarios = $state<Usuarios>({})
   let token = $state('')
@@ -189,6 +189,7 @@
   {#if mensajeRespaldo}<p>{mensajeRespaldo}</p>{/if}
 </section>
 
+{#if driveHabilitado()}
 <section class="tarjeta">
   <h2>Respaldo automático a Google Drive</h2>
   {#if !DRIVE_CLIENT_ID}
@@ -212,6 +213,7 @@
   {/if}
   {#if mensajeDrive}<p>{mensajeDrive}</p>{/if}
 </section>
+{/if}
 
 <section class="tarjeta">
   <h2>Importar un archivo PGN</h2>

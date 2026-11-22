@@ -9,7 +9,7 @@
   type Fuente = 'propios' | 'lichess' | 'libros'
   type Item = { tipo: 'error'; error: ErrorPartida } | { tipo: 'problema'; problema: Problema }
 
-  const NOMBRES: Record<Fuente, string> = { propios: 'Mis errores', lichess: 'Problemas de Lichess', libros: 'Problemas de libros' }
+  const NOMBRES: Record<Fuente, string> = { propios: 'Mis errores', lichess: 'Táctica general', libros: 'Problemas de libros' }
   const MAXIMO = 20
 
   let elegidas = $state<Fuente[]>(cargarElegidas())

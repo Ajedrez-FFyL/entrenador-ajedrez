@@ -35,7 +35,7 @@ export const SECCIONES: Seccion[] = [
     titulo: 'Finales',
     icono: '♚',
     pieza: 'rey',
-    descripcion: 'Temario progresivo y editor para jugar cualquier final contra Stockfish.',
+    descripcion: 'Finales por temas, de tus partidas y posiciones propias para jugar contra Stockfish.',
   },
   {
     id: 'progreso',

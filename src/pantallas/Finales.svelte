@@ -102,7 +102,6 @@
       </ul>
     </section>
   {:else if vista === 'temario'}
-    <p class="suave">Temario progresivo para 1700-1800: cada tema con su explicación y posiciones para jugar contra Stockfish hasta lograr el resultado. Lo que no sale vuelve para repasar.</p>
     {#each NIVELES as nivel (nivel)}
       <section class="tarjeta">
         <h2>Nivel {nivel}</h2>

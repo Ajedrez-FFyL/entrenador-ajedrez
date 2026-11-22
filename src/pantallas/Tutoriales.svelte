@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { driveHabilitado } from '../lib/drive/drive.ts'
   let abierto = $state<string>()
   const toggle = (id: string) => (abierto = abierto === id ? undefined : id)
 </script>
@@ -31,7 +32,7 @@
   <div class="item">
     <h3>Táctica</h3>
     <p class="suave">
-      Ejercicios armados a partir de tus propios errores en partidas reales, más problemas de Lichess y de libros de ajedrez
+      Ejercicios armados a partir de tus propios errores en partidas reales, más táctica general (ejercicios de la base abierta de Lichess, licencia CC0) y problemas de libros de ajedrez
       (estos dos últimos son los mismos para todo el equipo). Repaso espaciado también acá.
     </p>
   </div>
@@ -81,7 +82,7 @@
   <h2>Preguntas frecuentes</h2>
   {#each [
     ['¿Mis partidas y mis errores los ve alguien más del equipo?', 'No. Cada uno que usa la app tiene su propia información guardada en su propio dispositivo. Nadie más la ve, ni siquiera quien administra el espacio.'],
-    ['¿Qué pasa si cambio de celular o se me borra el navegador?', 'Hay un respaldo manual en Ajustes (exportar/importar); y si ya está activado el respaldo automático a tu Google Drive, se restaura solo.'],
+    ['¿Qué pasa si cambio de celular o se me borra el navegador?', driveHabilitado() ? 'Hay un respaldo manual en Ajustes (exportar/importar); y si ya está activado el respaldo automático a tu Google Drive, se restaura solo.' : 'Usá el respaldo con archivo en Ajustes: «Exportar respaldo» en el dispositivo viejo, pasá el archivo, y «Importar respaldo» en el nuevo. Se combinan sin pisar lo más nuevo.'],
     ['Encontré un error o se me ocurre una mejora, ¿dónde lo digo?', 'Con el botón de Feedback que está siempre visible (abajo a la derecha, en cualquier pestaña).'],
   ] as [p, r] (p)}
     <button class="pregunta" onclick={() => toggle(p)} aria-expanded={abierto === p}>
