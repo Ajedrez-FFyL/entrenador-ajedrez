@@ -210,7 +210,7 @@
               <li class={e}>
                 <span class="numero">{l.numero}</span>
                 <span class="texto">
-                  <b>Lección {l.numero}</b> <span class="suave">· {l.lineas.length} línea{l.lineas.length === 1 ? '' : 's'} · {textoEstado[e]}</span>
+                  <b>Lección {l.numero}</b>{#if l.variante} <span class="variante">{l.variante}</span>{/if} <span class="suave">· {l.lineas.length} línea{l.lineas.length === 1 ? '' : 's'} · {textoEstado[e]}</span>
                 </span>
                 {#if e !== 'bloqueada'}
                   <button class="boton" onclick={() => aprender(l)}>{e === 'completa' ? 'Practicar' : 'Aprender'}</button>
@@ -362,6 +362,12 @@
   }
   .lecciones li.bloqueada {
     opacity: 0.55;
+  }
+  .variante {
+    font-size: 0.85rem;
+    border: 1px solid var(--borde);
+    border-radius: 999px;
+    padding: 0 8px;
   }
   .numero {
     flex: none;
