@@ -166,6 +166,10 @@
       <option value={16}>16 · lento (compu)</option>
     </select>
   </label>
+  <label class="check">
+    <input type="checkbox" bind:checked={preferencias.pasarSolo} />
+    Pasar solo a la siguiente línea (en las lecciones de aperturas, sin esperar el botón «Seguir»)
+  </label>
   <div class="fila">
     <button class="boton principal" type="submit">Guardar</button>
     <span class="suave">{guardado}</span>
@@ -253,6 +257,13 @@
   label input:not([type='file']),
   label select {
     width: 55%;
+  }
+  .check {
+    justify-content: flex-start;
+  }
+  .check input {
+    width: auto;
+    flex: none;
   }
   .archivo {
     position: relative;

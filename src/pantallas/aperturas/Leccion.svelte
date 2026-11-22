@@ -1,6 +1,6 @@
 <script lang="ts">
   import { chancesDeGanar, invertir, textoEvaluacion } from '../../lib/ajedrez/evaluacion.ts'
-  import { lineaSan, posDesdeFen, sanDeUci } from '../../lib/ajedrez/posicion.ts'
+  import { etiquetasJugadas, lineaSan, posDesdeFen, sanDeUci } from '../../lib/ajedrez/posicion.ts'
   import { detectarMotivoError } from '../../lib/ajedrez/temas.ts'
   import { fensDeLinea } from '../../lib/aperturas/arbol.ts'
   import { cargarCatalogo, clasificar, familiaEnEspanol, nombreEnEspanol, type Catalogo } from '../../lib/aperturas/catalogo.ts'
@@ -9,7 +9,12 @@
   import { registrarLinea } from '../../lib/aperturas/practica.ts'
   import type { Color } from '../../lib/datos/tipos.ts'
   import { motorInteractivo } from '../../lib/motor/motor.ts'
-  import Tablero, { type Flecha } from '../../lib/ui/Tablero.svelte'
+  import { leerPreferencias } from '../../lib/datos/db.ts'
+  import type { Evaluacion } from '../../lib/ajedrez/evaluacion.ts'
+  import Navegador from '../../lib/ui/Navegador.svelte'
+  import PanelMotor from '../../lib/ui/PanelMotor.svelte'
+  import { type Flecha } from '../../lib/ui/Tablero.svelte'
+  import TableroEval from '../../lib/ui/TableroEval.svelte'
   import VisorLinea, { type Linea } from '../../lib/ui/VisorLinea.svelte'
   import BotonJugarDesdeAca from '../../lib/ui/BotonJugarDesdeAca.svelte'
 
@@ -69,6 +74,15 @@
   let ahoraQue = $state<{ nombre: string; planes: string[] }>()
   const planesVistos = new Set<string>()
   let resultados = $state<{ linea: string[]; bien: boolean }[]>([])
+  /** Opción de Ajustes: pasar sola a la línea siguiente (el comportamiento de antes). Apagada por defecto. */
+  let pasarSolo = $state(false)
+  leerPreferencias().then((p) => (pasarSolo = p.pasarSolo))
+  /** Posición que se está mirando con el Navegador (media jugada); `undefined` = la última, la de la línea. */
+  let verPly = $state<number>()
+  /** Stockfish al terminar la línea: mejor jugada y evaluación de la posición que se mira. */
+  let mejorMotor = $state<string>()
+  let evalMotor = $state<Evaluacion>()
+  let etiquetaEval = $state<string>()
 
   let paso = $derived(pasos[indice])
   let fens = $derived(paso ? fensDeLinea(paso.linea) : [])
@@ -90,6 +104,7 @@
     lineaTerminada = false
     fallaAca = false
     ahoraQue = undefined
+    verPly = undefined
     avanzarRival()
   }
   iniciarPaso()
@@ -112,7 +127,7 @@
     lineaTerminada = true
     if (paso.fase === 'presentar') {
       mensaje = { tipo: 'info', texto: 'Ahora la misma línea, sin flecha.' }
-      setTimeout(siguiente, 900)
+      if (pasarSolo) setTimeout(siguiente, 900)
       return
     }
     const bien = errores === 0
@@ -127,10 +142,9 @@
       planesVistos.add(e.id)
       ahoraQue = { nombre: e.nombre, planes }
     }
-    if (bien && ahoraQue) mensaje = { tipo: 'bien', texto: 'Línea sin errores.' }
-    else if (bien) {
+    if (bien) {
       mensaje = { tipo: 'bien', texto: 'Línea sin errores.' }
-      setTimeout(siguiente, 900)
+      if (pasarSolo && !ahoraQue) setTimeout(siguiente, 900)
     } else
       mensaje = {
         tipo: 'mal',
@@ -159,7 +173,7 @@
   })
 
   async function alJugar(uci: string) {
-    if (!paso || !turnoMio || verificando || lineaTerminada) return
+    if (!paso || !turnoMio || verificando || lineaTerminada || verPly !== undefined) return
     const linea = paso.linea
     const esperada = linea[ply]
     const pos = posDesdeFen(fen)
@@ -223,11 +237,20 @@
   }
 
   let flechas = $derived.by((): Flecha[] => {
+    if (verPly !== undefined && !refutacion) return []
     if (refutacion && vista?.proxima) return [{ de: vista.proxima.slice(0, 2), a: vista.proxima.slice(2, 4), color: 'blue' }]
     if (paso && turnoMio && !lineaTerminada && (paso.fase === 'presentar' || fallaAca) && ply < paso.linea.length)
       return [{ de: paso.linea[ply].slice(0, 2), a: paso.linea[ply].slice(2, 4), color: 'green' }]
+    if (lineaTerminada && mejorMotor && !refutacion) return [{ de: mejorMotor.slice(0, 2), a: mejorMotor.slice(2, 4), color: 'blue' }]
     return []
   })
+
+  /** Posición que muestra el tablero: la de la línea o la que se eligió con el Navegador. */
+  let fenNav = $derived(verPly !== undefined ? (fens[verPly] ?? fen) : fen)
+  let etiquetas = $derived(paso ? etiquetasJugadas(fens[0], paso.linea.slice(0, ply)) : [])
+  function irA(i: number) {
+    verPly = i >= ply ? undefined : Math.max(0, i)
+  }
 
   let bien = $derived(resultados.filter((r) => r.bien).length)
 
@@ -313,14 +336,16 @@
   </section>
 {:else if paso}
   <div class="practica">
-    <Tablero
-      fen={refutacion && vista ? vista.fen : fen}
+    <TableroEval
+      fen={refutacion && vista ? vista.fen : fenNav}
       orientacion={color}
-      puedeMover={turnoMio && !lineaTerminada && !refutacion ? color : undefined}
-      ultimaJugada={refutacion && vista ? vista.ultima : ply > 0 ? paso.linea[ply - 1] : undefined}
+      puedeMover={turnoMio && !lineaTerminada && !refutacion && verPly === undefined ? color : undefined}
+      ultimaJugada={refutacion && vista ? vista.ultima : verPly !== undefined ? (verPly > 0 ? paso.linea[verPly - 1] : undefined) : ply > 0 ? paso.linea[ply - 1] : undefined}
       {flechas}
       {alJugar}
       {refrescar}
+      evaluacion={lineaTerminada ? evalMotor : undefined}
+      {etiquetaEval}
     />
     <div class="panel">
       <p class="suave">{etapa}{#if variante} · <span class="variante">{variante}</span>{/if}</p>
@@ -330,7 +355,8 @@
       <p class="consigna">
         {#if lineaTerminada}&nbsp;{:else if !turnoMio}Juega el rival…{:else if paso.fase === 'presentar'}Jugá la jugada que marca la flecha.{:else if fallaAca}Jugá la jugada que marca la flecha.{:else}Jugá la jugada que aprendiste.{/if}
       </p>
-      <p class="suave">{lineaSan(fens[0], paso.linea.slice(0, ply)).join(' ') || 'Posición inicial'}</p>
+      <Navegador {etiquetas} idx={verPly ?? ply} alIr={irA} vacio="Posición inicial" />
+      {#if verPly !== undefined && !lineaTerminada}<p class="aviso">Estás mirando una posición anterior (solo lectura). Volvé al final para seguir.</p>{/if}
 
       {#if mensaje}<p class={mensaje.tipo}>{mensaje.texto}</p>{/if}
       {#if alternativa}
@@ -344,10 +370,13 @@
           <ul>{#each ahoraQue.planes as p (p)}<li>{p}</li>{/each}</ul>
         </div>
       {/if}
-      {#if lineaTerminada && paso.fase !== 'presentar' && (errores > 0 || ahoraQue)}
-        <button class="boton principal" onclick={siguiente}>Seguir</button>
+      {#if lineaTerminada}
+        <div class="fila">
+          <button class="boton principal" onclick={siguiente}>{indice >= pasos.length - 1 ? 'Terminar' : 'Seguir'}</button>
+          <BotonJugarDesdeAca fen={fenNav} />
+        </div>
+        <PanelMotor fen={fenNav} bind:mejor={mejorMotor} bind:evaluacion={evalMotor} bind:etiquetaEval />
       {/if}
-      {#if lineaTerminada}<BotonJugarDesdeAca {fen} />{/if}
       {#if refutacion}
         <VisorLinea linea={refutacion} alMover={(f, u, p) => (vista = { fen: f, ultima: u, proxima: p })} />
         <button class="boton enlace" onclick={() => { refutacion = undefined; vista = undefined }}>Volver a la posición</button>
@@ -394,6 +423,14 @@
   }
   .panel p {
     margin: 0;
+  }
+  .fila {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .aviso {
+    color: #c98a2b;
   }
   .ahora-que h3 {
     margin: 0 0 4px;

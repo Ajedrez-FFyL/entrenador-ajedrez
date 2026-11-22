@@ -2,6 +2,16 @@
   "id": "francesa-clasica",
   "nombre": "Francesa Clásica y Steinitz",
   "raiz": "e2e4 e7e6 d2d4 d7d5 b1c3 g8f6",
+  "variantes": [
+    {
+      "nombre": "Steinitz (4.e5)",
+      "raiz": "e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 e4e5"
+    },
+    {
+      "nombre": "Clásica (4.Ag5)",
+      "raiz": "e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5"
+    }
+  ],
   "resumen": "Con 3...Cf6 el negro ataca e4. Las blancas pueden clavar con 4.Ag5 (Clásica) o avanzar con 4.e5 (Steinitz), en ambos casos echando al caballo a d7. En la Steinitz siguen con f4 para sostener e5; el negro ataca la base de la cadena con ...c5. En la Clásica, la idea de Alekhine y Chatard es h4: si el negro toma en g5, la columna h se abre.",
   "planesBlancas": [
     "Sostener e5 con f4 y atacar en el flanco de rey.",

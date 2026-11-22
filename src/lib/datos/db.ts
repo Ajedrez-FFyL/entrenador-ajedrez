@@ -46,9 +46,11 @@ export const leerUsuarios = () => leerAjuste<Usuarios>('usuarios', {})
 export interface Preferencias {
   profundidad: number // profundidad del análisis de fondo
   nuevosPorDia: number
+  /** Lecciones de aperturas: pasar solas a la línea siguiente en vez de esperar el botón «Seguir». */
+  pasarSolo: boolean
 }
 
-export const PREFERENCIAS_INICIALES: Preferencias = { profundidad: 12, nuevosPorDia: 15 }
+export const PREFERENCIAS_INICIALES: Preferencias = { profundidad: 12, nuevosPorDia: 15, pasarSolo: false }
 
 export async function leerPreferencias(): Promise<Preferencias> {
   return { ...PREFERENCIAS_INICIALES, ...(await leerAjuste<Partial<Preferencias>>('preferencias', {})) }
