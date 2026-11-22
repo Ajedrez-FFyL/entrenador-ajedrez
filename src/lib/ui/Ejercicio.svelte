@@ -9,7 +9,8 @@
   import { Exploracion } from './exploracion.svelte.ts'
   import Navegacion from './Navegacion.svelte'
   import PanelMotor from './PanelMotor.svelte'
-  import Tablero, { type Flecha } from './Tablero.svelte'
+  import { type Flecha } from './Tablero.svelte'
+  import TableroEval from './TableroEval.svelte'
   import VisorLinea, { type Linea } from './VisorLinea.svelte'
 
   interface Props {
@@ -43,6 +44,8 @@
   // Después de resolver, el tablero queda libre para analizar.
   let ex = $state<Exploracion>()
   let mejorMotor = $state<string>()
+  let evaluacion = $state<Evaluacion>()
+  let etiquetaEval = $state<string>()
 
   let rival = $derived(partida ? (error.miColor === 'white' ? partida.negras : partida.blancas) : undefined)
   let jugadaAnterior = $derived(partida && error.ply > 0 ? partida.jugadas[error.ply - 1] : undefined)
@@ -130,13 +133,13 @@
 
 <article class="ejercicio juego">
   <div class="col-tablero">
-    <Tablero
+    <TableroEval
       fen={fenTablero}
       orientacion={error.miColor}
       puedeMover={estado === 'resolver' ? error.miColor : estado === 'resuelto' && ex && !linea ? ex.turno : undefined}
       ultimaJugada={ultimaTablero}
       {flechas}
-      {alJugar}
+      {alJugar} {evaluacion} {etiquetaEval}
     />
   </div>
 
@@ -225,6 +228,8 @@
     <PanelMotor
       fen={fenTablero}
       bind:mejor={mejorMotor}
+      bind:evaluacion
+      bind:etiquetaEval
       alPrender={() => { if (estado !== 'resuelto') usoPista = true }}
       aviso={estado !== 'resuelto' ? 'Prenderlo antes de resolver cuenta como pista.' : undefined}
     />
@@ -234,6 +239,7 @@
 <style>
   .juego {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 16px;
   }
   @media (min-width: 1000px) {
