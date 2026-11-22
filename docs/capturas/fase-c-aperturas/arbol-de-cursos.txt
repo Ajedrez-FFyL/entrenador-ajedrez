@@ -1,0 +1,107 @@
+1.e4 [1.e4]  — ▸ carpeta (51)
+  1…e5 — Partidas abiertas [1.e4 e5]  — ▸ carpeta (19)
+    Apertura Española (Ruy López) [1.e4 e5 2.Cf3 Cc6 3.Ab5]  — ● curso con variantes (3)
+      Defensa Berlinesa [1.e4 e5 2.Cf3 Cc6 3.Ab5 Cf6]  — ● curso
+      Defensa Schliemann (Gambito Jaenisch) [1.e4 e5 2.Cf3 Cc6 3.Ab5 f5]  — ● curso
+      Española Cerrada y Ataque Marshall [1.e4 e5 2.Cf3 Cc6 3.Ab5 a6 4.Aa4 Cf6 5.O-O Ae7 6.Te1 b5 7.Ab3]  — ● curso
+    Apertura Italiana (Giuoco Piano) [1.e4 e5 2.Cf3 Cc6 3.Ac4]  — ● curso con variantes (2)
+      Defensa de los Dos Caballos [1.e4 e5 2.Cf3 Cc6 3.Ac4 Cf6]  — ● curso
+      Gambito Evans [1.e4 e5 2.Cf3 Cc6 3.Ac4 Ac5 4.b4]  — ● curso
+    Partida Vienesa [1.e4 e5 2.Cc3]  — ● curso con variantes (1)
+      Gambito Vienés (con 2...Cc6) [1.e4 e5 2.Cc3 Cc6 3.f4]  — ● curso
+    Apertura del Alfil [1.e4 e5 2.Ac4]  — ● curso
+    Apertura Escocesa [1.e4 e5 2.Cf3 Cc6 3.d4]  — ● curso
+    Apertura Ponziani [1.e4 e5 2.Cf3 Cc6 3.c3]  — ● curso
+    Defensa Petrov [1.e4 e5 2.Cf3 Cf6]  — ● curso
+    Defensa Philidor [1.e4 e5 2.Cf3 d6]  — ● curso
+    Gambito Danés [1.e4 e5 2.d4 exd4 3.c3]  — ● curso
+    Gambito de Rey [1.e4 e5 2.f4]  — ● curso
+    Gambito Letón [1.e4 e5 2.Cf3 f5]  — ● curso
+    Otras partidas abiertas (1.e4 e5) [1.e4 e5]  — ● curso
+    Partida de los cuatro caballos [1.e4 e5 2.Cf3 Cc6 3.Cc3 Cf6]  — ● curso
+  Defensa Siciliana [1.e4 c5]  — ● curso con variantes (15)
+    Gambito Smith-Morra [1.e4 c5 2.d4 cxd4 3.c3]  — ● curso
+    Siciliana Alapin (2.c3) [1.e4 c5 2.c3]  — ● curso
+    Siciliana Cerrada [1.e4 c5 2.Cc3]  — ● curso
+    Siciliana Clásica (Richter-Rauzer y Sozin) [1.e4 c5 2.Cf3 d6 3.d4 cxd4 4.Cxd4 Cf6 5.Cc3 Cc6]  — ● curso
+    Siciliana de los Cuatro Caballos [1.e4 c5 2.Cf3 e6 3.d4 cxd4 4.Cxd4 Cf6 5.Cc3 Cc6]  — ● curso
+    Siciliana Dragón [1.e4 c5 2.Cf3 d6 3.d4 cxd4 4.Cxd4 Cf6 5.Cc3 g6]  — ● curso
+    Siciliana Dragón Acelerado [1.e4 c5 2.Cf3 Cc6 3.d4 cxd4 4.Cxd4 g6]  — ● curso
+    Siciliana Grand Prix (ataque con f4) [1.e4 c5 2.f4]  — ● curso
+    Siciliana Kan (Paulsen) [1.e4 c5 2.Cf3 e6 3.d4 cxd4 4.Cxd4 a6]  — ● curso
+    Siciliana Moscú (3.Ab5+) [1.e4 c5 2.Cf3 d6 3.Ab5+]  — ● curso
+    Siciliana Najdorf [1.e4 c5 2.Cf3 d6 3.d4 cxd4 4.Cxd4 Cf6 5.Cc3 a6]  — ● curso
+    Siciliana Rossolimo [1.e4 c5 2.Cf3 Cc6 3.Ab5]  — ● curso
+    Siciliana Scheveningen [1.e4 c5 2.Cf3 d6 3.d4 cxd4 4.Cxd4 Cf6 5.Cc3 e6]  — ● curso
+    Siciliana Sveshnikov [1.e4 c5 2.Cf3 Cc6 3.d4 cxd4 4.Cxd4 Cf6 5.Cc3 e5]  — ● curso
+    Siciliana Taimanov [1.e4 c5 2.Cf3 e6 3.d4 cxd4 4.Cxd4 Cc6]  — ● curso
+  Defensa Francesa [1.e4 e6]  — ● curso con variantes (4)
+    Ataque Indio de Rey [1.e4 e6 2.d3]  — ● curso
+    Francesa Clásica y Steinitz [1.e4 e6 2.d4 d5 3.Cc3 Cf6]  — ● curso
+    Francesa Tarrasch [1.e4 e6 2.d4 d5 3.Cd2]  — ● curso
+    Francesa Winawer [1.e4 e6 2.d4 d5 3.Cc3 Ab4 4.e5 c5 5.a3]  — ● curso
+  Otras respuestas a 1.e4 [1.e4]  — ▸ carpeta (4)
+    Defensa Owen [1.e4 b6]  — ● curso con variantes (1)
+      Defensa Hipopótamo [1.e4 b6 2.d4 Ab7 3.Cc3 e6]  — ● curso
+    Defensa Nimzowitsch [1.e4 Cc6]  — ● curso
+    Defensa San Jorge [1.e4 a6]  — ● curso
+  Defensa Pirc [1.e4 d6]  — ● curso con variantes (2)
+    Defensa Checa (Pribyl) [1.e4 d6 2.d4 Cf6 3.Cc3 c6]  — ● curso
+    Defensa León [1.e4 d6 2.d4 Cf6 3.Cc3 Cbd7]  — ● curso
+  Defensa Alekhine [1.e4 Cf6]  — ● curso
+  Defensa Caro-Kann [1.e4 c6]  — ● curso
+  Defensa Escandinava [1.e4 d5]  — ● curso
+  Defensa Moderna [1.e4 g6]  — ● curso
+1.d4 [1.d4]  — ▸ carpeta (36)
+  1…Cf6 — Defensas indias y sistemas con Cf6 [1.d4 Cf6]  — ▸ carpeta (18)
+    1.d4 Cf6 2.c4 — Defensas indias [1.d4 Cf6 2.c4]  — ▸ carpeta (14)
+      Defensa Benoni Moderna [1.d4 Cf6 2.c4 c5]  — ● curso con variantes (2)
+        Gambito Benko [1.d4 Cf6 2.c4 c5 3.d5 b5]  — ● curso
+        Gambito Vaganian [1.d4 Cf6 2.c4 c5 3.Cf3 cxd4 4.Cxd4 e5]  — ● curso
+      Defensa India de Rey [1.d4 Cf6 2.c4 g6]  — ● curso con variantes (2)
+        Defensa Grünfeld [1.d4 Cf6 2.c4 g6 3.Cc3 d5]  — ● curso
+        Grünfeld con fianchetto (Neo-Grünfeld) [1.d4 Cf6 2.c4 g6 3.g3 Ag7 4.Ag2 d5]  — ● curso
+      Apertura Catalana [1.d4 Cf6 2.c4 e6 3.g3]  — ● curso
+      Defensa Bogoindia [1.d4 Cf6 2.c4 e6 3.Cf3 Ab4+]  — ● curso
+      Defensa India Antigua [1.d4 Cf6 2.c4 d6]  — ● curso
+      Defensa India de Dama [1.d4 Cf6 2.c4 e6 3.Cf3 b6]  — ● curso
+      Defensa Mexicana (Tango) [1.d4 Cf6 2.c4 Cc6]  — ● curso
+      Defensa Nimzoindia [1.d4 Cf6 2.c4 e6 3.Cc3 Ab4]  — ● curso
+      Gambito Blumenfeld [1.d4 Cf6 2.c4 e6 3.Cf3 c5 4.d5 b5]  — ● curso
+      Gambito Budapest [1.d4 Cf6 2.c4 e5]  — ● curso
+    Apertura Veresov [1.d4 Cf6 2.Cc3 d5 3.Ag5]  — ● curso
+    Ataque Torre [1.d4 Cf6 2.Cf3 e6 3.Ag5]  — ● curso
+    Ataque Trompowsky [1.d4 Cf6 2.Ag5]  — ● curso
+    Londres contra la India de Rey [1.d4 Cf6 2.Cf3 g6 3.Af4]  — ● curso
+  1…d5 — Gambito de Dama y otros sistemas con 1…d5 [1.d4 d5]  — ▸ carpeta (13)
+    Gambito de Dama [1.d4 d5 2.c4]  — ● curso con variantes (7)
+      Defensa Eslava [1.d4 d5 2.c4 c6]  — ● curso con variantes (1)
+        Defensa Semieslava [1.d4 d5 2.c4 c6 3.Cf3 Cf6 4.Cc3 e6]  — ● curso
+      Contragambito Albin [1.d4 d5 2.c4 e5]  — ● curso
+      Defensa Chigorin [1.d4 d5 2.c4 Cc6]  — ● curso
+      Defensa Tarrasch [1.d4 d5 2.c4 e6 3.Cc3 c5]  — ● curso
+      Gambito de Dama Rehusado: Clásico (Cambridge Springs y Lasker) [1.d4 d5 2.c4 e6 3.Cc3 Cf6 4.Ag5]  — ● curso
+      Gambito de Dama Rehusado: Variante del Cambio [1.d4 d5 2.c4 e6 3.Cc3 Cf6 4.cxd5]  — ● curso
+    Peón dama con 2.Cf3 [1.d4 d5 2.Cf3]  — ● curso con variantes (1)
+      Sistema Colle [1.d4 d5 2.Cf3 Cf6 3.e3]  — ● curso
+    Gambito Blackmar-Diemer [1.d4 d5 2.e4]  — ● curso
+    Sistema Londres [1.d4 d5 2.Af4]  — ● curso
+    Sistema Rapport-Jobava [1.d4 d5 2.Cc3 Cf6 3.Af4]  — ● curso
+  Otras respuestas a 1.d4 [1.d4]  — ▸ carpeta (4)
+    Benoni Antigua [1.d4 c5]  — ● curso
+    Defensa Horwitz (1.d4 e6): Inglesa y Canguro [1.d4 e6]  — ● curso
+    Defensa Mikenas (1.d4 Cc6) [1.d4 Cc6]  — ● curso
+    Gambito Englund [1.d4 e5]  — ● curso
+  Defensa Holandesa [1.d4 f5]  — ● curso
+1.c4 (Inglesa) [1.c4]  — ● curso
+1.Cf3 (Réti) [1.Cf3 d5]  — ● curso
+Otras primeras jugadas  — ▸ carpeta (7)
+  Apertura 1.g3 (Húngara o Benko) [1.g3]  — ● curso
+  Apertura Bird [1.f4]  — ● curso
+  Apertura Grob (1.g4) [1.g4]  — ● curso
+  Apertura Larsen [1.b3]  — ● curso
+  Apertura Polaca [1.b4]  — ● curso
+  Apertura Van Geet (1.Cc3) [1.Cc3]  — ● curso
+  Apertura Van't Kruijs (1.e3) y otras primeras jugadas raras [1.e3]  — ● curso
+
+96 cursos en el árbol (de 96).
