@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { chancesDeGanar, invertir, textoEvaluacion } from '../ajedrez/evaluacion.ts'
+  import { chancesDeGanar, invertir, textoEvaluacion, type Evaluacion } from '../ajedrez/evaluacion.ts'
   import { fenDe, jugarUci, lineaConNumeros, posDesdeFen, sanDeUci } from '../ajedrez/posicion.ts'
   import { detectarMotivoError } from '../ajedrez/temas.ts'
   import type { Position } from 'chessops/chess'
@@ -9,8 +9,10 @@
   import { Exploracion } from './exploracion.svelte.ts'
   import Navegacion from './Navegacion.svelte'
   import PanelMotor from './PanelMotor.svelte'
-  import Tablero, { type Flecha } from './Tablero.svelte'
+  import { type Flecha } from './Tablero.svelte'
+  import TableroEval from './TableroEval.svelte'
   import VisorLinea, { type Linea } from './VisorLinea.svelte'
+  import BotonJugarDesdeAca from './BotonJugarDesdeAca.svelte'
 
   interface Props {
     problema: Problema
@@ -45,6 +47,8 @@
   let ex = $state<Exploracion>()
   let verSolucion = $state(false)
   let mejorMotor = $state<string>()
+  let evaluacion = $state<Evaluacion>()
+  let etiquetaEval = $state<string>()
 
   let fens = $derived.by(() => {
     const lista = [problema.fen]
@@ -214,7 +218,7 @@
 
 <article class="juego">
   <div class="col-tablero">
-    <Tablero fen={fenTablero} orientacion={miColor} {puedeMover} ultimaJugada={ultima} {flechas} {alJugar} />
+    <TableroEval fen={fenTablero} orientacion={miColor} {puedeMover} ultimaJugada={ultima} {flechas} {alJugar} {evaluacion} {etiquetaEval} />
   </div>
 
   <aside class="panel">
@@ -263,6 +267,7 @@
         {:else if hist.length > inicio && hist.some((u, i) => u !== problema.jugadas[i])}
           <button class="boton" onclick={() => { ex = new Exploracion(problema.fen, [...hist], hist.length); verSolucion = false }}>Volver a mi línea</button>
         {/if}
+        <BotonJugarDesdeAca fen={fenTablero} />
         {#if !libro}<a class="boton enlace" href={`https://lichess.org/training/${problema.id}`} target="_blank" rel="noopener">Ver en Lichess</a>{/if}
       </div>
       <div class="etiquetas">{#each problema.temas.filter((t) => !TEMAS_OCULTOS.includes(t)) as t (t)}<span class="etiqueta">{nombreTema(t)}</span>{/each}</div>
@@ -272,6 +277,8 @@
     <PanelMotor
       fen={fenTablero}
       bind:mejor={mejorMotor}
+      bind:evaluacion
+      bind:etiquetaEval
       alPrender={() => { if (estado !== 'resuelto') pista = true }}
       aviso={estado !== 'resuelto' ? 'Prenderlo antes de resolver cuenta como pista.' : undefined}
     />
@@ -281,6 +288,7 @@
 <style>
   .juego {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 16px;
   }
   @media (min-width: 1000px) {

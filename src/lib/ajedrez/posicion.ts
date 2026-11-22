@@ -80,6 +80,18 @@ export function lineaSan(fen: string, ucis: string[]): string[] {
   return sans
 }
 
+/** Jugadas con su número: "23. Cf3" para las blancas y "23… Cf6" si la línea arranca con negras (las demás de las negras, sin número). */
+export function etiquetasJugadas(fen: string, ucis: string[]): string[] {
+  let numero = Number(fen.split(' ')[5] ?? 1)
+  let blancas = fen.split(' ')[1] === 'w'
+  return lineaSan(fen, ucis).map((san, i) => {
+    const prefijo = blancas ? `${numero}. ` : i === 0 ? `${numero}… ` : ''
+    if (!blancas) numero++
+    blancas = !blancas
+    return prefijo + san
+  })
+}
+
 /** Texto con números de jugada: "23. Cf5 gxf5 24. Dg4+". */
 export function lineaConNumeros(fen: string, ucis: string[]): string {
   const pos = posDesdeFen(fen)

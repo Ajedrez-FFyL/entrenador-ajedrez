@@ -6,6 +6,8 @@
   import temarioJson from '../contenido/finales/temario.json'
   import EditorPosicion from '../lib/ui/EditorPosicion.svelte'
   import JugarFinal from '../lib/ui/JugarFinal.svelte'
+  import JugarPosicion from '../lib/ui/JugarPosicion.svelte'
+  import { tomarPosicionPendiente } from '../lib/jugarDesdeAca.ts'
 
   const temario = temarioJson as Temario
   const NIVELES = [...new Set(temario.temas.map((t) => t.nivel))].sort()
@@ -13,6 +15,9 @@
   let vista = $state<'temario' | 'mis-finales' | 'editor'>('temario')
   let tema = $state<TemaFinal>()
   let jugando = $state<{ fen: string; objetivo: Objetivo; consigna: string; pista?: string; maxJugadas: number; idRepaso?: string; clave: number }>()
+  // Posición mandada desde otra pantalla con "Jugar desde acá", o desde el editor con "Jugar libre".
+  // svelte-ignore state_referenced_locally
+  let libre = $state<{ fen: string; clave: number } | undefined>((() => { const f = tomarPosicionPendiente(); return f ? { fen: f, clave: 0 } : undefined })())
   let repasos = $state(new Map<string, Repaso>())
   let propios = $state<ErrorPartida[]>([])
 
@@ -63,7 +68,11 @@
 
 <h1>Finales</h1>
 
-{#if jugando}
+{#if libre}
+  {#key libre.clave}
+    <JugarPosicion fen={libre.fen} alSalir={() => (libre = undefined)} />
+  {/key}
+{:else if jugando}
   {#key jugando.clave}
     <JugarFinal {...jugando} alSalir={salir} />
   {/key}
@@ -148,7 +157,7 @@
     </section>
   {:else}
     <section class="tarjeta">
-      <EditorPosicion alJugar={(fen, objetivo) => jugar({ fen, objetivo, consigna: 'Posición libre.', maxJugadas: 50 })} />
+      <EditorPosicion alJugarLibre={(fen) => (libre = { fen, clave: ++clave })} alJugar={(fen, objetivo) => jugar({ fen, objetivo, consigna: 'Posición libre.', maxJugadas: 50 })} />
     </section>
   {/if}
 {/if}

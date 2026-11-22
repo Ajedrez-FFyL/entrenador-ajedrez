@@ -7,12 +7,16 @@
     fen: string
     /** Mejor jugada de la posición, para dibujarla en el tablero (o nada si el panel está apagado). */
     mejor?: string
+    /** Evaluación desde el lado de las blancas, para la barra del tablero (nada si el panel está apagado). */
+    evaluacion?: Evaluacion
+    /** Texto para la barra cuando no alcanza con el número (por ejemplo "#" en un mate). */
+    etiquetaEval?: string
     /** Se llama al prenderlo: en un ejercicio sin resolver, mirar el motor cuenta como pista. */
     alPrender?: () => void
     /** Aviso junto al interruptor (por ejemplo, que prenderlo cuenta como pista). */
     aviso?: string
   }
-  let { fen, mejor = $bindable(), alPrender, aviso }: Props = $props()
+  let { fen, mejor = $bindable(), evaluacion = $bindable(), etiquetaEval = $bindable(), alPrender, aviso }: Props = $props()
 
   // Apagado por defecto: así no muestra la respuesta antes de tiempo.
   let activo = $state(false)
@@ -39,6 +43,10 @@
       if (mia !== ficha) return
       resultado = r
       mejor = r.mejor || undefined
+      if (r.lineas.length) {
+        evaluacion = paraBlancas(r.ev, f)
+        etiquetaEval = undefined
+      }
       if (!r.lineas.length) return
     }
   }
@@ -49,11 +57,23 @@
     resultado = undefined
     mejor = undefined
     terminal = undefined
-    if (!activo) return
+    // La barra conserva el valor anterior mientras se calcula la posición nueva; apagado, desaparece.
+    if (!activo) {
+      evaluacion = undefined
+      etiquetaEval = undefined
+      return
+    }
     const pos = posDesdeFen(f)
-    if (pos.isCheckmate()) terminal = 'Jaque mate.'
-    else if (pos.isStalemate()) terminal = 'Ahogado.'
-    else analizar(f, mia)
+    if (pos.isCheckmate()) {
+      terminal = 'Jaque mate.'
+      evaluacion = { mate: pos.turn === 'white' ? -1 : 1 }
+      etiquetaEval = '#'
+    } else if (pos.isStalemate()) {
+      terminal = 'Ahogado.'
+      evaluacion = { cp: 0 }
+      etiquetaEval = '='
+    }
+    if (!terminal) analizar(f, mia)
     return () => motorAnalisis().detener()
   })
 

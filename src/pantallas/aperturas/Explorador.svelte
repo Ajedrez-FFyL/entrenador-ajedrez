@@ -10,7 +10,8 @@
   import type { Apertura } from '../../lib/aperturas/tipos.ts'
   import type { Color } from '../../lib/datos/tipos.ts'
   import { motorInteractivo, motorTablero, type LineaMotor } from '../../lib/motor/motor.ts'
-  import Tablero from '../../lib/ui/Tablero.svelte'
+  import TableroEval from '../../lib/ui/TableroEval.svelte'
+  import BotonJugarDesdeAca from '../../lib/ui/BotonJugarDesdeAca.svelte'
   import VisorLinea, { type Linea } from '../../lib/ui/VisorLinea.svelte'
 
   interface Props {
@@ -104,6 +105,11 @@
     return fenPos.split(' ')[1] === 'w' ? ev : invertir(ev)
   }
 
+  // Barra de evaluación: solo con el panel de Stockfish abierto y sobre la posición del explorador (no sobre una línea vista).
+  let evaluacionBarra = $derived(
+    verMotor && !verLinea && motor?.fen === fen && motor.lineas.length ? evBlancas(motor.lineas[0].ev, fen) : undefined,
+  )
+
   function irA(i: number) {
     idx = Math.max(0, Math.min(linea.length, i))
     aviso = undefined
@@ -195,13 +201,14 @@
       {#if apertura}<b>{nombreEnEspanol(apertura)}</b> <span class="suave">{apertura.eco}</span>{:else}<span class="suave">Posición inicial: jugá o buscá una apertura.</span>{/if}
     </div>
 
-    <Tablero fen={fenTablero} {orientacion} puedeMover={verLinea ? undefined : turno} ultimaJugada={ultimaTablero} {flechas} alJugar={(u) => jugar(u)} />
+    <TableroEval evaluacion={evaluacionBarra} fen={fenTablero} {orientacion} puedeMover={verLinea ? undefined : turno} ultimaJugada={ultimaTablero} {flechas} alJugar={(u) => jugar(u)} />
 
     <div class="controles">
       <button class="boton" onclick={() => irA(0)} aria-label="Al principio">⏮</button>
       <button class="boton" onclick={() => irA(idx - 1)} aria-label="Atrás">◀</button>
       <button class="boton" onclick={() => irA(idx + 1)} aria-label="Adelante">▶</button>
       <button class="boton" onclick={() => (orientacion = orientacion === 'white' ? 'black' : 'white')}>Girar</button>
+      <BotonJugarDesdeAca fen={fenTablero} />
     </div>
 
     <div class="jugadas">

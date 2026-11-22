@@ -11,8 +11,10 @@
 
   interface Props {
     alJugar: (fen: string, objetivo: 'ganar' | 'tablas') => void
+    /** Juego libre contra Stockfish, sin objetivo ni límite de jugadas (con elección de color y nivel). */
+    alJugarLibre?: (fen: string) => void
   }
-  let { alJugar }: Props = $props()
+  let { alJugar, alJugarLibre }: Props = $props()
 
   const PIEZAS: Piece[] = (['white', 'black'] as const).flatMap((color) =>
     (['king', 'queen', 'rook', 'bishop', 'knight', 'pawn'] as const).map((role) => ({ color, role })),
@@ -72,7 +74,7 @@
     error = ''
   }
 
-  function jugar() {
+  function jugar(libre = false) {
     const fen = fenCompleto()
     const setup = parseFen(fen)
     if (setup.isErr) {
@@ -85,7 +87,8 @@
       return
     }
     error = ''
-    alJugar(fen, objetivo)
+    if (libre) alJugarLibre?.(fen)
+    else alJugar(fen, objetivo)
   }
 
   const simbolo = (p: Piece) => ({ king: 'R', queen: 'D', rook: 'T', bishop: 'A', knight: 'C', pawn: 'P' })[p.role]
@@ -113,7 +116,10 @@
     <label><input type="radio" bind:group={objetivo} value="tablas" /> Objetivo: tablas</label>
   </div>
   {#if error}<p class="mal">{error}</p>{/if}
-  <button class="boton principal" onclick={jugar}>Jugar contra Stockfish</button>
+  <div class="fila">
+    <button class="boton principal" onclick={() => jugar()}>Jugar contra Stockfish</button>
+    {#if alJugarLibre}<button class="boton" onclick={() => jugar(true)}>Jugar libre (elegir color y nivel)</button>{/if}
+  </div>
   <p class="suave">Jugás con el bando que mueve. Con 7 piezas o menos y conexión, el rival juega perfecto con las tablebases de Lichess.</p>
 </div>
 

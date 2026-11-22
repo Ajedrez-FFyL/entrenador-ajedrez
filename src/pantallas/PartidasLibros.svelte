@@ -3,6 +3,7 @@
   import { cargarPartidasLibros, type PartidaLibro } from '../lib/partidas-libros/partidas-libros.ts'
   import Tablero from '../lib/ui/Tablero.svelte'
   import VisorLinea from '../lib/ui/VisorLinea.svelte'
+  import BotonJugarDesdeAca from '../lib/ui/BotonJugarDesdeAca.svelte'
 
   const POR_PAGINA = 30
   let todas = $state<PartidaLibro[]>([])
@@ -41,6 +42,7 @@
     {[elegida.lugar, elegida.anio].filter(Boolean).join(', ')} · Del libro: <cite>{elegida.fuente.titulo}</cite>{elegida.fuente.capitulo ? `, ${elegida.fuente.capitulo}` : ''}
   </p>
   <Tablero fen={vista.fen} orientacion="white" ultimaJugada={vista.ultima} />
+  <div class="fila"><BotonJugarDesdeAca fen={vista.fen} /></div>
   {#key elegida.id}
     <VisorLinea
       linea={{ titulo: 'Jugadas', fen: FEN_INICIAL, ucis: elegida.jugadas }}
