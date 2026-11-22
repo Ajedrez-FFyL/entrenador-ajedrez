@@ -658,6 +658,40 @@
     "d2d4 b8c6 e2e4 e7e5 g1f3": {
       "porQue": "Desarrolla.",
       "inferior": true
+    },
+    "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4": {
+      "porQue": "Es el Gambito Escocés: el blanco desarrolla antes de recuperar el peón y apunta a f7."
+    },
+    "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4 g8f6": {
+      "porQue": "Desarrolla y ataca e4: se pasa a los Dos Caballos."
+    },
+    "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 c2c3 d4c3": {
+      "porQue": "Acepta el Gambito Göring: el negro gana material y el blanco, desarrollo."
+    },
+    "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 c2c3 d4c3 b1c3 f8b4": {
+      "porQue": "Clava el caballo de c3 y presiona e4."
+    },
+    "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 c2c3 d4c3 f1c4": {
+      "porQue": "Ofrece también el peón de b2 a cambio de un desarrollo rápido."
+    },
+    "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 c2c3 d4c3 f1c4 g8f6": {
+      "porQue": "Desarrolla y ataca e4 en lugar de tomar el segundo peón."
+    },
+    "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4 f8c5 e1g1 g8f6": {
+      "porQue": "Desarrolla: se llega al Ataque Max Lange.",
+      "inferior": true
+    },
+    "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4 f8c5 e1g1 g8f6 e4e5": {
+      "porQue": "Avanza con tiempo contra el caballo."
+    },
+    "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4 f8c5 e1g1 g8f6 e4e5 d7d5": {
+      "porQue": "Contraataca el alfil de c4."
+    },
+    "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4 f8c5 e1g1 g8f6 e4e5 d7d5 e5f6": {
+      "porQue": "Toma el caballo."
+    },
+    "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4 f8c5 e1g1 g8f6 e4e5 d7d5 e5f6 d5c4": {
+      "porQue": "Toma el alfil."
     }
   },
   "fuentes": [
@@ -1476,6 +1510,50 @@
       "d2d4 b8c6 e2e4 e7e5 g1f3": {
         "ok": false,
         "detalle": "Stockfish (prof. 18) prefiere d5: +0,7 contra +0,0"
+      },
+      "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+      },
+      "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4 g8f6": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
+      },
+      "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 c2c3 d4c3": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+      },
+      "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 c2c3 d4c3 b1c3 f8b4": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+      },
+      "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 c2c3 d4c3 f1c4": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,5 para el bando que mueve"
+      },
+      "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 c2c3 d4c3 f1c4 g8f6": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+      },
+      "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4 f8c5 e1g1 g8f6": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18) prefiere d6: +0,5 contra −0,3 (marcada como inferior pero jugable)"
+      },
+      "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4 f8c5 e1g1 g8f6 e4e5": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): +0,3 para el bando que mueve"
+      },
+      "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4 f8c5 e1g1 g8f6 e4e5 d7d5": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,3 para el bando que mueve"
+      },
+      "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4 f8c5 e1g1 g8f6 e4e5 d7d5 e5f6": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): +0,3 para el bando que mueve"
+      },
+      "e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f1c4 f8c5 e1g1 g8f6 e4e5 d7d5 e5f6 d5c4": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,4 para el bando que mueve"
       }
     }
   }

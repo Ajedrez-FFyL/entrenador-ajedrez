@@ -1,0 +1,191 @@
+{
+  "id": "gdr-clasico",
+  "nombre": "Gambito de Dama Rehusado: Clásico (Cambridge Springs y Lasker)",
+  "raiz": "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5",
+  "resumen": "Con 4.Ag5 las blancas clavan el caballo de f6 y el negro elige entre dos sistemas. En la Cambridge Springs (4...Cbd7 5.e3 c6 6.Cf3 Da5) la dama negra va a a5 y clava el caballo de c3; en la Lasker (4...Ae7 5.e3 O-O 6.Cf3 h6 7.Ah4 Ce4) el negro busca cambios con ...Ce4 para aliviar la posición.",
+  "planesBlancas": [
+    "Mantener la clavada y la presión en el centro sin perder el control de e4.",
+    "Evitar la trampa de la dama negra en a5 en la Cambridge Springs."
+  ],
+  "planesNegras": [
+    "En la Cambridge Springs: ...Da5 y presión sobre c3 y d4.",
+    "En la Lasker: cambiar piezas con ...Ce4 para aliviar la falta de espacio."
+  ],
+  "estructura": "Centro con peones blancos en d4 y e3 contra negros en d5 y e6; el alfil de g5 clava el caballo de f6.",
+  "rupturas": [
+    "e4 de las blancas, cuando está preparada.",
+    "...c5 o ...c6 y ...e5 del negro."
+  ],
+  "piezas": [
+    "Alfil blanco de c1: g5.",
+    "Dama negra: a5 en la Cambridge Springs."
+  ],
+  "trampas": [],
+  "notas": {
+    "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 b8d7 e2e3 c7c6 g1f3 d8a5": {
+      "porQue": "Cambridge Springs: la dama clava el caballo de c3 y amenaza ...Ce4 o ...dxc4.",
+      "porQueNo": [
+        {
+          "uci": "d8c7",
+          "texto": "Tc1 y la dama no hace nada en c7."
+        },
+        {
+          "uci": "b7b6",
+          "texto": "cxd5 exd5 Ad3: estructura cómoda para las blancas."
+        }
+      ]
+    },
+    "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 b8d7 e2e3 c7c6 g1f3 d8a5 f3d2": {
+      "porQue": "Defiende c4 y prepara Db3 o Dc2 para romper la clavada.",
+      "porQueNo": [
+        {
+          "uci": "d1d2",
+          "texto": "...Ab4: la clavada se vuelve molesta."
+        },
+        {
+          "uci": "a1b1",
+          "texto": "...Ce4: el caballo de c3 cae y el negro gana un peón."
+        }
+      ]
+    },
+    "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 h7h6 g5h4 f6e4": {
+      "porQue": "Defensa Lasker: busca cambios de piezas menores para aliviar la posición."
+    },
+    "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 h7h6 g5h4 f6e4 h4e7": {
+      "porQue": "Lo mejor: cambiar alfiles.",
+      "porQueNo": [
+        {
+          "uci": "g2g3",
+          "texto": "...g5: el alfil queda atrapado."
+        }
+      ]
+    },
+    "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 h7h6 g5h4 b7b6": {
+      "porQue": "Tartakower: el fianchetto de dama y la ruptura ...c5 resuelven el problema del alfil de c8."
+    },
+    "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 b8d7 a1c1 c7c6 f1d3 d5c4 d3c4 f6d5": {
+      "porQue": "Liberación de Capablanca: cambia piezas y prepara ...e5."
+    },
+    "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8b4": {
+      "porQue": "Ragozin: clava el caballo, como en la Nimzoindia, y busca ...c5, ...Ce4 o ...dxc4."
+    },
+    "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8e7 c1f4": {
+      "porQue": "Con el alfil en f4 no hay clavada que aliviar con ...h6 o ...Ce4."
+    },
+    "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8e7 c1f4 e8g8 e2e3 c7c5": {
+      "porQue": "Con el alfil en f4, el peón de d5 no está presionado y ...c5 es posible."
+    },
+    "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 b8d7 e2e3 c7c6 g1f3 d8a5 f3d2 d5c4": {
+      "porQue": "El planteo simple: el negro se queda con la pareja de alfiles y una posición sólida; a cambio, el blanco gana espacio y una mayoría central."
+    },
+    "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8e7 c1f4 a7a6": {
+      "porQue": "Una alternativa al enroque: prepara ...dxc4 y ...b5. Según el cuaderno de EDAMI, ese avance es la verdadera idea de la jugada: el negro gana espacio en el flanco de dama y lleva el alfil a b7."
+    },
+    "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8e7 c1f4 a7a6 e2e3 d5c4 f1c4 b7b5": {
+      "porQue": "El avance que justifica 5...a6: gana tiempo sobre el alfil de c4 y abre la diagonal a8-h1 para ...Ab7."
+    }
+  },
+  "fuentes": [
+    {
+      "titulo": "Paul van der Sterren — Fundamental Chess Openings (Gambit, 2009)",
+      "capitulo": "«Queen's Gambit Declined»: Exchange Variation, 4 Bg5 (Capablanca, Lasker, Tartakower), 4 Nf3 (5 Bf4, Semi-Tarrasch, Ragozin)"
+    },
+    {
+      "titulo": "Krzysztof Panczyk y Jacek Ilczuk — The Cambridge Springs (Gambit, 2002)",
+      "capitulo": "caps. 4 (7.cxd5 Cxd5 8.Dd2 C7b6) y 7 (7.Cd2 dxc4)"
+    },
+    {
+      "titulo": "«Gambito de Dama Rehusado: Variante Blackburne 5.Af4», Pack de Aperturas EDAMI",
+      "capitulo": "clase 10, «La teoría de la Variante Blackburne 5.Af4» (línea 5...a6)"
+    },
+    {
+      "titulo": "Queen's Gambit Declined (Wikipedia en inglés)",
+      "url": "https://en.wikipedia.org/wiki/Queen%27s_Gambit_Declined",
+      "licencia": "CC BY-SA 4.0"
+    },
+    {
+      "titulo": "Catálogo abierto de aperturas de Lichess",
+      "url": "https://github.com/lichess-org/chess-openings",
+      "licencia": "CC0"
+    },
+    {
+      "titulo": "Lars Schandorff — Playing the Queen's Gambit: A Grandmaster Guide (Quality Chess, 2009)",
+      "capitulo": "cap. 1, «Queen's Gambit Declined»: «Follow the Patriarch», teoría y línea principal (partidas 1 a 6)"
+    }
+  ],
+  "verificacion": {
+    "motor": "Stockfish",
+    "profundidad": 18,
+    "fecha": "2026-10-18",
+    "resultados": {
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 b8d7 e2e3 c7c6 g1f3 d8a5": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 b8d7 e2e3 c7c6 g1f3 d8c7 (por qué no)": {
+        "ok": true,
+        "detalle": "Pierde 7 puntos de chances: −0,2 → −0,9. Refutación: Tc1 Ae7 Ad3 h6 Ah4 dxc4"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 b8d7 e2e3 c7c6 g1f3 b7b6 (por qué no)": {
+        "ok": true,
+        "detalle": "Pierde 8 puntos de chances: −0,2 → −1,1. Refutación: cxd5 exd5 Ce5 Cxe5 dxe5 h6"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 b8d7 e2e3 c7c6 g1f3 d8a5 f3d2": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 b8d7 e2e3 c7c6 g1f3 d8a5 d1d2 (por qué no)": {
+        "ok": true,
+        "detalle": "Pierde 8 puntos de chances: +0,2 → −0,6. Refutación: Ab4 Axf6 Cxf6 Dc1 Ce4 a3"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 b8d7 e2e3 c7c6 g1f3 d8a5 a1b1 (por qué no)": {
+        "ok": true,
+        "detalle": "Pierde 6 puntos de chances: +0,2 → −0,5. Refutación: Ce4 cxd5 Cxc3 bxc3 Dxc3+ Cd2"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 h7h6 g5h4 f6e4": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 h7h6 g5h4 f6e4 h4e7": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 h7h6 g5h4 f6e4 g2g3 (por qué no)": {
+        "ok": true,
+        "detalle": "Pierde 27 puntos de chances: +0,2 → −3,1. Refutación: g5 Ce5 Rg7 Axg5 hxg5 h4"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 h7h6 g5h4 b7b6": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 b8d7 a1c1 c7c6 f1d3 d5c4 d3c4 f6d5": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,3 para el bando que mueve"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8b4": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8e7 c1f4": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): +0,3 para el bando que mueve"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8e7 c1f4 e8g8 e2e3 c7c5": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,4 para el bando que mueve"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 b8d7 e2e3 c7c6 g1f3 d8a5 f3d2 d5c4": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8e7 c1f4 a7a6": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,3 para el bando que mueve"
+      },
+      "d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8e7 c1f4 a7a6 e2e3 d5c4 f1c4 b7b5": {
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,4 para el bando que mueve"
+      }
+    }
+  }
+}

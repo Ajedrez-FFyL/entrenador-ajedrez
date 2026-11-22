@@ -55,6 +55,18 @@ export interface Explicacion {
   nombre: string
   /** Línea raíz, en UCI desde el inicio. */
   raiz: string
+  /**
+   * Raíces (UCI desde el inicio) de subárboles que este curso NO enseña porque tienen curso propio: «Otras
+   * partidas abiertas» (1.e4 e5) deja afuera la Española y la Italiana. Sin este campo, un curso incluye todo
+   * lo que cuelga de su raíz, también lo de sus cursos hijos.
+   */
+  excluye?: string[]
+  /**
+   * Variantes del curso para separar las lecciones (Marshall y Cerrada en la Española Cerrada): cada una
+   * es un subárbol por su raíz; las líneas que no caen en ninguna van a «Otras líneas». Una lección nunca
+   * mezcla líneas de dos variantes.
+   */
+  variantes?: { nombre: string; raiz: string }[]
   resumen: string
   planesBlancas: string[]
   planesNegras: string[]

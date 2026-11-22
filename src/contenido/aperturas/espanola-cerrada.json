@@ -2,6 +2,16 @@
   "id": "espanola-cerrada",
   "nombre": "Española Cerrada y Ataque Marshall",
   "raiz": "e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3",
+  "variantes": [
+    {
+      "nombre": "Ataque Marshall (7...O-O 8.c3 d5)",
+      "raiz": "e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 e8g8 c2c3 d7d5"
+    },
+    {
+      "nombre": "Cerrada (7...d6)",
+      "raiz": "e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6"
+    }
+  ],
   "resumen": "La línea principal de la Española. Tras ...b5 y Ab3, las blancas preparan d4 con c3 y h3 (que impide ...Ag4), y llevan el caballo de b1 por d2, f1 y g3. El negro elige entre varios sistemas: Chigorin (...Ca5), Breyer (...Cb8) y Zaitsev (...Ab7). Si el negro enroca antes de jugar ...d6, aparece el Ataque Marshall: ...d5, entregando un peón por un ataque contra el rey blanco.",
   "planesBlancas": [
     "c3, h3 y d4; maniobra Cbd2-f1-g3.",

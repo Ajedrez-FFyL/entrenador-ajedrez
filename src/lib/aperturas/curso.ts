@@ -68,6 +68,8 @@ export interface Leccion {
   seccion: number
   numero: number
   lineas: string[][]
+  /** Variante a la que pertenecen todas las líneas, en los cursos que las separan (`Explicacion.variantes`). */
+  variante?: string
 }
 
 export interface Seccion {
@@ -88,7 +90,31 @@ export interface Curso {
 /** Mis aperturas para practicar, por color (ids de explicaciones). */
 export type MisAperturas = Record<Color, string[]>
 
-export const leerMisAperturas = () => leerAjuste<MisAperturas>('aperturasPractica', { white: [], black: [] })
+/**
+ * Cursos que se dividieron (Fase C): el id viejo pasa a los nuevos. El progreso no necesita migración porque
+ * se guarda por línea (`repasosLineas`), no por curso: lo único que cambia es qué tarjetas hay en «Mis aperturas».
+ * Los datos viejos no se borran: la lista anterior queda guardada en `aperturasPracticaAntesDeSeparar`.
+ */
+export const CURSOS_SEPARADOS: Record<string, string[]> = {
+  'espanola-italiana': ['espanola', 'italiana', 'abiertas-otras'],
+  'gambito-de-dama-rehusado': ['gdr-cambio', 'gdr-clasico'],
+  'siciliana-cerrada': ['siciliana-cerrada', 'grand-prix'],
+}
+
+export function migrarIds(ids: string[]): string[] {
+  return [...new Set(ids.flatMap((id) => CURSOS_SEPARADOS[id] ?? [id]))]
+}
+
+export async function leerMisAperturas(): Promise<MisAperturas> {
+  const m = await leerAjuste<MisAperturas>('aperturasPractica', { white: [], black: [] })
+  const nuevo = { white: migrarIds(m.white), black: migrarIds(m.black) }
+  const cambio = nuevo.white.join() !== m.white.join() || nuevo.black.join() !== m.black.join()
+  if (cambio) {
+    await guardarAjuste('aperturasPracticaAntesDeSeparar', { white: [...m.white], black: [...m.black] })
+    await guardarAjuste('aperturasPractica', nuevo)
+  }
+  return nuevo
+}
 // Copia plana: los estados de Svelte son proxies y IndexedDB no los puede clonar.
 export const guardarMisAperturas = (m: MisAperturas) => guardarAjuste('aperturasPractica', { white: [...m.white], black: [...m.black] })
 
@@ -155,7 +181,7 @@ export async function quitarLineasAgregadas(color: Color, raiz: string[]): Promi
  * lejos, y su continuación con lo que juegan los maestros (`profundizacion.json`). Con `color`, también
  * las que el usuario agregó desde sus partidas (los scripts de Node no lo pasan: no hay base de datos).
  */
-export async function lineasTeoricas(raiz: string[], color?: Color): Promise<string[][]> {
+export async function lineasTeoricas(raiz: string[], color?: Color, excluye: string[] = []): Promise<string[][]> {
   const arbol = armarArbol(await cargarCatalogo())
   await cargarProfundizacion()
   const lineas = lineasDesde(arbol, raiz, 40)
@@ -163,7 +189,8 @@ export async function lineasTeoricas(raiz: string[], color?: Color): Promise<str
   for (const e of EXPLICACIONES) for (const clave of Object.keys(e.notas)) if (clave.startsWith(r + ' ')) lineas.push(clave.split(' '))
   for (const l of profundizacion.lineas) if (l.startsWith(r + ' ')) lineas.push(l.split(' '))
   if (color) for (const l of (await leerLineasAgregadas())[color]) if (l.startsWith(r + ' ')) lineas.push(l.split(' '))
-  return lineas.length ? lineas : [raiz]
+  const propias = excluye.length ? lineas.filter((l) => !excluye.some((x) => `${l.join(' ')} `.startsWith(x + ' '))) : lineas
+  return propias.length ? propias : [raiz]
 }
 
 interface Nodo {
@@ -375,7 +402,7 @@ const esRara = (l: string[], raras: Set<string>) => l.some((_, i) => raras.has(l
 /** Posiciones del curso donde mueve el rival: las que hay que consultar en la base Masters. */
 export async function posicionesDelRival(explicacion: Explicacion, color: Color): Promise<string[]> {
   const raiz = explicacion.raiz.split(' ')
-  return podarYOrdenar(await lineasTeoricas(raiz, color), raiz, color, await leerElecciones(), criterioFamilia(await cargarCatalogo(), raiz)).posicionesRival
+  return podarYOrdenar(await lineasTeoricas(raiz, color, explicacion.excluye), raiz, color, await leerElecciones(), criterioFamilia(await cargarCatalogo(), raiz)).posicionesRival
 }
 
 export const SECCION_RAREZAS = {
@@ -386,7 +413,7 @@ export const SECCION_RAREZAS = {
 
 export async function armarCurso(explicacion: Explicacion, color: Color): Promise<Curso> {
   const raiz = explicacion.raiz.split(' ')
-  const todas = await lineasTeoricas(raiz, color)
+  const todas = await lineasTeoricas(raiz, color, explicacion.excluye)
   const elecciones = await leerElecciones()
   const catalogo = await cargarCatalogo()
   const sale = criterioFamilia(catalogo, raiz)
@@ -396,11 +423,19 @@ export async function armarCurso(explicacion: Explicacion, color: Color): Promis
   const cortes = ordenadas.map((l) => corteEnVariante(catalogo, l, raiz.length))
   const vistas = new Set<string>()
   const secciones: Seccion[] = []
+  const variantes = explicacion.variantes
   const agregar = (nivel: number, nombre: string, descripcion: string, lineas: string[][]) => {
     if (!lineas.length) return
     const lecciones: Leccion[] = []
-    for (let i = 0; i < lineas.length; i += LINEAS_POR_LECCION)
-      lecciones.push({ seccion: nivel, numero: lecciones.length + 1, lineas: lineas.slice(i, i + LINEAS_POR_LECCION) })
+    // Con variantes declaradas, cada lección tiene líneas de una sola (en el orden en que aparecen).
+    const grupos = new Map<string | undefined, string[][]>()
+    for (const l of lineas) {
+      const v = variantes?.find((x) => `${l.join(' ')} `.startsWith(x.raiz + ' '))?.nombre ?? (variantes ? 'Otras líneas' : undefined)
+      grupos.set(v, [...(grupos.get(v) ?? []), l])
+    }
+    for (const [variante, ls] of grupos)
+      for (let i = 0; i < ls.length; i += LINEAS_POR_LECCION)
+        lecciones.push({ seccion: nivel, numero: lecciones.length + 1, lineas: ls.slice(i, i + LINEAS_POR_LECCION), ...(variante ? { variante } : {}) })
     secciones.push({ nivel, nombre, descripcion, lecciones })
   }
   for (const n of SECCIONES) {
@@ -540,7 +575,7 @@ export async function reiniciarProgreso(explicacion: Explicacion, color: Color):
   const empieza = (linea: string, r: string) => linea === r || linea.startsWith(r + ' ')
   const ids = (await db.repasosLineas.where('color').equals(color).primaryKeys()).filter((id) => {
     const linea = id.slice(color.length + 1)
-    return empieza(linea, raiz) && !otras.some((r) => empieza(linea, r))
+    return empieza(linea, raiz) && !otras.some((r) => empieza(linea, r)) && !(explicacion.excluye ?? []).some((r) => empieza(linea, r))
   })
   await db.repasosLineas.bulkDelete(ids)
   return ids.length
