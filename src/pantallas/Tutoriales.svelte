@@ -25,7 +25,11 @@
       <b>Explorador</b>: mirá cualquier apertura con cualquier color, con las jugadas que juegan los maestros (no lo que juega un
       1800) y lo que recomienda el motor. <b>Mi repertorio</b>: guardá las líneas que elegís jugar. <b>Práctica</b>: estudiá tu
       repertorio por niveles, con repaso espaciado (así no se te olvida con el tiempo) y explicaciones de "por qué sí" y "por qué
-      no" para cada jugada.
+      no" para cada jugada. Para sumar una apertura (<b>Agregar apertura</b>) vas bajando por un árbol, un nivel por vez: 1.e4 ›
+      1…c5 Siciliana › Najdorf. Arriba tenés las migas de pan y «← Atrás», y el buscador (por nombre, en castellano o en inglés,
+      o por jugadas como «Ab5» o «Bb5») te muestra todo en una lista con su ruta. Al terminar una línea en una lección, la
+      posición queda quieta: podés recorrerla con las flechas, prender Stockfish, jugar desde ahí o tocar «Seguir». Si preferís
+      que pase sola a la siguiente, activalo en Ajustes («Pasar solo a la siguiente línea»).
     </p>
   </div>
 
