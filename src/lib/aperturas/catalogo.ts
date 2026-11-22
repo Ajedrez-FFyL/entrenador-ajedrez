@@ -189,6 +189,8 @@ export interface NodoCurso {
   hijos: NodoCurso[]
   /** Cantidad de cursos que cuelgan de este nodo, sin contarlo. */
   variantes: number
+  /** Para una carpeta de agrupación por código ECO: el rango a mostrar en chico (ej. «B50–B99»). */
+  rangoEco?: string
 }
 
 /**
@@ -217,6 +219,54 @@ const OTRAS: { padre: string; nombre: string; ids: string[] }[] = [
   { padre: 'e2e4', nombre: 'Otras respuestas a 1.e4', ids: ['san-jorge', 'owen', 'nimzowitsch'] },
   { padre: 'd2d4', nombre: 'Otras respuestas a 1.d4', ids: ['englund', 'horwitz', 'benoni-antigua', 'mikenas'] },
 ]
+
+/**
+ * Carpetas intermedias por código ECO dentro de un curso con muchas variantes directas (decisión de Mati,
+ * 22/11 19:08): la pertenencia se decide por las jugadas de la raíz de cada hijo, nunca por su nombre. Cada
+ * curso pasa por los clasificadores en orden y queda en el primero que acepte; el último de la lista es
+ * siempre el que acepta todo (también lo que no tiene suficientes jugadas en la raíz para clasificar, como
+ * «Otras partidas abiertas»), así que el orden de la lista es también el orden en que se muestran las carpetas.
+ */
+const GRUPOS_ECO: Record<string, { nombre: string; rango: string; clasificar: (raiz: string[]) => boolean }[]> = {
+  // Siciliana (1.e4 c5): raiz[2] = segunda jugada blanca, raiz[3] = segunda jugada negra, raiz[4] = tercera blanca.
+  siciliana: [
+    { nombre: 'Antisicilianas', rango: 'B20–B29', clasificar: (r) => r[2] !== 'g1f3' || r[4] !== 'd2d4' },
+    { nombre: 'Con 2…Cc6', rango: 'B30–B39', clasificar: (r) => r[3] === 'b8c6' },
+    { nombre: 'Con 2…e6', rango: 'B40–B49', clasificar: (r) => r[3] === 'e7e6' },
+    { nombre: 'Con 2…d6', rango: 'B50–B99', clasificar: () => true },
+  ],
+  // 1…e5 (Partidas abiertas): raiz[2] = segunda jugada blanca, raiz[3] = segunda jugada negra.
+  'carpeta:e2e4 e7e5': [
+    { nombre: 'Otras segundas jugadas blancas', rango: 'C20–C39', clasificar: (r) => r.length > 2 && r[2] !== 'g1f3' },
+    { nombre: '2.Cf3, otras defensas', rango: 'C40–C43', clasificar: (r) => r.length > 3 && r[3] !== 'b8c6' },
+    { nombre: '2.Cf3 Cc6', rango: 'C44+', clasificar: () => true },
+  ],
+}
+
+/**
+ * Agrupa los hijos directos de `n` (si su id está en `GRUPOS_ECO`) en carpetas intermedias por ECO, en el
+ * orden de la lista y conservando el orden relativo de los cursos dentro de cada una. Una carpeta ECO se
+ * abre y se practica igual que cualquier otra (mismo tipo `NodoCurso`, sin `curso` propio); muestra el mismo
+ * tablero que el nodo que agrupa, porque no tiene una única posición propia.
+ */
+function agruparPorEco(n: NodoCurso) {
+  const grupos = GRUPOS_ECO[n.id]
+  if (!grupos || !n.hijos.length) return
+  const baldes = grupos.map((g) => ({ ...g, hijos: [] as NodoCurso[] }))
+  for (const hijo of n.hijos) {
+    ;(baldes.find((b) => b.clasificar(hijo.raiz)) ?? baldes.at(-1)!).hijos.push(hijo)
+  }
+  n.hijos = baldes
+    .filter((b) => b.hijos.length)
+    .map((b) => ({
+      id: `eco:${n.id}:${b.nombre}`,
+      raiz: n.raiz,
+      nombre: b.nombre,
+      rangoEco: b.rango,
+      hijos: b.hijos,
+      variantes: b.hijos.reduce((s, h) => s + (h.curso ? 1 : 0) + h.variantes, 0),
+    }))
+}
 
 const esPrefijo = (a: string[], b: string[]) => a.length <= b.length && a.every((u, i) => u === b[i])
 
@@ -278,6 +328,12 @@ export function arbolDeCursos(explicaciones: Explicacion[]): NodoCurso[] {
     primero.push(l.hijos.length === 1 && !l.curso ? { ...l.hijos[0], nombre: l.nombre } : l)
   }
   primero.forEach(orden)
+  // Carpetas por ECO (después de ordenar, para que no se reordenen por peso: ver `GRUPOS_ECO`).
+  const conGruposEco = (n: NodoCurso) => {
+    agruparPorEco(n)
+    n.hijos.forEach(conGruposEco)
+  }
+  primero.forEach(conGruposEco)
   return primero
 }
 
