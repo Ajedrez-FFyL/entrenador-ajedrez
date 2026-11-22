@@ -45,9 +45,12 @@
     </button>
     <div class="facultad" title="Facultad de Filosofía y Letras — UBA">
       <span class="sello">
-        <img src="/marca/sello-uba.png" alt="Universidad de Buenos Aires" />
+        <img src={`${import.meta.env.BASE_URL}marca/sello-uba.png`} alt="Universidad de Buenos Aires" />
       </span>
-      <span class="sigla">FFyL</span>
+      <span class="texto-facultad">
+        <span class="sigla">FFyL</span>
+        <span class="subtitulo">Filosofía y Letras · UBA</span>
+      </span>
     </div>
   </div>
 </header>
@@ -82,7 +85,7 @@
   .derecha {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     flex-shrink: 0;
   }
 
@@ -115,6 +118,20 @@
     text-decoration: none;
     color: var(--texto-suave);
     flex-shrink: 0;
+    border-left: 1px solid var(--borde);
+    padding-left: 16px;
+  }
+
+  .texto-facultad {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .subtitulo {
+    font-size: 0.7rem;
+    color: var(--texto-suave);
+    white-space: nowrap;
   }
 
   .sello {
@@ -140,12 +157,26 @@
     color: var(--texto);
   }
 
-  @media (max-width: 480px) {
-    .suave {
+  @media (max-width: 600px) {
+    .subtitulo {
       display: none;
     }
 
+    .derecha {
+      gap: 12px;
+    }
+
+    .facultad {
+      padding-left: 12px;
+    }
+
     .tema-etiqueta {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .suave {
       display: none;
     }
 
