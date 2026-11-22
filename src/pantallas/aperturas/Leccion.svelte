@@ -11,6 +11,7 @@
   import { motorInteractivo } from '../../lib/motor/motor.ts'
   import Tablero, { type Flecha } from '../../lib/ui/Tablero.svelte'
   import VisorLinea, { type Linea } from '../../lib/ui/VisorLinea.svelte'
+  import BotonJugarDesdeAca from '../../lib/ui/BotonJugarDesdeAca.svelte'
 
   /**
    * Una sesión de práctica sobre un grupo de líneas. Al aprender, cada línea se presenta siguiendo la
@@ -346,6 +347,7 @@
       {#if lineaTerminada && paso.fase !== 'presentar' && (errores > 0 || ahoraQue)}
         <button class="boton principal" onclick={siguiente}>Seguir</button>
       {/if}
+      {#if lineaTerminada}<BotonJugarDesdeAca {fen} />{/if}
       {#if refutacion}
         <VisorLinea linea={refutacion} alMover={(f, u, p) => (vista = { fen: f, ultima: u, proxima: p })} />
         <button class="boton enlace" onclick={() => { refutacion = undefined; vista = undefined }}>Volver a la posición</button>

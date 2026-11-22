@@ -15,6 +15,8 @@ export interface OpcionesAnalisis {
   profundidad?: number
   tiempoMs?: number
   multipv?: number
+  /** Para jugar contra el motor: limita su fuerza (Elo UCI, o Skill Level de 0 a 20 para niveles más bajos que el mínimo de Elo). */
+  nivel?: { elo?: number; skill?: number }
 }
 
 /**
@@ -59,9 +61,13 @@ export class Motor {
     return tarea
   }
 
-  private async analizarYa(fen: string, { profundidad, tiempoMs, multipv = 1 }: OpcionesAnalisis): Promise<ResultadoMotor> {
+  private async analizarYa(fen: string, { profundidad, tiempoMs, multipv = 1, nivel }: OpcionesAnalisis): Promise<ResultadoMotor> {
     await this.listo
     this.enviar(`setoption name MultiPV value ${multipv}`)
+    // Siempre se fija la fuerza: así un nivel limitado no se le queda pegado al análisis siguiente.
+    this.enviar(`setoption name UCI_LimitStrength value ${nivel?.elo ? 'true' : 'false'}`)
+    if (nivel?.elo) this.enviar(`setoption name UCI_Elo value ${nivel.elo}`)
+    this.enviar(`setoption name Skill Level value ${nivel?.skill ?? 20}`)
     this.enviar(`position fen ${fen}`)
     const lineas: LineaMotor[] = []
     let mejor = ''

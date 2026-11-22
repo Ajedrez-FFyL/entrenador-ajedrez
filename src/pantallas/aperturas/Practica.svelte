@@ -10,6 +10,7 @@
   import { motorInteractivo } from '../../lib/motor/motor.ts'
   import Tablero, { type Flecha } from '../../lib/ui/Tablero.svelte'
   import VisorLinea, { type Linea } from '../../lib/ui/VisorLinea.svelte'
+  import BotonJugarDesdeAca from '../../lib/ui/BotonJugarDesdeAca.svelte'
 
   interface Props {
     color: Color
@@ -219,6 +220,7 @@
         <div class="fila">
           <button class="boton principal" onclick={empezar}>Otra línea</button>
           <button class="boton" onclick={() => (objetivo = undefined)}>Niveles</button>
+          <BotonJugarDesdeAca {fen} />
         </div>
       {:else if turnoMio}
         <p>Te toca: ¿qué jugás?</p>

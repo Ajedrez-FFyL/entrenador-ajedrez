@@ -12,6 +12,7 @@
   import { type Flecha } from './Tablero.svelte'
   import TableroEval from './TableroEval.svelte'
   import VisorLinea, { type Linea } from './VisorLinea.svelte'
+  import BotonJugarDesdeAca from './BotonJugarDesdeAca.svelte'
 
   interface Props {
     problema: Problema
@@ -266,6 +267,7 @@
         {:else if hist.length > inicio && hist.some((u, i) => u !== problema.jugadas[i])}
           <button class="boton" onclick={() => { ex = new Exploracion(problema.fen, [...hist], hist.length); verSolucion = false }}>Volver a mi línea</button>
         {/if}
+        <BotonJugarDesdeAca fen={fenTablero} />
         {#if !libro}<a class="boton enlace" href={`https://lichess.org/training/${problema.id}`} target="_blank" rel="noopener">Ver en Lichess</a>{/if}
       </div>
       <div class="etiquetas">{#each problema.temas.filter((t) => !TEMAS_OCULTOS.includes(t)) as t (t)}<span class="etiqueta">{nombreTema(t)}</span>{/each}</div>

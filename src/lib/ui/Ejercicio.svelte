@@ -12,6 +12,7 @@
   import { type Flecha } from './Tablero.svelte'
   import TableroEval from './TableroEval.svelte'
   import VisorLinea, { type Linea } from './VisorLinea.svelte'
+  import BotonJugarDesdeAca from './BotonJugarDesdeAca.svelte'
 
   interface Props {
     error: ErrorPartida
@@ -208,6 +209,7 @@
               Por qué no {intento.san}
             </button>
           {/if}
+          {#if ex && !linea}<BotonJugarDesdeAca fen={ex.fen} />{/if}
           <button class="boton" onclick={() => { cerrarLinea(); ex = new Exploracion(error.fen, [...error.lineaMejor], 0) }}>
             Ver la solución
           </button>

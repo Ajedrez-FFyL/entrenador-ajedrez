@@ -11,6 +11,7 @@
   import type { Color } from '../../lib/datos/tipos.ts'
   import { motorInteractivo, motorTablero, type LineaMotor } from '../../lib/motor/motor.ts'
   import TableroEval from '../../lib/ui/TableroEval.svelte'
+  import BotonJugarDesdeAca from '../../lib/ui/BotonJugarDesdeAca.svelte'
   import VisorLinea, { type Linea } from '../../lib/ui/VisorLinea.svelte'
 
   interface Props {
@@ -207,6 +208,7 @@
       <button class="boton" onclick={() => irA(idx - 1)} aria-label="Atrás">◀</button>
       <button class="boton" onclick={() => irA(idx + 1)} aria-label="Adelante">▶</button>
       <button class="boton" onclick={() => (orientacion = orientacion === 'white' ? 'black' : 'white')}>Girar</button>
+      <BotonJugarDesdeAca fen={fenTablero} />
     </div>
 
     <div class="jugadas">
