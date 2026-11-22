@@ -31,7 +31,7 @@
   <div class="item">
     <h3>Táctica</h3>
     <p class="suave">
-      Ejercicios armados a partir de tus propios errores en partidas reales, más problemas de Lichess y de libros de ajedrez
+      Ejercicios armados a partir de tus propios errores en partidas reales, más táctica general (ejercicios de la base abierta de Lichess, licencia CC0) y problemas de libros de ajedrez
       (estos dos últimos son los mismos para todo el equipo). Repaso espaciado también acá.
     </p>
   </div>
