@@ -1,6 +1,6 @@
 <script lang="ts">
   import { chancesDeGanar, invertir, textoEvaluacion } from '../../lib/ajedrez/evaluacion.ts'
-  import { lineaSan, posDesdeFen, sanDeUci } from '../../lib/ajedrez/posicion.ts'
+  import { etiquetasJugadas, posDesdeFen, sanDeUci } from '../../lib/ajedrez/posicion.ts'
   import { detectarMotivoError } from '../../lib/ajedrez/temas.ts'
   import { fensDeLinea, nombreDeLinea } from '../../lib/aperturas/arbol.ts'
   import { cargarCatalogo, nombreEnEspanol, type Catalogo } from '../../lib/aperturas/catalogo.ts'
@@ -8,6 +8,7 @@
   import { elegirLinea, estadoLineas, lineasDelNivel, NIVELES, nivelActual, registrarLinea, UMBRAL_DOMINIO, type EstadoNivel } from '../../lib/aperturas/practica.ts'
   import type { Color } from '../../lib/datos/tipos.ts'
   import { motorInteractivo } from '../../lib/motor/motor.ts'
+  import Navegador from '../../lib/ui/Navegador.svelte'
   import Tablero, { type Flecha } from '../../lib/ui/Tablero.svelte'
   import VisorLinea, { type Linea } from '../../lib/ui/VisorLinea.svelte'
   import BotonJugarDesdeAca from '../../lib/ui/BotonJugarDesdeAca.svelte'
@@ -37,6 +38,8 @@
   let vista = $state<{ fen: string; ultima?: string; proxima?: string }>()
   let verificando = $state(false)
   let terminado = $state(false)
+  /** Posición que se mira con el Navegador (media jugada); `undefined` = la última. Hacia atrás es solo lectura. */
+  let verPly = $state<number>()
 
   let delNivel = $derived(lineasDelNivel(lineas, NIVELES[nivel - 1].plies, color))
 
@@ -56,6 +59,9 @@
   let fens = $derived(objetivo ? fensDeLinea(objetivo) : [])
   let fen = $derived(fens[ply] ?? fens[0])
   let turnoMio = $derived(fen ? (fen.split(' ')[1] === 'w') === (color === 'white') : false)
+  let fenNav = $derived(verPly !== undefined ? (fens[verPly] ?? fen) : fen)
+  let etiquetas = $derived(objetivo ? etiquetasJugadas(fens[0], objetivo.slice(0, ply)) : [])
+  const irA = (i: number) => (verPly = i >= ply ? undefined : Math.max(0, i))
 
   async function empezar() {
     objetivo = await elegirLinea(color, delNivel)
@@ -66,6 +72,7 @@
     porQue = undefined
     refutacion = undefined
     terminado = false
+    verPly = undefined
     if (objetivo) avanzarRival()
   }
 
@@ -89,7 +96,7 @@
   }
 
   async function alJugar(uci: string) {
-    if (!objetivo || !turnoMio || verificando) return
+    if (!objetivo || !turnoMio || verificando || verPly !== undefined) return
     const esperada = objetivo[ply]
     const pos = posDesdeFen(fen)
     const san = sanDeUci(pos, uci)
@@ -160,6 +167,7 @@
   }
 
   let flechas = $derived.by((): Flecha[] => {
+    if (verPly !== undefined && !refutacion) return []
     if (refutacion && vista?.proxima) return [{ de: vista.proxima.slice(0, 2), a: vista.proxima.slice(2, 4), color: 'blue' }]
     if (objetivo && turnoMio && erroresAca >= 2) return [{ de: objetivo[ply].slice(0, 2), a: objetivo[ply].slice(2, 4), color: 'green' }]
     return []
@@ -200,10 +208,10 @@
 {:else}
   <div class="practica">
     <Tablero
-      fen={refutacion && vista ? vista.fen : fen}
+      fen={refutacion && vista ? vista.fen : fenNav}
       orientacion={color}
-      puedeMover={turnoMio && !terminado && !refutacion ? color : undefined}
-      ultimaJugada={refutacion && vista ? vista.ultima : ply > 0 ? objetivo[ply - 1] : undefined}
+      puedeMover={turnoMio && !terminado && !refutacion && verPly === undefined ? color : undefined}
+      ultimaJugada={refutacion && vista ? vista.ultima : verPly !== undefined ? (verPly > 0 ? objetivo[verPly - 1] : undefined) : ply > 0 ? objetivo[ply - 1] : undefined}
       {flechas}
       {alJugar}
     />
@@ -214,13 +222,14 @@
           {#each NIVELES as n, i (n.nivel)}<option value={n.nivel}>{n.nivel}. {n.nombre}{estados[i] ? ` (${Math.round(100 * estados[i].dominio)} %)` : ''}</option>{/each}
         </select>
       </label>
-      <p class="suave">{lineaSan(fens[0], objetivo.slice(0, ply)).join(' ') || 'Posición inicial'}</p>
+      <Navegador {etiquetas} idx={verPly ?? ply} alIr={irA} vacio="Posición inicial" />
+      {#if verPly !== undefined && !terminado}<p class="aviso">Estás mirando una posición anterior (solo lectura). Volvé al final para seguir.</p>{/if}
       {#if terminado}
         <p class={errores ? 'mal' : 'bien'}><b>{errores ? `Línea terminada con ${errores} error${errores === 1 ? '' : 'es'}: vuelve pronto.` : 'Línea completa sin errores.'}</b></p>
         <div class="fila">
           <button class="boton principal" onclick={empezar}>Otra línea</button>
           <button class="boton" onclick={() => (objetivo = undefined)}>Niveles</button>
-          <BotonJugarDesdeAca {fen} />
+          <BotonJugarDesdeAca fen={fenNav} />
         </div>
       {:else if turnoMio}
         <p>Te toca: ¿qué jugás?</p>
@@ -291,6 +300,9 @@
   }
   .panel p {
     margin: 0;
+  }
+  .aviso {
+    color: #c98a2b;
   }
   .bien {
     color: #3f9b4b;

@@ -173,7 +173,7 @@
   })
 
   async function alJugar(uci: string) {
-    if (!paso || !turnoMio || verificando || lineaTerminada) return
+    if (!paso || !turnoMio || verificando || lineaTerminada || verPly !== undefined) return
     const linea = paso.linea
     const esperada = linea[ply]
     const pos = posDesdeFen(fen)
@@ -237,6 +237,7 @@
   }
 
   let flechas = $derived.by((): Flecha[] => {
+    if (verPly !== undefined && !refutacion) return []
     if (refutacion && vista?.proxima) return [{ de: vista.proxima.slice(0, 2), a: vista.proxima.slice(2, 4), color: 'blue' }]
     if (paso && turnoMio && !lineaTerminada && (paso.fase === 'presentar' || fallaAca) && ply < paso.linea.length)
       return [{ de: paso.linea[ply].slice(0, 2), a: paso.linea[ply].slice(2, 4), color: 'green' }]
@@ -354,11 +355,8 @@
       <p class="consigna">
         {#if lineaTerminada}&nbsp;{:else if !turnoMio}Juega el rival…{:else if paso.fase === 'presentar'}Jugá la jugada que marca la flecha.{:else if fallaAca}Jugá la jugada que marca la flecha.{:else}Jugá la jugada que aprendiste.{/if}
       </p>
-      {#if lineaTerminada}
-        <Navegador {etiquetas} idx={verPly ?? ply} alIr={irA} vacio="Posición inicial" />
-      {:else}
-        <p class="suave">{lineaSan(fens[0], paso.linea.slice(0, ply)).join(' ') || 'Posición inicial'}</p>
-      {/if}
+      <Navegador {etiquetas} idx={verPly ?? ply} alIr={irA} vacio="Posición inicial" />
+      {#if verPly !== undefined && !lineaTerminada}<p class="aviso">Estás mirando una posición anterior (solo lectura). Volvé al final para seguir.</p>{/if}
 
       {#if mensaje}<p class={mensaje.tipo}>{mensaje.texto}</p>{/if}
       {#if alternativa}
@@ -430,6 +428,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+  }
+  .aviso {
+    color: #c98a2b;
   }
   .ahora-que h3 {
     margin: 0 0 4px;
