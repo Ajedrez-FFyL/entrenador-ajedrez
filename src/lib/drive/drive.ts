@@ -26,6 +26,18 @@ function cargarGis(): Promise<void> {
   return gisCargado
 }
 
+/**
+ * El respaldo en Drive está oculto por defecto (la app de Google está en modo Prueba: solo conectan
+ * las cuentas cargadas como test users). Se habilita en este navegador entrando una vez con `?drive=1`.
+ */
+export function driveHabilitado(): boolean {
+  try {
+    return localStorage.getItem('ffyl-drive') === '1'
+  } catch {
+    return false
+  }
+}
+
 export const leerCuentaDrive = () => leerAjuste<string>('drive:cuenta', '')
 
 /** Pide permiso con un popup de Google. Hace falta la primera vez (o si el permiso se revocó). */
@@ -38,7 +50,7 @@ export async function conectarDrive(): Promise<string> {
       scope: SCOPE,
       callback: async (resp) => {
         if (resp.error) {
-          reject(new Error('No se otorgó el permiso.'))
+          reject(new Error('Tu cuenta no está habilitada para el respaldo en Drive. Pedíselo a quien te pasó la app, o usá el respaldo con archivo.'))
           return
         }
         tokenActual = { accessToken: resp.access_token, expira: Date.now() + (resp.expires_in - 60) * 1000 }
