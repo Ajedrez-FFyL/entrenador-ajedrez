@@ -200,7 +200,7 @@
         {#if ex && !linea}<Navegacion {ex} />{/if}
 
         <div class="acciones">
-          {#if intento && !intento.correcta && intento.refutacion.length}
+          {#if intento && !intento.correcta && intento.refutacion.length && intento.san !== sanJugada}
             <button class="boton" onclick={() => verLinea({ titulo: `Por qué no ${intento!.san}`, fen: intento!.fenDespues, ucis: intento!.refutacion })}>
               Por qué no {intento.san}
             </button>
