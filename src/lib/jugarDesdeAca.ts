@@ -1,7 +1,7 @@
 /**
- * "Jugar desde acá": cualquier pantalla con un tablero puede mandar su posición a la pantalla de juego
- * contra la computadora. La posición viaja por sessionStorage porque las pestañas de la app no comparten estado.
- * (Hoy la pantalla de juego vive en Finales; en la fase C5 se mueve a la pestaña Editor.)
+ * "Jugar desde acá": cualquier pantalla con un tablero puede mandar su posición a la pestaña Editor,
+ * que la abre con el modo "Jugar contra la computadora" activo. La posición viaja por sessionStorage
+ * porque las pestañas de la app no comparten estado.
  */
 const CLAVE = 'ffyl-jugar-desde'
 
@@ -9,9 +9,9 @@ export function jugarDesdeAca(fen: string) {
   try {
     sessionStorage.setItem(CLAVE, fen)
   } catch {
-    // sin almacenamiento: la pantalla de juego abre con su editor vacío
+    // sin almacenamiento: el Editor abre con el tablero vacío
   }
-  location.hash = '#/finales'
+  location.hash = '#/editor'
 }
 
 /** Lee y borra la posición pendiente (una sola vez). */
