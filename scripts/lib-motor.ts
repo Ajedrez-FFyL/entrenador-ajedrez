@@ -1,15 +1,22 @@
 /**
- * Stockfish nativo para los scripts de desarrollo (verificar contenido, explorar posiciones).
- * Ruta en la variable de entorno STOCKFISH; por defecto, el ejecutable que ya estaba instalado.
+ * Stockfish para los scripts de desarrollo (verificar contenido, explorar posiciones): el mismo paquete
+ * npm `stockfish` que ya usa la app (`scripts/copiar-motor.mjs`), pero la versión `single` (WASM de
+ * fuerza completa, un solo hilo — la app usa `lite-single`, más chica y más débil, para que cargue rápido
+ * en el celular). Reemplaza al binario externo que antes se buscaba con la variable STOCKFISH: no hace
+ * falta instalar nada aparte, y evita depender de poder bajar Stockfish de GitHub o de stockfishchess.org
+ * (bloqueados en algunos entornos de desarrollo).
+ *
+ * El motor corre adentro del proceso de Node (no es un proceso aparte): no expone un `stdout` para leer
+ * línea por línea como un binario, así que las respuestas UCI se capturan interceptando `console.log`
+ * (es donde este build manda su salida; no hay un `Module.print` configurable que funcione en este
+ * paquete) — pero SOLO mientras se espera una respuesta puntual (`esperar()` la instala y la saca apenas
+ * llega la línea que busca), para no tapar los `console.log` propios del script que usa el motor el resto
+ * del tiempo. Por eso un solo `MotorNativo` a la vez por proceso, y no se puede hacer `console.log` desde
+ * otro lado mientras una llamada a `analizar()` está en vuelo (no pasa: todo es async de a una jugada).
  */
-import { spawn } from 'node:child_process'
-import { createInterface } from 'node:readline'
+import stockfishFactory from 'stockfish'
 import { chancesDeGanar, invertir, type Evaluacion } from '../src/lib/ajedrez/evaluacion.ts'
 import { fensDeLinea } from '../src/lib/aperturas/arbol.ts'
-
-const RUTA =
-  process.env.STOCKFISH ??
-  'D:/Documentos de Mati/Facultad/2025 - 1er cuatrimestre/Ajedrez/Claude Ajedrez/Claude outputs/Stockfish - instalar y analizar/stockfish/stockfish.exe'
 
 export interface Analisis {
   ev: Evaluacion
@@ -19,32 +26,44 @@ export interface Analisis {
 }
 
 export class MotorNativo {
-  private proc = spawn(RUTA, [], { stdio: ['pipe', 'pipe', 'inherit'] })
+  private motor: { sendCommand(comando: string): void } | undefined
   private oyente: ((l: string) => void) | undefined
   private cache = new Map<string, Analisis>()
   private listo: Promise<void>
   private profundidad: number
 
-  /** Con un solo hilo, Stockfish da siempre el mismo resultado: necesario para verificaciones reproducibles. */
+  /**
+   * Con un solo hilo, Stockfish da siempre el mismo resultado: necesario para verificaciones
+   * reproducibles. `hilos` queda por compatibilidad con los llamadores existentes, pero el build
+   * `single` solo admite 1 (lo rechaza cualquier otro valor), así que se ignora en la práctica.
+   */
   constructor(profundidad: number, hilos = 1) {
     this.profundidad = profundidad
-    createInterface({ input: this.proc.stdout }).on('line', (l) => this.oyente?.(l))
-    this.listo = this.esperar((l) => l === 'readyok')
-    this.enviar('uci')
-    this.enviar(`setoption name Threads value ${hilos}`)
-    this.enviar('setoption name Hash value 256')
-    this.enviar('isready')
+    this.listo = stockfishFactory('single').then((motor) => {
+      this.motor = motor
+      const listo = this.esperar((l) => l === 'readyok')
+      this.enviar('uci')
+      this.enviar(`setoption name Threads value ${hilos}`)
+      this.enviar('setoption name Hash value 256')
+      this.enviar('isready')
+      return listo
+    })
   }
 
   private enviar(c: string) {
-    this.proc.stdin.write(c + '\n')
+    this.motor!.sendCommand(c)
   }
 
   private esperar(fin: (l: string) => boolean, cada?: (l: string) => void): Promise<void> {
+    const original = console.log
+    console.log = (...args: unknown[]) => this.oyente?.(args.map(String).join(' '))
     return new Promise((ok) => {
       this.oyente = (l) => {
         cada?.(l)
-        if (fin(l)) ok()
+        if (fin(l)) {
+          console.log = original
+          ok()
+        }
       }
     })
   }
