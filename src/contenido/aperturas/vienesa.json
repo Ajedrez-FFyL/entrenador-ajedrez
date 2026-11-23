@@ -470,7 +470,7 @@
   "verificacion": {
     "motor": "Stockfish",
     "profundidad": 18,
-    "fecha": "2026-10-18",
+    "fecha": "2026-11-22",
     "resultados": {
       "e2e4 e7e5 b1c3": {
         "ok": true,
@@ -481,12 +481,12 @@
         "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 f8e7 (por qué no)": {
-        "ok": true,
-        "detalle": "Pierde 5 puntos de chances: −0,2 → −0,7. Refutación: d4 d6 dxe5 dxe5 Dxd8+ Axd8"
+        "ok": false,
+        "detalle": "Pierde 4 puntos de chances: −0,2 → −0,6. Refutación: Cf3 d6 d4 Cd7 g4 c6"
       },
       "e2e4 e7e5 b1c3 c7c6 (por qué no)": {
         "ok": true,
-        "detalle": "Pierde 4 puntos de chances: −0,2 → −0,6. Refutación: d4 d6 Cf3 Dc7 Ac4 Cf6"
+        "detalle": "Pierde 5 puntos de chances: −0,2 → −0,7. Refutación: d4 d6 f4 exd4 Dxd4 Cf6"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4": {
         "ok": true,
@@ -498,43 +498,43 @@
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 e5f4 (por qué no)": {
         "ok": true,
-        "detalle": "Pierde 6 puntos de chances: +0,2 → −0,5. Refutación: e5 Cg8 Cf3 d6 d4 dxe5"
+        "detalle": "Pierde 7 puntos de chances: +0,2 → −0,5. Refutación: e5 Cg8 Cf3 d6 d4 dxe5"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 b8c6 (por qué no)": {
         "ok": true,
-        "detalle": "Pierde 17 puntos de chances: +0,2 → −1,7. Refutación: fxe5 Cxe5 d4 Cg6 e5 Cg8"
+        "detalle": "Pierde 15 puntos de chances: +0,2 → −1,4. Refutación: fxe5 Cxe5 d4 Cg6 e5 Cg8"
       },
       "e2e4 e7e5 b1c3 g8f6 f1c4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f1c4 f6e4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): 0,0 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,3 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f1c4 f6e4 d1h5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): 0,0 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f1c4 f6e4 c3e4 (por qué no)": {
         "ok": true,
-        "detalle": "Pierde 8 puntos de chances: +0,1 → −0,8. Refutación: d5 Ad3 dxe4 Axe4 f5 Af3"
+        "detalle": "Pierde 6 puntos de chances: 0,0 → −0,7. Refutación: d5 Ad3 dxe4 Axe4 f5 Af3"
       },
       "e2e4 e7e5 b1c3 g8f6 f1c4 f6e4 d1h5 e4d6 c4b3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): 0,0 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 g2g3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f2f4 e5f4 g1f3 g7g5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,5 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,6 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f1c4 f6e4 d1h5 e4d6": {
         "ok": true,
@@ -542,19 +542,19 @@
       },
       "e2e4 e7e5 b1c3 g8f6 f1c4 f6e4 d1h5 b8c6 (por qué no)": {
         "ok": true,
-        "detalle": "Pierde 49 puntos de chances: −0,2 → recibe mate en 1. Refutación: Dxf7#"
+        "detalle": "Pierde 48 puntos de chances: −0,2 → recibe mate en 1. Refutación: Dxf7#"
       },
       "e2e4 e7e5 b1c3 g8f6 f1c4 f6e4 d1h5 d7d5 (por qué no)": {
         "ok": true,
-        "detalle": "Pierde 16 puntos de chances: −0,2 → −1,9. Refutación: Dxe5+ De7 Dxe7+ Axe7 Cxd5 Ad8"
+        "detalle": "Pierde 13 puntos de chances: −0,2 → −1,7. Refutación: Axd5 Cd6 Dxe5+ De7 Dxe7+ Axe7"
       },
       "e2e4 e7e5 b1c3 g8f6 f1c4 f6e4 d1h5 e4d6 c4b3 f8e7": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): 0,0 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f1c4 f6e4 d1h5 e4d6 c4b3 b8c6 (por qué no)": {
         "ok": true,
-        "detalle": "Pierde 21 puntos de chances: −0,0 → −2,5. Refutación: Cb5 g6 Df3 Cf5 Dd5 De7"
+        "detalle": "Pierde 6 puntos de chances: 0,0 → −0,7. Refutación: Cb5 g6 Df3 Cf5 Dd5 Ch6"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3": {
         "ok": true,
@@ -562,15 +562,15 @@
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 f8e7": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 d2d3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18) prefiere Cf3: −0,1 contra −0,7 (marcada como inferior pero jugable)"
+        "detalle": "Stockfish (prof. 18) prefiere Cf3: −0,1 contra −0,6 (marcada como inferior pero jugable)"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 d2d3 e4c3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,7 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,6 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 e5f4 e4e5": {
         "ok": true,
@@ -578,59 +578,59 @@
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 e5f4 f1c4 (por qué no)": {
         "ok": true,
-        "detalle": "Pierde 6 puntos de chances: +0,5 → −0,2. Refutación: c6 d4 d5 exd5 cxd5 Ab5+"
+        "detalle": "Pierde 7 puntos de chances: +0,5 → −0,2. Refutación: c6 d4 d5 exd5 cxd5 Ab5+"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 e5f4 g1f3 (por qué no)": {
         "ok": true,
-        "detalle": "Pierde 8 puntos de chances: +0,5 → −0,4. Refutación: d5 exd5 Cxd5 Ab5+ c6 De2+"
+        "detalle": "Pierde 9 puntos de chances: +0,5 → −0,5. Refutación: d5 exd5 Cxd5 Ab5+ c6 De2+"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 e5f4 e4e5 f6g8": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,6 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,4 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 e5f4 e4e5 d8e7 (por qué no)": {
         "ok": true,
-        "detalle": "Pierde 18 puntos de chances: −0,6 → −2,7. Refutación: De2 Cg8 d4 d5 Cxd5 Dd8"
+        "detalle": "Pierde 15 puntos de chances: −0,4 → −2,2. Refutación: De2 Cg8 d4 Cc6 Cf3 d5"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 e5f4 e4e5 b8c6 (por qué no)": {
         "ok": true,
-        "detalle": "Pierde 23 puntos de chances: −0,6 → −3,4. Refutación: exf6 Dxf6 De2+ Rd8 Rd1 h6"
+        "detalle": "Pierde 16 puntos de chances: −0,4 → −2,3. Refutación: exf6 Dxf6 De2+ Rd8 Rd1 h6"
       },
       "e2e4 e7e5 b1c3 g8f6 g2g3 d7d5 e4d5 f6d5 f1g2 d5c3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f1c4 g8f6": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,0 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 f8c5 g1f3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,4 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,3 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 g2g3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 g2g3 f8c5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f2f4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f2f4 e5f4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f2f4 e5f4 d2d4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,4 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,3 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f2f4 e5f4 d2d4 d8h4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,4 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,3 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5": {
         "ok": true,
@@ -638,15 +638,15 @@
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 d2d3 d8h4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,4 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,5 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 d1f3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 d1f3 f7f5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,3 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 e4d5": {
         "ok": true,
@@ -654,23 +654,23 @@
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 e4d5 e5e4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,3 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 e4d5 e5e4 d2d3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 e4d5 e5e4 d2d3 f8b4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 e4d5 e5e4 d2d3 f8b4 c1d2": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,5 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 e4d5 e5e4 d2d3 f8b4 c1d2 e4e3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): 0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 g2g3 d7d5": {
         "ok": true,
@@ -682,43 +682,43 @@
       },
       "e2e4 e7e5 b1c3 g8f6 g2g3 d7d5 e4d5 c7c6": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): 0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f1c4 f6e4 d1h5 e4d6 c4b3 b8c6": {
-        "ok": true,
-        "detalle": "Stockfish (prof. 18) confirma el error: pierde 0.423"
+        "ok": false,
+        "detalle": "Stockfish (prof. 18) prefiere Ae7: 0,0 contra −0,7"
       },
       "e2e4 e7e5 f1c4 g8f6 b1c3 f6e4 d1h5 e4d6 c4b3 f8e7 g1f3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
       },
       "e2e4 e7e5 f1c4 g8f6 b1c3 f6e4 d1h5 e4d6 c4b3 f8e7 g1f3 b8c6": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 d2d3 d8h4 g2g3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,4 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,5 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 d2d3 d8h4 g2g3 e4g3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,0 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 d2d3 d8h4 g2g3 e4g3 g1f3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,4 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 d2d3 d8h4 g2g3 e4g3 g1f3 h4h5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,6 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 c8g4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18) prefiere Ac5: +0,2 contra −0,2 (marcada como inferior pero jugable)"
+        "detalle": "Stockfish (prof. 18) prefiere Ac5: +0,3 contra −0,1 (marcada como inferior pero jugable)"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 c8g4 d1e2": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 e5f4": {
         "ok": true,
@@ -726,43 +726,43 @@
       },
       "e2e4 e7e5 b1c3 b8c6": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f1c4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,0 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f1c4 g8f6 f2f4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18) confirma el error: pierde 0.252"
+        "detalle": "Stockfish (prof. 18) confirma el error: pierde 0.211"
       },
       "e2e4 e7e5 b1c3 b8c6 f1c4 g8f6 f2f4 f6e4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +1,4 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +1,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f1c4 g8f6 f2f4 f6e4 g1f3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −1,3 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −1,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 f8c5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,4 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,3 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 f8c5 d1g4": {
-        "ok": true,
-        "detalle": "Stockfish (prof. 18) prefiere Cf3: +0,4 contra −0,4 (marcada como inferior pero jugable)"
+        "ok": false,
+        "detalle": "Stockfish (prof. 18) prefiere Cf3: +0,3 contra −0,5"
       },
       "e2e4 e7e5 b1c3 d7d6": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,5 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,6 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 d7d6 f2f4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18) prefiere d4: +0,5 contra +0,0 (marcada como inferior pero jugable)"
+        "detalle": "Stockfish (prof. 18) prefiere d4: +0,6 contra +0,1 (marcada como inferior pero jugable)"
       },
       "e2e4 e7e5 b1c3 f8b4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,4 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,5 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 f8b4 d1g4": {
         "ok": true,
@@ -774,75 +774,75 @@
       },
       "e2e4 e7e5 b1c3 b8c6 g2g3 f8c5 f1g2 h7h5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,3 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 g2g3 f8c5 f1g2 h7h5 g1f3": {
-        "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
+        "ok": false,
+        "detalle": "Stockfish (prof. 18) prefiere h3: +0,3 contra −0,2"
       },
       "e2e4 e7e5 b1c3 b8c6 g2g3 g8f6": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): 0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 g2g3 g8f6 f1g2": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): 0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 g2g3 g8f6 f1g2 f8c5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): 0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 g2g3 g8f6 f1g2 f8c5 g1e2": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): 0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 g2g3 g8f6 f1g2 f8c5 g1e2 d7d5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18) prefiere a5: 0,0 contra −0,6 (marcada como inferior pero jugable)"
+        "detalle": "Stockfish (prof. 18) prefiere a5: −0,1 contra −0,8 (marcada como inferior pero jugable)"
       },
       "e2e4 e7e5 b1c3 b8c6 g2g3 g8f6 f1g2 f8c5 g1e2 d7d5 e4d5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,6 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,8 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 f8c5 c3a4": {
-        "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+        "ok": false,
+        "detalle": "Stockfish (prof. 18) prefiere Cf3: +0,3 contra −0,3"
       },
       "e2e4 e7e5 b1c3 b8c6 d2d4": {
-        "ok": true,
-        "detalle": "Stockfish (prof. 18) prefiere Cge2: +0,1 contra −0,6 (marcada como inferior pero jugable)"
+        "ok": false,
+        "detalle": "Stockfish (prof. 18) prefiere Cf3: +0,1 contra −0,8"
       },
       "e2e4 e7e5 b1c3 b8c6 d2d4 e5d4": {
-        "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,3 para el bando que mueve"
+        "ok": false,
+        "detalle": "Stockfish (prof. 18) prefiere Cxd4: +0,8 contra +0,3"
       },
       "e2e4 e7e5 b1c3 b8c6 f2f4 e5f4 g1f3 g7g5 f1c4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18) prefiere g3: −0,5 contra −1,2 (marcada como inferior pero jugable)"
+        "detalle": "Stockfish (prof. 18) prefiere g3: −0,6 contra −1,1 (marcada como inferior pero jugable)"
       },
       "e2e4 e7e5 b1c3 b8c6 f2f4 e5f4 g1f3 g7g5 f1c4 g5g4 e1g1": {
-        "ok": true,
-        "detalle": "Stockfish (prof. 18): −1,3 para el bando que mueve"
+        "ok": false,
+        "detalle": "Stockfish (prof. 18) prefiere d4: −1,1 contra −1,5"
       },
       "e2e4 e7e5 b1c3 b8c6 f2f4 e5f4 g1f3 g7g5 d2d4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18) prefiere g3: −0,5 contra −1,2 (marcada como inferior pero jugable)"
+        "detalle": "Stockfish (prof. 18) prefiere g3: −0,6 contra −1,1 (marcada como inferior pero jugable)"
       },
       "e2e4 e7e5 b1c3 b8c6 f2f4 e5f4 g1f3 f8e7": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18) prefiere g5: +0,5 contra −0,2 (marcada como inferior pero jugable)"
+        "detalle": "Stockfish (prof. 18) prefiere g5: +0,6 contra −0,2 (marcada como inferior pero jugable)"
       },
       "e2e4 e7e5 b1c3 b8c6 f2f4 f8c5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18) prefiere exf4: +0,2 contra −0,2 (marcada como inferior pero jugable)"
+        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f2f4 f8c5 f4e5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f2f4 f8c5 f4e5 d7d6": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 a2a3": {
         "ok": true,
@@ -854,7 +854,7 @@
       },
       "e2e4 e7e5 b1c3 g8f6 f1c4 f6e4 d1h5 e4d6 c4b3 b8c6 d2d4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18) confirma el error: pierde 0.577"
+        "detalle": "Stockfish (prof. 18) confirma el error: pierde 0.269"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 d1f3 f7f5 d2d4": {
         "ok": true,
@@ -870,7 +870,7 @@
       },
       "e2e4 e7e5 b1c3 b8c6 f1c4 g8f6 d2d3 f8b4 g1e2 d7d5 e4d5 f6d5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f1c4 g8f6 d2d3 f8b4 g1e2 d7d5 e4d5 f6d5 e1g1": {
         "ok": true,
@@ -878,19 +878,19 @@
       },
       "e2e4 e7e5 b1c3 b8c6 f1c4 g8f6 d2d3 f8b4 g1e2 d7d5 e4d5 f6d5 e1g1 c8e6": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f1c4 g8f6 d2d3 f8b4 g1e2 d7d5 e4d5 f6d5 e1g1 c8e6 c4d5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f1c4 g8f6 d2d3 f8b4 g1e2 d7d5 e4d5 f6d5 e1g1 c8e6 c4d5 e6d5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f1c4 g8f6 d2d3 f8b4 g1e2 d7d5 e4d5 f6d5 e1g1 c8e6 c4d5 e6d5 f2f4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,0 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 f1c4 g8f6 d2d3 f8b4 g1e2 d7d5 e4d5 f6d5 e1g1 c8e6 c4d5 e6d5 f2f4 e8g8": {
         "ok": true,
@@ -898,19 +898,19 @@
       },
       "e2e4 e7e5 b1c3 b8c6 f1c4 g8f6 d2d3 f8b4 g1e2 d7d5 e4d5 f6d5 e1g1 c8e6 c4d5 e6d5 f2f4 e8g8 f4f5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 b8c6 d2d4 f7f5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18) confirma el error: pierde 0.435"
+        "detalle": "Stockfish (prof. 18) confirma el error: pierde 0.427"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 f8e7 d1e2": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,3 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 f8e7 d1e2 e4c3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): 0,0 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 f8e7 d1e2 e4c3 d2c3": {
         "ok": true,
@@ -918,47 +918,47 @@
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 f8e7 d1e2 e4c3 d2c3 c7c5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,2 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 f8e7 d1e2 e4c3 d2c3 c7c5 c1f4": {
-        "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,4 para el bando que mueve"
+        "ok": false,
+        "detalle": "Stockfish (prof. 18) prefiere Df2: 0,0 contra −0,5"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 f8e7 d1e2 e4c3 d2c3 c7c5 c1f4 b8c6": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,4 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,3 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 f8e7 d1e2 e4c3 d2c3 c7c5 c1f4 b8c6 e1c1": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,5 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,3 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 f8e7 d1e2 e4c3 d2c3 c7c5 c1f4 b8c6 e1c1 c8e6": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,3 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,6 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 f8e7 d1e2 e4c3 d2c3 c7c5 c1f4 b8c6 e1c1 c8e6 h2h4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,4 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,5 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 f8e7 d1e2 e4c3 d2c3 e8g8": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 g8f6 f2f4 d7d5 f4e5 f6e4 g1f3 f8e7 d1e2 f7f5": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,1 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,0 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 d7d6 f2f4 g8f6": {
-        "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,3 para el bando que mueve"
+        "ok": false,
+        "detalle": "Stockfish (prof. 18) prefiere exf4: −0,1 contra −0,5"
       },
       "e2e4 e7e5 b1c3 d7d6 f2f4 g8f6 g1f3": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): +0,3 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): +0,5 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 d7d6 f2f4 g8f6 g1f3 b8d7": {
-        "ok": false,
-        "detalle": "Stockfish (prof. 18) prefiere Cc6: −0,5 contra −1,0"
+        "ok": true,
+        "detalle": "Stockfish (prof. 18): −0,8 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 d7d6 f2f4 g8f6 g1f3 c8g4": {
         "ok": true,
@@ -966,7 +966,7 @@
       },
       "e2e4 e7e5 b1c3 d7d6 f2f4 e5f4": {
         "ok": true,
-        "detalle": "Stockfish (prof. 18): −0,0 para el bando que mueve"
+        "detalle": "Stockfish (prof. 18): −0,1 para el bando que mueve"
       },
       "e2e4 e7e5 b1c3 d7d6 f2f4 g8f6 g1f3 e5f4": {
         "ok": true,

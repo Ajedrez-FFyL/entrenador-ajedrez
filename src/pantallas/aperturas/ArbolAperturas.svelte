@@ -116,6 +116,7 @@
           aria-label={n.curso && !n.hijos.length ? `Agregar ${n.nombre}` : n.curso ? n.nombre : `Abrir ${n.nombre}`}
         >
           <span class="nombre">{n.nombre}</span>
+          {#if n.rangoEco}<span class="suave rango-eco">{n.rangoEco}</span>{/if}
           <MiniTablero fen={fen(n)} orientacion={color} />
           {#if n.raiz.length}<span class="suave detalle">{jugadasDeNodo(n.raiz)}</span>{/if}
           {#if n.variantes}<span class="suave detalle">{n.curso ? textoVariantes(n) : `${n.variantes} aperturas adentro`}</span>{/if}
@@ -248,6 +249,9 @@
   }
   .detalle {
     font-size: 0.78rem;
+  }
+  .rango-eco {
+    font-size: 0.72rem;
   }
   .estudio {
     color: #3f9b4b;
