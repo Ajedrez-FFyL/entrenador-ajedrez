@@ -25,7 +25,7 @@
   /** Una jugada distinta de la del motor cuenta como correcta si pierde menos que esto de chances de ganar. */
   const TOLERANCIA = 0.06
 
-  type Estado = 'resolver' | 'verificando' | 'resuelto'
+  type Estado = 'resolver' | 'verificando' | 'error' | 'resuelto'
   interface Intento {
     uci: string
     san: string
@@ -39,6 +39,8 @@
   let estado = $state<Estado>('resolver')
   let resultado = $state<ResultadoIntento>()
   let usoPista = $state(false)
+  // Se equivocó al menos una vez antes de resolverlo bien: para el repaso espaciado cuenta como "difícil".
+  let fallado = $state(false)
   let intento = $state<Intento>()
   let linea = $state<Linea>()
   let vista = $state<{ fen: string; ultima?: string; proxima?: string }>()
@@ -68,7 +70,7 @@
     const f: Flecha[] = []
     if (mejorMotor) f.push({ de: mejorMotor.slice(0, 2), a: mejorMotor.slice(2, 4), color: 'blue' })
     if (linea && vista?.proxima) f.push({ de: vista.proxima.slice(0, 2), a: vista.proxima.slice(2, 4), color: 'blue' })
-    else if (estado === 'resolver' && usoPista) f.push({ de: error.mejor.slice(0, 2), color: 'green' })
+    else if ((estado === 'resolver' || estado === 'error') && usoPista) f.push({ de: error.mejor.slice(0, 2), color: 'green' })
     return f
   })
 
@@ -85,7 +87,7 @@
       ex?.jugar(uci)
       return
     }
-    if (estado !== 'resolver') return
+    if (estado !== 'resolver' && estado !== 'error') return
     const pos = posActual()
     const despues = jugarUci(pos, uci)
     if (!despues) return
@@ -95,7 +97,7 @@
 
     if (uci === error.mejor || despues.isCheckmate()) {
       intento = { ...base, correcta: true }
-      terminar(usoPista ? 'pista' : 'bien')
+      terminar(fallado || usoPista ? 'pista' : 'bien')
       return
     }
 
@@ -107,10 +109,10 @@
     intento = { ...base, correcta, evMia, refutacion: r.linea, motivo: correcta ? [] : detectarMotivoError(fenDespues, r.linea, r.ev) }
     vista = undefined
     if (correcta) {
-      terminar(usoPista ? 'pista' : 'bien')
+      terminar(fallado || usoPista ? 'pista' : 'bien')
     } else {
-      terminar('mal')
-      verLinea({ titulo: `Por qué no ${san}: así responde el rival`, fen: fenDespues, ucis: r.linea })
+      fallado = true
+      estado = 'error'
     }
   }
 
@@ -137,7 +139,7 @@
     <TableroEval
       fen={fenTablero}
       orientacion={error.miColor}
-      puedeMover={estado === 'resolver' ? error.miColor : estado === 'resuelto' && ex && !linea ? ex.turno : undefined}
+      puedeMover={estado === 'resolver' || estado === 'error' ? error.miColor : estado === 'resuelto' && ex && !linea ? ex.turno : undefined}
       ultimaJugada={ultimaTablero}
       {flechas}
       {alJugar} {evaluacion} {etiquetaEval}
@@ -157,6 +159,8 @@
           {/if}
         {:else if estado === 'verificando'}
           Verificando {intento?.san ?? ''} con Stockfish…
+        {:else if estado === 'error'}
+          <strong class="mal">✗ No es la mejor. Probá de nuevo.</strong>
         {:else}
           Jugás con {colorTexto}: encontrá la mejor jugada.
         {/if}
@@ -172,11 +176,24 @@
       <button class="boton principal siguiente" onclick={() => alSeguir(resultado!)}>Siguiente →</button>
     {/if}
 
-    {#if estado === 'resolver'}
+    {#if estado === 'resolver' || estado === 'error'}
       <div class="acciones">
         <button class="boton" onclick={() => (usoPista = true)} disabled={usoPista}>Pista: qué pieza mover</button>
-        <button class="boton" onclick={() => terminar('mal')}>No sé, mostrame</button>
+        {#if estado === 'error' && intento && intento.refutacion.length}
+          <button
+            class="boton"
+            onclick={() => verLinea({ titulo: `Por qué no ${intento!.san}`, fen: intento!.fenDespues, ucis: intento!.refutacion })}
+          >
+            Por qué no {intento.san}
+          </button>
+        {/if}
+        <button class="boton" onclick={() => terminar('mal')}>{estado === 'error' ? 'Ver la solución' : 'No sé, mostrame'}</button>
       </div>
+    {/if}
+
+    {#if linea && estado === 'error'}
+      <VisorLinea {linea} alMover={(fen, ultima, proxima) => (vista = { fen, ultima, proxima })} />
+      <button class="boton enlace" onclick={cerrarLinea}>Volver a intentar</button>
     {/if}
 
     {#if estado === 'resuelto'}

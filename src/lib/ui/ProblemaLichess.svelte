@@ -118,8 +118,11 @@
 
   async function aceptar(uci: string, despues: Position) {
     hist = [...hist, uci]
+    // Llegar hasta aquí ya significa que la jugada es correcta: si antes hubo un error o se usó la
+    // pista, el repaso lo cuenta como "difícil" (Hard), no como "otra vez" (Again) — eso es solo para
+    // cuando se pide ver la solución (terminar('mal', true), más abajo).
     if (despues.isCheckmate() || hist.length >= total) {
-      terminar(fallado ? 'mal' : pista ? 'pista' : 'bien')
+      terminar(fallado || pista ? 'pista' : 'bien')
       return
     }
     if (desvio === undefined) {
@@ -131,7 +134,7 @@
     estado = 'verificando'
     const r = await motorInteractivo().analizar(fenActual, { profundidad: 14 })
     if (!r.mejor) {
-      terminar(fallado ? 'mal' : pista ? 'pista' : 'bien')
+      terminar(fallado || pista ? 'pista' : 'bien')
       return
     }
     hist = [...hist, r.mejor]
@@ -249,6 +252,7 @@
       <div class="fila">
         <button class="boton principal" onclick={() => { reintentar(); mensaje = '' }}>Volver a intentar</button>
         {#if tentativa?.porQue}<button class="boton" onclick={() => (linea = tentativa?.porQue)}>Ver por qué no</button>{/if}
+        <button class="boton" onclick={() => (pista = true)} disabled={pista || desvio !== undefined}>Pista</button>
         <button class="boton" onclick={() => terminar('mal', true)}>Ver la solución</button>
       </div>
       {#if linea}
