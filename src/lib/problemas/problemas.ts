@@ -124,9 +124,10 @@ export const idRepaso = (p: Problema) => `${PREFIJO[esDeLibro(p) ? 'libros' : 'l
 
 export interface FiltrosProblemas {
   origen?: Origen
-  tema?: string
-  /** Solo problemas de libros: título del libro. */
-  libro?: string
+  /** Selección múltiple: entra si tiene al menos uno. Sin definir, o con todas las opciones elegidas, no filtra. */
+  temas?: string[]
+  /** Solo problemas de libros: selección múltiple de títulos, misma regla que `temas`. */
+  libros?: string[]
   ratingMin: number
   ratingMax: number
 }
@@ -139,12 +140,25 @@ function inicioDelDia(): number {
   return d.getTime()
 }
 
+/**
+ * Filtro de selección múltiple: sin elegir nada (`undefined`) no filtra; con todo el universo elegido
+ * tampoco (equivale a "Todos"); si no, entra con que tenga al menos uno de los elegidos.
+ */
+function pasaSeleccion(valores: (string | undefined)[], elegidos: string[] | undefined, universo: string[]): boolean {
+  if (elegidos === undefined || elegidos.length === universo.length) return true
+  if (!elegidos.length) return false
+  return valores.some((v) => v !== undefined && elegidos.includes(v))
+}
+
 export async function estadoProblemas(f: FiltrosProblemas) {
   const origen = f.origen ?? 'lichess'
-  const todos = (await cargarProblemas(origen)).filter(
+  const temasUniverso = origen === 'libros' ? TEMAS_LIBROS : TEMAS_FILTRO
+  const todosOrigen = await cargarProblemas(origen)
+  const librosUniverso = [...new Set(todosOrigen.map((p) => p.fuente?.titulo).filter((t): t is string => !!t))]
+  const todos = todosOrigen.filter(
     (p) =>
-      (!f.tema || p.temas.includes(f.tema)) &&
-      (!f.libro || p.fuente?.titulo === f.libro) &&
+      pasaSeleccion(p.temas, f.temas, temasUniverso) &&
+      pasaSeleccion([p.fuente?.titulo], f.libros, librosUniverso) &&
       (origen === 'libros' || ((p.rating ?? 0) >= f.ratingMin && (p.rating ?? 0) <= f.ratingMax)),
   )
   const repasos = await db.repasos.where('errorId').startsWith(PREFIJO[origen]).toArray()

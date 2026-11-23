@@ -2,6 +2,7 @@
   import { armarSesionProblemas, cargarProblemas, estadoProblemas, FILTROS_PROBLEMAS, nombreTema, TEMAS_FILTRO, TEMAS_LIBROS, type FiltrosProblemas, type Origen, type Problema } from '../lib/problemas/problemas.ts'
   import type { ResultadoIntento } from '../lib/repaso/repaso.ts'
   import ProblemaLichess from '../lib/ui/ProblemaLichess.svelte'
+  import SelectorMultiple from '../lib/ui/SelectorMultiple.svelte'
 
   const RANGOS: [number, number, string][] = [
     [1400, 1700, '1400 a 1700'],
@@ -13,6 +14,7 @@
 
   let { origen = 'lichess' }: { origen?: Origen } = $props()
   let temas = $derived(origen === 'libros' ? TEMAS_LIBROS : TEMAS_FILTRO)
+  let opcionesTemas = $derived(temas.map((t) => ({ valor: t, etiqueta: nombreTema(t) })))
 
   // El componente se crea de nuevo al cambiar de origen (está dentro de un {#key}).
   // svelte-ignore state_referenced_locally
@@ -31,6 +33,7 @@
     hayDatos = p.length > 0
     libros = [...new Set(p.map((x) => x.fuente?.titulo).filter((t): t is string => !!t))].sort()
   })
+  let opcionesLibros = $derived(libros.map((l) => ({ valor: l, etiqueta: l })))
 
   $effect(() => {
     filtros.ratingMin = RANGOS[rango][0]
@@ -43,7 +46,7 @@
   }
 
   $effect(() => {
-    void [filtros.tema, filtros.libro, filtros.ratingMin, filtros.ratingMax]
+    void [filtros.temas, filtros.libros, filtros.ratingMin, filtros.ratingMax]
     actualizar()
   })
 
@@ -104,21 +107,20 @@
   </section>
   <section class="tarjeta">
     <h2>Filtros</h2>
-    <label>
-      Tema
-      <select bind:value={filtros.tema}>
-        <option value={undefined}>Todos</option>
-        {#each temas as t (t)}<option value={t}>{nombreTema(t)}</option>{/each}
-      </select>
-    </label>
+    <div class="campo">
+      <span class="rotulo">Tema</span>
+      <SelectorMultiple
+        opciones={opcionesTemas}
+        etiqueta="tema"
+        claveStorage={`tactica-temas-${origen}`}
+        alCambiar={(v) => (filtros.temas = v)}
+      />
+    </div>
     {#if origen === 'libros'}
-      <label>
-        Libro
-        <select bind:value={filtros.libro}>
-          <option value={undefined}>Todos</option>
-          {#each libros as l (l)}<option value={l}>{l}</option>{/each}
-        </select>
-      </label>
+      <div class="campo">
+        <span class="rotulo">Libro</span>
+        <SelectorMultiple opciones={opcionesLibros} etiqueta="libro" claveStorage="tactica-libros" alCambiar={(v) => (filtros.libros = v)} />
+      </div>
     {:else}
       <label>
         Rating
@@ -144,6 +146,17 @@
     gap: 8px;
   }
   select {
+    flex: 1;
+  }
+  .campo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .campo .rotulo {
+    flex: none;
+  }
+  .campo :global(.selector-multiple) {
     flex: 1;
   }
 </style>
