@@ -46,7 +46,7 @@
  */
 import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs'
 import { invertir, textoEvaluacion, type Evaluacion } from '../src/lib/ajedrez/evaluacion.ts'
-import { fenDe, jugadaLegal, jugarUci, posDesdeFen, uciDeSan } from '../src/lib/ajedrez/posicion.ts'
+import { fenDe, jugadaLegal, jugarUci, lineaSan, posDesdeFen, uciDeSan } from '../src/lib/ajedrez/posicion.ts'
 import { fensDeLinea } from '../src/lib/aperturas/arbol.ts'
 import type { Explicacion } from '../src/lib/aperturas/explicaciones.ts'
 import { MotorNativo } from './lib-motor.ts'
@@ -130,10 +130,12 @@ async function verificarJugada(curso: string, campo: string, texto: string, san:
     detalle = ''
   } else {
     const sig = jugarUci(posDesdeFen(fen), uci)!
-    const despues = await motor.analizar(fenDe(sig))
+    const fenSig = fenDe(sig)
+    const despues = await motor.analizar(fenSig)
     const evDespues = invertir(despues.ev)
     perdida = peones(antes.ev) - peones(evDespues)
-    detalle = `Stockfish (prof. ${PROFUNDIDAD}) prefiere ${antes.mejor}: ${textoEvaluacion(antes.ev)} contra ${textoEvaluacion(evDespues)} (pierde ${perdida.toFixed(2)} peones)`
+    const refutacion = lineaSan(fenSig, despues.pv.slice(0, 5)).join(' ')
+    detalle = `Stockfish (prof. ${PROFUNDIDAD}) prefiere ${antes.mejor}: ${textoEvaluacion(antes.ev)} contra ${textoEvaluacion(evDespues)} (pierde ${perdida.toFixed(2)} peones). Refutación: ${refutacion}`
   }
   if (perdida > MAXIMO_PEONES) perdedoras.push({ curso, campo, texto, jugada: san, fen, detalle })
 }
