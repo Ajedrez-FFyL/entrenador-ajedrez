@@ -59,8 +59,10 @@ ${perdedoras.map(filaPerdedora).join('\n')}
 
 ## No ubicables — planes genéricos, para revisión humana (${noUbicables.length})
 
-Textos de \`planesBlancas\`/\`planesNegras\`/\`estructura\`/\`rupturas\` que mencionan al menos una jugada;
-no se verifican porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera del script).
+Textos de \`planesBlancas\`/\`planesNegras\`/\`estructura\`/\`rupturas\` que mencionan al menos una jugada, y
+cualquier otro texto con «prepara» (siempre describe una jugada de varias más adelante). No se verifican
+porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera de
+\`scripts/verificar-textos.ts\`).
 
 | Curso | Campo | Texto |
 | --- | --- | --- |

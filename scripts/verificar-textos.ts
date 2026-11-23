@@ -21,10 +21,15 @@
  *
  * Limitación conocida (heurística, no hay forma de evitarla sin leer el texto): una jugada de peón SIN
  * captura ni coronación («e5», «d4» sueltos) no se verifica — ver el comentario de PATRON_JUGADA, era la
- * fuente de miles de falsos «ilegal» («ataca e5» no es la jugada e5). El extractor también puede confundir
- * una jugada de pieza real con una mención que no es una jugada propuesta («el alfil de d3 queda activo»);
- * por eso esto es un primer filtro mecánico, no un veredicto. El paso 3 de C3 (revisión manual con Opus)
- * decide caso por caso; este script no corrige ni marca nada en los JSON.
+ * fuente de miles de falsos «ilegal» («ataca e5» no es la jugada e5). Un texto con «prepara» (siempre
+ * describe una jugada de varias más adelante, no la de este nodo: «prepara Cc3») va directo a «no
+ * ubicables», igual que los planes generales. El extractor también puede confundir una jugada de pieza
+ * real con una mención que no es una jugada propuesta («el alfil de d3 queda activo») o con una descripción
+ * condicional de varias jugadas más adelante («si el blanco recupera con la dama, ...Cc6 la ataca»: la
+ * posición de ese nodo no es donde se podría jugar ...Cc6); por eso esto es un primer filtro mecánico, no
+ * un veredicto, y toda fila de «ilegales»/«perdedoras» puede ser en realidad una de estas dos cosas. El
+ * paso 3 de C3 (revisión manual con Opus) decide caso por caso; este script no corrige ni marca nada en
+ * los JSON.
  *
  * Uso: node scripts/verificar-textos.ts [profundidad] [archivo ...]
  * Sin archivos, revisa los 96 y escribe el .md final. Con archivos (para correr varios procesos en
@@ -80,16 +85,11 @@ const ilegales: Resultado[] = []
 const perdedoras: Resultado[] = []
 const noUbicables: Resultado[] = []
 
-/** Comprueba la primera jugada del texto en `fen`; agrega a `ilegales` o `perdedoras` si corresponde. */
-async function verificarEnPosicion(curso: string, campo: string, texto: string, fen: string) {
-  const [san] = jugadasEnTexto(texto)
-  if (!san) return
-  const pos = posDesdeFen(fen)
-  const uci = uciDeSan(pos, san)
-  if (!uci) {
-    ilegales.push({ curso, campo, texto, jugada: san, fen })
-    return
-  }
+/** «prepara X» siempre describe una jugada de varias más adelante, nunca la de este nodo. */
+const esPlanALargoPlazo = (texto: string) => /\bprepara(n|ndo)?\b/i.test(texto)
+
+/** Analiza `uci` en `fen` y agrega a `ilegales` o `perdedoras` si corresponde; `san` es solo para mostrar. */
+async function verificarJugada(curso: string, campo: string, texto: string, san: string, uci: string, fen: string) {
   const antes = await motor.analizar(fen)
   let perdida: number
   let detalle: string
@@ -97,13 +97,53 @@ async function verificarEnPosicion(curso: string, campo: string, texto: string, 
     perdida = 0
     detalle = ''
   } else {
-    const sig = jugarUci(pos, uci)!
+    const sig = jugarUci(posDesdeFen(fen), uci)!
     const despues = await motor.analizar(fenDe(sig))
     const evDespues = invertir(despues.ev)
     perdida = peones(antes.ev) - peones(evDespues)
     detalle = `Stockfish (prof. ${PROFUNDIDAD}) prefiere ${antes.mejor}: ${textoEvaluacion(antes.ev)} contra ${textoEvaluacion(evDespues)} (pierde ${perdida.toFixed(2)} peones)`
   }
   if (perdida > MAXIMO_PEONES) perdedoras.push({ curso, campo, texto, jugada: san, fen, detalle })
+}
+
+/** Comprueba la primera jugada del texto en `fen`; agrega a `ilegales` o `perdedoras` si corresponde. */
+async function verificarEnPosicion(curso: string, campo: string, texto: string, fen: string) {
+  if (esPlanALargoPlazo(texto)) {
+    noUbicables.push({ curso, campo, texto, fen })
+    return
+  }
+  const [san] = jugadasEnTexto(texto)
+  if (!san) return
+  const uci = uciDeSan(posDesdeFen(fen), san)
+  if (!uci) {
+    ilegales.push({ curso, campo, texto, jugada: san, fen })
+    return
+  }
+  await verificarJugada(curso, campo, texto, san, uci, fen)
+}
+
+/**
+ * Para `porQueNo`: el texto casi siempre arranca repitiendo la jugada mala («6.Cd2? e5!: …»), que ya
+ * conocemos (es `altUci`) y no es una jugada nueva propuesta; si la primera jugada del texto resuelve,
+ * EN LA POSICIÓN DEL PREFIJO (donde se juega la alternativa), a la misma jugada, se descarta y se usa la
+ * siguiente (la refutación, que si menciona una jugada es en `fenAlt`). Sin esto, ese primer token se
+ * terminaba comprobando — mal — como si fuera legal todavía en `fenAlt`, después de jugarse dos veces.
+ */
+async function verificarPorQueNo(curso: string, campo: string, texto: string, fenPrefijo: string, altUci: string, fenAlt: string) {
+  if (esPlanALargoPlazo(texto)) {
+    noUbicables.push({ curso, campo, texto, fen: fenAlt })
+    return
+  }
+  const sanes = jugadasEnTexto(texto)
+  let san = sanes[0]
+  if (san && uciDeSan(posDesdeFen(fenPrefijo), san) === altUci) san = sanes[1]
+  if (!san) return
+  const uci = uciDeSan(posDesdeFen(fenAlt), san)
+  if (!uci) {
+    ilegales.push({ curso, campo, texto, jugada: san, fen: fenAlt })
+    return
+  }
+  await verificarJugada(curso, campo, texto, san, uci, fenAlt)
 }
 
 /** Textos generales (planes, estructura, rupturas): no atados a una jugada, van directo a «no ubicables». */
@@ -127,11 +167,15 @@ for (const archivo of archivos) {
   for (const [clave, nota] of Object.entries(e.notas)) {
     const ucis = clave.split(' ')
     const prefijo = ucis.slice(0, -1)
-    const fenClave = fensDeLinea(ucis).at(-1)
-    if (fenClave) await verificarEnPosicion(e.nombre, `notas["${clave}"].porQue`, nota.porQue, fenClave)
+    // Una nota `error` explica, en `porQue`, qué convenía JUGAR EN VEZ de la jugada marcada como error
+    // ("era mejor X"): esa jugada es una alternativa en la posición ANTERIOR (el prefijo), no una jugada
+    // después de la que se juega. Sin esto, cientos de textos de error daban falsos "ilegal".
+    const fenPorQue = nota.error ? fensDeLinea(prefijo).at(-1) : fensDeLinea(ucis).at(-1)
+    if (fenPorQue) await verificarEnPosicion(e.nombre, `notas["${clave}"].porQue`, nota.porQue, fenPorQue)
+    const fenPrefijo = fensDeLinea(prefijo).at(-1)
     for (const alt of nota.porQueNo ?? []) {
       const fenAlt = fensDeLinea([...prefijo, alt.uci]).at(-1)
-      if (fenAlt) await verificarEnPosicion(e.nombre, `notas["${clave}"].porQueNo["${alt.uci}"]`, alt.texto, fenAlt)
+      if (fenPrefijo && fenAlt) await verificarPorQueNo(e.nombre, `notas["${clave}"].porQueNo["${alt.uci}"]`, alt.texto, fenPrefijo, alt.uci, fenAlt)
     }
   }
 
@@ -180,8 +224,9 @@ ${perdedoras.map(filaPerdedora).join('\n')}
 
 ## No ubicables — planes genéricos, para revisión humana (${noUbicables.length})
 
-Textos de \`planesBlancas\`/\`planesNegras\`/\`estructura\`/\`rupturas\` que mencionan al menos una jugada;
-no se verifican porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera del script).
+Textos de \`planesBlancas\`/\`planesNegras\`/\`estructura\`/\`rupturas\` que mencionan al menos una jugada, y
+cualquier otro texto con «prepara» (siempre describe una jugada de varias más adelante). No se verifican
+porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera del script).
 
 | Curso | Campo | Texto |
 | --- | --- | --- |
