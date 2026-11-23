@@ -32,17 +32,26 @@
     return opciones.map((o) => o.valor)
   }
 
-  // svelte-ignore state_referenced_locally
-  let seleccionados = $state<string[]>(cargar())
+  let seleccionados = $state<string[]>([])
   let abierto = $state(false)
+  // `opciones` puede llegar vacío al crear el componente y completarse después (p. ej. el libro,
+  // que sale de un fetch): recién se elige la selección inicial (localStorage, o todo) cuando ya
+  // hay opciones, y solo una vez.
+  let inicializado = false
+  $effect(() => {
+    if (inicializado || !opciones.length) return
+    inicializado = true
+    seleccionados = cargar()
+  })
 
   $effect(() => {
+    if (!inicializado) return
     alCambiar($state.snapshot(seleccionados))
   })
 
   $effect(() => {
     const v = $state.snapshot(seleccionados)
-    if (!claveStorage) return
+    if (!claveStorage || !inicializado) return
     try {
       localStorage.setItem(claveStorage, JSON.stringify(v))
     } catch {
