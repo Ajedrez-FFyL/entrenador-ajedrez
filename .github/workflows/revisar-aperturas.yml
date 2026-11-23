@@ -1,0 +1,72 @@
+name: Revisar aperturas
+
+# Fase C3, paso 4 (aliviado en la segunda vuelta, 23/11): verifica con Stockfish las jugadas y los textos
+# de las aperturas. Workflow APARTE de deploy.yml para que su `paths` no le filtre también el push al
+# build/deploy (que siguen corriendo en cada push a main, sin excepción, como siempre): este solo se
+# dispara cuando cambia contenido de aperturas o los scripts que lo verifican, y revisa nada más que los
+# archivos tocados en ese push (antes revisaba los 96 en cada corrida y tardaba más de media hora). Con
+# `workflow_dispatch` (botón "Run workflow" en la pestaña Actions) se puede pedir la corrida completa a
+# mano en cualquier momento.
+#
+# Sigue en modo AVISO: `continue-on-error: true` hace que, si falla, el job se vea en rojo en la pestaña
+# Actions pero el resultado del workflow siga en éxito — no llega mail de «Run failed», y al ser un
+# workflow aparte ni siquiera comparte el resultado del workflow de deploy. Para pasarlo a modo BLOQUEO
+# cuando Mati haya corregido las fallas actuales (ver docs/revision-aperturas/*.md): sacar la línea
+# `continue-on-error: true` de este job (y, si se quiere que de verdad frene el deploy, hacer que el job
+# `build` de deploy.yml dependa de este workflow con `workflow_run`, o fusionar los dos workflows).
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/contenido/aperturas/**'
+      - 'scripts/verificar-*.ts'
+  workflow_dispatch:
+
+jobs:
+  revisar-aperturas:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      - name: Decidir qué archivos revisar
+        id: archivos
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Corrida manual: reviso los 96 cursos completos."
+            echo "completo=1" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          ANTES="${{ github.event.before }}"
+          if ! git cat-file -e "$ANTES" 2>/dev/null; then
+            echo "No encuentro el commit anterior al push (push nuevo o historia recortada): reviso los 96 completos."
+            echo "completo=1" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ -n "$(git diff --name-only "$ANTES" "${{ github.sha }}" -- 'scripts/verificar-*.ts')" ]; then
+            echo "Cambió la verificación misma: reviso los 96 cursos completos."
+            echo "completo=1" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          ARCHIVOS=$(git diff --name-only "$ANTES" "${{ github.sha }}" -- 'src/contenido/aperturas/*.json' | xargs -n1 basename | tr '\n' ' ')
+          echo "completo=0" >> "$GITHUB_OUTPUT"
+          echo "archivos=$ARCHIVOS" >> "$GITHUB_OUTPUT"
+          echo "Cursos tocados en este push: ${ARCHIVOS:-ninguno}"
+
+      - name: Verificar jugadas y textos de aperturas (Stockfish 19 WASM, paquete npm — ver el PR)
+        if: steps.archivos.outputs.completo == '1' || steps.archivos.outputs.archivos != ''
+        run: |
+          if [ "${{ steps.archivos.outputs.completo }}" = "1" ]; then
+            node scripts/verificar-explicaciones.ts 18
+            node scripts/verificar-textos.ts 16
+          else
+            node scripts/verificar-explicaciones.ts 18 ${{ steps.archivos.outputs.archivos }}
+            node scripts/verificar-textos.ts 16 ${{ steps.archivos.outputs.archivos }}
+          fi

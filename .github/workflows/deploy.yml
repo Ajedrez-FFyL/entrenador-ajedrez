@@ -30,32 +30,6 @@ jobs:
         with:
           path: dist
 
-  # Fase C3, paso 4: verifica las jugadas y los textos de aperturas con Stockfish. Corre en paralelo al
-  # build (no lo demora) y en modo AVISO: `continue-on-error` hace que, si falla, el job se vea en rojo en
-  # la pestaña Actions pero el resultado del workflow siga en éxito, así que no llega mail de «Run failed»
-  # ni se frena el deploy. Dura cerca de una hora (profundidad 18, un hilo, en el runner de GitHub).
-  #
-  # Para pasarlo a modo BLOQUEO cuando Mati haya corregido las fallas actuales (ver docs/revision-aperturas/
-  # fallas-jugadas.md y textos-dudosos.md): sacar la línea `continue-on-error: true` de este job y agregar
-  # `revisar-aperturas` a la lista de `needs` del job `deploy`.
-  revisar-aperturas:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: sudo apt-get update && sudo apt-get install -y stockfish
-      - name: Verificar jugadas y textos de aperturas (Stockfish 16; ver el PR sobre Stockfish 18)
-        env:
-          STOCKFISH: /usr/games/stockfish
-        run: |
-          node scripts/verificar-explicaciones.ts 18
-          node scripts/verificar-textos.ts 16
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
