@@ -109,14 +109,16 @@ const noUbicables: Resultado[] = []
 /**
  * Señales de que el texto NO describe la jugada del nodo, sino un plan futuro («prepara», «amenaza» —
  * siempre resultó ser la amenaza del PRÓXIMO turno propio, no el de ahora—, «después», «luego», «viene»,
- * «va a», «antes de», «a veces», «seguir con»), una condición hipotética («si…») o una comparación con
- * otra jugada, otra línea o otra fuente («también», «alternativa», «Stockfish prefiere/considera/explica»,
- * «según», citas de autores, «la elección/decisión entre X y/o Y», «el plan»). Encontrado revisando a
- * mano dos muestras de 40 "ilegales" (23/11, antes y después de esta lista): de las 80, ninguna era un
- * error real del texto.
+ * «va a», «antes de», «a veces», «seguir con»), una jugada del RIVAL que se evita o se frena («impide»,
+ * «frena», «evita», «neutraliza» — la jugada nombrada es justamente la que NO se va a jugar), una
+ * condición hipotética («si…») o una comparación con otra jugada, otra línea o otra fuente («también»,
+ * «alternativa», «Stockfish prefiere/considera/explica», «según», citas de autores, «la elección/decisión
+ * entre X y/o Y», «el plan»). Encontrado revisando a mano tres muestras de 40 "ilegales" (23/11): de las
+ * 120, ninguna era un error real del texto; "impide/frena/evita/neutraliza" se sumaron después, al ver
+ * que la mitad de las "perdedoras" eran jugadas del rival frenadas, no jugadas propias perdedoras.
  */
 const esPlanALargoPlazo = (texto: string) =>
-  /\bprepara(n|ndo|r)?\b|\bamenaza(n)?\b|\bdespués\b|\bluego\b|\btras\b|\bviene(n)?\b|\bva(n)? a\b|\bantes de\b|\ba veces\b|\ba menudo\b|\bsuele(n)?\b|\bintentar[aá]?\b|\bbusca(n)?\b|\bsigu(e|en|iendo)\b.{0,15}\bcon\b|\bseguir\b.{0,15}\bcon\b|\bpor ejemplo\b|\bo incluso\b|\ben lugar de\b|\botra idea\b|\bm[aá]s adelante\b|\beventualmente\b|\brecién\b|\bsi\s|\btambién\b|\balternativa\b|\bsegún\b|\bconsidera\b|\banaliza(da|do|das|dos)?\b|\bexplica\b|\bprefiere\b|\bcitad[oa]\b|\bstockfish\b|\b(elecci[oó]n|decisi[oó]n|elegir|decidir)\b.{0,20}\bentre\b|\bel plan\b|\besquema\b|\bm[eé]todo\b|\bdeja(n)? abiert[oa]s?\b|\blo (correcto|m[aá]s \w+|normal|habitual|prudente)\b/i.test(
+  /\bprepara(n|ndo|r)?\b|\bamenaza(n)?\b|\bimpide(n)?\b|\bfrena(n)?\b|\bevita(n)?\b|\bneutraliza(n)?\b|\bdespués\b|\bluego\b|\btras\b|\bviene(n)?\b|\bva(n)? a\b|\bantes de\b|\ba veces\b|\ba menudo\b|\bsuele(n)?\b|\bintentar[aá]?\b|\bbusca(n)?\b|\bsigu(e|en|iendo)\b.{0,15}\bcon\b|\bseguir\b.{0,15}\bcon\b|\bpor ejemplo\b|\bo incluso\b|\ben lugar de\b|\botra idea\b|\bm[aá]s adelante\b|\beventualmente\b|\brecién\b|\bsi\s|\btambién\b|\balternativa\b|\bsegún\b|\bconsidera\b|\banaliza(da|do|das|dos)?\b|\bexplica\b|\bprefiere\b|\bcitad[oa]\b|\bstockfish\b|\b(elecci[oó]n|decisi[oó]n|elegir|decidir)\b.{0,20}\bentre\b|\bel plan\b|\besquema\b|\bm[eé]todo\b|\bdeja(n)? abiert[oa]s?\b|\blo (correcto|m[aá]s \w+|normal|habitual|prudente)\b/i.test(
     texto,
   ) || (texto.match(/\.\.\./g)?.length ?? 0) >= 2
 

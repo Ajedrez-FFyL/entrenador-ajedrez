@@ -5,7 +5,7 @@ con el motor del paquete npm `stockfish` (build `single`, id UCI "Stockfish 19 W
 profundidad 16. Revisa las jugadas mencionadas en los textos en prosa de los 96
 cursos. No modifica ningún JSON. Metodología y limitaciones en la cabecera de `scripts/verificar-textos.ts`.
 
-## Jugadas ilegales (78)
+## Jugadas ilegales (76)
 
 La primera jugada mencionada en el texto no es legal en la posición de ese nodo.
 
@@ -17,7 +17,6 @@ La primera jugada mencionada en el texto no es legal en la posición de ese nodo
 | Defensa de los Dos Caballos | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 g8f6 f3g5 d7d5 e4d5 c6a5 c4b5 c7c6 d5c6 b7c6 b5e2"].porQueNo["b5a4"]` | ...h6 Ch3 Ag4: el alfil queda lejos y el caballo de h3, fuera de juego. | Nh3 | `r1bqkb1r/p4ppp/2p2n2/n3p1N1/B7/8/PPPP1PPP/RNBQK2R b KQkq - 1 8` |
 | Apertura Escocesa | `notas["e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 c2c3 d4c3 b1c3"].porQue` | El gambito aceptado: Ac4, O-O y Db3 contra f7, con desarrollo rápido por el peón. | Bc4 | `r1bqkbnr/pppp1ppp/2n5/8/4P3/2N2N2/PP3PPP/R1BQKB1R b KQkq - 0 5` |
 | Apertura Escocesa | `trampas["e2e4 e7e5 g1f3 b8c6 d2d4 e5d4 f3d4 g8e7 b1c3 g7g6 c1g5 f8g7 c3d5 g7d4 d1d4 c6d4 d5f6 e8f8 g5h6"]` | 4...Cge7 5.Cc3 g6? 6.Ag5 Ag7? 7.Cd5!! Axd4 8.Dxd4!! Cxd4 9.Cf6+ Rf8 10.Ah6, mate. | Bh6 | `r1bq1k1r/ppppnp1p/5NpB/8/3nP3/8/PPP2PPP/R3KB1R b KQ - 3 10` |
-| Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 e4e5 c7c5 c2c3 b8c6 g1f3 d8b6 a2a3 c5c4"].porQue` | Cierra el flanco de dama e impide b4 sin perder material; el negro apunta a b3 con ...Ca5. | Na5 | `r1b1kbnr/pp3ppp/1qn1p3/3pP3/2pP4/P1P2N2/1P3PPP/RNBQKB1R w KQkq - 0 7` |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f1e2"].porQue` | Desarrolla el alfil y se guarda Cf3 o f4. | Nf3 | `rnbqk2r/ppp1ppbp/3p1np1/8/2PPP3/2N5/PP2BPPP/R1BQK1NR b KQkq - 1 5` |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f1e2 e8g8 c1e3"].porQue` | Desarrolla y controla d4, sin Cf3. | Nf3 | `rnbq1rk1/ppp1ppbp/3p1np1/8/2PPP3/2N1B3/PP2BPPP/R2QK1NR b KQ - 3 6` |
 | Apertura Ponziani | `notas["e2e4 e7e5 g1f3 b8c6 c2c3 g8f6"].porQue` | Contraataca e4, que ya no puede defenderse con Cc3. | Nc3 | `r1bqkb1r/pppp1ppp/2n2n2/4p3/4P3/2P2N2/PP1P1PPP/RNBQKB1R w KQkq - 1 4` |
@@ -38,7 +37,6 @@ La primera jugada mencionada en el texto no es legal en la posición de ese nodo
 | Siciliana Dragón Acelerado | `notas["e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g7g6 c2c4 g8f6 b1c3 d7d6 f1e2 c6d4 d1d4 f8g7 c1e3 e8g8 d4d2"].porQue` | La dama se retira a tiempo: el blanco completa el desarrollo con O-O, Tac1 y f3 para consolidar el Maroczy. | Rac1 | `r1bq1rk1/pp2ppbp/3p1np1/8/2P1P3/2N1B3/PP1QBPPP/R3K2R b KQ - 4 10` |
 | Siciliana Dragón Acelerado | `notas["e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g7g6 c2c4 f8g7 c1e3 g8f6 b1c3 f6g4 d1g4 c6d4 g4d1"].porQueNo["g4g5"]` | Dg5? h6 Dd5 Cc2+: el caballo da jaque y gana la torre de a1. | Qd5 | `r1bqk2r/pp1pppbp/6p1/6Q1/2PnP3/2N1B3/PP3PPP/R3KB1R b KQkq - 1 9` |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3"].porQue` | Desarrollo flexible: controla e5 y todavía no decide entre Cc3, e3 o cxd5. | Nc3 | `rnbqkbnr/pp2pppp/2p5/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq - 1 3` |
-| Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4"].porQue` | Impide ...b5, que sostendría el peón de c4. Debilita b4, pero las blancas recuperan el peón con e3 y Axc4. | Bxc4 | `rnbqkb1r/pp2pppp/2p2n2/8/P1pP4/2N2N2/1P2PPPP/R1BQKB1R b KQkq - 0 5` |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 e7e6 f2f3 f8b4"].porQueNo["b8d7"]` | ...Cbd7? e4 Ag6 Cxc4: el blanco consiguió su centro sin pagar nada. | Bg6 | `r2qkb1r/pp1n1ppp/2p1pn2/4Nb2/P1pP4/2N2P2/1P2P1PP/R1BQKB1R w KQkq - 1 8` |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8d7 e5c4 d7b6 c4e5 a7a5"].porQueNo["e7e6"]` | ...e6? f3 Ag6 e4: el blanco arma el centro que buscaba. | Bg6 | `r2qkb1r/pp3ppp/1np1pn2/4Nb2/P2P4/2N5/1P2PPPP/R1BQKB1R w KQkq - 0 9` |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 e2e3"].porQue` | Abre el alfil de f1 para recuperar el peón con Axc4. | Bxc4 | `rnbqkbnr/ppp1pppp/8/8/2pP4/4P3/PP3PPP/RNBQKBNR b KQkq - 0 3` |
@@ -90,40 +88,25 @@ La primera jugada mencionada en el texto no es legal en la posición de ese nodo
 | Defensa Tarrasch | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 c7c5 e2e3"].porQue` | Lo que el propio Tarrasch consideraba correcto: no darle al negro «la ventaja del peón aislado» con cxd5. Hoy casi no se juega, pero sus posiciones aparecen muy seguido desde la Inglesa Simétrica. | cxd5 | `rnbqkbnr/pp3ppp/4p3/2pp4/2PP4/2N1P3/PP3PPP/R1BQKBNR b KQkq - 0 4` |
 | Defensa Tarrasch | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 c7c5 c4d5 e6d5 g1f3 b8c6 g2g3 g8f6 f1g2 f8e7 e1g1 e8g8 c1g5 c5d4 f3d4 h7h6 g5e3 f8e8 d1a4"].porQue` | La propuesta de Schandorff, más agresiva que la Db3 de Karpov: la dama ataca al caballo de c6. | Qb3 | `r1bqr1k1/pp2bpp1/2n2n1p/3p4/Q2N4/2N1B1P1/PP2PPBP/R4RK1 b - - 3 12` |
 
-## Jugadas que pierden más de 1,5 peones (28)
+## Jugadas que pierden más de 1,5 peones (13)
 
 | Curso | Campo | Texto | Jugada detectada | Evaluación | FEN del nodo |
 | --- | --- | --- | --- | --- | --- |
-| Apertura Bird | `notas["f2f4 e7e5 f4e5 d7d6 e5d6 f8d6 g1f3"].porQue` | La única jugada que tapa h4: frena ...Dh4+. | Qh4+ | Stockfish (prof. 16) prefiere g8f6: −0,4 contra −9,1 (pierde 8.71 peones) | `rnbqk1nr/ppp2ppp/3b4/8/8/5N2/PPPPP1PP/RNBQKB1R b KQkq - 1 4` |
-| Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 e4e5 b7b6 c2c3 d8d7"].porQue` | Impide Da4+ y deja todo listo para ...Aa6. | Qa4+ | Stockfish (prof. 16) prefiere h2h4: +1,0 contra −9,5 (pierde 10.48 peones) | `rnb1kbnr/p1pq1ppp/1p2p3/3pP3/3P4/2P5/PP3PPP/RNBQKBNR w KQkq - 1 5` |
-| Gambito Vienés (con 2...Cc6) | `notas["e2e4 e7e5 b1c3 b8c6 f2f4 e5f4 g1f3"].porQue` | Desarrolla e impide ...Dh4+. | Qh4+ | Stockfish (prof. 16) prefiere g7g5: +0,5 contra −9,3 (pierde 9.84 peones) | `r1bqkbnr/pppp1ppp/2n5/8/4Pp2/2N2N2/PPPP2PP/R1BQKB1R b KQkq - 1 4` |
-| Defensa Holandesa | `notas["d2d4 f7f5 g2g3 g8f6 f1g2 g7g6 g1f3 f8g7 e1g1 e8g8 c2c4 d7d6 b1c3 d8e8 f1e1 e8f7"].porQueNo["c7c6"]` | ...c6? e4 Cxe4 Cxe4 fxe4 Txe4: el blanco consiguió la ruptura y el peón de e4 negro desaparece. | Nxe4 | Stockfish (prof. 16) prefiere e2e4: +1,2 contra −7,7 (pierde 8.94 peones) | `rnb1qrk1/pp2p1bp/2pp1np1/5p2/2PP4/2N2NP1/PP2PPBP/R1BQR1K1 w - - 0 9` |
-| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 h2h3 e8g8 c1e3"].porQue` | La versión que recomiendan Lakdawala y Hansen: con h3 ya jugado, el alfil en e3 no puede ser molestado por ...Cg4. | Ng4 | Stockfish (prof. 16) prefiere b8a6: −0,6 contra −7,7 (pierde 7.09 peones) | `rnbq1rk1/ppp1ppbp/3p1np1/8/2PPP3/2N1B2P/PP3PP1/R2QKBNR b KQ - 2 6` |
-| Defensa Petrov | `notas["e2e4 e7e5 g1f3 g8f6 f3e5 d7d6 e5f3 f6e4 d2d4 d6d5 f1d3 f8e7 e1g1 b8c6 f1e1 c8g4 c2c3 f7f5"].porQue` | Con c3 ya jugado, el avance ...f5 es sólido: c4 y Ce5 pierden fuerza con las piezas negras tan activas. | Ne5 | Stockfish (prof. 16) prefiere d1b3: 0,0 contra −8,3 (pierde 8.33 peones) | `r2qk2r/ppp1b1pp/2n5/3p1p2/3Pn1b1/2PB1N2/PP3PPP/RNBQR1K1 w kq - 0 10` |
-| Siciliana de los Cuatro Caballos | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 d4b5 d7d6"].porQue` | Otra forma de cubrir d6: es el camino al Sveshnikov que evita la Rossolimo y la línea 7.Cd5. | Nd5 | Stockfish (prof. 16) prefiere c1f4: +0,3 contra −6,0 (pierde 6.37 peones) | `r1bqkb1r/pp3ppp/2nppn2/1N6/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 7` |
-| Siciliana Taimanov | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 b1c3 a7a6 f1e2 g8e7"].porQue` | La Taimanov propiamente dicha, la que el propio Taimanov llamaba «su» variante: con ...a6 ya jugada, el caballo puede ir a e7 sin temer Cdb5. | Ndb5 | Stockfish (prof. 16) prefiere c1e3: +0,8 contra −3,8 (pierde 4.61 peones) | `r1bqkb1r/1p1pnppp/p1n1p3/8/3NP3/2N5/PPP1BPPP/R1BQK2R w KQkq - 2 7` |
-| Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 b8d7 e4g5 d7f6"].porQue` | Lleva el caballo de d7 a f6 y evita las trampas con Ce6. | Ne6 | Stockfish (prof. 16) prefiere g1f3: +0,7 contra −7,4 (pierde 8.06 peones) | `r1bqkbnr/pp2pppp/2p2n2/6N1/3P4/8/PPP2PPP/R1BQKBNR w KQkq - 3 6` |
-| Francesa Clásica y Steinitz | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 f8b4 e4e5 h7h6 g5d2 b4c3 b2c3 f6e4 d1g4 e8f8 d2c1"].porQue` | Retira el alfil para no perderlo con ...Cxd2. | Nxd2 | Stockfish (prof. 16) prefiere c7c5: +0,0 contra −8,4 (pierde 8.38 peones) | `rnbq1k1r/ppp2pp1/4p2p/3pP3/3Pn1Q1/2P5/P1P2PPP/R1B1KBNR b KQ - 4 9` |
-| Defensa Nimzowitsch | `notas["e2e4 b8c6 d2d4 d7d5 b1c3 d5e4 d4d5 c6b8"].porQueNo["c6b4"]` | a3 y el caballo termina en a6, mientras las blancas recuperan el peón con Cxe4. | Nxe4 | Stockfish (prof. 16) prefiere a2a3: +1,1 contra −1,6 (pierde 2.61 peones) | `r1bqkbnr/ppp1pppp/8/3P4/1n2p3/2N5/PPP2PPP/R1BQKBNR w KQkq - 1 5` |
-| Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3"].porQue` | Sostiene e4 e impide ...Cg4, que molestaría al alfil de e3. | Ng4 | Stockfish (prof. 16) prefiere b8c6: −0,7 contra −7,1 (pierde 6.37 peones) | `rnbqk2r/pp2ppbp/3p1np1/8/3NP3/2N1BP2/PPP3PP/R2QKB1R b KQkq - 0 7` |
-| Defensa Siciliana | `notas["e2e4 c7c5 g1f3 h7h6"].porQue` | Impide Cg5 y Ag5, pero pierde tiempo. | Ng5 | Stockfish (prof. 16) prefiere c2c3: +0,7 contra −7,6 (pierde 8.34 peones) | `rnbqkbnr/pp1pppp1/7p/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3` |
-| Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g7g6 b1c3 f8g7 c1e3 b8c6 d1d2 g8f6 f2f3"].porQue` | Sostiene e4 y frena ...Cg4: Ataque Yugoslavo. | Ng4 | Stockfish (prof. 16) prefiere h7h5: −0,8 contra −6,3 (pierde 5.45 peones) | `r1bqk2r/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R b KQkq - 0 8` |
-| Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3 f8g7 h2h3"].porQue` | Variante Moderna: impide ...Ag4; el alfil irá a d3 para sostener e4. | Bg4 | Stockfish (prof. 16) prefiere e8g8: −0,7 contra −7,1 (pierde 6.37 peones) | `rnbqk2r/pp3pbp/3p1np1/2pP4/4P3/2N2N1P/PP3PP1/R1BQKB1R b KQkq - 0 8` |
-| Española Cerrada y Ataque Marshall | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6 c2c3 e8g8 h2h3"].porQue` | Impide ...Ag4, que clavaría el caballo de f3 cuando llegue d4. | Bg4 | Stockfish (prof. 16) prefiere f8e8: −0,4 contra −7,2 (pierde 6.86 peones) | `r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N1P/PP1P1PP1/RNBQR1K1 b - - 0 9` |
-| Gambito de Rey | `notas["e2e4 e7e5 f2f4 e5f4 g1f3 d7d6 f1c4 h7h6 b2b3"].porQueNo["d2d3"]` | 5.d3 g5 6.g3 Cc6!: el blanco queda peor en todas las líneas (Shaw). | Nc6 | Stockfish (prof. 16) prefiere g7g5: +1,3 contra −0,5 (pierde 1.80 peones) | `rnbqkbnr/ppp2pp1/3p3p/8/2B1Pp2/3P1N2/PPP3PP/RNBQK2R b KQkq - 0 5` |
-| Gambito de Rey | `notas["e2e4 e7e5 f2f4 e5f4 g1f3 g7g5 f1c4 g5g4 e1g1 g4f3 d1f3 d8f6"].porQueNo["f8h6"]` | 6...Ah6? 7.d4 d6 8.Axf7+!: el ataque blanco se impone. | Bxf7+ | Stockfish (prof. 16) prefiere d2d4: 0,0 contra −2,9 (pierde 2.85 peones) | `rnbqk1nr/pppp1p1p/7b/8/2B1Pp2/5Q2/PPPP2PP/RNB2RK1 w kq - 1 7` |
-| Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 h7h6"].porQue` | Evita Cg5, pero pierde tiempo. | Ng5 | Stockfish (prof. 16) prefiere d2d4: +0,6 contra −7,4 (pierde 7.95 peones) | `r1bqkbnr/pppp1pp1/2n4p/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4` |
-| Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6"].porQueNo["c8g4"]` | f3 y Ae3 dejan al alfil sin función y las blancas con un centro fuerte. | Be3 | Stockfish (prof. 16) prefiere f2f3: +1,4 contra −8,0 (pierde 9.39 peones) | `rn1qkb1r/ppp1pppp/3p1n2/8/3PP1b1/2N5/PPP2PPP/R1BQKBNR w KQkq - 3 4` |
-| Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 f2f4 e7e5"].porQueNo["c7c6"]` | ...c6? e5 Cd5 Cxd5 cxd5: el blanco gana espacio y el negro no tiene contrajuego. | Nd5 | Stockfish (prof. 16) prefiere e4e5: +1,9 contra −6,7 (pierde 8.57 peones) | `r1bqkb1r/pp1npppp/2pp1n2/8/3PPP2/2N5/PPP3PP/R1BQKBNR w KQkq - 0 5` |
-| Apertura del Alfil | `notas["e2e4 e7e5 f1c4 f8c5 b2b4 c5b4 f2f4 e5f4 g1f3"].porQue` | Desarrolla e impide ...Dh4+. | Qh4+ | Stockfish (prof. 16) prefiere g8f6: +1,5 contra −9,3 (pierde 10.77 peones) | `rnbqk1nr/pppp1ppp/8/8/1bB1Pp2/5N2/P1PP2PP/RNBQK2R b KQkq - 1 5` |
-| Francesa Winawer | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 c7c5 a2a3 b4c3 b2c3 g8e7 d1g4 e8g8 g1f3 b8c6 f1d3 f7f5 e5f6 f8f6 c1g5 e6e5"].porQueNo["d8a5"]` | ...Da5? O-O Tf8 Axh7+: el sacrificio en h7 funciona. | O-O | Stockfish (prof. 16) prefiere g5f6: +4,9 contra +2,8 (pierde 2.11 peones) | `r1b3k1/pp2n1pp/2n1pr2/q1pp2B1/3P2Q1/P1PB1N2/2P2PPP/R3K2R w KQ - 2 12` |
-| Defensa Hipopótamo | `notas["e2e4 b7b6 d2d4 c8b7 b1c3 e7e6 a2a3"].porQue` | Impide la clavada ...Ab4, que con el caballo en c3 sería molesta. | Bb4 | Stockfish (prof. 16) prefiere d7d6: −0,8 contra −8,2 (pierde 7.44 peones) | `rn1qkbnr/pbpp1ppp/1p2p3/8/3PP3/P1N5/1PP2PPP/R1BQKBNR b KQkq - 0 4` |
-| Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 a2a3"].porQue` | Sistema Petrosian: impide ...Ab4 para poder jugar Cc3 sin la clavada. | Bb4 | Stockfish (prof. 16) prefiere c8b7: −0,3 contra −8,1 (pierde 7.79 peones) | `rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/P4N2/1P2PPPP/RNBQKB1R b KQkq - 0 4` |
-| Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 a2a3 c8b7 b1c3"].porQue` | Desarrolla: con a3 ya jugado, el caballo no puede ser clavado con ...Ab4. | Bb4 | Stockfish (prof. 16) prefiere d7d5: −0,2 contra −7,8 (pierde 7.63 peones) | `rn1qkb1r/pbpp1ppp/1p2pn2/8/2PP4/P1N2N2/1P2PPPP/R1BQKB1R b KQkq - 2 5` |
-| Sistema Rapport-Jobava | `notas["d2d4 d7d5 b1c3 g8f6 c1f4 a7a6"].porQue` | Impide Cb5. | Nb5 | Stockfish (prof. 16) prefiere e2e3: +0,0 contra −7,4 (pierde 7.37 peones) | `rnbqkb1r/1pp1pppp/p4n2/3p4/3P1B2/2N5/PPP1PPPP/R2QKBNR w KQkq - 0 4` |
-| Peón dama con 2.Cf3 | `notas["d2d4 d7d5 g1f3 c8f5 c2c4"].porQue` | La misma idea que contra 2...Ag4: con el alfil afuera, c4 y Db3 contra b7. Koltanowski aconseja salirse del Colle cuando el rival da una oportunidad así. | Bg4 | Stockfish (prof. 16) prefiere e7e6: −0,4 contra −2,5 (pierde 2.16 peones) | `rn1qkbnr/ppp1pppp/8/3p1b2/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq - 0 3` |
+| Defensa Holandesa | `notas["d2d4 f7f5 g2g3 g8f6 f1g2 g7g6 g1f3 f8g7 e1g1 e8g8 c2c4 d7d6 b1c3 d8e8 f1e1 e8f7"].porQueNo["c7c6"]` | ...c6? e4 Cxe4 Cxe4 fxe4 Txe4: el blanco consiguió la ruptura y el peón de e4 negro desaparece. | Nxe4 | Stockfish (prof. 16) prefiere e2e4: +1,2 contra −7,7 (pierde 8.94 peones). Refutación: fxe4 Cg5 d5 f3 h6 | `rnb1qrk1/pp2p1bp/2pp1np1/5p2/2PP4/2N2NP1/PP2PPBP/R1BQR1K1 w - - 0 9` |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 h2h3 e8g8 c1e3"].porQue` | La versión que recomiendan Lakdawala y Hansen: con h3 ya jugado, el alfil en e3 no puede ser molestado por ...Cg4. | Ng4 | Stockfish (prof. 16) prefiere b8a6: −0,6 contra −7,7 (pierde 7.09 peones). Refutación: hxg4 Cc6 f4 e5 dxe5 | `rnbq1rk1/ppp1ppbp/3p1np1/8/2PPP3/2N1B2P/PP3PP1/R2QKBNR b KQ - 2 6` |
+| Defensa Petrov | `notas["e2e4 e7e5 g1f3 g8f6 f3e5 d7d6 e5f3 f6e4 d2d4 d6d5 f1d3 f8e7 e1g1 b8c6 f1e1 c8g4 c2c3 f7f5"].porQue` | Con c3 ya jugado, el avance ...f5 es sólido: c4 y Ce5 pierden fuerza con las piezas negras tan activas. | Ne5 | Stockfish (prof. 16) prefiere d1b3: 0,0 contra −8,3 (pierde 8.33 peones). Refutación: Axd1 Ab5 Ah4 Cxc6 Axf2+ | `r2qk2r/ppp1b1pp/2n5/3p1p2/3Pn1b1/2PB1N2/PP3PPP/RNBQR1K1 w kq - 0 10` |
+| Siciliana Taimanov | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 b1c3 a7a6 f1e2 g8e7"].porQue` | La Taimanov propiamente dicha, la que el propio Taimanov llamaba «su» variante: con ...a6 ya jugada, el caballo puede ir a e7 sin temer Cdb5. | Ndb5 | Stockfish (prof. 16) prefiere c1e3: +0,8 contra −3,8 (pierde 4.61 peones). Refutación: axb5 Cxb5 Cg6 h4 Cxh4 | `r1bqkb1r/1p1pnppp/p1n1p3/8/3NP3/2N5/PPP1BPPP/R1BQK2R w KQkq - 2 7` |
+| Francesa Clásica y Steinitz | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 f8b4 e4e5 h7h6 g5d2 b4c3 b2c3 f6e4 d1g4 e8f8 d2c1"].porQue` | Retira el alfil para no perderlo con ...Cxd2. | Nxd2 | Stockfish (prof. 16) prefiere c7c5: +0,0 contra −8,4 (pierde 8.38 peones). Refutación: Axd2 h5 Df3 Re8 h4 | `rnbq1k1r/ppp2pp1/4p2p/3pP3/3Pn1Q1/2P5/P1P2PPP/R1B1KBNR b KQ - 4 9` |
+| Defensa Nimzowitsch | `notas["e2e4 b8c6 d2d4 d7d5 b1c3 d5e4 d4d5 c6b8"].porQueNo["c6b4"]` | a3 y el caballo termina en a6, mientras las blancas recuperan el peón con Cxe4. | Nxe4 | Stockfish (prof. 16) prefiere a2a3: +1,1 contra −1,6 (pierde 2.61 peones). Refutación: Dxd5 Dxd5 Cxd5 Ad2 Af5 | `r1bqkbnr/ppp1pppp/8/3P4/1n2p3/2N5/PPP2PPP/R1BQKBNR w KQkq - 1 5` |
+| Gambito de Rey | `notas["e2e4 e7e5 f2f4 e5f4 g1f3 d7d6 f1c4 h7h6 b2b3"].porQueNo["d2d3"]` | 5.d3 g5 6.g3 Cc6!: el blanco queda peor en todas las líneas (Shaw). | Nc6 | Stockfish (prof. 16) prefiere g7g5: +1,3 contra −0,5 (pierde 1.80 peones). Refutación: Axf4 Ca5 Dd2 Cxc4 dxc4 | `rnbqkbnr/ppp2pp1/3p3p/8/2B1Pp2/3P1N2/PPP3PP/RNBQK2R b KQkq - 0 5` |
+| Gambito de Rey | `notas["e2e4 e7e5 f2f4 e5f4 g1f3 g7g5 f1c4 g5g4 e1g1 g4f3 d1f3 d8f6"].porQueNo["f8h6"]` | 6...Ah6? 7.d4 d6 8.Axf7+!: el ataque blanco se impone. | Bxf7+ | Stockfish (prof. 16) prefiere d2d4: 0,0 contra −2,9 (pierde 2.85 peones). Refutación: Rxf7 d4 Df6 e5 Df5 | `rnbqk1nr/pppp1p1p/7b/8/2B1Pp2/5Q2/PPPP2PP/RNB2RK1 w kq - 1 7` |
+| Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6"].porQueNo["c8g4"]` | f3 y Ae3 dejan al alfil sin función y las blancas con un centro fuerte. | Be3 | Stockfish (prof. 16) prefiere f2f3: +1,4 contra −8,0 (pierde 9.39 peones). Refutación: Axd1 Txd1 e6 Ch3 Dc8 | `rn1qkb1r/ppp1pppp/3p1n2/8/3PP1b1/2N5/PPP2PPP/R1BQKBNR w KQkq - 3 4` |
+| Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 f2f4 e7e5"].porQueNo["c7c6"]` | ...c6? e5 Cd5 Cxd5 cxd5: el blanco gana espacio y el negro no tiene contrajuego. | Nd5 | Stockfish (prof. 16) prefiere e4e5: +1,9 contra −6,7 (pierde 8.57 peones). Refutación: cxd5 e5 Ce4 c3 e6 | `r1bqkb1r/pp1npppp/2pp1n2/8/3PPP2/2N5/PPP3PP/R1BQKBNR w KQkq - 0 5` |
+| Francesa Winawer | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 c7c5 a2a3 b4c3 b2c3 g8e7 d1g4 e8g8 g1f3 b8c6 f1d3 f7f5 e5f6 f8f6 c1g5 e6e5"].porQueNo["d8a5"]` | ...Da5? O-O Tf8 Axh7+: el sacrificio en h7 funciona. | O-O | Stockfish (prof. 16) prefiere g5f6: +4,9 contra +2,8 (pierde 2.11 peones). Refutación: Tf8 Axh7+ Rxh7 Axe7 Cxe7 | `r1b3k1/pp2n1pp/2n1pr2/q1pp2B1/3P2Q1/P1PB1N2/2P2PPP/R3K2R w KQ - 2 12` |
+| Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 a2a3 c8b7 b1c3"].porQue` | Desarrolla: con a3 ya jugado, el caballo no puede ser clavado con ...Ab4. | Bb4 | Stockfish (prof. 16) prefiere d7d5: −0,2 contra −7,8 (pierde 7.63 peones). Refutación: axb4 Cc6 b5 Cb4 Af4 | `rn1qkb1r/pbpp1ppp/1p2pn2/8/2PP4/P1N2N2/1P2PPPP/R1BQKB1R b KQkq - 2 5` |
+| Peón dama con 2.Cf3 | `notas["d2d4 d7d5 g1f3 c8f5 c2c4"].porQue` | La misma idea que contra 2...Ag4: con el alfil afuera, c4 y Db3 contra b7. Koltanowski aconseja salirse del Colle cuando el rival da una oportunidad así. | Bg4 | Stockfish (prof. 16) prefiere e7e6: −0,4 contra −2,5 (pierde 2.16 peones). Refutación: cxd5 Axf3 gxf3 Dxd5 e4 | `rn1qkbnr/ppp1pppp/8/3p1b2/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq - 0 3` |
 
-## No ubicables — planes genéricos, para revisión humana (3713)
+## No ubicables — planes genéricos, para revisión humana (3888)
 
 Textos de `planesBlancas`/`planesNegras`/`estructura`/`rupturas` que mencionan al menos una jugada, y
 cualquier otro texto con «prepara» (siempre describe una jugada de varias más adelante). No se verifican
@@ -167,8 +150,10 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Otras partidas abiertas (1.e4 e5) | `notas["e2e4 e7e5 g1f3 d8e7 f1c4 f7f5"].porQue` | Según Stockfish es un error: era mejor 3... Cf6 (−0,9 contra −2,0, para el bando que juega). |
 | Otras partidas abiertas (1.e4 e5) | `notas["e2e4 e7e5 g1f3 c7c6"].porQue` | Según Stockfish es un error: era mejor 2... Cc6 (−0,3 contra −1,2, para el bando que juega). |
 | Otras partidas abiertas (1.e4 e5) | `notas["e2e4 e7e5 g1f3 b8c6 f1e2 g8f6 d2d3 d7d5 b1d2 f8c5 c2c3"].porQue` | Prepara b4 o d4. |
+| Otras partidas abiertas (1.e4 e5) | `notas["e2e4 e7e5 g1f3 b8c6 f1e2 g8f6 d2d3 d7d5 b1d2 f8c5 c2c3 a7a5"].porQue` | Frena b4. |
 | Otras partidas abiertas (1.e4 e5) | `notas["e2e4 e7e5 d2d4 e5d4 d1d4 b8c6 d4e3 g8f6 b1c3 f8b4 c1d2 e8g8 e1c1 f8e8 f1c4 d7d6 g1h3"].porQue` | El caballo va a f4. |
 | Otras partidas abiertas (1.e4 e5) | `notas["e2e4 e7e5 g1f3 b8c6 f1e2 g8f6 d2d3 d7d5 b1d2 f8c5 e1g1 e8g8 c2c3"].porQue` | Prepara b4 o d4. |
+| Otras partidas abiertas (1.e4 e5) | `notas["e2e4 e7e5 g1f3 b8c6 f1e2 g8f6 d2d3 d7d5 b1d2 f8c5 e1g1 e8g8 c2c3 a7a5"].porQue` | Frena b4. |
 | Otras partidas abiertas (1.e4 e5) | `notas["e2e4 e7e5 g1f3 b8c6 c2c4 g8f6 f3e5"].porQue` | Según Stockfish es un error: era mejor 4. Cc3 (+0,0 contra −3,4, para el bando que juega). |
 | Otras partidas abiertas (1.e4 e5) | `notas["e2e4 e7e5 d2d4 e5d4 f2f4 f8c5 g1f3 b8c6 c2c3"].porQue` | Prepara d4. |
 | Otras partidas abiertas (1.e4 e5) | `notas["e2e4 e7e5 d2d4 e5d4 f1d3"].porQue` | Desarrolla en lugar de recuperar el peón. |
@@ -220,6 +205,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Bird | `planesBlancas` | Fianchetto (Cf3, g3, Ag2) o Stonewall (d4, e3). |
 | Apertura Bird | `notas["f2f4 d7d5 g1f3"].porQue` | Desarrolla y cubre h4, el punto débil tras f4. |
 | Apertura Bird | `notas["f2f4 e7e5 f4e5 d7d6 e5d6 f8d6"].porQue` | El alfil apunta a g3 y h2: amenaza ...Dh4+. |
+| Apertura Bird | `notas["f2f4 e7e5 f4e5 d7d6 e5d6 f8d6 g1f3"].porQue` | La única jugada que tapa h4: frena ...Dh4+. |
 | Apertura Bird | `notas["f2f4 e7e5 f4e5 d7d6 e5d6 f8d6 g1f3 g7g5"].porQue` | La continuación más intransigente del Gambito From: amenaza ...g4. |
 | Apertura Bird | `notas["f2f4 d7d5 g1f3 g8f6 e2e3"].porQue` | Con e3 y b3 el alfil de dama va a la gran diagonal: un plan que en la Holandesa casi no se ve. |
 | Apertura Bird | `notas["f2f4 d7d5 g1f3 g7g6 g2g3 f8g7 f1g2 g8f6 e1g1 e8g8 d2d3 c7c5 c2c3 b8c6 b1a3"].porQue` | La línea principal del Sistema Oso Polar (Danielsen): un Leningrado con colores invertidos. El caballo va a c2 y el plan es empujar e4; si el negro contesta ...e5, f5 abre la columna f y libera al alfil de c1. Danielsen advierte dos cosas: no dejar que el negro bloquee con ...d4, y cuidar la diagonal a7-g1, que f4 debilitó. |
@@ -361,6 +347,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Gambito Evans | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 b2b4 c5b6 b4b5 c6a5 f3e5 g8h6 d2d4 d7d6 c1h6 d6e5 h6g7 h8g8 c4f7 e8f7 g7e5 d8g5"].porQue` | Según Stockfish es un error: era mejor 11... Cc4 (+1,7 contra +0,5, para el bando que juega). |
 | Gambito Evans | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 b2b4 c5b6 b4b5 c6a5 f3e5 g8h6 d2d4 d7d6 c1h6 d6e5 h6g7 h8g8 c4f7 e8f7 g7e5 d8g5 b1d2"].porQue` | Desarrolla y prepara Cf3 para defender g2. |
 | Gambito Evans | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 b2b4 c5b6 a2a4"].porQue` | Amenaza a5 para atrapar al alfil. |
+| Gambito Evans | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 b2b4 c5b4 c2c3 b4a5 d2d4 d7d6 d1b3 d8d7 d4e5 d6e5 e1g1 a5b6 c1a3"].porQue` | Impide el enroque corto del negro. |
 | Gambito Evans | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 b2b4 c5b4 c2c3 b4c5 d2d4 e5d4 e1g1 d7d6 c3d4 c5b6 b1c3 c8g4 d1a4"].porQue` | Clava el caballo de c6 y amenaza d5. |
 | Gambito Evans | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 b2b4 c5b4 c2c3 b4c5 d2d4 e5d4 e1g1 d7d6 c3d4 c5b6 b1c3 c8g4 d1a4 g4d7 a4b3 c6a5 c4f7"].porQue` | Toma con jaque antes de perder el alfil. |
 | Gambito Evans | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 b2b4 c5b4 c2c3 b4a5 d2d4 e5d4 e1g1 g8e7"].porQue` | Desarrolla el caballo sin tapar el peón de f y prepara ...d5. |
@@ -384,6 +371,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5"].porQueNo["d1g4"]` | 4.Dg4 ataca g7 antes de tiempo: ...Cf6 y, si Dxg7, ...Tg8 con desarrollo rápido para el negro. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 e4d5 e6d5"].porQue` | Estructura simétrica: la Francesa pierde su problema del alfil malo, pero también sus planes de contraataque. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 e4e5 c7c5 c2c3 b8c6 g1f3 d8b6 a2a3"].porQue` | El plan más ambicioso: b4 para ganar espacio en el flanco de dama y darle una casilla al alfil de c1. |
+| Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 e4e5 c7c5 c2c3 b8c6 g1f3 d8b6 a2a3 c5c4"].porQue` | Cierra el flanco de dama e impide b4 sin perder material; el negro apunta a b3 con ...Ca5. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 e4e5 c7c5 c2c3 d8b6 g1f3 c8d7"].porQue` | Prepara ...Ab5 para cambiar el alfil malo de la Francesa. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 e4d5 e6d5 g1f3"].porQue` | Desarrollo flexible: según lo que haga el negro, c4 puede abrir el juego. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 d5e4"].porQue` | Variante Rubinstein: cede el centro, pero no deja debilidades. El plan es ...Cd7, ...Cgf6 y ...c5. |
@@ -400,6 +388,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 e4e5 c7c5 c2c3 c8d7 g1f3 a7a6"].porQue` | Prepara ...Ab5. Si el blanco cambia en b5, el negro retoma con el peón de a: queda con peones doblados, pero con la columna a abierta para la torre y un peón en b5 que controla casillas blancas. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 e4e5 c7c5 c2c3 c8d7 g1f3 a7a6 f1e2 c5d4"].porQue` | Primero se cambia en d4, y recién después ...Ab5. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 e4e5 b7b6"].porQue` | Una idea poco común pero lógica en el Avance: preparar ...Aa6 para cambiar el alfil «malo» de la Francesa (McDonald). Stockfish prefiere el habitual 3...c5. |
+| Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 e4e5 b7b6 c2c3 d8d7"].porQue` | Impide Da4+ y deja todo listo para ...Aa6. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 e4e5 c7c5 c2c3 d8b6 g1f3 c8d7 f1d3 c5d4"].porQue` | Primero se cambia en d4. Si 6...Ab5 enseguida, 7.dxc5! Axc5 8.b4 incomoda al alfil: después de 8...Axf2+? 9.Re2 el alfil queda encerrado y se pierde (McDonald). |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 e4d5 e6d5 g1f3 b8c6 f1b5 f8d6 c2c4 d5c4"].porQue` | Hay que reaccionar contra el ataque al peón de d5: después de ...dxc4 el negro conserva un juego activo con la pareja de alfiles. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 d5e4 c3e4 c8d7 g1f3 d7c6 e4g5 f8d6"].porQue` | El antídoto contra 6.Cg5 en la Fort Knox: tapa la diagonal y prepara ...h6 sin permitir sacrificios en f7. |
@@ -425,6 +414,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 d1e2 e6e5"].porQue` | Según Stockfish es un error: era mejor 3... dxe4 (+0,2 contra −1,5, para el bando que juega). |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 d1e2 e6e5 f2f4"].porQue` | Según Stockfish es un error: era mejor 4. exd5 (+1,5 contra −1,4, para el bando que juega). |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 d1e2 e6e5 f2f4 e5f4"].porQue` | Según Stockfish es un error: era mejor 4... exd4 (+1,4 contra −0,5, para el bando que juega). |
+| Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 d5e4 c3e4 c8d7 g1f3 d7c6 e4g5"].porQue` | Evita el cambio y apunta a e6 y f7. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 a7a6"].porQue` | Prepara ...dxe4 y ...b5, y evita Cb5. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 a7a6 g1f3 g8f6 e4e5 f6d7"].porQue` | El caballo se retira y prepara ...c5. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 a7a6 g1f3 g8f6 e4e5 f6d7 a2a3"].porQue` | Evita ...Ab4 y prepara b4. |
@@ -488,6 +478,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 c7c5 a2a3 b4c3 b2c3 d8a5 c1d2 a5a4 d1g4 e8f8 g4d1 b7b6"].porQue` | Prepara ...Aa6. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 b7b6 a2a3 b4c3 b2c3 g8e7 d1g4 e7g6"].porQue` | El caballo va a g6 y defiende el flanco de rey. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 b7b6 a2a3 b4c3 b2c3 g8e7 d1g4 e7g6 h2h4"].porQue` | Amenaza h5 contra el caballo. |
+| Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 b7b6 a2a3 b4c3 b2c3 g8e7 d1g4 e7g6 h2h4 h7h5"].porQue` | Frena el peón. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 b7b6 a2a3 b4c3 b2c3 g8e7 d1g4 e7g6 h2h4 h7h5 g4d1 c8a6 f1a6 b8a6 c1g5 d8d7 g1e2 d7c6"].porQue` | Según Stockfish es un error: era mejor 12... Da4 (−0,9 contra −2,1, para el bando que juega). |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 b7b6 a2a3 b4f8 g1f3 d8d7"].porQue` | Prepara ...Aa6. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 d8d7"].porQue` | Prepara ...b6 y ...Aa6. |
@@ -495,6 +486,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 d5e4 c3e4 f8e7 g5f6 e7f6 g1f3 e8g8 d1d2"].porQue` | Prepara el enroque largo. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 d5e4 c3e4 f8e7 g5f6 e7f6 g1f3 e8g8 d1d2 b8d7 e1c1 b7b6"].porQue` | Prepara ...Ab7. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 c7c5 a2a3 b4c3 b2c3 g8e7 d1g4 e8f8 c1d2 d8c7 f1d3 b7b6"].porQue` | Prepara ...Aa6. |
+| Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 b7b6 a2a3 b4f8 g1f3 g8e7 h2h4 h7h6"].porQue` | Frena el peón. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 d8d7 a2a3 b4f8 g1f3 b7b6"].porQue` | Prepara ...Ab7. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 d5e4 c3e4 f8e7 g5f6 e7f6 g1f3 e8g8 d1d2 b8d7 e1c1 f6e7 f1d3 b7b6"].porQue` | Prepara ...Ab7. |
 | Defensa Francesa | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 d5e4 c3e4 f8e7 g5f6 e7f6 g1f3 e8g8 d1d2 b7b6"].porQue` | Prepara ...Ab7. |
@@ -513,6 +505,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Francesa | `trampas["e2e4 e7e6 d2d4 d7d5 e4d5 e6d5 g1f3 b8c6 f1b5 f8d6 c2c4 g8e7 c4c5"]` | En el Cambio, 6.c4 Cge7?? 7.c5: el alfil de d6 no tiene retirada. Lo correcto es 6...dxc4. |
 | Gambito Vienés (con 2...Cc6) | `planesBlancas` | Abrir la columna f y atacar f7 con Ac4, O-O y la dama. |
 | Gambito Vienés (con 2...Cc6) | `planesBlancas` | Ocupar el centro con d4 y recuperar el peón de f4 con Axf4. |
+| Gambito Vienés (con 2...Cc6) | `notas["e2e4 e7e5 b1c3 b8c6 f2f4 e5f4 g1f3"].porQue` | Desarrolla e impide ...Dh4+. |
 | Gambito Vienés (con 2...Cc6) | `notas["e2e4 e7e5 b1c3 b8c6 f2f4 e5f4 g1f3 g7g5 h2h4 g5g4 f3g5 d7d6"].porQue` | Desarrolla y abre el alfil de c8 antes de tomar el caballo. |
 | Gambito Vienés (con 2...Cc6) | `notas["e2e4 e7e5 b1c3 b8c6 f2f4 e5f4 g1f3 g7g5 f1c4 g5g4 e1g1 g4f3 d1f3 c6e5"].porQue` | Según Stockfish es un error: era mejor 7... Ac5+ (+1,7 contra +0,6, para el bando que juega). |
 | Gambito Vienés (con 2...Cc6) | `notas["e2e4 e7e5 b1c3 b8c6 f2f4 e5f4 g1f3 g7g5 d2d4 g5g4 f1c4 g4f3 e1g1 d7d5"].porQue` | Según Stockfish es un error: era mejor 7... Ag7 (+1,9 contra 0,0, para el bando que juega). |
@@ -623,6 +616,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f3 e8g8 c1e3 c7c5"].porQue` | Ataca d4 enseguida; aunque se pierda un peón tras dxc5, la presión sobre la diagonal larga compensa. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f4"].porQue` | Ataque de los Cuatro Peones: ocupa el centro al máximo. El negro tiene que golpear rápido con ...c5 o ...e5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f4 e8g8 g1f3 b8a6"].porQue` | Prepara ...e5: si las blancas toman, ...Cc5 aumenta la presión. |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f1e2 e8g8 c1g5"].porQue` | Averbakh: el alfil en g5 frena ...e5 y deja f3 libre para el caballo. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f1e2 e8g8 c1g5 b8a6"].porQue` | Prepara ...e5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 g2g3 f8g7 f1g2 e8g8 b1c3 d7d6 g1f3 b8d7"].porQue` | Prepara ...e5, el plan más clásico. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 g2g3 f8g7 f1g2 e8g8 b1c3 d7d6 g1f3 b8c6"].porQue` | Prepara ...e5 o la variante Panno (...a6, ...Tb8 y ...b5). |
@@ -636,6 +630,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 g1f3 e8g8 e2e3 d7d6"].porQue` | La estructura habitual de la India de Rey: después vienen ...e5 o ...c5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f3 e8g8"].porQue` | Enroca antes de decidir el golpe central: contra la Sämisch, el negro elige después entre ...e5, ...c5 o ...c6 con ...a6 y ...b5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 g1f3 d7d6"].porQue` | Prepara ...e5 y le deja al blanco el centro, para atacarlo después. |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 g1f3 d7d6 g2g3"].porQue` | Fianchetto: el blanco evita la lucha de la variante clásica y apunta a la gran diagonal. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 g1f3"].porQue` | Desarrolla y deja abierta la elección entre Cc3 y el fianchetto. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 g1f3 f8g7 g2g3 e8g8 f1g2 d7d6"].porQue` | Prepara ...e5 o ...c5 para disputar el centro. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 g1f3 f8g7 g2g3 e8g8 f1g2 d7d6 e1g1 b8c6"].porQue` | Presiona d4 y prepara ...a6 con ...Tb8 y ...b5: es el sistema Panno. |
@@ -648,6 +643,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 h2h3 e8g8"].porQue` | Enroca: contra el sistema Makogonov, el negro prepara ...e5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 h2h3 e8g8 c1e3 e7e5"].porQue` | Golpea en el centro, que es el plan normal de la India de Rey. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3e1 f6d7"].porQue` | Libera f6 para jugar ...f5: es el plan de ataque de la Mar del Plata. |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 d4d5 a7a5"].porQue` | Frena b4 y le asegura c5 al caballo. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f3 e8g8 c1e3"].porQue` | Desarrolla y prepara Dd2 y el enroque largo. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 g1f3 d7d6 g2g3 e8g8 f1g2 b8c6 e1g1 a7a6 d4d5 c6a5"].porQue` | El caballo va a a5, desde donde presiona c4. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 g1f3 d7d6 g2g3 e8g8 f1g2 b8c6 e1g1 a7a6 d4d5 c6a5 f3d2 c7c5"].porQue` | Refuerza el caballo de a5 y gana espacio: se juega ...Tb8 y ...b5. |
@@ -657,7 +653,9 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f3 e8g8 g1e2 c7c5 d4d5 e7e6 e2g3"].porQue` | El caballo va a g3, desde donde refuerza e4 y f5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f1e2 e8g8 f2f4 c7c5 d4d5 e7e6 d5e6 f7e6 g2g4"].porQue` | Según Stockfish es un error: era mejor 9. h4 (0,0 contra −0,9, para el bando que juega). |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f4 e8g8 g1f3 c7c5 d4d5 e7e6 f1e2"].porQue` | Desarrolla y prepara el enroque. |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 h2h3 e8g8 c1e3 e7e5 d4d5 a7a5"].porQue` | Frena b4 y le asegura c5 a los caballos. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 f2f3 c7c5"].porQue` | Ataca d4 antes de que las blancas completen el centro. |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 f2f3 c7c5 d4d5 d7d6"].porQue` | Frena el avance e5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 f2f3 c7c5 d4d5 d7d6 e2e4 f8g7 b1c3 e7e6 c1e3 e8g8 d1d2"].porQue` | Prepara el enroque largo y Ah6. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 b8d7"].porQue` | Prepara ...e5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3e1 f6d7 c1e3 f7f5 f2f3 f5f4 e3f2 g6g5 a1c1"].porQue` | Prepara c5 para atacar en el flanco de dama. |
@@ -665,36 +663,44 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1e2"].porQue` | Desarrolla y prepara f3 o Cg3. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 b8a6"].porQue` | Prepara ...e5 con el caballo apoyando c5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 d1c2"].porQue` | Controla e4 y prepara e4. |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3e1 f6d7 f2f3 f7f5 g2g4"].porQue` | Golpea el peón de f5 y frena el ataque negro en el flanco de rey. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 c1e3 f6g4 e3g5 f7f6 g5h4 g6g5 h4g3 g4h6"].porQue` | El caballo va a f7. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 g1f3 d7d6 g2g3 e8g8 f1g2 b8c6 e1g1 a7a6 d4d5 c6a5 f3d2 c7c5 d1c2 e7e5 a2a3"].porQue` | Prepara b4. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3e1 f6d7 f2f3 f7f5 g2g4 g8h8 c1e3 e7g8 e1g2"].porQue` | El caballo va a g2 para defender el flanco de rey. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3e1 f6d7 f2f3 f7f5 g2g4 g8h8 e1d3"].porQue` | El caballo va a d3. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3e1 f6d7 e1d3 f7f5 f2f3 f5f4"].porQue` | Gana espacio y prepara ...g5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 b2b4 f6h5 f1e1 f7f5 f3g5 h5f6 f2f3 g8h8 a1b1"].porQue` | La torre va a la columna b. |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 b2b4 f6h5 f1e1 f7f5 a2a4 a7a5"].porQue` | Frena a5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 c1d2 f6h5"].porQue` | El caballo va a h5 para apoyar ...f5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 c1d2 f6h5 a1c1"].porQue` | La torre va a la columna c. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 g1f3 d7d6 g2g3 e8g8 f1g2 b8c6 e1g1 a7a6 d4d5 c6a5 f3d2 c7c5 d1c2 e7e5 b2b3"].porQue` | Prepara Ab2. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 g1f3 d7d6 g2g3 e8g8 f1g2 b8c6 e1g1 a7a6 h2h3 a8b8 c1e3 b7b5 f3d2 c8d7 a1c1"].porQue` | La torre va a la columna c. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3e1 f6d7 e1d3 f7f5 f2f3 f5f4 c1d2 g6g5 a1c1"].porQue` | La torre va a la columna c. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3e1 f6d7 e1d3 f7f5 f2f3 f5f4 c1d2 g6g5 a1c1 e7g6"].porQue` | El caballo va a g6. |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3d2 a7a5"].porQue` | Frena b4. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3d2 a7a5 a1b1"].porQue` | Prepara b4. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3d2 a7a5 a1b1 f6d7 a2a3"].porQue` | Prepara b4. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 d4d5 a7a5 c1g5 h7h6 g5h4 b8a6"].porQue` | El caballo va a c5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 d4d5 a7a5 c1g5 h7h6 g5h4 b8a6 f3d2 d8e8 e1g1 f6h7 a2a3"].porQue` | Prepara b4. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f3 e8g8 g1e2 c7c5 d4d5 e7e6 e2g3 e6d5 c4d5 a7a6"].porQue` | Prepara ...b5. |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f3 e8g8 g1e2 c7c5 d4d5 e7e6 e2g3 e6d5 c4d5 a7a6 a2a4"].porQue` | Frena ...b5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f4 e8g8 g1f3 c7c5 d4d5 e7e6 f1e2 e6d5 e4e5"].porQue` | Según Stockfish es un error: era mejor 9. cxd5 (+0,3 contra −0,6, para el bando que juega). |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f2f4 e8g8 g1f3 c7c5 d4d5 e7e6 f1e2 e6d5 e4e5 f6e4"].porQue` | El caballo va a e4. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 f2f3 c7c5 d4d5 d7d6 e2e4 f8g7 b1c3 e7e6 c1e3 e8g8 d1d2 e6d5 c4d5 a7a6"].porQue` | Prepara ...b5. |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 f2f3 c7c5 d4d5 d7d6 e2e4 f8g7 b1c3 e7e6 c1e3 e8g8 d1d2 e6d5 c4d5 a7a6 a2a4"].porQue` | Frena ...b5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3d2 a7a5 a2a3"].porQue` | Prepara b4. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3d2 a7a5 a2a3 f6d7 a1b1"].porQue` | Prepara b4. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f1e2 e8g8 c1e3 e7e5 d4d5 b8a6"].porQue` | El caballo va a c5. |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f1e2 e8g8 c1e3 e7e5 d4d5 b8a6 g2g4 a6c5 f2f3 a7a5 h2h4 h7h5"].porQue` | Frena h5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 f1e2 e8g8 c1e3 e7e5 d4d5 b8a6 g2g4 a6c5 f2f3 a7a5 h2h4 h7h5 g4g5 f6d7 g1h3"].porQue` | El caballo va a f2. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 h2h3 e8g8 c1e3 e7e5 d4d5 a7a5 g2g4 b8a6"].porQue` | El caballo va a c5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 h2h3 e8g8 c1e3 e7e5 d4d5 a7a5 g2g4 b8a6 g1e2 c7c6 e2g3"].porQue` | El caballo va a g3. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 f2f3 c7c5 d4d5 d7d6 e2e4 f8g7 b1c3 e7e6 c1e3 e8g8 d1d2 e6d5 c4d5 a7a6 a2a4 f8e8 g1e2 b8d7 e2g3"].porQue` | El caballo va a g3. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 c1g5 e8g8 d1d2"].porQue` | Prepara el enroque largo. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1e2 e8g8 e2g3"].porQue` | El caballo va a g3. |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1e2 e8g8 e2g3 e7e5 d4d5 a7a5"].porQue` | Frena b4. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1e2 e8g8 e2g3 e7e5 d4d5 a7a5 f1e2 b8a6"].porQue` | El caballo va a c5. |
+| Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1e2 e8g8 e2g3 e7e5 d4d5 a7a5 f1e2 b8a6 h2h4 h7h5"].porQue` | Frena h5. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8d7 f1e1 c7c6 e2f1 a7a5 a1b1"].porQue` | Prepara b4. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8a6 c1e3 c7c6 d4d5 f6g4 e3g5 f7f6 g5h4 c6c5 f3e1 g4h6"].porQue` | El caballo va a f7. |
 | Defensa India de Rey | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 c7c6"].porQue` | Sostiene d5 y prepara ...b5. |
@@ -757,6 +763,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6"].porQue` | Prepara ...Ab4 o ...d5 y deja abierta la diagonal del alfil de f8. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3"].porQue` | Prepara e4, que echaría al caballo de f6 y daría a las blancas el centro completo. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4"].porQue` | Clava el caballo que prepara e4: mientras la clavada exista, e4 no se puede jugar sin perder un peón. Es la idea central de la Nimzoindia. |
+| Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4"].porQueNo["d7d6"]` | Tampoco frena e4: las blancas toman el centro y el negro queda sin espacio. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 d1c2"].porQue` | Variante Clásica: si el negro cambia en c3, la dama retoma y no hay peones doblados. Además controla e4. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 d1c2 e8g8"].porQue` | Enroca y espera: el negro decide después entre ...d5, ...c5 o ...b6 según cómo sigan las blancas. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3"].porQue` | Variante Rubinstein: desarrollo sólido, preparando Ad3 y Ce2 (para retomar en c3 con el caballo). |
@@ -778,23 +785,28 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 g1e2 f8e8 a2a3 b4f8"].porQue` | El alfil vuelve a f8 en vez de cambiarse: si cambiara en c3, las blancas retomarían con el caballo, sin peones doblados, y se quedarían con la pareja de alfiles. El esquema ...Te8 y ...Af8 se adapta a casi cualquier estructura de peones. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 f2f3 c7c5"].porQue` | Contra 4.f3, ataca d4 de inmediato. Tras 5.d5 O-O 6.e4 d6 se llega a una estructura Benoni cómoda, con poca teoría. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 g1f3 c7c5 g2g3 b8c6 f1g2 f6e4 c1d2"].porQue` | Lo más sólido contra la presión sobre c3. Con 7.Dd3, en cambio, el negro cambia en d4 y queda con mejor estructura de peones sin entregar la pareja de alfiles. |
+| Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 d1b3"].porQue` | Variante Spielmann: la dama ataca al alfil de b4 y evita el doblaje de peones, pero sale temprano y queda expuesta a ganancias de tiempo. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 d1b3 c7c5 d4c5 b4c5"].porQue` | La recaptura que prefiere Karpov, una de varias que igualan (también ...Cc6). El alfil apunta a f2. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 d1b3 c7c5 d4c5 b4c5 g1f3"].porQueNo["c1g5"]` | ...Axf2+! 7.Rxf2 Cg4+ y ...Dxg5: el negro recupera la pieza con un peón de más. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 d1b3 c7c5 d4c5 b4c5 g1f3 b7b6 c1g5 c8b7 a1d1"].porQue` | La única forma de crear problemas, según Khalifman: presión en la columna d. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 d1b3 c7c5 d4c5 b4c5 g1f3 b7b6 c1g5 c8b7 a1d1 e8g8 e2e3"].porQueNo["e2e4"]` | ...h6!: si 10.Ah4 g5 11.Ag3, ...Cxe4 gana un peón; si 10.Axf6, el blanco entrega su alfil activo. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 g2g3"].porQue` | Variante Romanishin: el blanco se desarrolla como en la Catalana. Si el negro toma en c3, la pareja de alfiles y la diagonal larga compensan los peones doblados. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 g2g3 e8g8"].porQue` | Lo más simple: enroca y espera a ver el plan del blanco antes de elegir entre ...d5 y ...c5. |
+| Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 f1d3 d7d5"].porQue` | Ocupa el centro y frena el avance e4. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 f1d3 d7d5 g1f3"].porQue` | Desarrolla y prepara el enroque. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 g1f3"].porQue` | Desarrolla y prepara el enroque. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 g1f3 d7d5 c1d2 b8c6"].porQue` | Desarrolla y prepara ...dxc4 y ...e5. |
+| Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 d1c2 d7d5 c4d5 d8d5 g1f3 d5f5 c2d1"].porQue` | Evita el cambio de damas. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 a2a3 b4c3 b2c3 b7b6 f2f3"].porQue` | Prepara e4 para armar un centro grande en la variante Sämisch. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 f1d3 d7d5 g1f3 b8c6"].porQue` | Desarrolla y prepara ...dxc4 y ...e5. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 f1d3 c7c5 g1f3 b7b6"].porQue` | Prepara ...Ab7 para controlar e4. |
+| Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 f1d3 c7c5 g1f3 b7b6 e1g1 c8b7 c3a4"].porQue` | Evita el cambio en c3 y presiona c5. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 c7c5 f1d3 b8c6 g1f3 b4c3 b2c3 d7d6 e1g1"].porQue` | Enroca: el blanco va a buscar abrir el juego para sus alfiles. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 f6e4 d1c2 f7f5 g1f3 b7b6"].porQue` | Prepara ...Ab7 para reforzar e4. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 f1d3 c7c5 g1f3 b7b6 e1g1 c8b7 c3a4 c5d4 a2a3"].porQue` | Pregunta al alfil antes de retomar. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 f1d3 d7d5 g1f3 c7c5 e1g1 b8c6 a2a3 d5c4"].porQue` | Toma en c4 antes de cambiar en c3. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 f1d3 d7d5 a2a3 b4c3 b2c3 d5c4 d3c4 c7c5 g1f3 b8c6 e1g1 d8c7"].porQue` | Prepara ...e5. |
+| Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 f2f3 d7d5 a2a3 b4c3 b2c3 c7c5 c4d5 f6d5 d4c5 f7f5"].porQue` | Frena el avance e4. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 f1d3 d7d5 g1f3 c7c5 e1g1 b8c6 a2a3 b4c3 b2c3 d5c4 d3c4 d8c7 d1c2"].porQue` | Prepara e4. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 d1d3"].porQue` | Defiende c3 y prepara a3 sin doblar peones. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e4"].porQue` | Según Stockfish es un error: era mejor 4. Cf3 (+0,2 contra −0,8, para el bando que juega). |
@@ -806,12 +818,15 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Nimzoindia | `notas["d2d4 e7e6 c2c4 g8f6 b1c3 f8b4 e2e3 e8g8 f1d3 d7d5 g1f3 c7c5 e1g1 d5c4 d3c4 b8d7 d1e2 c5d4 e3d4 d7b6"].porQue` | El caballo va a b6. |
 | Defensa Nimzoindia | `notas["d2d4 e7e6 c2c4 g8f6 b1c3 f8b4 e2e3 e8g8 f1d3 d7d5 g1f3 c7c5 e1g1 d5c4 d3c4 b8d7 d1e2 b7b6"].porQue` | Prepara ...Ab7. |
 | Defensa Nimzoindia | `notas["d2d4 e7e6 c2c4 g8f6 b1c3 f8b4 e2e3 e8g8 f1d3 d7d5 g1f3 c7c5 e1g1 b7b6"].porQue` | Prepara ...Ab7. |
+| Defensa Nimzoindia | `notas["d2d4 e7e6 c2c4 g8f6 b1c3 f8b4 e2e3 e8g8 f1d3 d7d5 g1f3 b7b6 e1g1 c8b7 c4d5 e6d5 a2a3 b4d6 b2b4 a7a6"].porQue` | Frena b5. |
 | Defensa Nimzoindia | `notas["d2d4 e7e6 c2c4 g8f6 b1c3 f8b4 e2e3 e8g8 f1d3 d7d5 g1f3 b7b6 e1g1 c8b7 c4d5 e6d5 a2a3 b4d6 b2b4 a7a6 d1b3 d8e7 a1b1"].porQue` | La torre va a la columna b. |
 | Defensa Nimzoindia | `notas["d2d4 e7e6 c2c4 g8f6 b1c3 f8b4 e2e3 e8g8 f1d3 d7d5 g1f3 b8c6 e1g1 d5c4 d3c4 a7a6"].porQue` | Prepara ...b5. |
+| Defensa Nimzoindia | `notas["d2d4 e7e6 c2c4 g8f6 b1c3 f8b4 e2e3 c7c5 f1d3 b8c6 a2a3 b4c3 b2c3 e8g8 g1e2 b7b6 e3e4 f6e8 e1g1 c8a6 f2f4 f7f5"].porQue` | Frena f5. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 g1e2 f8e8 a2a3 b4f8 d4d5 a7a5 e2g3 b8a6"].porQue` | El caballo va a c5. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 g1e2 f8e8 a2a3 b4f8 d4d5 a7a5 g2g3"].porQue` | Prepara el fianchetto. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 g1e2 f8e8 a2a3 b4f8 d4d5 a7a5 g2g3 b8a6"].porQue` | El caballo va a c5. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 g1e2 f8e8 a2a3 b4f8 e2g3 d7d5 f1e2 b7b6"].porQue` | Prepara ...Ab7. |
+| Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 a2a3 b4c3 b2c3 c7c5 f1d3 b8c6 g1e2 b7b6 e3e4 f6e8 e1g1 c8a6 f2f4 f7f5"].porQue` | Frena el avance del peón de f. |
 | Defensa Nimzoindia | `notas["d2d4 g8f6 c2c4 e7e6 b1c3 f8b4 e2e3 e8g8 g1f3 d7d5 a2a3 b4c3 b2c3 c7c5 f1d3 d5c4 d3c4 d8c7 c4e2 b7b6"].porQue` | Prepara ...Ab7. |
 | Defensa Petrov | `planesBlancas` | Aprovechar el tiempo de más: d4, Ad3, enroque y c4 para presionar el centro negro. |
 | Defensa Petrov | `planesBlancas` | Buscar pequeñas ventajas en posiciones simétricas, o el enroque largo con Cc3 en las líneas más agudas. |
@@ -840,6 +855,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Petrov | `notas["e2e4 e7e5 g1f3 g8f6 f3e5 b8c6"].porQue` | Según Stockfish es un error: era mejor 3... d6 (−0,5 contra −2,0, para el bando que juega). |
 | Defensa Petrov | `notas["e2e4 e7e5 g1f3 g8f6 f3e5 f6e4 d1e2"].porQue` | Ataca el caballo de e4: si se retira, Cc6+ descubierto gana la dama. |
 | Defensa Petrov | `notas["e2e4 e7e5 g1f3 g8f6 f3e5 d7d6 e5f3 f6e4 d2d4 d6d5 f1d3 f8d6 e1g1 e8g8 c2c4 c8g4 c4d5 f7f5 f1e1"].porQue` | Según Stockfish es un error: era mejor 10. Cc3 (+1,0 contra −0,5, para el bando que juega). |
+| Defensa Petrov | `notas["e2e4 e7e5 g1f3 g8f6 f3e5 d7d6 e5f3 f6e4 c2c4"].porQue` | Gana espacio y frena ...d5. |
 | Defensa Petrov | `notas["e2e4 e7e5 g1f3 g8f6 f3e5 d7d6 e5f3 f6e4 d1e2"].porQue` | Clava el caballo por la columna e y busca cambiar damas. |
 | Defensa Petrov | `notas["e2e4 e7e5 g1f3 g8f6 f3e5 d7d6 e5f3 f6e4 f1d3 e4f6 e1g1 f8e7 c2c3"].porQue` | Prepara d4. |
 | Defensa Petrov | `notas["e2e4 e7e5 g1f3 g8f6 f3e5 d7d6 e5c4 f6e4 d1e2 d8e7 c4e3 c7c6 b2b3"].porQue` | Prepara Ab2. |
@@ -897,6 +913,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Semieslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 e2e3 a7a6 f1d3 d5c4 d3c4 b7b5 c4d3 c6c5 e1g1 c8b7 d1e2"].porQue` | Prepara Td1 y e4. |
 | Defensa Semieslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 e2e3 f8d6 f1d3 d5c4 d3c4 b7b5 c4d3 b8d7"].porQue` | Desarrolla y prepara ...e5 o ...c5. |
 | Defensa Semieslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 e2e3 f8d6 f1d3 d5c4 d3c4 b7b5 c4d3 b8d7 e1g1 e8g8 d1c2"].porQue` | Prepara e4 y apunta a h7. |
+| Defensa Semieslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 e2e3 f8d6 f1d3 d5c4 d3c4 b7b5 c4d3 b8d7 e1g1 c8b7 a2a3"].porQue` | Frena ...b4. |
 | Defensa Semieslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 e2e3 f8d6 f1d3 d5c4 d3c4 b7b5 c4d3 b8d7 e1g1 c8b7 a2a3 e8g8 d1c2"].porQue` | Prepara e4. |
 | Defensa Semieslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 e2e3 b8d7 d1c2 f8d6 b2b3"].porQue` | Prepara Ab2 y protege c4. |
 | Defensa Semieslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 e2e3 b8d7 d1c2 f8d6 b2b3 e8g8 c1b2 f8e8"].porQue` | Prepara ...e5 con la torre detrás. |
@@ -927,8 +944,11 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana de los Cuatro Caballos | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 d4b5"].porQue` | La primera idea que viene a la cabeza: el caballo apunta a d6, la debilidad del negro. |
 | Siciliana de los Cuatro Caballos | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 d4b5 f8b4 a2a3 b4c3 b5c3 d7d5"].porQue` | El negro aprovecha el cambio para avanzar en el centro: tras 9.exd5 exd5 10.Ad3 O-O 11.O-O d4, el peón de d4 domina. |
 | Siciliana de los Cuatro Caballos | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 d4b5 f8b4 a2a3 b4c3 b5c3 d7d5"].porQueNo["d8a5"]` | 8...Da5? 9.Ad3 y la ruptura ...d5 llega tarde. |
+| Siciliana de los Cuatro Caballos | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 d4b5 d7d6"].porQue` | Otra forma de cubrir d6: es el camino al Sveshnikov que evita la Rossolimo y la línea 7.Cd5. |
 | Siciliana de los Cuatro Caballos | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 a2a3"].porQue` | Prudente: quita b4 al alfil, pero 6...Dc7 o 6...d6 llevan a líneas inofensivas de la Taimanov o la Scheveningen. |
+| Siciliana de los Cuatro Caballos | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 d4c6 b7c6 e4e5 f6d5 c3e4 d8c7 f2f4 c7b6"].porQue` | La dama ataca b2 y vigila g1: impide que el blanco desarrolle tranquilo. |
 | Siciliana de los Cuatro Caballos | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 d4b5 f8b4 c1f4 f6e4 d1f3 d7d5 b5c7 e8f8"].porQue` | Sale del jaque; el caballo de c7 amenaza la torre, pero el rey blanco queda en el centro. |
+| Siciliana de los Cuatro Caballos | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 f1e2 f8b4 e1g1 b4c3 b2c3 f6e4 e2d3 d7d5 c1a3"].porQue` | El alfil impide el enroque. |
 | Siciliana Najdorf | `planesBlancas` | Ataque Inglés: Ae3, f3, Dd2, enroque largo y avance g4-g5. |
 | Siciliana Najdorf | `planesBlancas` | Con Ag5 y f4: presión central y ataque rápido. |
 | Siciliana Najdorf | `planesBlancas` | Con Ae2 y enroque corto: dominar d5 si el negro juega ...e5. |
@@ -960,6 +980,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 f1c4 e7e6 c4b3"].porQue` | Retira el alfil antes de que ...b5 lo eche. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 f2f4"].porQue` | Gana espacio y prepara e5. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5 e7e6 f2f4 f8e7 d1f3 h7h6 g5h4 d8c7 e1c1 b8d7 f1e2 a8b8 f3g3 h8g8"].porQue` | Según Stockfish es un error: era mejor 12... O-O (−1,1 contra −2,0, para el bando que juega). |
+| Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5 e7e6 f2f4 f8e7 d1f3 d8c7 e1c1 b8d7 g2g4 h7h6"].porQue` | Frena g5. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5 e7e6 f2f4 f8e7 d1f3 d8c7 e1c1 b8d7 g2g4 h7h6 g5f6 e7f6 h2h4"].porQue` | Prepara g5. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5 e7e6 f2f4 f8e7 d1f3 d8c7 e1c1 b8d7 g2g4 h7h6 g5f6 e7f6 h2h4 d7b6"].porQue` | El caballo va a c4. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5 e7e6 f2f4 b7b5 e4e5 d6e5 f4e5 d8c7 d1e2 f6d7 e1c1 c8b7 e2g4 c7e5"].porQue` | Según Stockfish es un error: era mejor 12... Db6 (−0,6 contra −2,3, para el bando que juega). |
@@ -968,6 +989,8 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5 e7e6 f2f4 b8c6"].porQue` | Según Stockfish es un error: era mejor 7... Db6 (−0,1 contra −1,2, para el bando que juega). |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5 e7e6 f2f4 b8c6 d4c6 b7c6 e4e5 h7h6 g5h4 g7g5 f4g5 f6d5"].porQue` | El caballo va a d5. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1g5 e7e6 f2f4 b8c6 d4c6 b7c6 e4e5 h7h6 g5h4 g7g5 f4g5 f6d5 c3e4"].porQue` | El caballo va a e4. |
+| Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 g8f6 b1c3 d7d6 d2d4 c5d4 f3d4 a7a6 c1e3 e7e5 d4b3 f8e7 f2f3 c8e6 d1d2 h7h5"].porQue` | Frena g4. |
+| Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 g8f6 b1c3 d7d6 d2d4 c5d4 f3d4 a7a6 c1e3 e7e5 d4b3 c8e6 f2f3 h7h5"].porQue` | Frena g4. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 g8f6 b1c3 d7d6 d2d4 c5d4 f3d4 a7a6 c1e3 e7e5 d4b3 c8e6 f2f3 h7h5 c3d5 e6d5 e4d5 b8d7 d1d2"].porQue` | Prepara el enroque largo. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 g8f6 b1c3 d7d6 d2d4 c5d4 f3d4 a7a6 c1e3 e7e5 d4b3 c8e6 f2f3 h7h5 c3d5 e6d5 e4d5 b8d7 d1d2 g7g6"].porQue` | Prepara el fianchetto. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 c1e3 e7e5 d4b3 c8e6 h2h3 f8e7 d1f3 e8g8 g2g4 a6a5 f1b5 b8a6"].porQue` | El caballo va a c7. |
@@ -976,6 +999,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 f2f4 e7e6 f1e2 d8c7 e1g1 b8c6 c1e3 f8e7 a2a4 e8g8 g1h1 f8e8 e2f3 a8b8"].porQue` | La torre va a b8. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 f2f4 e7e6 f1e2 d8c7 e1g1 b8c6 c1e3 f8e7 g1h1 e8g8 d1e1"].porQue` | La dama va a g3 por e1. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 f1c4 e7e6 c4b3 b7b5 c1g5 f8e7 d1f3"].porQue` | Prepara el enroque largo. |
+| Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 h2h3 e7e5 d4e2 h7h5"].porQue` | Frena g4. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 h2h3 e7e5 d4e2 h7h5 c1g5 c8e6 g5f6 d8f6 c3d5 f6d8 d1d3 b8d7 e1c1 g7g6"].porQue` | Prepara el fianchetto. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 g2g3"].porQue` | Prepara el fianchetto. |
 | Siciliana Najdorf | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 a7a6 g2g3 e7e5 d4b3 f8e7 f1g2 e8g8 e1g1 c8e6 a2a4 b8d7 f1e1 a8c8"].porQue` | La torre va a la columna c. |
@@ -1011,6 +1035,8 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Taimanov | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 d4b5 d7d6 c2c4 g8f6 b1c3 a7a6 b5a3 f8e7"].porQue` | Desarrolla y prepara el enroque. |
 | Siciliana Taimanov | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 d4b5 d7d6 c2c4 g8f6 b1c3 a7a6 b5a3 f8e7 f1e2 e8g8"].porQue` | Enroca: el negro espera el momento para ...b5 o ...d5. |
 | Siciliana Taimanov | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 b1c3 d8c7 g2g3"].porQue` | Prepara el fianchetto para defender e4. |
+| Siciliana Taimanov | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 b1c3 d8c7 f1e2 a7a6 e1g1 g8f6 c1e3 f8e7 f2f4 d7d6 d1e1 e8g8 e1g3 c8d7 g1h1 b7b5 a2a3"].porQue` | Frena ...b4. |
+| Siciliana Taimanov | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 b1c3 d8c7 f1e2 a7a6 e1g1 g8f6 c1e3 f8e7 f2f4 d7d6 d1e1 e8g8 e1g3 c6d4 e3d4 b7b5 a2a3"].porQue` | Frena ...b4. |
 | Siciliana Taimanov | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 b1c3 g8f6 d4b5 f8c5 c1f4 e8g8 f4c7 d8e7 c7d6"].porQue` | El alfil va a d6. |
 | Siciliana Taimanov | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 d4b5 d7d6 c2c4 g8f6 b1c3 a7a6 b5a3 f8e7 f1e2 e8g8 e1g1 b7b6 c1e3 c8b7 a1c1"].porQue` | La torre va a la columna c. |
 | Siciliana Taimanov | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 b8c6 b1c3 d8c7 d4b5 c7b8 c1e3 a7a6 e3b6"].porQue` | Amenaza Cc7+. |
@@ -1038,6 +1064,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Contragambito Albin | `planesBlancas` | Fianchetto (g3, Ag2) y Cbd2 para rodear el peón de d4. |
 | Contragambito Albin | `planesNegras` | Sostener la cuña de d4 con ...Cc6. |
 | Contragambito Albin | `notas["d2d4 d7d5 c2c4 e7e5"].porQue` | Contragambito: entrega el peón para clavar una cuña en d4 después de dxe5 d4. |
+| Contragambito Albin | `notas["d2d4 d7d5 c2c4 e7e5 d4e5 d5d4"].porQue` | La cuña en d4 quita c3 y e3 a las blancas y frena su desarrollo. |
 | Contragambito Albin | `notas["d2d4 d7d5 c2c4 e7e5 d4e5 d5d4 g1f3"].porQue` | Desarrollo natural; después vienen g3, Ag2 y Cbd2. |
 | Contragambito Albin | `notas["d2d4 d7d5 c2c4 e7e5 d4e5 d5d4 g1f3"].porQueNo["d1c2"]` | ...Cc6 y ...Cb4 echan a la dama con tiempo. |
 | Contragambito Albin | `notas["d2d4 d7d5 c2c4 e7e5 d4e5 d5d4 g1f3 b8c6 g2g3"].porQue` | El fianchetto: tras ...d4, la diagonal larga quedó abierta y el alfil presiona el flanco de dama. |
@@ -1062,6 +1089,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 e7e5 f1g2 d7d5 d2d3"].porQue` | La forma más popular: impide ...e4 y prepara Cf3. Se llega a una Pirc con colores invertidos y un tiempo de más. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 e7e5 f1g2 d7d5 d2d3 g8f6 g1f3 b8c6 e1g1 f8e7 c2c4"].porQue` | Para Stockfish lo más preciso: ataca el centro desde el flanco, como en una Pirc donde el negro tuviera la jugada. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 e7e5 f1g2 d7d5 g1f3"].porQue` | La idea de Larsen: provoca ...e4 para atacar después el peón avanzado. |
+| Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 g8f6 f1g2 g7g6 e2e4"].porQue` | Impide que el negro llegue a la India de Rey: la posición se parece a una Pirc. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 d7d5 g1f3"].porQue` | Lo más preciso según Stockfish: se llega a una Réti (1.Cf3 d5 2.g3), con el caballo controlando e5 antes de que el negro arme ...e5. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 g8f6 f1g2 d7d5"].porQue` | Ocupa el centro con un peón: el blanco tiene que decidir entre Cf3 (Réti o Catalana), c4 o d3. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 g8f6 f1g2 d7d5 g1f3"].porQue` | Lo más flexible: se llega a esquemas de Réti o de Ataque Indio de Rey. |
@@ -1070,6 +1098,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 d7d5 g1f3 g8f6 f1g2 e7e6 e1g1 f8e7"].porQue` | Desarrolla de forma sólida y prepara el enroque. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 d7d5 g1f3 c7c6"].porQue` | Refuerza d5 y prepara ...Ag4 o ...Af5. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 d7d5 g1f3 c7c6 f1g2 c8g4 e1g1 b8d7"].porQue` | Desarrolla y prepara ...e5. |
+| Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 d7d5 g1f3 c7c6 f1g2 c8g4 e1g1 b8d7 d2d4"].porQue` | Ocupa el centro y frena ...e5. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 d7d5 g1f3 c7c5 f1g2 g8f6 e1g1 e7e6 d2d3"].porQue` | Prepara e4 para atacar el centro negro, como en un Ataque Indio de Rey. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 d7d5 g1f3 g7g6"].porQue` | Prepara su propio fianchetto. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 d7d5 g1f3 g7g6 f1g2 f8g7 e1g1 e7e5 d2d3"].porQue` | Prepara e4 o c4 para atacar el centro negro. |
@@ -1078,6 +1107,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 f7f5 e2e4 f5e4 d1h5"].porQue` | Según Stockfish es un error: era mejor 3. d3 (−0,5 contra −1,8, para el bando que juega). |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 h7h5"].porQue` | Amenaza ...h4 para atacar el peón de g3. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 b8c6"].porQue` | Desarrolla y prepara ...e5. |
+| Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 b8c6 b1c3 d7d5 d2d4"].porQue` | Ocupa el centro y frena ...e5. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 d7d5 g1f3 g8f6 f1g2 c7c6 e1g1 c8f5 d2d3 e7e6 b1d2"].porQue` | Desarrolla y prepara e4. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 d7d5 g1f3 g8f6 f1g2 c7c6 e1g1 c8g4 d2d4 b8d7"].porQue` | Desarrolla y prepara ...e6. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 d7d5 f1g2 e7e5 b2b4"].porQue` | Según Stockfish es un error: era mejor 3. c4 (−0,3 contra −1,3, para el bando que juega). |
@@ -1091,6 +1121,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 d7d5 g1f3 g7g5"].porQue` | Según Stockfish es un error: era mejor 2... g6 (−0,2 contra −1,6, para el bando que juega). |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 g7g6"].porQue` | Prepara el fianchetto. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 g7g6 f1g2 f8g7 c2c4 c7c5 b1c3 b8c6 g1f3 d7d6 e1g1 e7e5 a2a3"].porQue` | Prepara b4. |
+| Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 g7g6 f1g2 f8g7 c2c4 c7c5 b1c3 b8c6 g1f3 d7d6 e1g1 e7e5 a2a3 a7a5"].porQue` | Frena b4. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 d7d5 g1f3 e7e5"].porQue` | Según Stockfish es un error: era mejor 2... g6 (−0,2 contra −1,4, para el bando que juega). |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 c7c5 f1g2 b8c6 c2c4 g7g6"].porQue` | Prepara el fianchetto. |
 | Apertura 1.g3 (Húngara o Benko) | `notas["g2g3 c7c5 f1g2 g7g6"].porQue` | Prepara el fianchetto. |
@@ -1113,6 +1144,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Benoni Antigua | `notas["d2d4 c7c5 d4d5 d7d6 e2e4 g8f6 b1c3 g7g6"].porQue` | Prepara el fianchetto. |
 | Benoni Antigua | `notas["d2d4 c7c5 d4d5 d7d6 e2e4 g8f6 b1c3 g7g6 g1f3 f8g7 f1b5 c8d7 a2a4 e8g8 e1g1 b8a6"].porQue` | El caballo va a c7. |
 | Benoni Antigua | `notas["d2d4 c7c5 d4d5 e7e6 c2c4 e6d5 c4d5 d7d6 b1c3 g7g6 e2e4 f8g7 f1d3 a7a6"].porQue` | Prepara ...b5. |
+| Benoni Antigua | `notas["d2d4 c7c5 d4d5 e7e6 c2c4 e6d5 c4d5 d7d6 b1c3 g7g6 e2e4 f8g7 f1d3 a7a6 a2a4"].porQue` | Frena ...b5. |
 | Benoni Antigua | `notas["d2d4 c7c5 d4d5 d7d6 b1c3 g7g6"].porQue` | Prepara el fianchetto. |
 | Benoni Antigua | `notas["d2d4 c7c5 b2b4"].porQue` | Según Stockfish es un error: era mejor 2. d5 (+0,7 contra −0,7, para el bando que juega). |
 | Gambito Blackmar-Diemer | `planesBlancas` | Columna f abierta, Ad3, De1-h4 y ataque contra el enroque. |
@@ -1220,6 +1252,8 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 b8d7 e4g5 g8f6 f1d3 e7e6 g1f3 f8d6 d1e2 h7h6 g5e4 f6e4 e2e4 d7f6 e4e2 d8c7 c1d2 b7b6"].porQue` | Prepara ...Ab7. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 b8d7 e4g5 g8f6 f1d3 e7e6 g1f3 f8d6 d1e2 h7h6 g5e4 f6e4 e2e4 d8c7 e1g1 b7b6"].porQue` | Prepara ...Ab7. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 b8d7 e4g5 g8f6 f1d3 e7e6 g1f3 f8d6 d1e2 h7h6 g5e4 f6e4 e2e4 d8c7 e1g1 b7b6 e4g4 e8f8 b2b3"].porQue` | Prepara Ab2. |
+| Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 b8d7 e4g5 d7f6"].porQue` | Lleva el caballo de d7 a f6 y evita las trampas con Ce6. |
+| Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 b7b5 a2a3"].porQue` | Frena ...b4. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 b7b5 a2a3 a7a6"].porQue` | Prepara ...dxe4. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 b8a6 b1c3 a6c7 g1f3 g7g6"].porQue` | Prepara el fianchetto. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 g8f6 e4f6 g7f6 c2c3 c8f5 g1f3 b8d7 g2g3"].porQue` | Prepara el fianchetto. |
@@ -1227,9 +1261,12 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 g8f6 e4f6 g7f6 c2c3 c8f5 g1f3 d8c7 g2g3"].porQue` | Prepara el fianchetto. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 g8f6 e4f6 g7f6 c2c3 c8f5 g1f3 d8c7 g2g3 b8d7 f1g2 e8c8"].porQue` | Según Stockfish es un error: era mejor 9... Ag7 (−0,9 contra −1,9, para el bando que juega). |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 g8f6 e4f6 g7f6 c2c3 c8f5 g1f3 e7e6 g2g3"].porQue` | Prepara el fianchetto. |
+| Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 g8f6 e4f6 g7f6 c2c3 c8f5 g1f3 e7e6 g2g3 d8d5 f1g2 d5c4"].porQue` | La dama se instala en c4 y frena el desarrollo blanco. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 g8f6 e4f6 e7f6 c2c3"].porQue` | Sostiene d4 y prepara Ad3. |
+| Defensa Caro-Kann | `notas["e2e4 c7c6 b1c3 d7d5 g1f3 c8g4 h2h3 g4f3 d1f3 e7e6 d2d3 b8d7 c1d2 g8f6 g2g4 h7h6"].porQue` | Frena g5. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1c3 d5e4 c3e4 g8f6 e4g5 h7h6 g5f7"].porQue` | Según Stockfish es un error: era mejor 6. C5f3 (−0,1 contra −2,4, para el bando que juega). |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 e4e5 c8f5 g1f3 e7e6 f1e2 c6c5 c1e3 d8b6 b1c3 b8c6 e1g1 b6b2 d1e1"].porQue` | La dama defiende c3 y prepara Tb1. |
+| Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 e4e5 c8f5 b1c3 e7e6 g2g4 f5g6 g1e2 c6c5 h2h4 h7h5"].porQue` | Frena h5. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 g1f3 d7d5 d2d3 d5e4 d3e4 d8d1 e1d1 g8f6 b1d2 g7g6"].porQue` | Prepara el fianchetto. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 c2c4 d7d5 e4d5 c6d5 c4d5 g8f6 b1c3 f6d5 g1f3 b8c6 f1b5 e7e6 e1g1 f8e7 d2d4 e8g8 f1e1 c8d7 b5d3 a8c8"].porQue` | La torre va a la columna c. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 b1d2 d5e4 d2e4 c8f5 e4g3 f5g6 g1h3"].porQue` | El caballo va a f4 por h3. |
@@ -1239,6 +1276,8 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Caro-Kann | `notas["e2e4 c7c6 c2c4 d7d5 e4d5 c6d5 c4d5 g8f6 d1a4 b8d7 b1c3 g7g6 g1f3 f8g7 f1c4 e8g8 d2d3 a7a6 a4a3 b7b6"].porQue` | Prepara ...Ab7. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 e4d5 c6d5 g2g4"].porQue` | Según Stockfish es un error: era mejor 4. Ad3 (+0,1 contra −0,8, para el bando que juega). |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 e4e5 c8f5 g2g4 f5e4"].porQue` | El alfil va a e4. |
+| Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 e4e5 c8f5 g1e2 e7e6 e2g3 f5g6 h2h4 h7h5"].porQue` | Frena h5. |
+| Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 e4e5 c8f5 h2h4 h7h5"].porQue` | Frena h5. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 e4e5 c8f5 h2h4 h7h5 c2c4 e7e6 b1c3 g8e7 g1e2 b8d7 e2g3 f5g6 c1g5 d8b6 a1c1"].porQue` | La torre va a la columna c y deja el peón de b2. |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 b2b4 d7d5 b4b5"].porQue` | Según Stockfish es un error: era mejor 3. e5 (−0,1 contra −1,9, para el bando que juega). |
 | Defensa Caro-Kann | `notas["e2e4 c7c6 d2d4 d7d5 e4e5 c8f5 h2h4 h7h5 f1d3 f5d3 d1d3 d8a5 b1d2 e7e6 g1f3 g8h6"].porQue` | El caballo va a f5. |
@@ -1257,6 +1296,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Sistema Colle | `notas["d2d4 d7d5 g1f3 g8f6 e2e3 c7c5 c2c3 b8d7"].porQueNo["c5c4"]` | 4...c4?! saca la presión sobre d4 y permite 5.b3!: si el negro cambia, el blanco abre la columna a; para sostener c4 tiene que jugar ...b5 y después a4 lo debilita (Koltanowski). |
 | Sistema Colle | `notas["d2d4 d7d5 g1f3 g8f6 e2e3 g7g6 c2c4"].porQue` | Para Stockfish, lo más preciso contra el esquema de India de Rey: pasar a un Gambito de Dama con c4. Con el alfil en g7, la ruptura e4 del Colle pierde algo de fuerza. |
 | Sistema Colle | `notas["d2d4 d7d5 g1f3 g8f6 e2e3 e7e6 f1d3 b7b6 e1g1"].porQue` | Contra el fianchetto de dama, el blanco enroca primero y elige después entre Cbd2 con e4 y el esquema Zukertort con b3. |
+| Sistema Colle | `notas["d2d4 d7d5 g1f3 g8f6 e2e3 e7e6 f1d3 f8d6"].porQue` | Desarrollo simétrico: el alfil de d6 frena un futuro e4 y apunta al flanco de rey blanco. |
 | Sistema Colle | `notas["d2d4 d7d5 g1f3 g8f6 e2e3 e7e6 f1d3 f8d6 e1g1"].porQue` | Enroca antes de decidir entre el Colle clásico (c3 y e4) y el Zukertort (b3 y Ab2). |
 | Sistema Colle | `notas["d2d4 d7d5 g1f3 g8f6 e2e3 e7e6 f1d3 f8d6 e1g1 e8g8 b2b3"].porQue` | Esquema Zukertort: el alfil de c1 irá a b2, desde donde apunta al enroque negro por la diagonal larga, y el caballo suele saltar a e5. |
 | Sistema Colle | `notas["d2d4 g8f6 g1f3 e7e6 e2e3"].porQue` | Sistema Yusupov-Rubinstein: esquema de Colle contra ...e6, a menudo con b3 y Ab2 como en el Colle-Zukertort. |
@@ -1296,6 +1336,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Dragón Acelerado | `notas["e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g7g6 c1e3 f8g7 f1e2"].porQue` | Desarrolla y prepara el enroque. |
 | Siciliana Dragón Acelerado | `notas["e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g7g6 b1c3 f8g7 c1e3 g8f6 f1e2 e8g8 e1g1 d7d6 d4b3 c8e6 f2f4 d8c8"].porQue` | La dama prepara ...Ah3 o ...Ag4. |
 | Siciliana Dragón Acelerado | `notas["e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g7g6 b1c3 f8g7 c1e3 g8f6 f1e2 e8g8 e1g1 d7d6 d4b3 a7a5"].porQue` | Amenaza ...a4 contra el caballo. |
+| Siciliana Dragón Acelerado | `notas["e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g7g6 b1c3 f8g7 c1e3 g8f6 f1e2 e8g8 e1g1 d7d6 d4b3 a7a5 a2a4"].porQue` | Frena ...a4. |
 | Siciliana Dragón Acelerado | `notas["e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g7g6 b1c3 f8g7 c1e3 g8f6 f1e2 e8g8 e1g1 d7d6 d4b3 a7a5 a2a4 c8e6 f2f4 a8c8"].porQue` | La torre va a la columna c. |
 | Siciliana Dragón Acelerado | `notas["e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g7g6 b1c3 f8g7 c1e3 g8f6 f1e2 e8g8 e1g1 d7d6 d1d2 c8d7 a1d1 a8c8"].porQue` | La torre va a la columna c. |
 | Siciliana Dragón Acelerado | `notas["e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g7g6 c2c4 g8f6 b1c3 d7d6 f1e2 c6d4 d1d4 f8g7 c1e3 e8g8 d4d2 c8e6 e1g1 d8a5 a1b1 f8c8"].porQue` | La torre va a la columna c. |
@@ -1317,6 +1358,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6"].porQueNo["c8f5"]` | El error típico de la Eslava: cxd5 cxd5 y Db3 ataca b7. El negro tiene que perder tiempo con ...Db6 o ...Ac8. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3"].porQue` | Presiona d5 con otra pieza. Ahora el negro elige: tomar en c4 (Eslava aceptada), jugar ...e6 (Semieslava) o ...a6 (Chebanenko). |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4"].porQue` | Toma el peón para sacar el alfil a f5 con tiempo. Las blancas lo van a recuperar, pero el negro gana un desarrollo cómodo. |
+| Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4"].porQue` | Impide ...b5, que sostendría el peón de c4. Debilita b4, pero las blancas recuperan el peón con e3 y Axc4. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 e2e3"].porQue` | La línea holandesa: prepara Axc4 y el enroque. Es la forma más tranquila de recuperar el peón. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 e2e3 e7e6 f1c4 f8b4"].porQue` | Clava el caballo de c3 y frena e4. Después vienen el enroque y ...Cbd7. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 e2e3 c8f5"].porQue` | Con c4 defendido, el alfil sale igual. Las blancas pueden intentar cxd5 y Db3 contra b7 (Stockfish prefiere Cc3, pero en la práctica aparece): la respuesta es ...Dc7 o ...Dc8, nunca ...e6 (ver las trampas). |
@@ -1355,10 +1397,12 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8d7 e5c4 d8c7 g2g3 e7e5 d4e5 d7e5 c1f4 f6d7 f1g2 g7g5"].porQue` | La idea de Morozevich: ataca al alfil de f4 y busca juego activo. Casi desplazó a la clásica 11...f6 (Schandorff). |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8d7 e5c4 d8c7 g2g3 e7e5 d4e5 d7e5 c1f4 f6d7 f1g2 g7g5 c4e3"].porQue` | La respuesta de Kasparov cuando se encontró con la novedad: busca una ventaja chica pero estable, atacando el alfil de f5. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8d7 e5c4 d7b6"].porQue` | La Variante Sokolov, la interpretación moderna: el caballo echa al de c4 y el negro sigue con ...a5. |
+| Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8d7 e5c4 d7b6 c4e5 a7a5"].porQue` | Impide a5, que echaría al caballo de b6. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8d7 e5c4 f6d5"].porQue` | Una idea de Morozevich: prepara ...e5 para la próxima jugada. Es, sobre todo, un arma de sorpresa (Schandorff). |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8d7 e5c4 f6d5 f2f3"].porQue` | Prepara e4 para echar al caballo de d5 y ocupar el centro. Stockfish la prefiere a 8.g3, que es la recomendación de Schandorff (él menciona 8.f3 como interesante). |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 a7a6 c4c5"].porQue` | Una jugada de principios: cierra la posición, le quita al negro muchas de sus posibilidades dinámicas y deja en evidencia el defecto de ...a6, la casilla b6 debilitada (Schandorff). El negro buscará romper con ...b6 o ...e5. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 a7a6 c4c5 b8d7"].porQue` | La línea principal: el caballo pelea por e5. Si el negro consigue jugar ...e5, está contento. |
+| Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 a7a6 c4c5 b8d7 c1f4"].porQue` | Controla e5 y frena la ruptura. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 a7a6 c4c5 g7g6 h2h3"].porQue` | Una jugada útil: así el alfil, una vez en f4, tiene la casilla h2 si el negro juega ...Ch5 o ...h5 (Schandorff). |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 a7a6 c4c5 c8g4"].porQue` | Se ve dudosa, y Stockfish lo confirma: provoca que el caballo salte a una gran casilla ganando tiempo. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 a7a6 c4c5 c8g4 f3e5"].porQue` | Gracias: el caballo va a e5 atacando al alfil (Schandorff). |
@@ -1380,6 +1424,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8d7 e5c4 d8c7 g2g3 e7e5 d4e5 d7e5 c1f4 f6d7 f1g2 f7f6 e1g1 d7c5 c4e3 f5g6 b2b4 c5e6"].porQue` | El caballo va a e6. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8d7 e5c4 d8c7 g2g3 e7e5 d4e5 d7e5 c1f4 f6d7 f1g2 f7f6 e1g1 e8c8 a1c1"].porQue` | La torre va a la columna c. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8d7 e5c4 d8c7 g2g3 e7e5 d4e5 d7e5 c1f4 f6d7 f1g2 f7f6 e1g1 e8c8 a1c1 d7c5"].porQue` | El caballo va a c5. |
+| Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8d7 e5c4 d8c7 g2g3 e7e5 d4e5 d7e5 c1f4 f6d7 f1g2 f7f6 e1g1 e8c8 a1c1 d7c5 d1e1 a7a5"].porQue` | Frena b4. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8g4 f3e5 g4h5 f2f3 e7e6"].porQue` | Según Stockfish es un error: era mejor 7... Cd5 (−0,8 contra −1,7, para el bando que juega). |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8g4 f3e5 g4h5 f2f3 f6d7 e5c4 e7e5 c3e4"].porQue` | El caballo va a e4. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 e7e6 e2e3"].porQue` | Prepara Axc4. |
@@ -1390,12 +1435,15 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 a7a6 c4c5 g7g6 h2h3 f8g7 c1f4 e8g8 e2e3 b8d7 f1e2 f6e8 e1g1 e8c7"].porQue` | El caballo va a c7. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1d2 c8f5 g2g3"].porQue` | Prepara el fianchetto. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1d2 c8f5 g2g3 e7e6 f1g2 h7h6 e1g1 b8d7 b2b3"].porQue` | Prepara Ab2. |
+| Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1d2 c8f5 g2g3 e7e6 f1g2 h7h6 e1g1 b8d7 b2b3 f8e7 c1b2 e8g8 f3e5 a7a5 a2a3"].porQue` | Frena ...a4. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3h4 e7e6 h4f5 e6f5 e2e3"].porQue` | Prepara Axc4. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3h4 e7e6 h4f5 e6f5 e2e3 f8b4 f1c4 e8g8 e1g1 b8d7 d1c2 g7g6 f2f3"].porQue` | Prepara e4. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3h4 e7e6 h4f5 e6f5 e2e3 f8b4 f1c4 e8g8 e1g1 b8d7 d1c2 g7g6 f2f3 a8c8"].porQue` | La torre va a la columna c. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 e2e3 e7e6 f1c4 f8b4 e1g1 e8g8 f3h4 b8d7 f2f3"].porQue` | Prepara e4. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 e2e3 c8f5 c4d5 c6d5 d1b3 d8c8 c1d2 e7e6 b1a3"].porQue` | El caballo va a b5. |
+| Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 g2g3 d5c4 f1g2 g7g6 e1g1 f8g7 a2a4"].porQue` | Frena ...b5. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 g2g3 d5c4 f1g2 g7g6 e1g1 f8g7 a2a4 f6e4 d1c2 e4d6 e2e4 b8a6"].porQue` | El caballo va a b4. |
+| Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 g2g3 d5c4 f1g2 g7g6 a2a4"].porQue` | Frena ...b5. |
 | Defensa Eslava | `notas["d2d4 d7d5 c2c4 c7c6 c4d5 c6d5 b1c3 g8f6 f2f3"].porQue` | Prepara e4. |
 | Defensa Eslava | `trampas["d2d4 d7d5 c2c4 c7c6 g1f3 c8f5 c4d5 c6d5 d1b3"]` | Si el alfil sale a f5 antes de tiempo, cxd5 cxd5 y Db3 ataca b7 y d5 a la vez: el negro pierde un peón o tiene que retroceder el alfil a c8. |
 | Defensa Eslava | `trampas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 e2e3 c8f5 c4d5 c6d5 d1b3 e7e6 b3b7"]` | En la variante tranquila, tras cxd5 cxd5 Db3 hay que defender b7 con la dama (...Dc7 o ...Dc8). La natural ...e6 pierde el peón: Dxb7. |
@@ -1467,6 +1515,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 e2e4 g8f6"].porQue` | Una jugada profunda, según Schandorff: invita al peón de e a avanzar para llevar el caballo a d5. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 e2e4 g8f6 e4e5"].porQue` | Hay que aceptar el desafío: el blanco gana espacio, y eso va a marcar el juego por mucho tiempo. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 e2e4 g8f6 e4e5 f6d5"].porQue` | El caballo va a la casilla que el avance dejó libre. |
+| Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 g1f3 g8f6 e2e3 e7e6 f1c4 c7c5 e1g1 a7a6 a2a4"].porQue` | Impide ...b5, la expansión normal del negro. A cambio, no ayuda al desarrollo y debilita la casilla b4 (Buckley). |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 g1f3 g8f6 e2e3 e7e6 f1c4 c7c5 e1g1 a7a6 a2a4 b8c6 d1e2"].porQue` | Prepara Td1 y la ruptura e4. La tensión central se resuelve después con d5 o con dxc5. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 g1f3 g8f6 e2e3 e7e6 f1c4 c7c5 e1g1 a7a6 d1e2"].porQue` | Prepara Td1 y e4 sin gastar un tiempo en a4. A cambio, deja jugar ...b5. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 g1f3 g8f6 e2e3 e7e6 f1c4 c7c5 e1g1 a7a6 d1e2 b7b5"].porQue` | Gana espacio con tiempo y prepara ...Ab7: los alfiles negros de b7 y c5 apuntan al enroque blanco (Buckley). |
@@ -1480,6 +1529,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 c7c6"].porQue` | Refuerza d5 y deja abierta la posibilidad de ...dxc4 seguido de ...b5. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 c7c6 g1f3 f8e7 e2e3 b8d7"].porQue` | Desarrolla y prepara ...dxc4 con ...Cd5 para cambiar piezas. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 c7c6 g1f3 f8e7 e2e3 b8d7 a1c1"].porQue` | Pone la torre en la columna c antes de mover el alfil de f1: si el negro toma en c4, el alfil lo recupera de una sola vez. |
+| Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 c7c6 g1f3 d5c4 a2a4"].porQue` | Impide ...b5, que sostendría el peón de c4. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 c7c6 g1f3 d5c4 a2a4 f8b4 e2e3"].porQue` | Prepara Axc4 para recuperar el peón. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 f8e7"].porQue` | Desarrolla el alfil primero para evitar la variante del Cambio con Ag5: si cxd5 exd5, el alfil de c1 ya no tiene g5 tan cómoda. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 g1f3 g8f6 e2e3 e7e6 f1c4 c7c5 e1g1"].porQue` | Enroca antes de decidir qué hacer con el peón de d4. |
@@ -1519,7 +1569,9 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8d7 e5c4 d8c7"].porQue` | Prepara ...e5. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 g1f3 g8f6 e2e3 e7e6 f1c4 c7c5 e1g1 a7a6 d1e2 b7b5 c4b3 c8b7 b1c3"].porQue` | Desarrolla y prepara Td1 y e4. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 b8d7 e2e3 c7c6"].porQue` | Refuerza d5 y prepara ...Da5. |
+| Gambito de Dama | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8d7 e5c4 d7b6 c4e5"].porQue` | Evita el cambio y vuelve a centralizar el caballo. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 g1f3 g8f6 e2e3 e7e6 f1c4 f8e7 e1g1 e8g8 b1c3 a7a6"].porQue` | Prepara ...b5. |
+| Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 g1f3 g8f6 e2e3 e7e6 f1c4 f8e7 e1g1 e8g8 b1c3 a7a6 a2a4"].porQue` | Frena ...b5. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 d5c4 a2a4 c8f5 f3e5 b8a6 e2e3 a6b4"].porQue` | El caballo va a b4, una buena casilla que dejó a4. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 b8c6 b1c3 g8f6 g1f3 c8g4 c4d5 f6d5 e2e4 g4f3"].porQue` | Cambia el alfil por el caballo antes de mover el suyo. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 c7c5 g1f3 g8f6 b1c3 e7e6 c4d5 e6d5 g2g3"].porQue` | Prepara el fianchetto contra el peón de d5. |
@@ -1537,6 +1589,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 b8d7 a1c1 c7c6 f1d3 d5c4 d3c4 f6d5 g5e7 d8e7 e1g1 d5c3 c1c3 e6e5 d1b1"].porQue` | Aparta la dama de la columna d antes de que se abra. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 c7c6 g1f3 g8f6 e2e3 b8d7 f1d3 d5c4 d3c4 b7b5 c4d3 a7a6 e3e4 c6c5 e4e5 c5d4 c3b5"].porQue` | Toma en b5 y amenaza Cd6+. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 c7c6 g1f3 g8f6 e2e3 b8d7 f1d3 d5c4 d3c4 b7b5 c4d3 f8d6"].porQue` | Desarrolla y prepara ...e5. |
+| Gambito de Dama | `notas["d2d4 d7d5 c2c4 c7c6 g1f3 g8f6 b1c3 e7e6 e2e3 b8d7 f1d3 d5c4 d3c4 b7b5 c4d3 c8b7 e3e4 b5b4 c3a4"].porQue` | El caballo va al borde, pero frena ...c5. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8e7 c1f4 e8g8 e2e3 c7c5 d4c5 e7c5 d1c2 b8c6 a2a3"].porQue` | Prepara b4. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 g1f3 g8f6 b1c3"].porQue` | Desarrolla y prepara e4 para recuperar el peón. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 g1f3 g8f6 b1c3 a7a6"].porQue` | Prepara ...b5 para sostener el peón. |
@@ -1577,6 +1630,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 g1f3 c7c5 e2e3 e7e6 f1c4 a7a6"].porQue` | Prepara ...b5. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 d5c4 g1f3 c7c5 e2e3 e7e6 f1c4 a7a6 e1g1 g8f6 d4c5 f8c5 d1d8 e8d8 c4e2 d8e7 b1d2 c8d7 b2b3"].porQue` | Prepara Ab2. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 b7b5"].porQue` | Según Stockfish es un error: era mejor 2... e6 (−0,2 contra −1,4, para el bando que juega). |
+| Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 b8d7 a1c1 c7c6 f1d3 d5c4 d3c4 f6d5 g5e7 d8e7 c3e4"].porQue` | El caballo evita el cambio y apunta a d6 y f6. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 b8d7 a1c1 c7c6 d1c2 a7a6 c4d5 e6d5 f1d3 f8e8 e1g1 d7f8"].porQue` | El caballo va a f8 y después a g6 o e6. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 g1f3 b8d7 d1c2 c7c6 a1d1 a7a6 a2a3"].porQue` | Prepara b4. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1g5 f8e7 e2e3 e8g8 a1c1"].porQue` | La torre va a la columna c. |
@@ -1595,16 +1649,20 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8e7 e2e3 e8g8 b2b3 b7b6 c4d5 e6d5 c1b2 c8b7 f1d3 b8d7 e1g1 a7a6 a1c1"].porQue` | La torre va a la columna c. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 f8b4 c1d2 b4e7 f1g2 e8g8 e1g1 c7c6 d1c2 b8d7 d2f4 b7b6 b1d2 c8a6 f1d1 f6h5 f4e3 a8c8"].porQue` | La torre va a la columna c. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 f8b4 c1d2 b4e7 f1g2 e8g8 e1g1 c7c6 d1c2 b8d7 f1c1"].porQue` | La torre va a la columna c. |
+| Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 f8b4 c1d2 b4e7 f1g2 e8g8 e1g1 c7c6 d1c2 b8d7 f1c1 a7a5 a2a4"].porQue` | Frena ...a4. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 f8b4 c1d2 b4e7 f1g2 e8g8 e1g1 c7c6 d2f4 b7b6 b1c3 c8b7 a1c1"].porQue` | La torre va a la columna c. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c1f4 f8e7 e2e3 e8g8 a2a3 b7b6"].porQue` | Prepara ...Ab7. |
+| Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 f8b4 c1d2 b4e7 f1g2 e8g8 e1g1 c7c6 d1c2 b8d7 f1c1 a7a5 a2a3"].porQue` | Frena ...a4. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 f8b4 c1d2 b4e7 f1g2 e8g8 e1g1 c7c6 d1c2 b8d7 f1c1 a7a5 a2a3 b7b6"].porQue` | Prepara ...Ab7 o ...Aa6. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 f8b4 c1d2 b4e7 f1g2 e8g8 e1g1 c7c6 d1c2 b8d7 b2b3 b7b6"].porQue` | Prepara ...Ab7 o ...Aa6. |
+| Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 e2e3 c7c6 b1c3 b8d7 d1c2 f8d6 g2g4 h7h6"].porQue` | Frena g5. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 e2e3 c7c6 b1d2 b8d7 f1d3 c6c5 e1g1 f8e7 b2b3"].porQue` | Prepara Ab2. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 g1f3 f8e7 c1f4 e8g8 e2e3 c7c5 d4c5 e7c5 d1c2 b8c6 a2a3 d8a5 e1c1 c5e7 h2h4 a7a6"].porQue` | Prepara ...b5. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 g2g3 f8b4 c1d2 b4e7 f1g2 e8g8 e1g1 c7c6 d1c2 b8d7 b2b3 b7b6 f1d1 c8a6 d2f4 a8c8"].porQue` | La torre va a la columna c. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 e2e3 c7c6 b1c3 b8d7 b2b3 f8d6 c1b2 e8g8 f1e2 b7b6"].porQue` | Prepara ...Ab7. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 e2e3 c7c6 b1d2 b8d7 f1d3 c6c5 b2b3"].porQue` | Prepara Ab2. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 c1g5 h7h6 g5f6 d8f6 b1c3 c7c6 e2e3 b8d7 f1e2 g7g6"].porQue` | Prepara el fianchetto. |
+| Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 c1g5 h7h6 g5f6 d8f6 b1c3 c7c6 e2e3 b8d7 f1e2 g7g6 e1g1 f8g7 c4d5 e6d5 b2b4 a7a6"].porQue` | Frena b5. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 c1g5 h7h6 g5f6 d8f6 b1c3 c7c6 e2e3 b8d7 f1e2 g7g6 e1g1 f8g7 c4d5 e6d5 b2b4 a7a6 a2a4"].porQue` | Prepara b5. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 e2e3 c7c6 b1c3 b8d7 d1c2 f8d6 g2g4 h7h6 h2h3"].porQue` | Prepara g5. |
 | Gambito de Dama | `notas["d2d4 d7d5 c2c4 e7e6 g1f3 g8f6 e2e3 c7c6 b1c3 b8d7 b2b3 f8d6 c1b2 e8g8 f1e2 b7b6 e1g1 c8b7 e2d3 f8e8 f1e1 a8c8"].porQue` | La torre va a la columna c. |
@@ -1640,6 +1698,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Gambito de Dama Rehusado: Variante del Cambio | `notas["d2d4 e7e6 c2c4 g8f6 b1c3 d7d5 c4d5 e6d5 c1g5 c7c6 e2e3 f8e7 f1d3 b8d7 g1e2 e8g8 e1g1 f8e8 d1c2 d7f8 f2f3 c8e6 a1d1 a8c8"].porQue` | La torre va a la columna c. |
 | Gambito de Dama Rehusado: Variante del Cambio | `notas["d2d4 e7e6 c2c4 g8f6 b1c3 d7d5 c4d5 e6d5 c1g5 c7c6 e2e3 f8e7 f1d3 b8d7 g1e2 e8g8 e1g1 f8e8 d1c2 d7f8 f2f3 c8e6 a1e1 a8c8"].porQue` | La torre va a la columna c. |
 | Gambito de Dama Rehusado: Variante del Cambio | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c4d5 e6d5 c1g5 f8e7 e2e3 c7c6 f1d3 b8d7 d1c2 e8g8 g1f3 f8e8 e1g1 d7f8 h2h3 c8e6 a1b1"].porQue` | La torre prepara b4. |
+| Gambito de Dama Rehusado: Variante del Cambio | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c4d5 e6d5 c1g5 f8e7 e2e3 c7c6 f1d3 b8d7 d1c2 e8g8 g1f3 f8e8 e1g1 d7f8 h2h3 c8e6 a1b1 a7a5"].porQue` | Frena b4. |
 | Gambito de Dama Rehusado: Variante del Cambio | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c4d5 e6d5 c1g5 f8e7 e2e3 c7c6 f1d3 b8d7 d1c2 e8g8 g1f3 f8e8 e1g1 d7f8 h2h3 c8e6 a1b1 a7a5 a2a3"].porQue` | Prepara b4. |
 | Gambito de Dama Rehusado: Variante del Cambio | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 g8f6 c4d5 e6d5 c1g5 f8e7 e2e3 c7c6 f1d3 b8d7 d1c2 e8g8 g1f3 f8e8 e1g1 d7f8 h2h3 g7g6 a1b1"].porQue` | La torre prepara b4. |
 | Grünfeld con fianchetto (Neo-Grünfeld) | `planesBlancas` | Jugar Cf3 y el enroque, y presionar d5 (Db3) o el flanco de dama. |
@@ -1823,6 +1882,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Inglesa | `notas["c2c4 c7c5 e2e4 b8c6 b1c3 g7g6 g2g3"].porQue` | Prepara el fianchetto. |
 | Apertura Inglesa | `notas["c2c4 c7c5 g2g3 g7g6 f1g2 f8g7 b1c3 b8c6 e2e3"].porQue` | Prepara Cge2 y d4. |
 | Apertura Inglesa | `notas["c2c4 e7e5 b1c3 b8c6 g2g3 g7g6 a1b1"].porQue` | Prepara b4 y b5. |
+| Apertura Inglesa | `notas["c2c4 e7e6 b1c3 g8f6 e2e4 c7c5"].porQue` | Controla d4 y frena e5. |
 | Apertura Inglesa | `notas["c2c4 c7c5 b2b4"].porQue` | Según Stockfish es un error: era mejor 2. Cf3 (+0,3 contra −0,8, para el bando que juega). |
 | Apertura Inglesa | `notas["c2c4 b8c6"].porQue` | Desarrolla y prepara ...e5. |
 | Apertura Inglesa | `notas["c2c4 g8f6 e2e4"].porQue` | Según Stockfish es un error: era mejor 2. d4 (+0,2 contra −1,0, para el bando que juega). |
@@ -1832,6 +1892,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 e7e6 g2g3 d7d5 f1g2 f8e7 e1g1 e8g8 b2b3 c7c5 e2e3 d5d4 e3d4 c5d4 d2d3 b8c6 f1e1 f6d7 b1a3"].porQue` | El caballo va a c2 para presionar d4. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 e7e6 g2g3 d7d5 f1g2 f8e7 e1g1 e8g8 b2b3 c7c6 c1b2 b8d7"].porQue` | Desarrolla sin apuro: la estructura ...c6/...d5 es muy sólida. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 e7e6 g2g3 d7d5 f1g2 f8e7 e1g1 e8g8 b2b3 c7c6 c1b2 b8d7 d2d3 a7a5"].porQue` | Gana espacio en el flanco de dama y prepara ...a4. |
+| Apertura Inglesa | `notas["c2c4 g8f6 g1f3 e7e6 g2g3 d7d5 f1g2 f8e7 e1g1 e8g8 b2b3 c7c6 c1b2 b8d7 d2d3 a7a5 a2a3"].porQue` | Frena ...a4. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 e7e6 g2g3 a7a6 f1g2 b7b5 b2b3 c8b7"].porQue` | El alfil va a la diagonal larga, frente al de g2. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 e7e6 g2g3 a7a6 f1g2 b7b5 b2b3 c8b7 e1g1 c7c5 b1c3 d8b6 e2e3"].porQue` | Prepara d4. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 c7c5 b1c3 b8c6 g2g3 d7d5 d2d4 e7e6 c4d5 f6d5 f1g2 c5d4 f3d4 d5c3 b2c3 c6d4 d1d4 d8d4 c3d4 f8d6 e1g1 a8b8"].porQue` | La torre va a b8 para sostener el peón de b7. |
@@ -1866,6 +1927,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 e7e6 g2g3 b7b6 f1g2 c8b7 e1g1 f8e7 b1c3 e8g8 f1e1 d7d5 c4d5 e6d5 d2d4 b8d7 c1f4 c7c5 d4c5 d7c5 a1c1"].porQue` | La torre va a la columna c, frente al caballo. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 c7c5 b1c3 b8c6 g2g3 d7d5 d2d4 c5d4 f3d4 e7e5 d4c6 b7c6 f1g2 a8b8"].porQue` | La torre va a la columna b semiabierta. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 c7c5 b1c3 b8c6 g2g3 g7g6 f1g2 f8g7 e1g1 e8g8 d2d3 d7d6 a2a3 c8d7"].porQue` | Desarrolla y prepara ...Tb8 o ...a5. |
+| Apertura Inglesa | `notas["c2c4 g8f6 g1f3 c7c5 b1c3 b8c6 g2g3 g7g6 f1g2 f8g7 e1g1 e8g8 d2d3 d7d6 a2a3 c8d7 a1b1 a7a5"].porQue` | Frena b4. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 c7c5 b1c3 b8c6 g2g3 g7g6 f1g2 f8g7 e1g1 e8g8 d2d3 d7d6 a2a3 c8d7 a1b1 a7a5 c1d2 f6e8"].porQue` | El caballo se reubica para jugar ...f5 o ...Cc7. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 c7c5 b1c3 b8c6 g2g3 g7g6 f1g2 f8g7 e1g1 e8g8 d2d3 d7d5 c4d5 f6d5 c1d2 d5c7 d1c1"].porQue` | Prepara Ah6 para cambiar el alfil de g7. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 c7c5 b1c3 b8c6 g2g3 e7e6"].porQue` | Prepara ...d5. |
@@ -1875,6 +1937,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 g7g6 g2g3 b7b6 f1g2 c8b7 e1g1 f8g7 d2d4 e8g8 d4d5 b8a6"].porQue` | El caballo va a c5. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 g7g6 g2g3 b7b6 f1g2 c8b7 e1g1 f8g7 d2d4 e8g8 d4d5 b8a6 b1c3 a6c5 f3d4"].porQue` | El caballo va a d4, una gran casilla. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 c7c6 b2b3 d7d5 c1b2 c8g4 e2e3 b8d7 f1e2 e7e6 e1g1 f8d6 d2d4 e8g8 b1d2 d8e7"].porQue` | Desarrolla la dama y prepara ...e5. |
+| Apertura Inglesa | `notas["c2c4 e7e6 g1f3 g8f6 b1c3 f8b4 g2g4 h7h6"].porQue` | Frena g5. |
 | Apertura Inglesa | `notas["c2c4 e7e6 g1f3 g8f6 b1c3 f8b4 g2g4 h7h6 h1g1 b7b6"].porQue` | Prepara ...Ab7. |
 | Apertura Inglesa | `notas["c2c4 e7e6 g1f3 d7d5 g2g3 g8f6 f1g2 d5c4 d1a4 b8d7 a4c4 a7a6"].porQue` | Prepara ...b5 con ganancia de tiempo. |
 | Apertura Inglesa | `notas["c2c4 e7e6 g1f3 d7d5 g2g3 g8f6 f1g2 d5c4 d1a4 b8d7 a4c4 a7a6 c4c2 c7c5 b1c3 d8c7 e1g1 b7b6"].porQue` | Prepara el fianchetto de dama. |
@@ -1890,6 +1953,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Inglesa | `notas["c2c4 e7e6 g1f3 d7d5 g2g3 g8f6 f1g2 f8d6 e1g1 e8g8 d2d4 b8c6 b2b3"].porQue` | Prepara Ab2. |
 | Apertura Inglesa | `notas["c2c4 e7e6 g1f3 d7d5 g2g3 c7c6 b2b3"].porQue` | Prepara Ab2. |
 | Apertura Inglesa | `notas["c2c4 e7e5 b1c3 g8f6 g1f3 b8c6 g2g3 f8c5 d2d3 d7d6 f1g2 e8g8 e1g1 h7h6 a2a3"].porQue` | Prepara b4. |
+| Apertura Inglesa | `notas["c2c4 e7e5 b1c3 g8f6 g1f3 b8c6 g2g3 f8c5 d2d3 d7d6 f1g2 e8g8 e1g1 h7h6 a2a3 a7a5"].porQue` | Frena b4. |
 | Apertura Inglesa | `notas["c2c4 e7e5 b1c3 g8f6 g1f3 b8c6 g2g3 f8c5 d2d3 d7d6 f1g2 e8g8 e1g1 h7h6 a2a3 a7a5 e2e3 c5b6 b2b3"].porQue` | Prepara Ab2. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 c7c5 b1c3 b8c6 g2g3 e7e6 f1g2 f8e7 e1g1 e8g8 d2d4 c5d4 f3d4 a7a6"].porQue` | Prepara ...Dc7 y ...b5 o ...b6. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 c7c5 b1c3 b8c6 g2g3 e7e6 f1g2 f8e7 e1g1 e8g8 d2d4 c5d4 f3d4 a7a6 b2b3"].porQue` | Prepara Ab2. |
@@ -1908,6 +1972,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Inglesa | `notas["c2c4 e7e5 b1c3 g8f6 g1f3 b8c6 g2g3 f8c5 d2d3 d7d6 f1g2 h7h6 e1g1 a7a6"].porQue` | Prepara ...Aa7. |
 | Apertura Inglesa | `notas["c2c4 e7e5 b1c3 g8f6 g1f3 b8c6 g2g3 f8c5 d2d3 d7d6 f1g2 h7h6 e1g1 a7a6 a2a3"].porQue` | Prepara b4. |
 | Apertura Inglesa | `notas["c2c4 e7e5 b1c3 g8f6 g1f3 b8c6 g2g3 f8c5 d2d3 d7d6 f1g2 a7a6"].porQue` | Prepara ...Aa7. |
+| Apertura Inglesa | `notas["c2c4 e7e5 b1c3 g8f6 g1f3 b8c6 g2g3 d7d5 c4d5 f6d5 f1g2 f8c5 e1g1 e8g8 d2d3 h7h6 c3d5 d8d5 c1d2 a7a5"].porQue` | Frena b4. |
 | Apertura Inglesa | `notas["c2c4 e7e5 b1c3 g8f6 g1f3 b8c6 g2g3 d7d5 c4d5 f6d5 f1g2 f8c5 e1g1 e8g8 d2d3 h7h6 c3d5 d8d5 c1d2 a7a5 d2c3 d5e6 a2a3"].porQue` | Prepara b4. |
 | Apertura Inglesa | `notas["c2c4 e7e5 b1c3 g8f6 g1f3 b8c6 g2g3 d7d5 c4d5 f6d5 f1g2 d5b6 e1g1 f8e7 a2a3"].porQue` | Prepara b4. |
 | Apertura Inglesa | `notas["c2c4 e7e5 b1c3 g8f6 g1f3 e5e4 f3g5 c7c6"].porQue` | Prepara ...d5. |
@@ -1915,9 +1980,12 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Inglesa | `notas["c2c4 e7e5 b1c3 b8c6 g2g3 d7d6 f1g2 c8e6 d2d3 d8d7"].porQue` | Prepara ...Ah3 para cambiar el alfil de g2. |
 | Apertura Inglesa | `notas["c2c4 e7e5 b1c3 b8c6 g2g3 d7d6 f1g2 c8e6 d2d3 d8d7 a1b1 g7g6"].porQue` | Prepara el fianchetto. |
 | Apertura Inglesa | `notas["c2c4 c7c6 g1f3 d7d5 g2g3 g8f6 b2b3 c8f5 f1g2 e7e6 c1b2 b8d7 e1g1 f8e7 d2d3 h7h6 b1d2 e8g8 a2a3"].porQue` | Prepara b4. |
+| Apertura Inglesa | `notas["c2c4 c7c6 g1f3 d7d5 g2g3 g8f6 b2b3 c8f5 f1g2 e7e6 c1b2 b8d7 e1g1 f8e7 d2d3 h7h6 b1d2 e8g8 a2a3 a7a5"].porQue` | Frena b4. |
 | Apertura Inglesa | `notas["c2c4 c7c6 g1f3 d7d5 g2g3 g8f6 b2b3 c8f5 f1g2 e7e6 c1b2 b8d7 e1g1 f8e7 d2d3 h7h6 b1d2 e8g8 a2a3 a7a5 d1c2"].porQue` | Desarrolla la dama y prepara e4. |
+| Apertura Inglesa | `notas["c2c4 c7c6 g1f3 d7d5 g2g3 g8f6 b2b3 c8f5 f1g2 e7e6 c1b2 b8d7 e1g1 f8e7 d2d3 h7h6 b1d2 e8g8 a2a3 a7a5 d1c2 f5h7 b2c3"].porQue` | El alfil frena ...a4 y mira e5. |
 | Apertura Inglesa | `notas["c2c4 c7c6 g1f3 d7d5 g2g3 g8f6 b2b3 c8g4 f1g2 e7e6 c1b2 b8d7 e1g1 f8d6 d2d3 e8g8 b1d2 d8e7"].porQue` | Prepara ...e5. |
 | Apertura Inglesa | `notas["c2c4 c7c6 g1f3 d7d5 g2g3 g8f6 b2b3 c8g4 f1g2 e7e6 c1b2 b8d7 e1g1 f8d6 d2d3 e8g8 b1d2 d8e7 a2a3"].porQue` | Prepara b4. |
+| Apertura Inglesa | `notas["c2c4 c7c6 g1f3 d7d5 g2g3 g8f6 b2b3 c8g4 f1g2 e7e6 c1b2 b8d7 e1g1 f8d6 d2d3 e8g8 b1d2 d8e7 a2a3 a7a5"].porQue` | Frena b4. |
 | Apertura Inglesa | `notas["c2c4 f7f5 g1f3 g8f6 g2g3 g7g6 f1g2 f8g7 e1g1 e8g8 b1c3 d7d6"].porQue` | Prepara ...e5. |
 | Apertura Inglesa | `notas["c2c4 f7f5 g1f3 g8f6 g2g3 g7g6 f1g2 f8g7 e1g1 e8g8 b1c3 d7d6 d2d4 c7c6 d4d5 e7e5 d5e6 c8e6 b2b3"].porQue` | Prepara Ab2. |
 | Apertura Inglesa | `notas["c2c4 f7f5 g1f3 g8f6 g2g3 g7g6 f1g2 f8g7 e1g1 e8g8 b1c3 d7d6 d2d4 c7c6 d4d5 e7e5 d5e6 c8e6 b2b3 b8a6"].porQue` | El caballo va a c7 o c5. |
@@ -1928,8 +1996,10 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 b7b6 g2g3 c8b7"].porQue` | El alfil va a la diagonal larga. |
 | Apertura Inglesa | `notas["c2c4 e7e6 g1f3 d7d5 g2g3 g8f6 f1g2 f8d6 e1g1 e8g8 d2d4 h7h6 b1c3 b8c6 b2b3"].porQue` | Sostiene c4 y prepara Ab2. |
 | Apertura Inglesa | `notas["c2c4 e7e6 g1f3 d7d5 g2g3 c7c5 f1g2 g8f6 e1g1 d5d4 e2e3 b8c6 e3d4 c5d4 d2d3 f8d6 c1g5 h7h6 g5f6 d8f6 b1d2 f6e7 a2a3"].porQue` | Prepara b4. |
+| Apertura Inglesa | `notas["c2c4 e7e6 g1f3 d7d5 g2g3 c7c5 f1g2 g8f6 e1g1 d5d4 e2e3 b8c6 e3d4 c5d4 d2d3 f8d6 c1g5 h7h6 g5f6 d8f6 b1d2 f6e7 a2a3 a7a5"].porQue` | Frena b4. |
 | Apertura Inglesa | `notas["c2c4 e7e5 b1c3 g8f6 g1f3 e5e4 f3g5 f6g4"].porQue` | Según Stockfish es un error: era mejor 4... c6 (−0,5 contra −3,1, para el bando que juega). |
 | Apertura Inglesa | `notas["c2c4 e7e5 b1c3 f8b4 c3d5 a7a5 g1f3 d7d6 a2a3 b4c5 e2e3"].porQue` | Prepara d4. |
+| Apertura Inglesa | `notas["c2c4 c7c6 g1f3 d7d5 g2g3 g8f6 b2b3 c8g4 f1g2 e7e6 c1b2 b8d7 e1g1 f8e7 d2d3 e8g8 b1d2 a7a5 a2a3"].porQue` | Frena ...a4. |
 | Apertura Inglesa | `notas["c2c4 c7c6 g1f3 d7d5 g2g3 g8f6 b2b3 c8g4 f1g2 e7e6 c1b2 b8d7 e1g1 f8e7 d2d3 e8g8 b1d2 a7a5 a2a3 f8e8 d1c2"].porQue` | Desarrolla la dama y prepara e4. |
 | Apertura Inglesa | `notas["c2c4 c7c6 g1f3 d7d5 g2g3 g8f6 b2b3 g7g6"].porQue` | Prepara el fianchetto. |
 | Apertura Inglesa | `notas["c2c4 g8f6 g1f3 d7d6 d2d4 g7g6 b1c3 f8g7 e2e4 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 b2b4 f6h5 f1e1"].porQue` | Prepara Af1, para que el alfil no quede expuesto a ...Cf4. |
@@ -1951,20 +2021,25 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g2g4 h7h6"].porQue` | Prepara responder a g5 con ...hxg5. |
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1c4 f8e7"].porQue` | Desarrolla y prepara el enroque. |
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1c4 f8e7 e1g1 e8g8 f1e1 c7c6"].porQue` | Prepara ...b5 o ...d5. |
+| Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1c4 f8e7 e1g1 e8g8 f1e1 c7c6 a2a4"].porQue` | Impide ...b5. |
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1e2 f8e7"].porQue` | Desarrolla y prepara el enroque. |
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1e2 f8e7 e1g1 c7c6"].porQue` | Prepara ...b5 o ...Dc7. |
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1c4 f8e7 f3g5 e8g8 c4f7"].porQue` | Sacrifica en f7 para seguir con Ce6. |
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 f2f4 c7c6"].porQue` | Prepara ...e5 o ...b5 sin comprometerse. |
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 c1e3"].porQue` | Prepara Dd2 y el enroque largo. |
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1c4 f8e7 e1g1 e8g8 f1e1 c7c6 a2a4 b7b6"].porQue` | Prepara ...Ab7. |
+| Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1c4 f8e7 e1g1 e8g8 f1e1 c7c6 a2a4 a7a5"].porQue` | Frena el avance del peón de a. |
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1c4 f8e7 e1g1 e8g8 f1e1 c7c6 a2a4 b7b6 b2b3 a7a6"].porQue` | Prepara ...b5. |
+| Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1e2 f8e7 e1g1 c7c6 a2a4 e8g8 a4a5"].porQue` | Frena ...b5. |
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1c4 f8e7 e1g1 e8g8 f1e1 c7c6 a2a4 b7b6 c4a2 a7a6"].porQue` | Prepara ...b5. |
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1c4 f8e7 e1g1 e8g8 f1e1 c7c6 a2a4 b7b6 c4a2 a7a6 c1g5 a8b8"].porQue` | Prepara ...b5. |
+| Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1e2 f8e7 e1g1 c7c6 a2a4 e8g8 f1e1 a7a5"].porQue` | Frena a5. |
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1c4 f8e7 e1g1 e8g8 f1e1 c7c6 a2a4 b7b6 c4a2 a7a6 h2h3 a8b8"].porQue` | Prepara ...b5. |
 | Defensa León | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 b8d7 g1f3 e7e5 f1c4 f8e7 c4f7"].porQue` | Según Stockfish es un error: era mejor 6. O-O (+0,4 contra −2,1, para el bando que juega). |
 | Defensa Mexicana (Tango) | `planesBlancas` | Mantener el centro con Cf3 y Cc3 y aprovechar que el caballo de c6 tapa el peón de c negro. |
 | Defensa Mexicana (Tango) | `planesNegras` | ...e6 y ...Ab4, pasando a una Nimzoindia o a un esquema propio. |
 | Defensa Mexicana (Tango) | `notas["d2d4 g8f6 c2c4 b8c6"].porQue` | Desarrollo provocador: presiona d4 y prepara ...e5. |
+| Defensa Mexicana (Tango) | `notas["d2d4 g8f6 c2c4 b8c6 g1f3"].porQue` | Impide ...e5. |
 | Defensa Mexicana (Tango) | `notas["d2d4 g8f6 c2c4 b8c6 g1f3 e7e6"].porQue` | Lo más sólido: prepara ...Ab4 y ...d5 o ...d6. |
 | Defensa Mexicana (Tango) | `notas["d2d4 g8f6 c2c4 b8c6 b1c3 e7e5"].porQue` | El "centro de casillas negras" de Palliser: ...e5 pelea por d4 y abre el alfil de f8, que va a c5 o b4 fuera de la cadena de peones. |
 | Defensa Mexicana (Tango) | `notas["d2d4 g8f6 c2c4 b8c6 d4d5 c6e5"].porQue` | Contra "la embestida" 3.d5, el caballo va al centro y ataca c4: el negro sigue con ...e6 para minar d5. |
@@ -1974,6 +2049,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Mexicana (Tango) | `notas["d2d4 g8f6 c2c4 b8c6 b1c3 e7e5 g1f3 e5e4"].porQue` | Contra 4.Cf3 (bastante menos fuerte que 4.d5), lo mejor según Stockfish: gana espacio echando al caballo. |
 | Defensa Mexicana (Tango) | `notas["d2d4 g8f6 c2c4 b8c6 b1c3 e7e5 g1f3"].porQue` | Según Stockfish es un error: era mejor 4. d5 (+0,9 contra −0,1, para el bando que juega). |
 | Defensa Mexicana (Tango) | `notas["d2d4 g8f6 c2c4 b8c6 d4d5 c6e5 f2f4"].porQue` | Según Stockfish es un error: era mejor 4. e4 (+0,5 contra −0,6, para el bando que juega). |
+| Defensa Mexicana (Tango) | `notas["d2d4 g8f6 c2c4 b8c6 g1f3 e7e6 b1c3 f8b4 d1c2 d7d6 a2a3 b4c3 c2c3 a7a5"].porQue` | Frena b4. |
 | Defensa Mexicana (Tango) | `notas["d2d4 g8f6 c2c4 b8c6 g1f3 e7e6 b1c3 f8b4 d1c2 d7d6 a2a3 b4c3 c2c3 a7a5 b2b3"].porQue` | Prepara Ab2. |
 | Defensa Nimzowitsch | `planesNegras` | Presionar d4 con ...d5, ...Af5 o ...Ag4 y ...e6. |
 | Defensa Nimzowitsch | `notas["e2e4 b8c6 d2d4 e7e5"].porQue` | La alternativa: discute el centro con el peón de e. |
@@ -2019,6 +2095,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Philidor | `notas["e2e4 e7e5 g1f3 d7d6 d2d4 g8f6 b1c3 b8d7 f1c4 f8e7"].porQue` | Desarrolla y prepara el enroque, manteniendo el peón en e5. |
 | Defensa Philidor | `notas["e2e4 e7e5 g1f3 d7d6 d2d4 g8f6 b1c3 b8d7 f1c4 f8e7 e1g1 e8g8 d1e2"].porQue` | Prepara Td1 para presionar la columna d. |
 | Defensa Philidor | `notas["e2e4 e7e5 g1f3 d7d6 d2d4 g8f6 b1c3 b8d7 f1c4 f8e7 e1g1 e8g8 d1e2 c7c6"].porQue` | Prepara ...b5 y ...Dc7, y le da una casilla al alfil. |
+| Defensa Philidor | `notas["e2e4 e7e5 g1f3 d7d6 d2d4 g8f6 b1c3 b8d7 f1c4 f8e7 e1g1 e8g8 d1e2 c7c6 a2a4"].porQue` | Frena ...b5. |
 | Defensa Philidor | `notas["e2e4 e7e5 g1f3 d7d6 d2d4 b8d7 f1c4 c7c6 e1g1 f8e7"].porQue` | Desarrolla y prepara el enroque. |
 | Defensa Philidor | `notas["e2e4 e7e5 g1f3 d7d6 d2d4 e5d4 f3d4 g8f6 b1c3 f8e7"].porQue` | Desarrolla y prepara el enroque. |
 | Defensa Philidor | `notas["e2e4 e7e5 g1f3 d7d6 d2d4 e5d4 d1d4 c8d7"].porQue` | Desarrolla y prepara ...Cc6 para ganar tiempo contra la dama. |
@@ -2067,6 +2144,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Réti | `notas["g1f3 d7d5 c2c4 e7e6 g2g3 g8f6 f1g2 b7b6 e1g1 c8b7 d2d4 f8e7 b1c3 e8g8 f3e5 b8a6 c4d5 e6d5 c1f4 c7c5 a1c1"].porQue` | La torre va a la columna c. |
 | Apertura Réti | `notas["g1f3 d7d5 c2c4 e7e6 g2g3 g8f6 f1g2 b7b6 e1g1 c8b7 b2b3"].porQue` | Prepara Ab2. |
 | Apertura Réti | `notas["g1f3 d7d5 g2g3 g8f6 f1g2 c7c6 e1g1 c8f5 d2d3 e7e6 b1d2 h7h6 d1e1 f8e7 e2e4 f5h7 e1e2 e8g8 b2b3"].porQue` | Prepara Ab2. |
+| Apertura Réti | `notas["g1f3 d7d5 g2g3 g8f6 f1g2 c7c6 e1g1 c8f5 d2d3 e7e6 b1d2 h7h6 d1e1 f8e7 e2e4 f5h7 e1e2 e8g8 b2b3 a7a5 a2a4"].porQue` | Frena ...a4. |
 | Apertura Réti | `notas["g1f3 d7d5 e2e3 g8f6 c2c4 c7c6 b1c3 b8d7 d1c2 e7e6 d2d4 f8d6 b2b3 e8g8 f1e2 b7b6"].porQue` | Prepara ...Ab7. |
 | Apertura Réti | `notas["g1f3 d7d5 e2e3 g8f6 c2c4 c7c6 b1c3 b8d7 d1c2 e7e6 b2b3"].porQue` | Prepara Ab2. |
 | Apertura Réti | `notas["g1f3 d7d5 e2e3 g8f6 c2c4 c7c6 b1c3 b8d7 d1c2 e7e6 b2b3 f8d6 c1b2 e8g8 f1e2 f8e8 e1g1 b7b6"].porQue` | Prepara ...Ab7. |
@@ -2120,10 +2198,12 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Dragón | `rupturas` | ...d5, ...b5 y ...Txc3 del negro. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3"].porQue` | Prepara Dd2, f3 y enroque largo: el Ataque Yugoslavo. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3"].porQueNo["f2f4"]` | Prematuro: el negro se desarrolla con ...Cc6 y ...Ag7 y el peón de e4 queda flojo. |
+| Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3"].porQue` | Sostiene e4 e impide ...Cg4, que molestaría al alfil de e3. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8"].porQue` | Enroca: el contraataque del negro va a ir por la columna c. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8"].porQueNo["d6d5"]` | e5 echa al caballo antes de que el negro esté preparado. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2"].porQue` | Prepara Ah6 para cambiar el alfil del Dragón y el enroque largo. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6"].porQueNo["c8e6"]` | Enroque largo y Cxe6: tras ...fxe6 el peón de e6 queda débil. |
+| Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 f1c4"].porQue` | Ataque Yugoslavo con Ac4: impide ...d5 y apunta a f7. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 e1c1"].porQue` | Enroque largo inmediato: si ...d5, el juego se abre enseguida. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 e1c1 d6d5"].porQue` | El contragolpe típico contra el enroque largo inmediato: si las blancas ganan el peón de d5, el negro obtiene las columnas b y c y la diagonal larga. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 f2f4 b8c6"].porQue` | Una de las armas más viejas contra el Dragón castiga el descuido del centro: 6...Ag7 7.e5. Con 6...Cc6 el negro le enfría el entusiasmo a las blancas. |
@@ -2134,6 +2214,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 e1c1 d6d5 e4d5 f6d5 d4c6 b7c6 e3d4"].porQue` | Lo más prudente: en vez de tomar el peón, las blancas buscan cambiar el alfil del Dragón. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 e1c1 c6d4 e3d4 c8e6"].porQue` | La alternativa a 9...d5: cambio en d4 y ...Ae6, el comienzo de otra familia de variantes muy agudas. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 f1c4 c8d7 e1c1 a8c8 c4b3 c6e5 h2h4"].porQue` | La línea principal del Yugoslavo con 9.Ac4: las blancas abren la columna h y el negro tiene que elegir entre ...h5 y ...Cc4 con el sacrificio de calidad en c3 en el horizonte. Stockfish prefiere primero 12.Rb1, que saca al rey de la diagonal antes de atacar. |
+| Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 f1c4 c8d7 e1c1 a8c8 c4b3 c6e5 h2h4 h7h5"].porQue` | Frena el avance h5 y cierra el flanco de rey, a costa de dejar g5 como blanco para las piezas blancas. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 f1c4 c8d7 e1c1 a8c8 c4b3 c6d4 e3d4 b7b5"].porQue` | El plan simple que se puso de moda: cambio en d4 y ...b5 para abrir líneas contra el rey blanco cuanto antes. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 f1c4 c8d7 e1c1 d8a5"].porQue` | La dama a a5 para sumar fuego con ...Tfc8 en el flanco de dama. Es una línea analizada hasta el último detalle, con sacrificios en c3 y en h5 por ambos lados. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f1e2 b8c6 d1d2"].porQue` | Prepara el enroque largo. |
@@ -2142,13 +2223,16 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 f1c4 c8d7"].porQue` | Desarrolla y prepara ...Tc8 para presionar la columna c. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 f1e2 f8g7 e1g1 e8g8 c1e3 b8c6 d4b3 c8e6 f2f4"].porQue` | Gana espacio y prepara f5. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 f1e2 f8g7 e1g1 e8g8 c1e3 b8c6 d4b3 c8e6 f2f4 c6a5 f4f5 e6c4"].porQue` | El alfil se va a c4 para cambiarse por el de e2. |
+| Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 f1e2 f8g7 e1g1 e8g8 c1e3 b8c6 d4b3 c8e6 f2f4 c6a5 f4f5 e6c4 e2d3"].porQue` | Evita el cambio de alfiles y defiende e4. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 f1c4 c8d7 h2h4 d8a5"].porQue` | Activa la dama en el flanco de dama, donde va a atacar. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 c8d7"].porQue` | Desarrolla y prepara ...Cc6. |
+| Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 b8c6 f2f3 h7h5"].porQue` | Frena g4 y el avance de los peones blancos. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 b8c6 f2f3 h7h5 f1c4 c8d7 d1d2"].porQue` | Prepara el enroque largo. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 f1c4 c6d4 e3d4 c8e6 c4b3 d8a5 e1c1 f8c8"].porQue` | La torre va a la columna c. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 f1c4 a7a5"].porQue` | Amenaza ...a4 contra el alfil. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 f1e2 f8g7 e1g1 e8g8 c1e3 b8c6 d1d2 c8d7 a1d1 a8c8"].porQue` | La torre va a la columna c. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 g2g3 b8c6 d4e2 f8g7 f1g2 e8g8 e1g1 a8b8"].porQue` | Prepara ...b5. |
+| Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 g2g3 b8c6 d4e2 f8g7 f1g2 e8g8 e1g1 a8b8 a2a4"].porQue` | Frena ...b5. |
 | Siciliana Dragón | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 g2g3 b8c6 d4e2 f8g7 f1g2 e8g8 e1g1 a8b8 a2a4 a7a6"].porQue` | Prepara ...b5. |
 | Siciliana Rossolimo | `planesBlancas` | Axc6 para doblar peones y jugar contra ellos. |
 | Siciliana Rossolimo | `planesBlancas` | Enroque, Te1, c3 y d4. |
@@ -2175,6 +2259,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Rossolimo | `notas["e2e4 c7c5 g1f3 b8c6 f1b5 d7d6"].porQue` | Prepara ...Ad7 para no doblar los peones. |
 | Siciliana Rossolimo | `notas["e2e4 c7c5 g1f3 b8c6 f1b5 d7d6 e1g1 c8d7 f1e1"].porQue` | Prepara c3 y d4. |
 | Siciliana Rossolimo | `notas["e2e4 c7c5 g1f3 b8c6 f1b5 d7d6 e1g1 c8d7 f1e1 g8f6 c2c3"].porQue` | Prepara d4. |
+| Siciliana Rossolimo | `notas["e2e4 c7c5 g1f3 b8c6 f1b5 g7g6 e1g1 f8g7 f1e1 e7e5"].porQue` | Controla d4 y frena el avance e5. |
 | Siciliana Rossolimo | `notas["e2e4 c7c5 g1f3 b8c6 f1b5 g7g6 b5c6 d7c6 d2d3 f8g7 h2h3 g8f6 b1c3 e8g8 c1e3 b7b6"].porQue` | Prepara ...Aa6. |
 | Siciliana Rossolimo | `notas["e2e4 c7c5 g1f3 b8c6 f1b5 g7g6 b5c6 d7c6 d2d3 f8g7 h2h3 g8f6 b1c3 e8g8 c1e3 b7b6 d1d2"].porQue` | Prepara Ah6. |
 | Siciliana Rossolimo | `notas["e2e4 c7c5 g1f3 b8c6 f1b5 g7g6 b5c6 d7c6 d2d3 f8g7 h2h3 g8f6 b1c3 f6d7 c1e3 e7e5 d1d2 h7h6 e1g1 d8e7 f3h2 d7f8"].porQue` | El caballo va a e6. |
@@ -2219,6 +2304,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 g8f6 b1c3 f8b4 e4e5 f6d5 c1d2 d5c3"].porQue` | Lo mejor: cambia antes de que la clavada se vuelva en su contra. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 a7a6"].porQue` | La O'Kelly: una jugada en apariencia inútil que desalienta 3.d4, porque tras 3...cxd4 4.Cxd4 Cf6 5.Cc3 e5 se llega a una «Najdorf mejorada». |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 a7a6 c2c4"].porQue` | Lo más fuerte: con el Maroczy armado, la jugada ...a6 pierde casi todo su sentido. |
+| Defensa Siciliana | `notas["e2e4 c7c5 g1f3 g8f6"].porQue` | La Variante Nimzowitsch: provoca e5 como en la Alekhine, pero el peón de c5 impide que el blanco arme un gran centro. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 g8f6 e4e5 f6d5 b1c3"].porQue` | Muestra el defecto: si 4...Cxc3 5.dxc3, el blanco está mejor que en la línea análoga de la Alekhine, porque el peón de c5 hace menos atractiva la liberación con ...d6. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 g8f6 e4e5 f6d5 b1c3 e7e6"].porQue` | Lo mejor: tras 5.Cxd5 exd5 6.d4 se llega a la posición básica de la variante. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 g8f6 e4e5 f6d5 b1c3 e7e6 c3d5 e6d5 d2d4 b8c6"].porQue` | Entrega un peón por un desarrollo rápido: si 7.dxc5 Axc5 8.Dxd5, ...Db6 ataca f2. |
@@ -2258,6 +2344,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 b8c6 f2f3"].porQue` | Refuerza e4 y prepara Dd2 y el enroque largo. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 c1g5 c8d7"].porQue` | Desarrolla y prepara ...Tc8 o ...Db6. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 c1g5 c8d7 d1d2"].porQue` | Prepara el enroque largo. |
+| Defensa Siciliana | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 d4c6 b7c6 e4e5 f6d5 c3e4"].porQue` | Evita cambiar caballos y ocupa e4. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 g2g4 a7a6"].porQue` | Prepara ...b5 y le quita b5 al caballo. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 g2g4 a7a6 g4g5 f6d7 c1e3"].porQue` | Desarrolla y prepara Dd2 y el enroque largo. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 g8f6 b1c3 d7d6 d2d4 c5d4 f3d4 g7g6 c1e3 f8g7 f2f3 b8c6 d1d2 e8g8"].porQue` | Enroca: el blanco va a enrocar largo y atacar con g4 y h4. |
@@ -2270,8 +2357,10 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Siciliana | `notas["e2e4 c7c5 d2d4 c5d4 c2c3 d4c3 b1c3 b8c6 f1c4 e7e6 g1f3 d7d6 e1g1 a7a6 d1e2"].porQue` | Prepara Td1 para presionar d6. |
 | Defensa Siciliana | `notas["e2e4 c7c5 d2d4 c5d4 c2c3 d4c3 b1c3 b8c6 f1c4 e7e6 g1f3 d7d6 e1g1 a7a6 d1e2 b7b5 c4b3 a8a7"].porQue` | Según Stockfish es un error: era mejor 9... Cge7 (−0,3 contra −1,4, para el bando que juega). |
 | Defensa Siciliana | `notas["e2e4 c7c5 b1c3 b8c6 g2g3 g7g6 f1g2 f8g7 d2d3"].porQue` | Defiende e4 y prepara f4: es la Siciliana Cerrada. |
+| Defensa Siciliana | `notas["e2e4 c7c5 b1c3 b8c6 g2g3 g7g6 f1g2 f8g7 d2d3 d7d6 f2f4 e7e5"].porQue` | Frena el avance f5 y controla d4. |
 | Defensa Siciliana | `notas["e2e4 c7c5 b1c3 b8c6 g2g3 g7g6 f1g2 f8g7 d2d3 d7d6 f2f4 e7e5 g1h3"].porQue` | El caballo va a h3 para no tapar el peón f. |
 | Defensa Siciliana | `notas["e2e4 c7c5 b1c3 b8c6 f2f4 g7g6 g1f3 f8g7 f1c4 e7e6 e1g1 g8e7"].porQue` | Desarrolla el caballo por e7 para contestar f5 con ...d5 o ...exf5. |
+| Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 g7g6 c1e3 f8g7 f2f3 e8g8 d1d2 b8c6 f1c4 c8d7 h2h4 d8a5 e1c1 f8c8 c4b3 h7h5"].porQue` | Frena el avance g4. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 d7d5"].porQue` | Contragolpea en el centro; después de exd5 suele quedar con un peón aislado. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 a7a6"].porQue` | Prepara ...b5 o ...d5 antes de cambiar en d4. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 d8c7"].porQue` | Controla e5 y prepara ...e6. |
@@ -2279,11 +2368,15 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Siciliana | `notas["e2e4 c7c5 f1c4 e7e6"].porQue` | Tapa la diagonal del alfil y prepara ...d5. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g2g3"].porQue` | Prepara el fianchetto: un esquema cerrado. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1e2"].porQue` | Prepara Cbc3 y g3, o d4 con el caballo listo para retomar. |
+| Defensa Siciliana | `notas["e2e4 c7c5 a2a4"].porQue` | Gana espacio en el flanco de dama y frena ...b5. |
+| Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d8a5"].porQue` | Saca la dama temprano: frena d4 por la clavada. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 b7b6"].porQue` | Prepara el fianchetto del alfil de dama. |
+| Defensa Siciliana | `notas["e2e4 c7c5 g1f3 h7h6"].porQue` | Impide Cg5 y Ag5, pero pierde tiempo. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 e7e5"].porQue` | Según Stockfish es un error: era mejor 2... Cc6 (−0,4 contra −2,1, para el bando que juega). |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d7d6 f1d3"].porQue` | Defiende e4 y prepara c3 y d4. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g7g6"].porQue` | Prepara el fianchetto: estructura de Dragón. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g7g6 b1c3 f8g7 c1e3 b8c6 d1d2"].porQue` | Prepara el enroque largo. |
+| Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g7g6 b1c3 f8g7 c1e3 b8c6 d1d2 g8f6 f2f3"].porQue` | Sostiene e4 y frena ...Cg4: Ataque Yugoslavo. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 c8d7 c1g5 e7e6 d1d2"].porQue` | Prepara el enroque largo. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 c8d7 c1g5 e7e6 d1d2 a7a6"].porQue` | Prepara ...b5. |
 | Defensa Siciliana | `notas["e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 e7e5 d4b5 d7d6 b1c3 a7a6 b5a3 c8e6 a3c4"].porQue` | El caballo va a c4. |
@@ -2377,6 +2470,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Alekhine | `notas["e2e4 g8f6 e4e5 f6d5 d2d4 d7d6 c2c4 d5b6 f2f4 g7g6 b1c3 f8g7 c1e3 e8g8"].porQue` | Según Stockfish es un error: era mejor 7... dxe5 (−0,8 contra −1,9, para el bando que juega). |
 | Defensa Alekhine | `notas["e2e4 g8f6 e4e5 f6d5 d2d4 d7d6 c2c4 d5b6 g1f3 c8g4 f1e2"].porQue` | Según Stockfish es un error: era mejor 6. exd6 (+1,0 contra +0,1, para el bando que juega). |
 | Defensa Alekhine | `notas["e2e4 g8f6 e4e5 f6d5 d2d4 d7d6 g1f3 c8g4 f1e2 c7c6 f3g5 g4f5 e2d3"].porQue` | Según Stockfish es un error: era mejor 7. e6 (+1,2 contra +0,3, para el bando que juega). |
+| Defensa Alekhine | `notas["e2e4 g8f6 e4e5 f6d5 d2d4 d7d6 f1c4 d5b6 c4b3 d6e5 d1h5 e7e6 d4e5 a7a5 a2a4"].porQue` | Frena ...a4. |
 | Defensa Alekhine | `notas["e2e4 g8f6 e4e5 f6d5 d2d4 d7d6 c2c4 d5b6 g1f3 c8g4 d4d5"].porQue` | Según Stockfish es un error: era mejor 6. exd6 (+1,0 contra −0,1, para el bando que juega). |
 | Defensa Alekhine | `notas["e2e4 g8f6 e4e5 f6d5 d2d4 d7d6 c2c4 d5b6 c4c5"].porQue` | Según Stockfish es un error: era mejor 5. f4 (+0,8 contra −1,2, para el bando que juega). |
 | Defensa Alekhine | `notas["e2e4 g8f6 e4e5 f6d5 d2d4 d7d6 g1f3 c8g4 f1e2 c7c6 e1g1 g4f3 e2f3 d6e5 d4e5 e7e6 d1e2 b8d7 c2c4 d5e7 b2b3"].porQue` | Prepara Ab2. |
@@ -2396,10 +2490,12 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Ataque Indio de Rey | `notas["e2e4 e7e6 d2d3 d7d5 b1d2 c7c5 g1f3 b8c6 g2g3 g7g6 f1g2 f8g7 e1g1 g8e7 f1e1 b7b6"].porQue` | Prepara ...Ab7. |
 | Defensa Benoni Moderna | `planesNegras` | Presionar e4 con ...Te8 y los caballos. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6"].porQue` | Benoni Moderna: va a cambiar en d5 para crear la mayoría en el flanco de dama. |
+| Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6"].porQue` | Frena e5 y abre el alfil de c8. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6"].porQueNo["a7a6"]` | Antes de desarrollar el flanco de rey: f4 y e5 llegan con fuerza. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 f2f4"].porQue` | Ataque de los Cuatro Peones: amenaza e5. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3"].porQue` | Variante Clásica: desarrollo sencillo. Después vienen Ae2 y Cd2-c4 contra d6. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 f8e8 f3d2"].porQue` | El caballo va a c4 a presionar d6, la debilidad del negro. |
+| Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3 f8g7 h2h3"].porQue` | Variante Moderna: impide ...Ag4; el alfil irá a d3 para sostener e4. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e5"].porQue` | Benoni Checa: cierra el centro. El plan es ...Ae7, ...Ce8 y ...f5, o cambiar alfiles con ...Ag5. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e5 b1c3 d7d6 e2e4 f8e7"].porQue` | La posición base de la Benoni checa: el negro cerró el centro y renunció a la actividad central, así que depende de rupturas de flanco (...f5, a veces ...b5). El blanco ataca el punto e5 con f4 o el peón de c5 con b4. Raetsky y Chetverik advierten que, por la falta de espacio, el negro muchas veces termina solo defendiéndose; Stockfish le da al blanco una ventaja clara. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 g1f3 g7g6 g2g3"].porQue` | El sistema del fianchetto: el alfil de g2 frena la ruptura ...b5 y protege el rey; el plan es Cd2-c4 contra d6. Stockfish prefiere 7.h3, que prepara e4 sin permitir ...Ag4. |
@@ -2413,14 +2509,18 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 b7b5 c4b5 a7a6 b5a6 g7g6"].porQue` | Prepara el fianchetto; el peón se recupera después. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 b7b5 c4b5 a7a6 b5a6 c8a6 b1c3 g7g6"].porQue` | Prepara el fianchetto. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 a7a6"].porQue` | Prepara ...b5. |
+| Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 a7a6 a2a4"].porQue` | Impide ...b5. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 c7c5 d4d5 e6d5 c4d5 d7d6 b1c3 g7g6 f3d2"].porQue` | El caballo va a c4 para presionar d6. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 d7d6"].porQue` | Sostiene c5 y deja ...e5 o ...e6 para después. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 f2f4 f8g7 e4e5"].porQue` | Según Stockfish es un error: era mejor 8. Ab5+ (+0,9 contra −0,0, para el bando que juega). |
 | Defensa Benoni Moderna | `notas["d2d4 c7c5 d4d5 b8a6"].porQue` | El caballo va a c7 para apoyar ...b5. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 f8e8 f3d2 b8a6 f2f3 a6c7"].porQue` | El caballo va a c7 para apoyar ...b5. |
+| Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 f8e8 f3d2 b8a6 f2f3 a6c7 a2a4"].porQue` | Frena ...b5. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 f8e8 f3d2 b8a6 f2f3 a6c7 a2a4 b7b6"].porQue` | Prepara ...Aa6. |
+| Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 f8e8 f3d2 b8d7 a2a4"].porQue` | Frena ...b5. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 f8e8 f3d2 b8d7 a2a4 a7a6"].porQue` | Prepara ...b5. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 f8e8 f3d2 b8d7 a2a4 a7a6 d1c2 a8b8"].porQue` | Prepara ...b5. |
+| Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 f8e8 f3d2 b8d7 a2a4 a7a6 d1c2 a8b8 a4a5"].porQue` | Frena ...b5. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e5 b1c3 d7d6 e2e4 f8e7 g2g3"].porQue` | Prepara el fianchetto. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e5 b1c3 d7d6 e2e4 f8e7 g2g3 b8d7 f1g2 a7a6"].porQue` | Prepara ...b5. |
 | Defensa Benoni Moderna | `notas["d2d4 g8f6 c2c4 c7c5 d4d5 e7e6 b1c3 e6d5 c4d5 d7d6 e2e4 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 f8e8 f3d2 b8d7 a2a4 d7e5 a1a3 a7a6"].porQue` | Prepara ...b5. |
@@ -2473,11 +2573,13 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 f8e7 g1f3 e8g8 e1g1 b8d7 d1c2"].porQue` | Controla e4 y prepara Ab2 o Af4. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 f8b4 c1d2 b4e7 f1g2 d7d5 g1f3"].porQue` | Desarrolla y prepara el enroque. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 f8e7 g1f3 e8g8 e1g1 c7c6 d1c2"].porQue` | Controla e4 y prepara Cbd2 o Tad1. |
+| Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 c7c5 d4d5 e6d5 c4d5 d7d6"].porQue` | Frena el peón de d5 y abre el alfil de c8. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 c7c5 d4d5 e6d5 c4d5 d7d6 b1c3 g7g6"].porQue` | Prepara el fianchetto. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 c7c5 d4d5 e6d5 c4d5 d7d6 b1c3 g7g6 f1g2 f8g7 g1f3 e8g8 e1g1"].porQue` | Enroca: el blanco suele seguir con Cd2 y Cc4, o con e4. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 f8e7 g1f3 e8g8 e1g1 b8d7 d1c2 c7c6 b1d2 b7b6 b2b3"].porQue` | Prepara Ab2. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 f8e7 g1f3 e8g8 e1g1 c7c6 d1c2 b7b6"].porQue` | Prepara ...Ab7 o ...Aa6. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 c7c5 d4d5 e6d5 c4d5 d7d6 b1c3 g7g6 f1g2 f8g7 g1f3 e8g8 e1g1 a7a6"].porQue` | Prepara ...b5. |
+| Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 c7c5 d4d5 e6d5 c4d5 d7d6 b1c3 g7g6 f1g2 f8g7 g1f3 e8g8 e1g1 a7a6 a2a4"].porQue` | Frena ...b5. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 f8e7 g1f3 e8g8 e1g1 b8d7 d1c2 c7c6 c1f4 b7b6 b1d2"].porQue` | Desarrolla y prepara e4. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 f8e7 g1f3 e8g8 e1g1 b8d7 d1c2 c7c6 b2b3 b7b6 f1d1"].porQue` | Ocupa la columna d, preparando e4. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 c1g5"].porQue` | Clava el caballo de f6 antes de Cc3. |
@@ -2490,12 +2592,14 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 f8e7 g1f3 e8g8 e1g1 b8d7 d1c2 c7c6 b1d2 b7b5"].porQue` | Según Stockfish es un error: era mejor 8... b6 (−0,4 contra −1,3, para el bando que juega). |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 f8e7 g1f3 e8g8 e1g1 b8d7 d1c2 c7c6 b1d2 b7b5 c4c5 a7a5"].porQue` | Prepara ...b4. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 f8e7 g1f3 e8g8 e1g1 c7c6 d1c2 b7b6 b1d2 c8b7 e2e4 b8d7 e4e5 f6e8 c4d5 c6d5 f1e1 a8c8"].porQue` | La torre va a la columna c. |
+| Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 f8e7 g1f3 e8g8 e1g1 d5c4 d1c2 a7a6 a2a4"].porQue` | Frena ...b5. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 f8b4 c1d2 b4e7 f1g2 d7d5 g1f3 e8g8 e1g1 c7c6 d1c2 b8d7 d2f4 b7b6 b1d2 c8a6 f1d1 a8c8"].porQue` | La torre va a la columna c. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 f8b4 c1d2 b4e7 f1g2 d7d5 g1f3 e8g8 e1g1 c7c6 d1c2 b8d7 d2f4 b7b6 b1d2 c8a6 f1d1 a8c8 a1c1"].porQue` | La torre va a la columna c. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 c7c5 d4d5 e6d5 c4d5 d7d6 b1c3 g7g6 f1g2 f8g7 g1f3 e8g8 e1g1 a7a6 a2a4 b8d7 f3d2 f8e8 h2h3 a8b8"].porQue` | Prepara ...b5. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 d5c4 g1f3 b8c6 d1a4 f8b4 c1d2 f6d5 d2b4 d5b4 e1g1 a8b8 b1a3"].porQue` | El caballo va a recuperar c4. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 c7c5 d4d5 e6d5 c4d5 d7d6 b1c3 g7g6 f1g2 f8g7 g1f3 e8g8 e1g1 b8d7 c1f4 d8e7 h2h3 a7a6"].porQue` | Prepara ...b5. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 d5c4 g1f3 f8b4 c1d2 a7a5 d1c2"].porQue` | La dama va a recuperar c4. |
+| Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 d5c4 g1f3 f8b4 c1d2 a7a5 d1c2 b4d2 c2d2 c7c6 a2a4"].porQue` | Frena ...b5. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 d5c4 g1f3 f8b4 c1d2 c7c5 d2b4 c5b4 f3e5"].porQue` | El caballo va a recuperar c4. |
 | Apertura Catalana | `notas["d2d4 g8f6 c2c4 e7e6 g2g3 d7d5 f1g2 d5c4 d1a4 b8d7 a4c4 a7a6"].porQue` | Prepara ...b5. |
 | Partida de los cuatro caballos | `planesBlancas` | Española de cuatro caballos: Ab5, enroque y d3, juego tranquilo. |
@@ -2509,12 +2613,15 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 f1b5 f8b4 e1g1 e8g8 d2d3 d7d6 c1g5 b4c3"].porQue` | Elimina el caballo antes de que salte a d5; los peones doblados blancos le quitan juego en el flanco de dama. |
 | Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 f1b5 c6d4 b5a4"].porQue` | La retirada habitual en la práctica: mantiene el alfil en la diagonal. Stockfish prefiere simplificar con Cxd4. |
 | Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 f1b5 c6d4 b5a4 f8c5"].porQue` | Variante Rubinstein: desarrolla sin preocuparse por e5. Stockfish prefiere ...c6, más sólido. |
+| Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 d2d4 e5d4 c3d5"].porQue` | Gambito Belgrado: evita la clavada ...Ab4 a costa de complicaciones muy agudas. |
 | Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 f8c5 f3e5"].porQue` | El truco de la horquilla: si ...Cxe5, d4 recupera la pieza con un centro ideal. |
 | Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 a2a3"].porQue` | El «truco avanzado» que Pinski recomienda a quien no quiere teoría: una jugada de espera que le quita al negro ...Ab4 y ...Cd4, las armas de la Española de cuatro caballos. |
 | Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 f3e5 c6e5 d2d4 e5g6"].porQue` | La retirada correcta contra el Gambito Halloween: desde g6 el caballo no queda expuesto a d5 ni a f4. Después de 6.e5 Cg8 el negro devuelve tiempo, pero sigue con una pieza de más. |
 | Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 f1c4 f6e4"].porQue` | El truco de la horquilla, ya conocido de la Italiana: si 5.Cxe4, ...d5 recupera la pieza con buen juego. |
 | Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 d2d4 e5d4 c3d5 f8e7"].porQue` | El desarrollo simple: el negro no tiene por qué meterse en las complicaciones de 5...Cxe4. Stockfish prefiere algo más 5...Cb4. |
+| Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 f1b5 c6d4 b5e2"].porQue` | Retira el alfil y evita el cambio en b5. |
 | Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 f1b5 f8b4 e1g1 e8g8 d2d3 d8e7"].porQue` | Defiende e5 con la dama y prepara ...Cd8 y ...Ce6. |
+| Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 f1b5 f8b4 e1g1 e8g8 d2d3 d8e7 c3e2"].porQue` | Evita el cambio en c3 y lleva el caballo hacia g3. |
 | Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 f1b5 f8c5 e1g1 e8g8 f3e5"].porQue` | Toma en e5 aprovechando la horquilla con d4 si el negro retoma. |
 | Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 f1b5 a7a6 b5c6 d7c6 f3e5 f6e4 c3e4 d8d4 e1g1 d4e5 f1e1"].porQue` | Pone la torre detrás del caballo de e4: si el caballo se mueve, la torre ataca a la dama. |
 | Partida de los cuatro caballos | `notas["e2e4 e7e5 g1f3 b8c6 b1c3 g8f6 d2d4 e5d4 f3d4 f8b4 d4c6 b7c6 f1d3 d7d5 e4d5 e8g8"].porQue` | Enroca antes de recuperar el peón. |
@@ -2561,9 +2668,11 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Española Cerrada y Ataque Marshall | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6 c2c3"].porQue` | Prepara d4 y deja al alfil la retirada a c2. |
 | Española Cerrada y Ataque Marshall | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6 c2c3"].porQueNo["h2h3"]` | ...Ca5: el negro cambia el alfil de b3 antes de que tenga refugio. |
 | Española Cerrada y Ataque Marshall | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6 c2c3"].porQueNo["d2d4"]` | 8.d4?! Cxd4 9.Cxd4 exd4 es prematuro, y si 10.Dxd4?? c5 11.De3 c4, el alfil de b3 queda encerrado por los peones de b5 y c4: la trampa del «Arca de Noé» (Johnsen y Johannessen). |
+| Española Cerrada y Ataque Marshall | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6 c2c3 e8g8 h2h3"].porQue` | Impide ...Ag4, que clavaría el caballo de f3 cuando llegue d4. |
 | Española Cerrada y Ataque Marshall | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 d7d6 c2c3 e8g8 h2h3 c8b7"].porQue` | Zaitsev: presiona e4 y prepara ...Te8 y ...Af8. |
 | Española Cerrada y Ataque Marshall | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 e8g8"].porQue` | Enroca antes de ...d6: deja abierta la posibilidad del Ataque Marshall. |
 | Española Cerrada y Ataque Marshall | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 e8g8 h2h3"].porQue` | Anti-Marshall: prepara d4 sin permitir el gambito con comodidad. |
+| Española Cerrada y Ataque Marshall | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 e8g8 a2a4"].porQue` | Anti-Marshall: presiona b5 y evita el gambito. |
 | Española Cerrada y Ataque Marshall | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 e8g8 c2c3 d7d5 e4d5"].porQue` | Aceptar es lo más fuerte. |
 | Española Cerrada y Ataque Marshall | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 b7b5 a4b3 e8g8 c2c3 d7d5 e4d5 f6d5 f3e5 c6e5 e1e5 c7c6"].porQue` | La línea principal del Marshall: sostiene el caballo de d5 y prepara ...Ad6 y ...Dh4 contra el rey. |
 | Española Cerrada y Ataque Marshall | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 d7d6 d2d4 b7b5 a4b3 c6d4 f3d4 e5d4 c2c3"].porQue` | Lo correcto: recupera el peón con c3, sin tomar con la dama. |
@@ -2636,11 +2745,14 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Francesa Tarrasch | `notas["e2e4 e7e6 d2d4 d7d5 b1d2 g8f6 e4e5 f6d7 f1d3 c7c5 c2c3 b8c6 g1e2 c5d4 c3d4 d7b6"].porQue` | Según Stockfish es un error: era mejor 8... f6 (−0,3 contra −1,3, para el bando que juega). |
 | Francesa Tarrasch | `notas["e2e4 e7e6 d2d4 d7d5 b1d2 c7c5 e4d5 g8f6"].porQue` | Según Stockfish es un error: era mejor 4... exd5 (−0,1 contra −1,1, para el bando que juega). |
 | Francesa Tarrasch | `notas["e2e4 e7e6 d2d4 d7d5 b1d2 g8f6 e4e5 f6d7 f1d3 c7c5 c2c3 b7b6"].porQue` | Prepara ...Aa6. |
+| Francesa Tarrasch | `notas["e2e4 e7e6 d2d4 d7d5 b1d2 b8c6 g1f3 g8f6 e4e5 f6d7 d2b3 f8e7 f1b5 a7a5 a2a4"].porQue` | Frena ...a4. |
 | Francesa Tarrasch | `notas["e2e4 e7e6 d2d4 d7d5 b1d2 b8c6 g1f3 g8f6 e4e5 f6d7 d2b3 f8e7 f1b5 a7a5 a2a4 c6a7 b5d3 b7b6"].porQue` | Prepara ...Aa6. |
+| Francesa Tarrasch | `notas["e2e4 e7e6 d2d4 d7d5 b1d2 b8c6 g1f3 g8f6 e4e5 f6d7 d2b3 a7a5 a2a4"].porQue` | Frena ...a4. |
 | Francesa Tarrasch | `notas["e2e4 e7e6 d2d4 d7d5 b1d2 b8c6 g1f3 g8f6 e4e5 f6d7 d2b3 a7a5 a2a4 b7b6"].porQue` | Prepara ...Aa6. |
 | Gambito de Rey | `planesNegras` | Rehusar con ...Ac5, que impide el enroque blanco por un tiempo. |
 | Gambito de Rey | `notas["e2e4 e7e5 f2f4 e5f4 g1f3"].porQue` | Impide ...Dh4+ y prepara d4. |
 | Gambito de Rey | `notas["e2e4 e7e5 f2f4 e5f4 g1f3 g7g5"].porQue` | Sostiene el peón de f4 y, si las blancas no hacen nada, sigue con ...g4. |
+| Gambito de Rey | `notas["e2e4 e7e5 f2f4 f8c5"].porQue` | Gambito rehusado clásico: el alfil en c5 impide que las blancas enroquen corto por un tiempo y deja una trampa sobre e5. |
 | Gambito de Rey | `notas["e2e4 e7e5 f2f4 f8c5 g1f3"].porQue` | Desarrolla y defiende contra ...Dh4+; recién después se puede pensar en fxe5. |
 | Gambito de Rey | `notas["e2e4 e7e5 f2f4 e5f4 g1f3 g7g5 h2h4"].porQue` | Ataca la cadena de peones antes de que el negro la refuerce con ...h6. |
 | Gambito de Rey | `notas["e2e4 e7e5 f2f4 e5f4 g1f3 g7g5 h2h4 g5g4 f3e5"].porQueNo["f3g5"]` | 5.Cg5, el Gambito Allgaier: tras 5...h6 6.Cxf7 Rxf7 el blanco entrega una pieza para sacar al rey negro, y Stockfish no lo considera correcto. |
@@ -2759,6 +2871,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4"].porQue` | El alfil apunta a f7 y prepara Ce2, para que el peón de f quede libre. |
 | Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 g1f3 c7c5 a1b1"].porQue` | Tb1: si ...Cc6, d5 llega con tiempo; además, el peón de b7 queda atacado. |
 | Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 g1f3 c7c5 c1e3"].porQue` | Refuerza d4 y prepara Tc1. |
+| Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 f1c4 c7c5 g1e2"].porQue` | El caballo en e2 evita la clavada ...Ag4 y cubre c3. |
 | Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c1g5"].porQue` | Amenaza Axf6 para debilitar d5. |
 | Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4"].porQue` | El centro ideal: e4 y d4. El negro lo va a atacar aprovechando que la dama está expuesta en c4. |
 | Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 d1b3 d5c4 b3c4 e8g8 e2e4 a7a6"].porQue` | Variante Húngara: ...b5 para echar a la dama y después ...c5. |
@@ -2786,6 +2899,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 d1b3 e7e6 f1e2 b7b6"].porQue` | Prepara ...Ab7. |
 | Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 b2b4 b7b6"].porQue` | Prepara ...Ab7. |
 | Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 c1d2 c7c5 d4c5 b8a6"].porQue` | El caballo va a recuperar el peón. |
+| Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 e2e3 e8g8 c1d2 c7c5 d4c5 b8a6 c4d5 a6c5 f1c4 a7a6 a2a4"].porQue` | Frena ...b5. |
 | Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 g1f3 f8g7 c1f4 e8g8 e2e3 c7c5 d4c5 d8a5 a1c1"].porQue` | La torre va a la columna c. |
 | Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 g1f3 c7c5 c1e3 d8a5 d1d2 b8c6 a1b1 a7a6 b1c1"].porQue` | La torre va a la columna c. |
 | Defensa Grünfeld | `notas["d2d4 g8f6 c2c4 g7g6 b1c3 d7d5 c4d5 f6d5 e2e4 d5c3 b2c3 f8g7 g1f3 c7c5 c1e3 d8a5 d1d2 b8c6 a1c1"].porQue` | La torre va a la columna c. |
@@ -2846,6 +2960,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 b2b4 c5b4 c2c3 b4a5 d2d4 e5d4 e1g1 b7b5"].porQue` | Según Stockfish es un error: era mejor 7... Cf6 (+0,3 contra −1,3, para el bando que juega). |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 d7d6 c2c3"].porQue` | Prepara d4. |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f7f5"].porQue` | Según Stockfish es un error: era mejor 3... Cf6 (−0,1 contra −1,2, para el bando que juega). |
+| Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 h7h6"].porQue` | Evita Cg5, pero pierde tiempo. |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 c6d4"].porQue` | Según Stockfish es un error: era mejor 3... Cf6 (−0,1 contra −1,3, para el bando que juega). |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 c4f7"].porQue` | Según Stockfish es un error: era mejor 4. O-O (+0,2 contra −3,6, para el bando que juega). |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 g8f6 d2d4 d7d6"].porQue` | Defiende e5 en lugar de tomar. |
@@ -2858,6 +2973,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 c2c3 g8f6 d2d3 d7d6 e1g1 a7a6 f1e1 c5a7 b1d2 e8g8 d2f1"].porQue` | El caballo va a g3. |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 c2c3 g8f6 d2d3 d7d6 b1d2 e8g8 e1g1 a7a5"].porQue` | Gana espacio y prepara ...a4. |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 c2c3 g8f6 b2b4 c5b6 d2d3 d7d6 a2a4"].porQue` | Amenaza a5 contra el alfil. |
+| Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 c2c3 g8f6 b2b4 c5b6 d2d3 d7d6 a2a4 a7a5"].porQue` | Frena a5. |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 c2c3 g8f6 b2b4 c5b6 d2d3 d7d6 a2a4 a7a5 b4b5 c6e7 e1g1 e8g8 b1d2 e7g6"].porQue` | El caballo va a g6. |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 b1c3 g8f6 d2d3 d7d6 c1g5 h7h6 g5f6 d8f6 c3d5 f6d8 c2c3"].porQue` | Prepara d4. |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 c2c3 g8f6 d2d3 d7d6 e1g1 a7a6 f1e1 c5a7 c4b3 e8g8 h2h3 h7h6 b1d2 f6h5"].porQue` | El caballo va a f4. |
@@ -2865,6 +2981,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 c2c3 g8f6 d2d3 d7d6 b1d2 e8g8 e1g1 a7a5 f1e1 c8e6 c4b5 d8b8 d2f1"].porQue` | El caballo va a g3. |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 c2c3 g8f6 d2d3 d7d6 b1d2 e8g8 e1g1 a7a5 h2h3 h7h6 f1e1 c8e6 c4b5 d8b8 d2f1"].porQue` | El caballo va a g3. |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 c2c3 g8f6 d2d3 d7d6 b2b4 c5b6 e1g1 e8g8 a2a4"].porQue` | Amenaza a5 contra el alfil. |
+| Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 c2c3 g8f6 d2d3 d7d6 b2b4 c5b6 e1g1 e8g8 a2a4 a7a5"].porQue` | Frena a5. |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 c2c3 g8f6 d2d3 d7d6 b2b4 c5b6 e1g1 e8g8 b1d2 c6e7"].porQue` | El caballo va a g6. |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 e1g1 g8f6 b1c3 e8g8 d2d3 h7h6 a2a3"].porQue` | Prepara b4. |
 | Apertura Italiana (Giuoco Piano) | `notas["e2e4 e7e5 g1f3 b8c6 f1c4 f8c5 e1g1 g8f6 c2c3"].porQue` | Prepara d4. |
@@ -2897,6 +3014,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Gambito Letón | `notas["e2e4 e7e5 g1f3 f7f5 f3e5 d8f6 d2d4 d7d6 e5c4 f5e4 f1e2"].porQue` | Desarrolla y prepara el enroque. |
 | Defensa Mikenas (1.d4 Cc6) | `notas["d2d4 b8c6"].porQue` | Prepara ...e5 con el caballo. |
 | Defensa Mikenas (1.d4 Cc6) | `notas["d2d4 b8c6 c2c4 e7e5 d4d5 c6e7 e2e4 e7g6"].porQue` | Prepara ...Ac5 o ...f5. |
+| Defensa Mikenas (1.d4 Cc6) | `notas["d2d4 b8c6 g1f3"].porQue` | Desarrolla e impide ...e5. |
 | Defensa Mikenas (1.d4 Cc6) | `notas["d2d4 b8c6 g1f3 d7d6"].porQue` | Prepara ...e5. |
 | Defensa Mikenas (1.d4 Cc6) | `notas["d2d4 b8c6 g1f3 d7d6 c2c4 e7e5 b1c3 e5d4 f3d4 g7g6"].porQue` | Prepara el fianchetto. |
 | Defensa Owen | `planesBlancas` | Centro con d4 y e4, defendido por Ad3, Cc3 o Cd2. |
@@ -2909,6 +3027,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Owen | `notas["e2e4 b7b6 d2d4 c8b7 f1d3 e7e6 g1f3 c7c5 c2c3 g8f6 d1e2"].porQueNo["c1g5"]` | ...h6 y ...cxd4: la clavada no defiende e4 y las blancas pierden el centro. |
 | Defensa Owen | `notas["e2e4 b7b6 d2d4 c8b7 b1c3 e7e6"].porQue` | Lo más flexible: prepara ...Ab4 para clavar el caballo que defiende e4. |
 | Defensa Owen | `notas["e2e4 b7b6 d2d4 c8b7 f1d3 g8f6 d1e2 e7e6 g1f3"].porQue` | Desarrollo natural: el negro sigue con ...c5 o ...Ae7 y las blancas enrocan con un buen centro. |
+| Defensa Owen | `notas["e2e4 b7b6 d2d4 c8b7 f1d3 g7g6 f2f4 f7f5"].porQue` | La respuesta de De Santis al Ataque Austriaco: frena f5 y ataca e4; el blanco no puede tomar en f5 por la diagonal abierta hacia g2. |
 | Defensa Owen | `notas["e2e4 b7b6 d2d4 c8b7 f1d3 g7g6 f2f4 f7f5 b1d2"].porQue` | Lo mejor para Stockfish: sostiene e4 con una pieza y mantiene la tensión. |
 | Defensa Owen | `notas["e2e4 b7b6 d2d4 c8b7 b1c3 e7e6 f2f4"].porQue` | Según Stockfish es un error: era mejor 4. Ad3 (+0,8 contra 0,0, para el bando que juega). |
 | Defensa Owen | `notas["e2e4 b7b6 d2d4 c8b7 b1c3 e7e6 a2a3 d7d6 f1d3 b8d7 g1f3 g7g6"].porQue` | Prepara el fianchetto: es la estructura del Hipopótamo. |
@@ -2954,26 +3073,33 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 f2f3"].porQue` | Sostiene e4: esquema de India de Rey con f3. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 f2f3 c7c5 d4d5 g7g6"].porQue` | Prepara el fianchetto. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 f2f3 c7c5 d4d5 g7g6 c2c4 f8g7 b1c3 e8g8 c1g5 e7e6 d1d2 e6d5 c4d5 a7a6"].porQue` | Prepara ...b5. |
+| Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 f2f3 c7c5 d4d5 g7g6 c2c4 f8g7 b1c3 e8g8 c1g5 e7e6 d1d2 e6d5 c4d5 a7a6 a2a4"].porQue` | Frena ...b5. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 f2f3 c7c5 d4d5 g7g6 c2c4 f8g7 b1c3 e8g8 c1g5 e7e6 d1d2 e6d5 c4d5 a7a6 a2a4 f8e8 g1e2 b8d7 e2g3"].porQue` | El caballo va a g3. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 f2f3 g7g6"].porQue` | Prepara el fianchetto. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 f2f3 g7g6 c2c4 f8g7 b1c3 e8g8 c1e3 c7c5 g1e2 b8c6 d4d5 c6e5 e2g3"].porQue` | El caballo va a g3. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 f2f3 g7g6 c2c4 f8g7 b1c3 e8g8 c1e3 c7c5 g1e2 b8c6 d4d5 c6e5 e2g3 e7e6 f1e2 e6d5 c4d5 a7a6"].porQue` | Prepara ...b5. |
+| Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 f2f3 g7g6 c2c4 f8g7 b1c3 e8g8 c1e3 c7c5 g1e2 b8c6 d4d5 c6e5 e2g3 e7e6 f1e2 e6d5 c4d5 a7a6 a2a4"].porQue` | Frena ...b5. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 b8d7 g1f3 g7g6"].porQue` | Prepara el fianchetto. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 e7e5 d4e5 c8d7"].porQue` | Según Stockfish es un error: era mejor 3... dxe5 (−0,4 contra −1,7, para el bando que juega). |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 f2f4 f8g7 g1f3 c7c5 f1b5 c8d7 e4e5 f6g4 e5e6 f7e6 f3g5 d7b5 c3b5"].porQue` | Recaptura y amenaza Cc7+. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 c7c6 a2a4 b8d7 a4a5 d8c7 c1e3 a8b8"].porQue` | Prepara ...b5. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 g1f3 f8g7 h2h3 e8g8 c1e3 c7c6"].porQue` | Prepara ...b5. |
+| Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 g1f3 f8g7 h2h3 e8g8 c1e3 c7c6 a2a4"].porQue` | Frena ...b5. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 c7c6 a2a4 b8d7 h2h3 e7e5 d4e5 d6e5 c1e3 d8e7 d1d3 f6h5"].porQue` | El caballo va a f4. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 g1f3 f8g7 f1e2 e8g8 e1g1 c7c6 f1e1 b8d7 c1f4 d8a5 f3d2"].porQue` | Prepara Cb3 o Cc4. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 g1f3 f8g7 h2h3 e8g8 c1e3 c7c6 d1d2"].porQue` | Prepara Ah6. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1e3 c7c6 d1d2 b7b5 f2f3"].porQue` | Sostiene e4 y prepara g4. |
+| Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1e3 c7c6 d1d2 b7b5 f2f3 b8d7 g2g4 d7b6 h2h4 h7h5"].porQue` | Frena el avance de los peones. |
+| Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1e3 c7c6 h2h3 b8d7 f2f4 b7b5 a2a3"].porQue` | Frena ...b4. |
 | Defensa Pirc | `notas["e2e4 d7d6 g2g4"].porQue` | Según Stockfish es un error: era mejor 2. d4 (+0,5 contra −0,9, para el bando que juega). |
+| Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1e3 c7c6 h2h3 b8d7 g1f3 d8c7 a2a4"].porQue` | Frena ...b5. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1e3 c7c6 h2h3 b8d7 g1f3 d8c7 a2a4 f8g7 f1e2 e8g8 e1g1 b7b6"].porQue` | Prepara ...Ab7. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1e3 c7c6 h2h3 b8d7 g1f3 d8c7 a2a4 f8g7 f1e2 e8g8 e1g1 b7b6 d1d2"].porQue` | Prepara Ah6. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1e3 c7c6 h2h3 b8d7 g1f3 d8c7 d1d2"].porQue` | Prepara el enroque largo. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 f1c4 f8g7 d1e2 b8c6 e4e5 f6g4"].porQue` | El caballo va a g4. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1g5 f8g7 d1d2"].porQue` | Prepara el enroque largo. |
 | Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 c1g5 f8g7 f2f4 e8g8 d1d2"].porQue` | Prepara el enroque largo. |
+| Defensa Pirc | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 g7g6 g2g3 f8g7 f1g2 e8g8 g1e2 e7e5 h2h3 b8c6 c1e3 e5d4 e2d4 c8d7 e1g1 f8e8 f1e1 a7a6 a2a4"].porQue` | Frena ...b5. |
 | Defensa San Jorge | `planesNegras` | ...Ab7, ...e6 y ...c5 para atacar el centro blanco desde los costados. |
 | Defensa San Jorge | `notas["e2e4 a7a6"].porQue` | El primer paso del sistema: ...a6 prepara ...b5 y el fianchetto del alfil de dama. Stockfish la considera jugable. |
 | Defensa San Jorge | `notas["e2e4 a7a6 d2d4 b7b5"].porQue` | La idea de la San Jorge: ganar espacio en el flanco de dama y sacar el alfil a b7. Stockfish le da a las blancas algo más de ventaja que con 2...e6. |
@@ -3008,6 +3134,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Cerrada | `notas["e2e4 c7c5 b1c3 b8c6 g2g3 g7g6 f1g2 f8g7 d2d3 d7d6 c1e3 a8b8 d1d2"].porQue` | Prepara Ah6. |
 | Siciliana Cerrada | `notas["e2e4 c7c5 b1c3 b8c6 g1e2 c6d4 d2d3 g7g6"].porQue` | Prepara el fianchetto. |
 | Siciliana Cerrada | `notas["e2e4 c7c5 b1c3 b8c6 f1b5 c6d4 b5c4 e7e6 g1e2 g8f6 e1g1 a7a6"].porQue` | Prepara ...b5. |
+| Siciliana Cerrada | `notas["e2e4 c7c5 b1c3 b8c6 f1b5 c6d4 b5c4 e7e6 g1e2 g8f6 e1g1 a7a6 a2a4"].porQue` | Frena ...b5. |
 | Siciliana Cerrada | `notas["e2e4 c7c5 b1c3 b8c6 f1b5 c6d4 b5c4 e7e6 g1e2 g8f6 e1g1 a7a6 a2a4 d7d5 e4d5 e6d5 c4a2 f8d6 d2d3 d4e6 e2g3"].porQue` | El caballo va a g3. |
 | Siciliana Cerrada | `notas["e2e4 c7c5 b1c3 b8c6 f1b5 c6d4 b5c4 e7e6 g1f3 g8f6 e1g1 a7a6"].porQue` | Prepara ...b5. |
 | Siciliana Cerrada | `notas["e2e4 c7c5 b1c3 b8c6 f1b5 c6d4 b5c4 e7e6 g1f3 g8f6 e1g1 a7a6 d2d3 b7b5 c4b3 d4b3 a2b3 c8b7 e4e5 f6d5"].porQue` | El caballo va a d5. |
@@ -3042,9 +3169,11 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Kan (Paulsen) | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 f1d3 g8f6 e1g1 d8c7 d1e2 d7d6 c2c4 g7g6"].porQue` | Prepara el fianchetto. |
 | Siciliana Kan (Paulsen) | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 f1d3 g8e7 e1g1 b8c6 d4b3 g7g6"].porQue` | Prepara el fianchetto. |
 | Siciliana Kan (Paulsen) | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 f1d3 g8e7 e1g1 e7c6"].porQue` | El caballo va a c6. |
+| Siciliana Kan (Paulsen) | `notas["e2e4 c7c5 g1f3 e7e6 d2d4 c5d4 f3d4 a7a6 b1c3 b7b5 g2g3 c8b7 f1g2 g8f6 a2a3"].porQue` | Frena ...b4. |
 | Siciliana Scheveningen | `planesBlancas` | Clásica: Ae2, O-O, f4, Ae3 y Rh1, con paciencia; o f4 con Df3 y g4. |
 | Siciliana Scheveningen | `planesNegras` | ...a6, ...Dc7, ...b5 y ...Ab7 en el flanco de dama. |
 | Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 g2g4"].porQue` | El Ataque Keres: gana espacio y amenaza g5 para echar al caballo que defiende el centro. |
+| Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 g2g4 h7h6"].porQue` | La respuesta más común: frena g5 por ahora. |
 | Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 c1e3"].porQue` | Desarrollo flexible: puede seguir con f3, Dd2 y g4 (al estilo del Ataque Inglés). |
 | Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 f2f3"].porQue` | Prepara g4 y Ae3: el mismo plan que el Ataque Inglés. |
 | Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 f1e2"].porQue` | La Scheveningen Clásica: desarrollo sin pretensiones (Ae2, enroque corto, f4, Rh1) y ataque recién cuando todo está en su lugar. Es el terreno de las finezas de orden de jugadas. |
@@ -3067,8 +3196,13 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 g2g4 b8c6 g4g5 f6d7 c1e3 f8e7"].porQue` | Desarrolla y prepara el enroque. |
 | Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 g2g4 b8c6 g4g5 f6d7 c1e3 f8e7 h2h4 e8g8 d1d2"].porQue` | Prepara el enroque largo. |
 | Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 g2g4 b8c6 g4g5 f6d7 c1e3 f8e7 h2h4 e8g8 d1d2 a7a6"].porQue` | Prepara ...b5. |
+| Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 g2g4 a7a6 g4g5 f6d7 c1e3 b7b5 a2a3"].porQue` | Frena ...b4. |
 | Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 g2g4 a7a6 g4g5 f6d7 c1e3 b7b5 a2a3 c8b7 h2h4 d7b6"].porQue` | El caballo va a b6. |
 | Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 g2g4 a7a6 g4g5 f6d7 c1e3 b7b5 a2a3 d7b6"].porQue` | El caballo va a b6. |
+| Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 f1e2 f8e7 e1g1 e8g8 f2f4 b8c6 c1e3 c8d7 d4b3 a7a6 a2a4"].porQue` | Frena ...b5. |
+| Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 c1g5 f8e7 d1d2 a7a6 e1c1 b7b5 a2a3"].porQue` | Frena ...b4. |
+| Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 c1e3 a7a6 f2f3 b7b5 d1d2 b8d7 g2g4 h7h6"].porQue` | Frena g5. |
+| Siciliana Scheveningen | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 e7e6 c1e3 a7a6 f2f3 b7b5 g2g4 h7h6"].porQue` | Frena g5. |
 | Gambito Smith-Morra | `planesBlancas` | Presión sobre d6 y f7; Cd5 o e5 en el momento justo. |
 | Gambito Smith-Morra | `planesNegras` | Desarrollo prudente: ...e6, ...a6, ...Cge7 o ...Cf6. |
 | Gambito Smith-Morra | `rupturas` | e5 y Cd5 de las blancas. |
@@ -3101,6 +3235,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Veresov | `planesBlancas` | Si el negro juega pasivo, Axf6 para dañarle la estructura. |
 | Apertura Veresov | `planesNegras` | Impedir e4 con ...Af5 o ...Cbd7 y ...c6. |
 | Apertura Veresov | `notas["d2d4 g8f6 b1c3 d7d5 c1g5 b8d7 g1f3"].porQue` | El plan moderno: prepara e4 sin el viejo f3, que estorba el desarrollo. |
+| Apertura Veresov | `notas["d2d4 g8f6 b1c3 d7d5 c1g5 c8f5"].porQue` | Impide e4 directamente. |
 | Apertura Veresov | `notas["d2d4 g8f6 b1c3 d7d5 c1g5 h7h6"].porQue` | Le pregunta enseguida al alfil. Bellin la considera decisiva para juzgar la Veresov, cuya idea recurrente es doblarle los peones al negro con Axf6; para Stockfish es la mejor respuesta. |
 | Apertura Veresov | `notas["d2d4 g8f6 b1c3 d7d5 c1g5 h7h6 g5f6"].porQue` | Para Bellin, la mejor: a diferencia de la Española (de la que la Veresov es una imagen invertida), el blanco no está listo para enrocar y le cuesta jugar e4, así que la retirada a h4 no le sirve. Stockfish también la prefiere. |
 | Apertura Veresov | `notas["d2d4 g8f6 b1c3 d7d5 c1g5 h7h6 g5f6 e7f6 e2e3"].porQue` | La estrategia que recomienda Bellin: mantener el centro cerrado y estable, enrocar largo y, más adelante, lanzar los peones del flanco de rey. |
@@ -3142,6 +3277,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura del Alfil | `notas["e2e4 e7e5 f1c4 f7f5"].porQue` | Según Stockfish es un error: era mejor 2... Cf6 (−0,0 contra −1,1, para el bando que juega). |
 | Apertura del Alfil | `notas["e2e4 e7e5 f1c4 g8f6 b1c3 f8c5 g1e2 b7b5"].porQue` | Según Stockfish es un error: era mejor 4... O-O (−0,0 contra −1,0, para el bando que juega). |
 | Apertura del Alfil | `notas["e2e4 e7e5 f1c4 f8c5 b2b4 c5b4 f2f4"].porQue` | Según Stockfish es un error: era mejor 4. c3 (−0,2 contra −1,7, para el bando que juega). |
+| Apertura del Alfil | `notas["e2e4 e7e5 f1c4 f8c5 b2b4 c5b4 f2f4 e5f4 g1f3"].porQue` | Desarrolla e impide ...Dh4+. |
 | Apertura del Alfil | `notas["e2e4 e7e5 f1c4 f8c5 b2b4 c5b4 f2f4 e5f4 g1f3 b4e7"].porQue` | Según Stockfish es un error: era mejor 5... Cf6 (+1,6 contra +0,2, para el bando que juega). |
 | Apertura del Alfil | `notas["e2e4 e7e5 f1c4 f8c5 b2b4 c5b4 c2c3"].porQue` | Gana tiempo contra el alfil y prepara d4. |
 | Apertura del Alfil | `notas["e2e4 e7e5 f1c4 f8c5 d1e2"].porQue` | Defiende e4 con la dama y prepara f4. |
@@ -3190,6 +3326,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f6e4 d2d4 e4d6 b5c6 d7c6 d4e5 d6f5 d1d8 e8d8 b1c3 d8e8"].porQue` | Una preparación útil: el rey vuelve a e8 y deja la columna d para las torres. Otra es 9...Ad7 con ...Rc8. |
 | Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f6e4 d2d4 e4d6 b5c6 d7c6 d4e5 d6f5 d1d8 e8d8 b1c3 f5e7"].porQue` | Increíblemente artificial pero importante: el caballo va a g6 y le abre al alfil de c8 el camino a f5 o g4. Las blancas tendrán que avanzar f4 y g4 en el flanco de rey, y el negro esperar el momento de ...h5. |
 | Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f6e4 d2d4 f8e7 d1e2 e4d6 b5c6 b7c6 d4e5 d6b7 b2b3"].porQue` | Prepara Ab2 y le quita c4 al caballo. |
+| Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f6e4 d2d4 e4d6 b5c6 d7c6 d4e5 d6f5 d1e2"].porQue` | Evita el cambio de damas y deja la dama en la columna e. |
 | Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f6e4 d2d4 e4d6 b5c6 d7c6 d4e5 d6f5 d1d8 e8d8 b1c3 c8d7 h2h3 h7h6 b2b3"].porQue` | Prepara Ab2. |
 | Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f6e4 d2d4 e4d6 b5c6 d7c6 d4e5 d6f5 d1d8 e8d8 b1c3 h7h6 h2h3"].porQue` | Le quita g4 al caballo y prepara g4. |
 | Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f6e4 d2d4 e4d6 b5c6 d7c6 d4e5 d6e4"].porQue` | El caballo va a e4. |
@@ -3198,6 +3335,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f6e4 d2d4 a7a6 b5a4 b7b5 a4b3 d7d5 d4e5 c8e6 b1d2 e4c5 c2c3"].porQue` | Prepara una retirada para el alfil. |
 | Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f8c5 c2c3 e8g8 d2d4 c5b6 c1g5 d7d6 d1d3"].porQue` | La dama apoya d4 y prepara Cbd2. |
 | Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f6e4 d2d4 e4d6 b5c6 d7c6 d4e5 d6f5 d1d8 e8d8 b1c3 h7h6 h2h3 f5e7 c1e3 e7g6"].porQue` | El caballo va a g6. |
+| Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f8c5 c2c3 e8g8 d2d4 c5b6 c1g5 h7h6 g5h4 d7d6 a2a4 a7a5"].porQue` | Frena a5. |
 | Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f6g4"].porQue` | Según Stockfish es un error: era mejor 4... Cxe4 (−0,3 contra −2,0, para el bando que juega). |
 | Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 e1g1 f6e4 d2d4 e4d6 b5c6 d7c6 d4e5 d6f5 d1d8 e8d8 b1c3 f5e7 h2h3 e7g6"].porQue` | El caballo va a g6. |
 | Defensa Berlinesa | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 d2d3 d7d6 c2c4 g7g6"].porQue` | Prepara el fianchetto. |
@@ -3235,6 +3373,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Bogoindia | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 f8b4 c1d2 b8c6"].porQue` | Desarrolla y prepara ...e5. |
 | Defensa Bogoindia | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 f8b4 c1d2 d8e7 g2g3 b8c6 f1g2 b4d2 b1d2 d7d6 e1g1 e8g8 e2e4 e6e5 d4d5 c6b8 f3e1 a7a5 e1d3 b8a6 a2a3"].porQue` | Prepara b4. |
 | Defensa Bogoindia | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 f8b4 c1d2 a7a5 g2g3 d7d5 f1g2 d5c4 d1c2"].porQue` | La dama va a recuperar el peón. |
+| Defensa Bogoindia | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 f8b4 c1d2 a7a5 g2g3 d7d5 f1g2 d5c4 d1c2 b4d2 c2d2 c7c6 a2a4"].porQue` | Frena ...b5. |
 | Defensa Bogoindia | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 f8b4 c1d2 b4e7 g2g3 d7d5 f1g2 c7c6 d1c2 b7b6"].porQue` | Prepara ...Ab7. |
 | Defensa Bogoindia | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 f8b4 c1d2 b4d2 d1d2 d7d5 b1c3 e8g8 e2e3 d8e7 a1c1"].porQue` | La torre va a la columna c. |
 | Defensa Bogoindia | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 f8b4 c1d2 b4e7 g2g3 d7d5 f1g2 c7c6 d1c2 e8g8 e1g1 b7b6"].porQue` | Prepara ...Ab7. |
@@ -3245,6 +3384,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Checa (Pribyl) | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 c7c6 c1e3"].porQue` | Prepara Dd2 y el enroque largo. |
 | Defensa Checa (Pribyl) | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 c7c6 c1e3 b8d7"].porQue` | Prepara ...e5. |
 | Defensa Checa (Pribyl) | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 c7c6 c1e3 b8d7 f2f3 e7e5 d1d2"].porQue` | Prepara el enroque largo. |
+| Defensa Checa (Pribyl) | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 c7c6 a2a4"].porQue` | Impide ...b5. |
 | Defensa Checa (Pribyl) | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 c7c6 f2f4 c8g4"].porQue` | Clava el caballo de g1 antes de que salga. |
 | Defensa Checa (Pribyl) | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 c7c6 f2f4 b8d7"].porQue` | Prepara ...e5 con apoyo del caballo. |
 | Defensa Checa (Pribyl) | `notas["e2e4 d7d6 d2d4 g8f6 b1c3 c7c6 g1f3 b8d7"].porQue` | Prepara ...e5. |
@@ -3393,6 +3533,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Apertura Española (Ruy López) | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 g8f6 f3e5"].porQue` | Según Stockfish es un error: era mejor 4. O-O (+0,3 contra −3,7, para el bando que juega). |
 | Apertura Española (Ruy López) | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 d7d6 c2c3"].porQue` | Prepara d4 y una casilla de retirada para el alfil. |
 | Apertura Española (Ruy López) | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 d7d6 c2c3 e8g8 h2h3"].porQue` | Le quita g4 al alfil negro y prepara d4. |
+| Apertura Española (Ruy López) | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 b7b5 a4b3 g8f6 e1g1 c8b7 d2d3"].porQue` | Juego tranquilo: sostiene e4 y evita las líneas de la Arcángel. |
 | Apertura Española (Ruy López) | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f8e7 f1e1 d7d6 c2c3 c8g4 d2d3 e8g8 b1d2 f6d7 h2h3 g4h5 d2f1"].porQue` | El caballo va a g3. |
 | Apertura Española (Ruy López) | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 b7b5 a4b3 g8f6 e1g1 f8c5 a2a4 a8b8 c2c3"].porQue` | Prepara d4. |
 | Apertura Española (Ruy López) | `notas["e2e4 e7e5 g1f3 b8c6 f1b5 a7a6 b5a4 g8f6 e1g1 f6e4 d2d4 e5d4"].porQue` | Según Stockfish es un error: era mejor 6... b5 (−0,3 contra −1,5, para el bando que juega). |
@@ -3469,6 +3610,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Francesa Winawer | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 c7c5 a2a3 b4c3 b2c3 g8e7 h2h4 d8c7 g1f3 b7b6"].porQue` | Prepara ...Aa6 para cambiar el alfil malo. |
 | Francesa Winawer | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 c7c5 a2a3 b4c3 b2c3 g8e7 h2h4 d8c7 g1f3 b7b6 f1b5"].porQue` | Da jaque para desviar el alfil negro antes de ...Aa6. |
 | Francesa Winawer | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 c7c5 a2a3 b4c3 b2c3 g8e7 h2h4 d8c7 g1f3 b7b6 h4h5 h7h6"].porQue` | Frena el peón: si llega a h6, abre al rey negro. |
+| Francesa Winawer | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 c7c5 a2a3 b4c3 b2c3 g8e7 h2h4 d8c7 h4h5 h7h6"].porQue` | Frena el avance del peón. |
 | Francesa Winawer | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 c7c5 a2a3 b4c3 b2c3 g8e7 h2h4 d8c7 h4h5 h7h6 a1b1"].porQue` | La torre va a la columna b semiabierta. |
 | Francesa Winawer | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 c7c5 a2a3 b4c3 b2c3 g8e7 h2h4 d8c7 h4h5 h7h6 g1f3 b7b6"].porQue` | Prepara ...Aa6 para cambiar el alfil malo. |
 | Francesa Winawer | `notas["e2e4 e7e6 d2d4 d7d5 b1c3 f8b4 e4e5 c7c5 a2a3 b4c3 b2c3 g8e7 h2h4 d8c7 g1f3 b7b6 h4h5 h7h6 f1b5"].porQue` | Da jaque para desviar el alfil negro antes de ...Aa6. |
@@ -3486,6 +3628,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Gambito Vaganian | `notas["d2d4 g8f6 c2c4 c7c5 g1f3 c5d4 f3d4 e7e5 d4b5 d7d5 c4d5 f8c5"].porQue` | La jugada de Vaganian (1977): el alfil apunta a f2 y el rey blanco está a tres jugadas del enroque. Aparecen enseguida temas como ...Axf2+ y ...Ce4. |
 | Gambito Vaganian | `notas["d2d4 g8f6 c2c4 c7c5 g1f3 c5d4 f3d4 e7e5 d4b5 d7d5 c4d5 f8c5 b5c3 e8g8"].porQue` | Primero el rey; después ...e4, ...Af5 o ...Te8, con mucha actividad por el peón. |
 | Gambito Vaganian | `notas["d2d4 g8f6 c2c4 c7c5 g1f3 c5d4 f3d4 e7e5 d4b5 a7a6 b5d6"].porQue` | Lo más fuerte: el caballo da jaque y se cambia por el alfil de f8, y el blanco queda con la pareja de alfiles. |
+| Gambito Vaganian | `notas["d2d4 g8f6 c2c4 c7c5 g1f3 c5d4 f3d4 e7e5 d4b5 d7d5 c4d5 f8c5 b5c3 e8g8 e2e3 e5e4 a2a3 a7a5"].porQue` | Frena b4. |
 | Gambito Vaganian | `notas["d2d4 g8f6 c2c4 c7c5 g1f3 c5d4 f3d4 e7e5 d4b5 d7d5 c4d5 f8c5 b5c3 e8g8 g2g3"].porQue` | Prepara el fianchetto. |
 | Gambito Vaganian | `notas["d2d4 g8f6 c2c4 c7c5 g1f3 c5d4 f3d4 e7e5 d4b5 d7d5 c4d5 f8c5 b5c3 e8g8 g2g3 d8b6 e2e3 c8g4 f1e2 g4e2 d1e2 e5e4 a2a3"].porQue` | Prepara b4. |
 | Siciliana Grand Prix (ataque con f4) | `planesBlancas` | f4-f5 y ataque en el flanco de rey con Cf3, Ac4 o Ab5. |
@@ -3502,6 +3645,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Grand Prix (ataque con f4) | `notas["e2e4 c7c5 f2f4 b8c6 b1c3 g7g6 g1f3 f8g7 f1c4 e7e6 e1g1 g8e7 d2d3 d7d5 c4b3 e8g8 d1e1"].porQue` | La dama va a h4 por e1. |
 | Defensa Hipopótamo | `planesBlancas` | Desarrollo natural (Cf3, Ad3, O-O, Ae3, Dd2) con el centro de dos peones. |
 | Defensa Hipopótamo | `planesNegras` | Completar el esquema: ...d6, ...Cd7, ...g6, ...Ag7, ...Ce7, ...h6 y ...a6. |
+| Defensa Hipopótamo | `notas["e2e4 b7b6 d2d4 c8b7 b1c3 e7e6 a2a3"].porQue` | Impide la clavada ...Ab4, que con el caballo en c3 sería molesta. |
 | Defensa Hipopótamo | `notas["e2e4 b7b6 d2d4 c8b7 b1c3 e7e6 f2f4 f8b4"].porQue` | Contra un Austriaco temprano, lo más fuerte: clava el caballo y presiona e4. |
 | Defensa Hipopótamo | `notas["e2e4 b7b6 d2d4 c8b7 b1c3 e7e6 a2a3 d7d6"].porQue` | Controla e5 y prepara el desarrollo de los caballos por d7 y e7. |
 | Defensa Hipopótamo | `notas["e2e4 b7b6 d2d4 c8b7 b1c3 e7e6 a2a3 d7d6 f2f4 g8f6 f1d3 c7c5"].porQue` | El contraataque típico de la versión con ...b6: mientras el peón de g2 esté en la diagonal del alfil de b7 (y detrás, la torre de h1), e5 no es una amenaza seria. |
@@ -3515,12 +3659,14 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa India de Dama | `planesBlancas` | Ganar el centro con Cc3 y e4 si el negro descuida e4. |
 | Defensa India de Dama | `planesNegras` | Controlar e4 con el alfil de b7, el caballo de f6 y a veces ...Ce4. |
 | Defensa India de Dama | `planesNegras` | Presionar c4 con ...Aa6 y liberar el juego con ...c5 o ...d5. |
+| Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3"].porQue` | Desarrolla y evita la clavada de la Nimzoindia (no hay caballo en c3 para clavar). |
 | Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 b7b6"].porQue` | Prepara el fianchetto del alfil de dama para controlar e4. |
 | Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 g2g3"].porQue` | Fianchetto propio: el alfil de g2 va a disputar la diagonal larga. |
 | Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 g2g3 c8a6 b2b3 f8b4"].porQue` | Jaque que obliga a Ad2: después el alfil vuelve a e7 y las blancas quedaron con el alfil en d2, menos activo. |
 | Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 g2g3 c8b7 f1g2 f8e7 e1g1 e8g8 b1c3 f6e4"].porQue` | Ocupa e4 antes de que las blancas lo controlen con Dc2 o Dd3. |
 | Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 g2g3 c8b7 f1g2 f8e7 e1g1 e8g8 b1c3 f6e4 c1d2"].porQue` | Más ambicioso: prepara d5 aunque ceda la pareja de alfiles. |
 | Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 g2g3 c8a6 b2b3 f8b4 c1d2 b4e7 f1g2 c7c6"].porQue` | Prepara ...d5 para poder retomar con el peón de c. |
+| Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 a2a3"].porQue` | Sistema Petrosian: impide ...Ab4 para poder jugar Cc3 sin la clavada. |
 | Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 a2a3 c8b7 b1c3 d7d5"].porQue` | Pelea por el centro: tras cxd5 el negro elige entre ...exd5, sólido, y ...Cxd5, más dinámico. |
 | Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 b1c3 f8b4 c1g5"].porQue` | Mezcla de India de Dama y Nimzoindia: muy agudo si el negro rompe la clavada con ...h6 y ...g5. |
 | Defensa India de Dama | `notas["d2d4 g8f6 c2c4 e7e6 g1f3 b7b6 g2g3 c8b7 f1g2 f8e7 e1g1 e8g8 b1c3 f6e4 d1c2"].porQue` | La forma más prudente: tras ...Cxc3 Dxc3, el negro puede jugar ...c5 sin temer d5, o armarse con ...f5, ...Af6, ...d6 y ...Cd7. |
@@ -3582,8 +3728,12 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Sistema Rapport-Jobava | `notas["d2d4 d7d5 b1c3 g8f6 c1f4 g7g6 e2e3 f8g7 h2h4"].porQue` | Lo más agresivo, típico del Jobava: el peón de h avanza contra el enroque fianchettado. |
 | Sistema Rapport-Jobava | `notas["d2d4 d7d5 b1c3 g8f6 c1f4 e7e6 c3b5 f8b4"].porQue` | Da jaque para ganar tiempo frente a la amenaza Cxc7+. |
 | Sistema Rapport-Jobava | `notas["d2d4 d7d5 b1c3 g8f6 c1f4 g7g6"].porQue` | Prepara el fianchetto. |
+| Sistema Rapport-Jobava | `notas["d2d4 d7d5 b1c3 g8f6 c1f4 a7a6"].porQue` | Impide Cb5. |
 | Sistema Rapport-Jobava | `notas["d2d4 d7d5 b1c3 g8f6 c1f4 e7e6 c3b5 b8a6 e2e3 f8e7 g1f3 e8g8 h2h4 c7c6 b5c3 d8b6 a2a3"].porQue` | Prepara b4. |
 | Sistema Rapport-Jobava | `notas["b1c3 d7d5 d2d4 g8f6 c1f4 e7e6 c3b5 b8a6 e2e3 f8e7 g1f3 e8g8 h2h4 c7c6 b5c3 d8b6 a2a3"].porQue` | Prepara b4. |
+| Sistema Rapport-Jobava | `notas["d2d4 d7d5 b1c3 g8f6 c1f4 g7g6 e2e3 f8g7 h2h4 c7c6 f1e2 h7h5"].porQue` | Frena h5. |
+| Sistema Rapport-Jobava | `notas["d2d4 d7d5 b1c3 g8f6 c1f4 g7g6 e2e3 f8g7 h2h4 c7c6 f1e2 h7h6"].porQue` | Frena h5. |
+| Sistema Rapport-Jobava | `notas["d2d4 d7d5 b1c3 g8f6 c1f4 g7g6 e2e3 f8g7 h2h4 h7h5"].porQue` | Frena h5. |
 | Londres contra la India de Rey | `planesBlancas` | Mantener el alfil de f4 con h3 y responder a ...e5 con dxe5 o Ah2. |
 | Londres contra la India de Rey | `planesBlancas` | Desarrollo tranquilo: e3, Ae2, O-O, c3 y Cbd2. |
 | Londres contra la India de Rey | `planesNegras` | Preparar ...e5 con ...d6 y ...Cbd7. |
@@ -3595,6 +3745,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Londres contra la India de Rey | `notas["d2d4 g8f6 g1f3 g7g6 c1f4 f8g7 e2e3 e8g8 f1e2 c7c5 c2c3 b7b6"].porQue` | Prepara ...Ab7. |
 | Londres contra la India de Rey | `notas["d2d4 g8f6 g1f3 g7g6 c1f4 f8g7 e2e3 e8g8 f1e2 c7c5 c2c3 d7d6 h2h3 b7b6"].porQue` | Prepara ...Ab7. |
 | Londres contra la India de Rey | `notas["d2d4 g8f6 g1f3 g7g6 c1f4 f8g7 e2e3 e8g8 f1e2 d7d6 h2h3 b8d7 e1g1 b7b6"].porQue` | Prepara ...Ab7. |
+| Londres contra la India de Rey | `notas["d2d4 g8f6 g1f3 g7g6 c1f4 f8g7 e2e3 e8g8 f1e2 d7d6 h2h3 b8d7 e1g1 b7b6 a2a4 a7a5"].porQue` | Frena a5. |
 | Defensa Moderna | `planesBlancas` | Armar el centro con e4, d4 y Cc3 y desarrollarse con Ae3, Dd2 y a veces el enroque largo. |
 | Defensa Moderna | `notas["e2e4 g7g6 d2d4 f8g7 b1c3 d7d6"].porQue` | Sostiene e5 y prepara ...Cf6 (transponiendo a la Pirc) o ...c6 y ...b5. |
 | Defensa Moderna | `notas["e2e4 g7g6 d2d4 f8g7 b1c3 c7c6"].porQue` | Parece lenta pero es venenosa: prepara ...d5 o ...b5 según lo que haga el blanco. Soltis la convierte en un sistema: en vez de pelear por las casillas oscuras con ...d6 y ...e5, como en la India de Rey, el negro ataca e4 con ...d5, al estilo de la Caro-Kann. |
@@ -3604,6 +3755,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Moderna | `notas["e2e4 g7g6 d2d4 f8g7 b1c3 c7c6 f1c4 d7d6"].porQue` | Contra el alfil en c4, Soltis prefiere ...d6: el negro sigue con ...e6 y ...e5 sin dejar f7 desprotegido. Para Stockfish, el ...d5 directo también es bueno. |
 | Defensa Moderna | `notas["e2e4 g7g6 d2d4 f8g7 b1c3 c7c6 f1c4 d7d6 d1f3 e7e6"].porQue` | Obligada: la dama y el alfil apuntan a f7. Después el negro sigue con ...De7, ...Cd7 y ...e5, y la dama blanca en f3 termina mal ubicada. |
 | Defensa Moderna | `notas["e2e4 g7g6 d2d4 f8g7 b1c3 c7c6 f1c4 d7d6 d1f3 e7e6"].porQueNo["a7a6"]` | Ignorar la amenaza pierde enseguida: Dxf7+ y la dama llega a g7. |
+| Defensa Moderna | `notas["e2e4 g7g6 d2d4 f8g7 b1c3 c7c6 f2f4 d7d5 e4e5 h7h5"].porQue` | La jugada del sistema Gurgenidze, que sorprende a cualquiera: con el centro cerrado hay tiempo para ella, y frena el avance g4 con el que las blancas quieren ganar espacio en el flanco de rey. |
 | Defensa Moderna | `notas["e2e4 g7g6 d2d4 f8g7 b1c3 c7c6 f2f4 d7d5 e4e5 h7h5 g1f3 c8g4 h2h3 g4f3 d1f3 e7e6"].porQue` | La mejor según Stockfish. El negro cambió su alfil y, como explica Soltis, tiene que impedir f5, que liberaría a los alfiles blancos: ...e6 lo frena y completa la cadena de peones en casillas blancas. |
 | Defensa Moderna | `notas["e2e4 g7g6 d2d4 f8g7 b1c3 c7c5"].porQue` | El "Sniper" de Storey: el alfil de g7 y el peón de c5 atacan d4 a la vez, con aire de Siciliana Dragón. Stockfish la considera tan buena como ...d6. |
 | Defensa Moderna | `notas["e2e4 g7g6 d2d4 f8g7 b1c3 c7c5 d4c5 g7c3"].porQue` | El "sacrificio del francotirador": el negro entrega su alfil para doblar los peones blancos y después recupera el peón de c5 con ...Da5. Es la mejor jugada según Stockfish. |
@@ -3652,6 +3804,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Peón dama con 2.Cf3 | `planesBlancas` | Contra 2...Cf6: el Sistema Colle (e3, Ad3, Cbd2, 0-0 y el avance e4 en el momento justo), o c4 y un Gambito de Dama. |
 | Peón dama con 2.Cf3 | `planesBlancas` | Contra 2...Ag4 o 2...Af5: 3.c4 y Db3, apuntando a b7. |
 | Peón dama con 2.Cf3 | `planesNegras` | ...Cf6 y ...e6 o ...c5, con un desarrollo sólido. |
+| Peón dama con 2.Cf3 | `notas["d2d4 d7d5 g1f3"].porQue` | Desarrolla, impide ...e5 y no se compromete todavía entre c4 y e3. |
 | Peón dama con 2.Cf3 | `notas["d2d4 d7d5 g1f3 c8g4 c2c4"].porQue` | El alfil de c8 salió antes de ...e6 y b7 quedó sin defensa: 3.c4 abre la diagonal de la dama hacia b7. Si 3...Axf3, el negro entrega sin necesidad su alfil por un caballo (Koltanowski). |
 | Peón dama con 2.Cf3 | `notas["d2d4 d7d5 g1f3 c8g4 c2c4 e7e6 d1b3 b8c6"].porQue` | Defiende indirectamente: si 5.Dxb7, el caballo salta a b4 con la amenaza Cc2+. |
 | Peón dama con 2.Cf3 | `notas["d2d4 d7d5 g1f3 c8g4 c2c4 e7e6 d1b3 b8c6"].porQueNo["b7b6"]` | 4...b6? 5.Ce5!: el caballo ataca el alfil de g4 y la dama amenaza entrar con jaque por a4; el negro queda claramente peor (Koltanowski). |
@@ -3750,19 +3903,23 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 c1g5 e7e6 d1d2 f8e7 e1c1 c6d4 d2d4 a7a6 f2f4"].porQue` | Prepara el avance e5. |
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 c1g5 e7e6 d1d2 a7a6 e1c1 c8d7 f2f4 f8e7"].porQue` | Desarrolla y prepara el enroque. |
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 b8c6 d2d4 c5d4 f3d4 g8f6 b1c3 d7d6 f1c4 g7g6 d4c6 b7c6 e4e5"].porQue` | Ataca el caballo de f6 y busca ganar material. |
+| Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 c1g5 e7e6 d1d2 a7a6 e1c1 c8d7 f2f4 f8e7 d4f3 b7b5 g5f6 g7f6 c1b1 b5b4 c3e2 h7h5"].porQue` | Frena g4. |
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 c1g5 c8d7 d1d2 a8c8"].porQue` | La torre va a la columna c. |
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 c1g5 e7e6 d1d2 a7a6 e1c1 c8d7 f2f4 f8e7 d4f3 b7b5 g5f6 g7f6 c1b1 d8b6 f4f5 e8c8 g2g3"].porQue` | Prepara Ah3. |
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 c1g5 g7g6"].porQue` | Prepara el fianchetto. |
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 c1g5 e7e6 d1d2 d8b6 d4b3 a7a6 e1c1 f8e7 f2f3 e8g8 h2h4 f8d8"].porQue` | La torre va a la columna d. |
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 c1g5 e7e6 d1d2 d8b6 d4b3 f8e7 e1c1 e8g8 f2f3 f8d8"].porQue` | La torre va a la columna d. |
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 c1g5 e7e6 d1d2 f8e7 e1c1 e8g8 d4b3 d8b6 f2f3 f8d8 c1b1 a7a6"].porQue` | Prepara ...b5. |
+| Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 f1e2 e7e5 d4b3 f8e7 e1g1 e8g8 f2f4 a7a5 a2a4"].porQue` | Frena ...a4. |
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 g2g3"].porQue` | Prepara el fianchetto. |
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 g2g3 g7g6"].porQue` | Prepara el fianchetto. |
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 g2g3 g7g6 d4e2 f8g7 f1g2 e8g8 e1g1 a8b8"].porQue` | Prepara ...b5. |
+| Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 g2g3 g7g6 d4e2 f8g7 f1g2 e8g8 e1g1 a8b8 a2a4"].porQue` | Frena ...b5. |
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `notas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 g2g3 g7g6 d4e2 f8g7 f1g2 e8g8 e1g1 a8b8 a2a4 a7a6"].porQue` | Prepara ...b5. |
 | Siciliana Clásica (Richter-Rauzer y Sozin) | `trampas["e2e4 c7c5 g1f3 d7d6 d2d4 c5d4 f3d4 g8f6 b1c3 b8c6 f1c4 g7g6 d4c6 b7c6 e4e5 d6e5 c4f7 e8f7 d1d8"]` | Contra la Sozin, 6...g6?! permite 7.Cxc6 bxc6 8.e5!, y si 8...dxe5?? 9.Axf7+ Rxf7 10.Dxd8: el alfil de c4 y la dama en la columna d hacen el resto. (Después de 8.e5, lo mejor es 8...Cg4, con una posición algo peor pero jugable.) |
 | Siciliana Moscú (3.Ab5+) | `planesNegras` | Igualar con ...Axd7, ...Cf6 y ...g6 o ...e6. |
 | Siciliana Moscú (3.Ab5+) | `planesNegras` | Con ...Cd7, conservar los alfiles. |
+| Siciliana Moscú (3.Ab5+) | `notas["e2e4 c7c5 g1f3 d7d6 f1b5"].porQue` | Jaque que evita las líneas abiertas de la Najdorf y el Dragón. |
 | Siciliana Moscú (3.Ab5+) | `notas["e2e4 c7c5 g1f3 d7d6 f1b5 c8d7"].porQue` | Lo más sólido: ofrece cambiar alfiles. |
 | Siciliana Moscú (3.Ab5+) | `notas["e2e4 c7c5 g1f3 d7d6 f1b5 c8d7 b5d7"].porQue` | Cambia alfiles. Después las blancas eligen entre c4 (estructura Maroczy) y c3 con d4. |
 | Siciliana Moscú (3.Ab5+) | `notas["e2e4 c7c5 g1f3 d7d6 f1b5 b8d7 d2d4 g8f6 e1g1"].porQue` | La idea del repertorio de Jones: enroca y deja el peón de e4 en el aire. Si el negro lo toma, la columna e se abre contra su rey sin enrocar. |
@@ -3817,6 +3974,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 | Defensa Tarrasch | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 c7c5 c4d5 e6d5 g1f3 b8c6 g2g3 g8f6 f1g2 f8e7 e1g1 e8g8 c1g5 c5d4 f3d4 f8e8 a1c1"].porQue` | La torre va a la columna c. |
 | Defensa Tarrasch | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 c7c5 c4d5 e6d5 g1f3 b8c6 g2g3 g8f6 f1g2 f8e7 e1g1 e8g8 c1g5 c5c4 f3e5 c8e6 b2b3 d8a5 e5c6 b7c6 c3a4 f8d8"].porQue` | La torre va a la columna d. |
 | Defensa Tarrasch | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 c7c5 c4d5 e6d5 g1f3 b8c6 g2g3 g8f6 f1g2 f8e7 e1g1 e8g8 c1g5 c8e6 a1c1 b7b6"].porQue` | Prepara ...c4 o ...Tc8. |
+| Defensa Tarrasch | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 c7c5 c4d5 e6d5 g1f3 b8c6 g2g3 g8f6 f1g2 f8e7 e1g1 e8g8 c1g5 c5d4 f3d4 h7h6 g5e3 f8e8 d1a4 c8d7 a1d1 c6b4 a4b3 a7a5 a2a4"].porQue` | Frena ...a4. |
 | Defensa Tarrasch | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 c7c5 c4d5 e6d5 g1f3 b8c6 g2g3 g8f6 f1g2 f8e7 e1g1 e8g8 d4c5 e7c5 c3a4 c5e7 c1e3 f8e8 a1c1"].porQue` | La torre va a la columna c. |
 | Defensa Tarrasch | `notas["d2d4 d7d5 c2c4 e7e6 b1c3 c7c5 e2e3 g8f6 g1f3 b8c6 c4d5 e6d5 f1b5 c5d4 f3d4 c8d7 e1g1 f8d6 d4f3 d7e6 b2b3"].porQue` | Prepara Ab2. |
 | Partida Vienesa | `planesBlancas` | Con Ac4, presión sobre f7 y juego tranquilo con d3. |
