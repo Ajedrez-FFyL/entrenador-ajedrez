@@ -37,7 +37,13 @@
     <h3>Táctica</h3>
     <p class="suave">
       Ejercicios armados a partir de tus propios errores en partidas reales, más táctica general (ejercicios de la base abierta de Lichess, licencia CC0) y problemas de libros de ajedrez
-      (estos dos últimos son los mismos para todo el equipo). Repaso espaciado también acá.
+      (estos dos últimos son los mismos para todo el equipo). Repaso espaciado también acá. El tema (y, en problemas de
+      libros, el libro) se elige con una lista de casillas: podés marcar varios a la vez. Una jugada que no es la mejor
+      no termina el ejercicio: podés ver por qué no sirve, pedir una pista o intentar de nuevo; recién contás como
+      fallado si pedís la solución. Debajo del tablero queda una fila de cuadraditos con el resultado de cada ejercicio
+      de la sesión (verde: bien a la primera; amarillo: con error o pista; rojo: solución vista); tocar uno lo vuelve a
+      mostrar sin que cuente de nuevo para el repaso. En Progreso, la sección «Historial» lista todos los intentos (con
+      filtro por fecha y resultado) y un botón para reintentar los fallados.
     </p>
   </div>
 
