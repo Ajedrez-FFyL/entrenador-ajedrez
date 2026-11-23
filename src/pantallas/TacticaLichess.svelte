@@ -1,6 +1,7 @@
 <script lang="ts">
   import { armarSesionProblemas, cargarProblemas, estadoProblemas, FILTROS_PROBLEMAS, nombreTema, TEMAS_FILTRO, TEMAS_LIBROS, type FiltrosProblemas, type Origen, type Problema } from '../lib/problemas/problemas.ts'
   import type { ResultadoIntento } from '../lib/repaso/repaso.ts'
+  import HistorialSesion from '../lib/ui/HistorialSesion.svelte'
   import ProblemaLichess from '../lib/ui/ProblemaLichess.svelte'
   import SelectorMultiple from '../lib/ui/SelectorMultiple.svelte'
 
@@ -27,6 +28,8 @@
   let indice = $state(0)
   let enSesion = $state(false)
   let resultados = $state<ResultadoIntento[]>([])
+  // Historial de la sesión: tocar un cuadradito vuelve a ver ese problema, en modo repaso.
+  let revisando = $state<number>()
 
   // svelte-ignore state_referenced_locally
   cargarProblemas(origen).then((p) => {
@@ -67,7 +70,15 @@
   }
 </script>
 
-{#if enSesion && sesion[indice]}
+{#if revisando !== undefined && sesion[revisando]}
+  <div class="barra">
+    <span>Revisando el problema {revisando + 1}</span>
+    <button class="boton enlace" onclick={() => (revisando = undefined)}>Volver a la sesión</button>
+  </div>
+  {#key `revisar-${revisando}`}
+    <ProblemaLichess problema={sesion[revisando]} alSeguir={() => (revisando = undefined)} repaso />
+  {/key}
+{:else if enSesion && sesion[indice]}
   <div class="barra">
     <span>Problema {indice + 1} de {sesion.length}</span>
     <button class="boton enlace" onclick={() => { enSesion = false; actualizar() }}>Terminar</button>
@@ -75,6 +86,7 @@
   {#key sesion[indice].id}
     <ProblemaLichess problema={sesion[indice]} alSeguir={seguir} />
   {/key}
+  <HistorialSesion {resultados} alElegir={(i) => (revisando = i)} />
 {:else if !hayDatos}
   <p class="suave">La selección de problemas no está disponible en esta versión.</p>
 {:else}

@@ -5,6 +5,7 @@
   import type { ErrorPartida, Partida } from '../lib/datos/tipos.ts'
   import { armarSesion, estadoRepaso, FILTROS_INICIALES, type EstadoRepaso, type Filtros, type ResultadoIntento } from '../lib/repaso/repaso.ts'
   import Ejercicio from '../lib/ui/Ejercicio.svelte'
+  import HistorialSesion from '../lib/ui/HistorialSesion.svelte'
   import TacticaLichess from './TacticaLichess.svelte'
   import TacticaMezclada from './TacticaMezclada.svelte'
 
@@ -48,6 +49,15 @@
   let partida = $state<Partida>()
   let resultados = $state<ResultadoIntento[]>([])
   let enSesion = $state(false)
+  // Historial de la sesión: tocar un cuadradito vuelve a ver ese ejercicio, en modo repaso.
+  let revisando = $state<number>()
+  let partidaRevisando = $state<Partida>()
+
+  $effect(() => {
+    if (revisando === undefined) return
+    const e = sesion[revisando]
+    if (e) db.partidas.get(e.partidaId).then((p) => (partidaRevisando = p))
+  })
 
   function cargarFiltros(): Filtros {
     try {
@@ -107,7 +117,15 @@
   let aciertos = $derived(resultados.filter((r) => r !== 'mal').length)
 </script>
 
-{#if enSesion && sesion[indice]}
+{#if revisando !== undefined && sesion[revisando]}
+  <div class="barra">
+    <span>Revisando el ejercicio {revisando + 1}</span>
+    <button class="boton enlace" onclick={() => (revisando = undefined)}>Volver a la sesión</button>
+  </div>
+  {#key `revisar-${revisando}`}
+    <Ejercicio error={sesion[revisando]} partida={partidaRevisando} alSeguir={() => (revisando = undefined)} repaso />
+  {/key}
+{:else if enSesion && sesion[indice]}
   <div class="barra">
     <span>Ejercicio {indice + 1} de {sesion.length}</span>
     <button class="boton enlace" onclick={terminar}>Terminar</button>
@@ -115,6 +133,7 @@
   {#key sesion[indice].id}
     <Ejercicio error={sesion[indice]} {partida} alSeguir={seguir} />
   {/key}
+  <HistorialSesion {resultados} alElegir={(i) => (revisando = i)} />
 {:else}
   <h1>Táctica</h1>
   <div class="pestanas" role="tablist">

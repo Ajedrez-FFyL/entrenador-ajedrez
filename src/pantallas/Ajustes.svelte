@@ -50,7 +50,7 @@
     mensajeRespaldo = 'Importando…'
     try {
       const r = await importarRespaldo(texto)
-      mensajeRespaldo = `Listo: ${r.partidasNuevas} partidas nuevas, ${r.erroresNuevos} errores nuevos, ${r.repasosActualizados} repasos actualizados.`
+      mensajeRespaldo = `Listo: ${r.partidasNuevas} partidas nuevas, ${r.erroresNuevos} errores nuevos, ${r.repasosActualizados} repasos actualizados, ${r.intentosNuevos} intentos del historial sumados.`
       await contarPendientes()
       await cargar()
     } catch (err) {

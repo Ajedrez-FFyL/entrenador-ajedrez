@@ -18,9 +18,13 @@
     error: ErrorPartida
     partida?: Partida
     alSeguir: (resultado: ResultadoIntento) => void
+    /** Modo repaso (desde la fila de cuadraditos del historial): no vuelve a contar para el repaso espaciado ni el historial. */
+    repaso?: boolean
   }
 
-  let { error, partida, alSeguir }: Props = $props()
+  let { error, partida, alSeguir, repaso = false }: Props = $props()
+  // Jugadas probadas en este ejercicio, en orden (para el historial); no es reactivo, solo se lee al terminar.
+  let intentosUci: string[] = []
 
   /** Una jugada distinta de la del motor cuenta como correcta si pierde menos que esto de chances de ganar. */
   const TOLERANCIA = 0.06
@@ -77,7 +81,7 @@
   function terminar(r: ResultadoIntento) {
     resultado = r
     estado = 'resuelto'
-    registrarIntento(error.id, r)
+    if (!repaso) registrarIntento(error.id, r, intentosUci)
     // Tablero de análisis: tu jugada si estaba bien, o la línea de la solución si no.
     ex = intento?.correcta ? new Exploracion(error.fen, [intento.uci], 1) : new Exploracion(error.fen, [...error.lineaMejor], 0)
   }
@@ -91,6 +95,7 @@
     const pos = posActual()
     const despues = jugarUci(pos, uci)
     if (!despues) return
+    intentosUci.push(uci)
     const san = sanDeUci(pos, uci)
     const fenDespues = fenDe(despues)
     const base = { uci, san, fenDespues, refutacion: [] as string[], motivo: [] as MotivoError[] }

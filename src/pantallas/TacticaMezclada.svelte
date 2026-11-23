@@ -4,6 +4,7 @@
   import { armarSesionProblemas, estadoProblemas, FILTROS_PROBLEMAS, type Problema } from '../lib/problemas/problemas.ts'
   import { armarSesion, estadoRepaso, FILTROS_INICIALES, type Filtros, type ResultadoIntento } from '../lib/repaso/repaso.ts'
   import Ejercicio from '../lib/ui/Ejercicio.svelte'
+  import HistorialSesion from '../lib/ui/HistorialSesion.svelte'
   import ProblemaLichess from '../lib/ui/ProblemaLichess.svelte'
 
   type Fuente = 'propios' | 'lichess' | 'libros'
@@ -19,6 +20,15 @@
   let partida = $state<Partida>()
   let enSesion = $state(false)
   let resultados = $state<ResultadoIntento[]>([])
+  // Historial de la sesión: tocar un cuadradito vuelve a ver ese ejercicio, en modo repaso.
+  let revisando = $state<number>()
+  let partidaRevisando = $state<Partida>()
+
+  $effect(() => {
+    if (revisando === undefined) return
+    const it = sesion[revisando]
+    if (it?.tipo === 'error') db.partidas.get(it.error.partidaId).then((p) => (partidaRevisando = p))
+  })
 
   function cargarElegidas(): Fuente[] {
     try {
@@ -99,7 +109,20 @@
   let item = $derived(sesion[indice])
 </script>
 
-{#if enSesion && item}
+{#if revisando !== undefined && sesion[revisando]}
+  {@const it = sesion[revisando]}
+  <div class="barra">
+    <span>Revisando el ejercicio {revisando + 1}</span>
+    <button class="boton enlace" onclick={() => (revisando = undefined)}>Volver a la sesión</button>
+  </div>
+  {#key `revisar-${revisando}`}
+    {#if it.tipo === 'error'}
+      <Ejercicio error={it.error} partida={partidaRevisando} alSeguir={() => (revisando = undefined)} repaso />
+    {:else}
+      <ProblemaLichess problema={it.problema} alSeguir={() => (revisando = undefined)} repaso />
+    {/if}
+  {/key}
+{:else if enSesion && item}
   <div class="barra">
     <span>Ejercicio {indice + 1} de {sesion.length} · {item.tipo === 'error' ? NOMBRES.propios : item.problema.fuente ? NOMBRES.libros : NOMBRES.lichess}</span>
     <button class="boton enlace" onclick={() => { enSesion = false; contar() }}>Terminar</button>
@@ -111,6 +134,7 @@
       <ProblemaLichess problema={item.problema} alSeguir={seguir} />
     {/if}
   {/key}
+  <HistorialSesion {resultados} alElegir={(i) => (revisando = i)} />
 {:else}
   <p class="suave">
     Ejercicios de las fuentes que elijas, mezclados al azar en una misma sesión. Cada uno se registra en su propio
