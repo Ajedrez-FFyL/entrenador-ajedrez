@@ -5,6 +5,7 @@
   import { descargarRespaldo, importarRespaldo } from '../lib/datos/respaldo.ts'
   import { completarRelojesLichess, importarArchivoPgn, mensajeDeError } from '../lib/importar/importar.ts'
   import { CLIENT_ID as DRIVE_CLIENT_ID, conectarDrive, desconectarDrive, driveHabilitado, leerCuentaDrive, leerUltimaSincroDrive, sincronizarDrive } from '../lib/drive/drive.ts'
+  import { irAAyuda } from '../lib/ayuda.ts'
 
   let usuarios = $state<Usuarios>({})
   let token = $state('')
@@ -191,6 +192,7 @@
     </label>
   </div>
   {#if mensajeRespaldo}<p>{mensajeRespaldo}</p>{/if}
+  <button class="boton enlace" onclick={() => irAAyuda('respaldo-archivo')}>¿Cómo funciona?</button>
 </section>
 
 {#if driveHabilitado()}
@@ -216,6 +218,7 @@
     <button class="boton" onclick={alConectarDrive} disabled={ocupado || !navigator.onLine}>Conectar Google Drive</button>
   {/if}
   {#if mensajeDrive}<p>{mensajeDrive}</p>{/if}
+  <button class="boton enlace" onclick={() => irAAyuda('respaldo-drive')}>¿Cómo funciona?</button>
 </section>
 {/if}
 

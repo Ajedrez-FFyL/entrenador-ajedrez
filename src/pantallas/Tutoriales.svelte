@@ -1,7 +1,32 @@
 <script lang="ts">
   import { driveHabilitado } from '../lib/drive/drive.ts'
+  import { tomarAyudaPendiente } from '../lib/ayuda.ts'
   let abierto = $state<string>()
   const toggle = (id: string) => (abierto = abierto === id ? undefined : id)
+
+  // "¿Cómo funciona?" en Ajustes: llega acá pidiendo abrir un desplegable puntual.
+  let abrirDatos = $state(false)
+  let abrirArchivo = $state(false)
+  let abrirDrive = $state(false)
+  let abrirOpiniones = $state(false)
+
+  $effect(() => {
+    const tema = tomarAyudaPendiente()
+    let id: string | undefined
+    if (tema === 'respaldo-archivo') {
+      abrirDatos = true
+      abrirArchivo = true
+      id = 'ayuda-datos'
+    } else if (tema === 'respaldo-drive') {
+      abrirDatos = true
+      abrirDrive = true
+      id = 'ayuda-datos'
+    } else if (tema === 'opiniones') {
+      abrirOpiniones = true
+      id = 'ayuda-opiniones'
+    }
+    if (id) document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
 </script>
 
 <h1>Ayuda</h1>
@@ -43,16 +68,28 @@
       fallado si pedís la solución. Debajo del tablero queda una fila de cuadraditos con el resultado de cada ejercicio
       de la sesión (verde: bien a la primera; amarillo: con error o pista; rojo: solución vista); tocar uno lo vuelve a
       mostrar sin que cuente de nuevo para el repaso. En Progreso, la sección «Historial» lista todos los intentos (con
-      filtro por fecha y resultado) y un botón para reintentar los fallados.
+      filtro por fecha y resultado) y un botón para reintentar los fallados. Un final en el que te equivocaste en una
+      partida real aparece acá en «Mis errores» y también en Finales → «De mis partidas»: es el mismo error, visto
+      desde dos lugares.
     </p>
   </div>
 
   <div class="item">
     <h3>Finales</h3>
     <p class="suave">
-      <b>Temario</b>: finales clásicos que hay que saber, verificados con tablebases. <b>Posición libre</b>: armá cualquier
-      posición de final y jugala contra Stockfish. <b>De mis partidas</b>: finales que aparecieron en tus propias partidas
-      (exclusivo tuyo).
+      <b>Temario</b>: finales clásicos que hay que saber, verificados con tablebases. <b>De mis partidas</b>: finales
+      que aparecieron en tus propias partidas (exclusivo tuyo; el mismo error aparece también en Táctica → Mis
+      errores). Para armar y jugar cualquier posición propia, usá la pestaña Editor.
+    </p>
+  </div>
+
+  <div class="item">
+    <h3>Editor</h3>
+    <p class="suave">
+      Armá cualquier posición a mano (paleta de piezas, FEN editable, pegar un PGN) y después analizala con Stockfish,
+      jugala contra la computadora o llevala a Lichess para armar un estudio. "Desde una imagen": abre lichess.org/editor
+      en otra pestaña (tiene reconocimiento de diagramas por foto) para después pegar el FEN acá. Los botones "Jugar
+      desde acá" de cualquier otra pantalla abren esta pestaña con esa posición y el juego ya listo para empezar.
     </p>
   </div>
 
@@ -93,7 +130,7 @@
   {#each [
     ['¿Mis partidas y mis errores los ve alguien más del equipo?', 'No. Cada uno que usa la app tiene su propia información guardada en su propio dispositivo. Nadie más la ve, ni siquiera quien administra el espacio.'],
     ['¿Qué pasa si cambio de celular o se me borra el navegador?', driveHabilitado() ? 'Hay un respaldo manual en Ajustes (exportar/importar); y si ya está activado el respaldo automático a tu Google Drive, se restaura solo.' : 'Usá el respaldo con archivo en Ajustes: «Exportar respaldo» en el dispositivo viejo, pasá el archivo, y «Importar respaldo» en el nuevo. Se combinan sin pisar lo más nuevo.'],
-    ['Encontré un error o se me ocurre una mejora, ¿dónde lo digo?', 'Con el botón de Feedback que está siempre visible (abajo a la derecha, en cualquier pestaña).'],
+    ['Encontré un error o se me ocurre una mejora, ¿dónde lo digo?', 'Con el botón 💬 de Opiniones y reportes, que está siempre visible (abajo a la derecha, en cualquier pestaña).'],
   ] as [p, r] (p)}
     <button class="pregunta" onclick={() => toggle(p)} aria-expanded={abierto === p}>
       {p}
@@ -102,6 +139,69 @@
       <p class="suave respuesta">{r}</p>
     {/if}
   {/each}
+</section>
+
+<section class="tarjeta">
+  <h2>Más ayuda</h2>
+
+  <details class="desplegable" id="ayuda-datos" bind:open={abrirDatos}>
+    <summary><h3>Cómo pasar mis datos a otro dispositivo</h3></summary>
+
+    <details bind:open={abrirArchivo}>
+      <summary>Con un archivo (manual)</summary>
+      <ol>
+        <li>En el dispositivo viejo: Ajustes → «Exportar respaldo».</li>
+        <li>Pasate el archivo que se descarga al dispositivo nuevo (mail, WhatsApp, un pendrive, lo que uses).</li>
+        <li>En el dispositivo nuevo: Ajustes → «Importar respaldo» y elegí ese archivo.</li>
+      </ol>
+      <p class="suave">Se combina con lo que ya haya en el dispositivo nuevo, sin pisar el progreso más nuevo.</p>
+    </details>
+
+    {#if driveHabilitado()}
+      <details bind:open={abrirDrive}>
+        <summary>Con Google Drive (automático)</summary>
+        <ol>
+          <li>En Ajustes → «Respaldo automático a Google Drive» → «Conectar Google Drive», e iniciá sesión.</li>
+          <li>Hacé lo mismo en el otro dispositivo, con la misma cuenta de Google.</li>
+          <li>Se sincroniza solo al abrir la app; «Sincronizar ahora» lo hace al toque cuando quieras.</li>
+        </ol>
+        <p class="suave">Se guarda en una carpeta privada de tu Drive que solo ve esta app.</p>
+      </details>
+
+      <details>
+        <summary>¿Cuál me conviene?</summary>
+        <p>
+          Con archivo: no depende de ninguna cuenta, pero hay que acordarse de exportar e importar a mano cada vez que
+          cambiás de dispositivo. Con Google Drive: una vez conectado en los dos dispositivos, se mantiene solo sin
+          que hagas nada; a cambio, Google puede pedirte reconectar cada 7 días y hace falta conexión para sincronizar.
+          Si usás un solo dispositivo, ninguno de los dos hace falta (aunque exportar de vez en cuando es una buena
+          copia de seguridad).
+        </p>
+      </details>
+    {/if}
+  </details>
+
+  <details class="desplegable" id="ayuda-opiniones" bind:open={abrirOpiniones}>
+    <summary><h3>Cómo dejar tu opinión o reportar un problema</h3></summary>
+    <p>
+      El botón 💬 (abajo a la derecha, en cualquier pestaña) abre un formulario corto, con tres tipos:
+    </p>
+    <ul>
+      <li><b>Bug</b> (palabra en inglés para "error de la app"): algo que no anda o anda mal. Ej.: "el tablero no deja mover las piezas en el celular".</li>
+      <li><b>Sugerencia</b>: algo que te gustaría que la app tenga y todavía no tiene.</li>
+      <li><b>Opinión</b>: qué te gusta o no te gusta, sin que sea ni un error ni un pedido puntual.</li>
+    </ul>
+    <p>
+      Para un bug, cuanto más preciso el reporte, más fácil es arreglarlo. Ayuda contar: en qué pestaña estabas, qué
+      hiciste (los pasos, en orden), qué esperabas que pasara y qué pasó en realidad, y si fue en el celular o en la
+      compu. La app ya manda de forma automática la pestaña, el navegador y la versión, así que no hace falta
+      repetirlos.
+    </p>
+    <p class="suave">
+      Mandá uno apenas algo te llame la atención, aunque te parezca chico: es más fácil arreglarlo recién encontrado
+      que semanas después. Lo lee Mati y no se publica en ningún lado.
+    </p>
+  </details>
 </section>
 
 <style>
@@ -129,6 +229,40 @@
 
   .glosario dd {
     margin: 2px 0 0;
+  }
+
+  .desplegable {
+    margin-top: 12px;
+  }
+
+  .desplegable > summary {
+    cursor: pointer;
+    list-style: revert;
+  }
+
+  .desplegable > summary h3 {
+    display: inline;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .desplegable[open] > summary {
+    margin-bottom: 8px;
+  }
+
+  .desplegable details {
+    margin: 8px 0 8px 16px;
+  }
+
+  .desplegable details summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .desplegable ol,
+  .desplegable ul {
+    margin: 6px 0;
+    padding-left: 20px;
   }
 
   .pregunta {
