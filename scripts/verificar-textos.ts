@@ -19,17 +19,22 @@
  * texto: un texto puede describir una secuencia de varias jugadas, y no hay forma confiable de saber en qué
  * posición ubicar la segunda sin jugar la primera, así que no se encadenan.
  *
- * Limitación conocida (heurística, no hay forma de evitarla sin leer el texto): una jugada de peón SIN
- * captura ni coronación («e5», «d4» sueltos) no se verifica — ver el comentario de PATRON_JUGADA, era la
- * fuente de miles de falsos «ilegal» («ataca e5» no es la jugada e5). Un texto con «prepara» (siempre
- * describe una jugada de varias más adelante, no la de este nodo: «prepara Cc3») va directo a «no
- * ubicables», igual que los planes generales. El extractor también puede confundir una jugada de pieza
- * real con una mención que no es una jugada propuesta («el alfil de d3 queda activo») o con una descripción
- * condicional de varias jugadas más adelante («si el blanco recupera con la dama, ...Cc6 la ataca»: la
- * posición de ese nodo no es donde se podría jugar ...Cc6); por eso esto es un primer filtro mecánico, no
- * un veredicto, y toda fila de «ilegales»/«perdedoras» puede ser en realidad una de estas dos cosas. El
- * paso 3 de C3 (revisión manual con Opus) decide caso por caso; este script no corrige ni marca nada en
- * los JSON.
+ * Limitación conocida, medida a mano (triage, 23/11): revisando tres muestras de 40 "ilegales" al azar
+ * (una por cada vuelta de ajuste al extractor, con 513 → 270 → 124 entradas restantes), NINGUNA de las 120
+ * era un error real del texto — todas eran de alguno de estos tipos, que el extractor no puede distinguir
+ * de forma confiable sin leer el texto como una persona:
+ *  - una jugada de peón SIN captura ni coronación («e5», «d4» sueltos) nombrando la casilla que ataca o
+ *    defiende la jugada recién hecha, no una jugada nueva (ya corregido: PATRON_JUGADA no las cuenta);
+ *  - un plan, amenaza, comparación o cita de otra jugada/variante/autor, en vez de la jugada de este nodo
+ *    (ver `esPlanALargoPlazo`: cubre "prepara", "amenaza", "después", "también", "Stockfish prefiere/
+ *    considera", listas con "...", "la elección entre X y Y", "el esquema/método", "lo correcto/normal",
+ *    y varias más encontradas revisando las muestras — pero la lista de señales nunca puede ser completa);
+ *  - una refutación de más de una jugada (el "por qué no" cuenta la del rival Y la respuesta, pero el
+ *    texto a veces sigue un paso más, y un peón suelto en el medio salta directo a esa jugada de más);
+ *  - notación ambigua (falta desambiguar entre dos piezas que podrían ir al mismo destino).
+ * Por eso esto es un primer filtro MUY mecánico, no un veredicto, y toda fila de «ilegales»/«perdedoras»
+ * puede ser en realidad una de estas cosas. El paso 3 de C3 (revisión manual con Opus) decide caso por
+ * caso; este script no corrige ni marca nada en los JSON.
  *
  * Uso: node scripts/verificar-textos.ts [profundidad] [archivo ...]
  * Sin archivos, revisa los 96 y escribe el .md final. Con archivos (para correr varios procesos en
@@ -41,10 +46,25 @@
  */
 import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs'
 import { invertir, textoEvaluacion, type Evaluacion } from '../src/lib/ajedrez/evaluacion.ts'
-import { fenDe, jugarUci, posDesdeFen, uciDeSan } from '../src/lib/ajedrez/posicion.ts'
+import { fenDe, jugadaLegal, jugarUci, posDesdeFen, uciDeSan } from '../src/lib/ajedrez/posicion.ts'
 import { fensDeLinea } from '../src/lib/aperturas/arbol.ts'
 import type { Explicacion } from '../src/lib/aperturas/explicaciones.ts'
 import { MotorNativo } from './lib-motor.ts'
+import { Chess } from 'chessops/chess'
+import { makeSan } from 'chessops/san'
+
+/** SAN en inglés de cada jugada de la línea (para comparar contra lo que extrae `jugadasEnTexto`). */
+function sanesDeLinea(ucis: string[]): string[] {
+  const pos = Chess.default()
+  const sanes: string[] = []
+  for (const uci of ucis) {
+    const m = jugadaLegal(pos, uci)
+    if (!m) break
+    sanes.push(makeSan(pos, m))
+    pos.play(m)
+  }
+  return sanes
+}
 
 const PROFUNDIDAD = Number(process.argv[2] ?? 16)
 const MAXIMO_PEONES = 1.5
@@ -68,7 +88,8 @@ const PATRON_JUGADA = /O-O-O|O-O|0-0-0|0-0|[KQBNRDTAC][a-h]?[1-8]?x?[a-h][1-8](?
 
 /** Jugadas mencionadas en un texto, en el orden en que aparecen (en inglés, listas para `uciDeSan`). */
 function jugadasEnTexto(texto: string): string[] {
-  return [...texto.matchAll(PATRON_JUGADA)].map((m) => sanAIngles(m[0]))
+  // El enroque con ceros ("0-0") es común en estos textos pero chessops solo entiende la letra O ("O-O").
+  return [...texto.matchAll(PATRON_JUGADA)].map((m) => sanAIngles(m[0]).replace(/0-0-0/g, 'O-O-O').replace(/0-0/g, 'O-O'))
 }
 
 const peones = (ev: Evaluacion) => (ev.mate !== undefined ? (ev.mate > 0 ? 99 : -99) : (ev.cp ?? 0) / 100)
@@ -85,8 +106,19 @@ const ilegales: Resultado[] = []
 const perdedoras: Resultado[] = []
 const noUbicables: Resultado[] = []
 
-/** «prepara X» siempre describe una jugada de varias más adelante, nunca la de este nodo. */
-const esPlanALargoPlazo = (texto: string) => /\bprepara(n|ndo)?\b/i.test(texto)
+/**
+ * Señales de que el texto NO describe la jugada del nodo, sino un plan futuro («prepara», «amenaza» —
+ * siempre resultó ser la amenaza del PRÓXIMO turno propio, no el de ahora—, «después», «luego», «viene»,
+ * «va a», «antes de», «a veces», «seguir con»), una condición hipotética («si…») o una comparación con
+ * otra jugada, otra línea o otra fuente («también», «alternativa», «Stockfish prefiere/considera/explica»,
+ * «según», citas de autores, «la elección/decisión entre X y/o Y», «el plan»). Encontrado revisando a
+ * mano dos muestras de 40 "ilegales" (23/11, antes y después de esta lista): de las 80, ninguna era un
+ * error real del texto.
+ */
+const esPlanALargoPlazo = (texto: string) =>
+  /\bprepara(n|ndo|r)?\b|\bamenaza(n)?\b|\bdespués\b|\bluego\b|\btras\b|\bviene(n)?\b|\bva(n)? a\b|\bantes de\b|\ba veces\b|\ba menudo\b|\bsuele(n)?\b|\bintentar[aá]?\b|\bbusca(n)?\b|\bsigu(e|en|iendo)\b.{0,15}\bcon\b|\bseguir\b.{0,15}\bcon\b|\bpor ejemplo\b|\bo incluso\b|\ben lugar de\b|\botra idea\b|\bm[aá]s adelante\b|\beventualmente\b|\brecién\b|\bsi\s|\btambién\b|\balternativa\b|\bsegún\b|\bconsidera\b|\banaliza(da|do|das|dos)?\b|\bexplica\b|\bprefiere\b|\bcitad[oa]\b|\bstockfish\b|\b(elecci[oó]n|decisi[oó]n|elegir|decidir)\b.{0,20}\bentre\b|\bel plan\b|\besquema\b|\bm[eé]todo\b|\bdeja(n)? abiert[oa]s?\b|\blo (correcto|m[aá]s \w+|normal|habitual|prudente)\b/i.test(
+    texto,
+  ) || (texto.match(/\.\.\./g)?.length ?? 0) >= 2
 
 /** Analiza `uci` en `fen` y agrega a `ilegales` o `perdedoras` si corresponde; `san` es solo para mostrar. */
 async function verificarJugada(curso: string, campo: string, texto: string, san: string, uci: string, fen: string) {
@@ -106,13 +138,18 @@ async function verificarJugada(curso: string, campo: string, texto: string, san:
   if (perdida > MAXIMO_PEONES) perdedoras.push({ curso, campo, texto, jugada: san, fen, detalle })
 }
 
-/** Comprueba la primera jugada del texto en `fen`; agrega a `ilegales` o `perdedoras` si corresponde. */
-async function verificarEnPosicion(curso: string, campo: string, texto: string, fen: string) {
+/**
+ * Comprueba la primera jugada ÚTIL del texto en `fen`. `aSaltear` son jugadas (SAN en inglés) que, si
+ * aparecen primero en el texto, no son una jugada nueva propuesta sino una repetición de una ya conocida
+ * (la del nodo mismo, o las de una trampa que ya están en su línea) — se las saltea y se prueba con la
+ * siguiente.
+ */
+async function verificarEnPosicion(curso: string, campo: string, texto: string, fen: string, aSaltear: string[] = []) {
   if (esPlanALargoPlazo(texto)) {
     noUbicables.push({ curso, campo, texto, fen })
     return
   }
-  const [san] = jugadasEnTexto(texto)
+  const san = jugadasEnTexto(texto).find((s) => !aSaltear.includes(s))
   if (!san) return
   const uci = uciDeSan(posDesdeFen(fen), san)
   if (!uci) {
@@ -171,7 +208,10 @@ for (const archivo of archivos) {
     // ("era mejor X"): esa jugada es una alternativa en la posición ANTERIOR (el prefijo), no una jugada
     // después de la que se juega. Sin esto, cientos de textos de error daban falsos "ilegal".
     const fenPorQue = nota.error ? fensDeLinea(prefijo).at(-1) : fensDeLinea(ucis).at(-1)
-    if (fenPorQue) await verificarEnPosicion(e.nombre, `notas["${clave}"].porQue`, nota.porQue, fenPorQue)
+    // Si no es `error`, el texto suele nombrar alguna jugada ya jugada de la línea (la que explica, «Ad7
+    // evita…», u otra anterior, «la posición crítica de 4...Ac5»): no son jugadas nuevas, se saltean.
+    const aSaltear = nota.error ? [] : sanesDeLinea(ucis)
+    if (fenPorQue) await verificarEnPosicion(e.nombre, `notas["${clave}"].porQue`, nota.porQue, fenPorQue, aSaltear)
     const fenPrefijo = fensDeLinea(prefijo).at(-1)
     for (const alt of nota.porQueNo ?? []) {
       const fenAlt = fensDeLinea([...prefijo, alt.uci]).at(-1)
@@ -182,7 +222,9 @@ for (const archivo of archivos) {
   for (const t of e.trampas) {
     const ucis = t.jugadas.split(' ')
     const fenFinal = fensDeLinea(ucis).at(-1)
-    if (fenFinal) await verificarEnPosicion(e.nombre, `trampas["${t.jugadas}"]`, t.texto, fenFinal)
+    // El texto casi siempre empieza narrando la línea de la trampa desde el principio («4.Cc3 Cxe4!…»):
+    // esas jugadas ya están en `ucis` y no son una jugada nueva propuesta, se saltean todas.
+    if (fenFinal) await verificarEnPosicion(e.nombre, `trampas["${t.jugadas}"]`, t.texto, fenFinal, sanesDeLinea(ucis))
   }
 
   console.log(`${archivo}: revisado`)
