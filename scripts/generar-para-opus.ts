@@ -48,7 +48,12 @@ Total de esta tabla: **${totalFilas} filas**${notaDiscutibles ? notaDiscutibles 
 
 ## 1. Textos perdedores (${textos.perdedoras.length})
 
-La jugada mencionada en el texto es legal pero pierde más de 1,5 peones según Stockfish.
+La jugada mencionada en el texto es legal pero pierde más de 1,5 peones según Stockfish. **Ojo**: varias
+de estas (se nota por frases como "sin temer X", "no puede ser molestada por X", "pierden fuerza con X")
+describen una jugada del RIVAL que el texto da por descartada, no una jugada propia — el mismo patrón que
+"impide/frena/evita" (ver la cabecera de verificar-textos.ts), pero con frases que el extractor no llegó
+a cubrir. Es probable que varias de estas 13 sean también falsos positivos del extractor, no errores
+reales; léanse con esa sospecha antes de tocar el contenido.
 
 | Curso | Campo | Texto (recortado) | Jugada | Evaluación |
 | --- | --- | --- | --- | --- |
