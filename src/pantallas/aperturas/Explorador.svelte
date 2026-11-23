@@ -1,6 +1,6 @@
 <script lang="ts">
   import { chancesDeGanar, invertir, textoEvaluacion, type Evaluacion } from '../../lib/ajedrez/evaluacion.ts'
-  import { lineaSan, posDesdeFen, sanDeUci } from '../../lib/ajedrez/posicion.ts'
+  import { etiquetasJugadas, lineaSan, posDesdeFen, sanDeUci } from '../../lib/ajedrez/posicion.ts'
   import { detectarMotivoError } from '../../lib/ajedrez/temas.ts'
   import { armarArbol, continuaciones, fensDeLinea, nombreDeLinea, type Arbol } from '../../lib/aperturas/arbol.ts'
   import { cargarCatalogo, familiaEnEspanol, nombreEnEspanol, type Catalogo } from '../../lib/aperturas/catalogo.ts'
@@ -12,6 +12,7 @@
   import { motorInteractivo, motorTablero, type LineaMotor } from '../../lib/motor/motor.ts'
   import TableroEval from '../../lib/ui/TableroEval.svelte'
   import BotonJugarDesdeAca from '../../lib/ui/BotonJugarDesdeAca.svelte'
+  import Navegador from '../../lib/ui/Navegador.svelte'
   import VisorLinea, { type Linea } from '../../lib/ui/VisorLinea.svelte'
 
   interface Props {
@@ -45,7 +46,7 @@
   let fens = $derived(fensDeLinea(linea))
   let fen = $derived(fens[idx] ?? fens[fens.length - 1])
   let turno = $derived<Color>(fen.split(' ')[1] === 'w' ? 'white' : 'black')
-  let sans = $derived(lineaSan(fens[0], linea))
+  let etiquetas = $derived(etiquetasJugadas(fens[0], linea))
   let apertura = $derived(catalogo ? nombreDeLinea(catalogo, actual) : undefined)
   let teoria = $derived(arbol ? continuaciones(arbol, fen) : [])
   let explicacion = $derived(explicacionPara(actual))
@@ -204,18 +205,11 @@
     <TableroEval evaluacion={evaluacionBarra} fen={fenTablero} {orientacion} puedeMover={verLinea ? undefined : turno} ultimaJugada={ultimaTablero} {flechas} alJugar={(u) => jugar(u)} />
 
     <div class="controles">
-      <button class="boton" onclick={() => irA(0)} aria-label="Al principio">⏮</button>
-      <button class="boton" onclick={() => irA(idx - 1)} aria-label="Atrás">◀</button>
-      <button class="boton" onclick={() => irA(idx + 1)} aria-label="Adelante">▶</button>
       <button class="boton" onclick={() => (orientacion = orientacion === 'white' ? 'black' : 'white')}>Girar</button>
       <BotonJugarDesdeAca fen={fenTablero} />
     </div>
 
-    <div class="jugadas">
-      {#each sans as san, i (i)}
-        <button class:actual={i === idx - 1} onclick={() => irA(i + 1)}>{i % 2 === 0 ? `${i / 2 + 1}. ` : ''}{san}</button>
-      {/each}
-    </div>
+    <Navegador {etiquetas} {idx} alIr={irA} vacio="Jugá en el tablero o buscá una apertura." />
   </div>
 
   <div class="columna-paneles">
@@ -433,22 +427,6 @@
   }
   .controles .boton {
     flex: 1;
-  }
-  .jugadas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2px 6px;
-  }
-  .jugadas button {
-    border: none;
-    background: none;
-    color: var(--texto);
-    padding: 2px 4px;
-    border-radius: 6px;
-  }
-  .jugadas button.actual {
-    background: var(--acento);
-    color: var(--acento-texto);
   }
   .columna-paneles {
     display: flex;
