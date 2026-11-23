@@ -19,10 +19,12 @@
  * texto: un texto puede describir una secuencia de varias jugadas, y no hay forma confiable de saber en qué
  * posición ubicar la segunda sin jugar la primera, así que no se encadenan.
  *
- * Limitación conocida (heurística, no hay forma de evitarla sin leer el texto): el extractor puede confundir
- * una jugada real con una casilla mencionada sin que sea una jugada propuesta («controla d5», «el alfil de
- * d3»); por eso esto es un primer filtro mecánico, no un veredicto. El paso 3 de C3 (revisión manual con
- * Opus) decide caso por caso; este script no corrige ni marca nada en los JSON.
+ * Limitación conocida (heurística, no hay forma de evitarla sin leer el texto): una jugada de peón SIN
+ * captura ni coronación («e5», «d4» sueltos) no se verifica — ver el comentario de PATRON_JUGADA, era la
+ * fuente de miles de falsos «ilegal» («ataca e5» no es la jugada e5). El extractor también puede confundir
+ * una jugada de pieza real con una mención que no es una jugada propuesta («el alfil de d3 queda activo»);
+ * por eso esto es un primer filtro mecánico, no un veredicto. El paso 3 de C3 (revisión manual con Opus)
+ * decide caso por caso; este script no corrige ni marca nada en los JSON.
  *
  * Uso: node scripts/verificar-textos.ts [profundidad] [archivo ...]
  * Sin archivos, revisa los 96 y escribe el .md final. Con archivos (para correr varios procesos en
@@ -51,9 +53,13 @@ const motor = new MotorNativo(PROFUNDIDAD)
 const LETRA_A_INGLES: Record<string, string> = { R: 'K', D: 'Q', T: 'R', A: 'B', C: 'N', K: 'K', Q: 'Q', B: 'B', N: 'N' }
 const sanAIngles = (san: string) => san.replace(/[KQBNRDTAC]/g, (l) => LETRA_A_INGLES[l])
 
-// Una jugada en notación algebraica: enroque, jugada de pieza (con desambiguación y captura opcionales) o
-// de peón (con captura opcional), con promoción y jaque/mate opcionales.
-const PATRON_JUGADA = /O-O-O|O-O|0-0-0|0-0|[KQBNRDTAC][a-h]?[1-8]?x?[a-h][1-8](?:=[KQBNRDTAC])?[+#]?|[a-h]x?[a-h]?[1-8](?:=[KQBNRDTAC])?[+#]?/g
+// Una jugada en notación algebraica, SOLO las formas que no se confunden con nombrar una casilla al pasar
+// («ataca e5», «el alfil de d3»): enroque, jugada de pieza (con desambiguación y captura opcionales),
+// captura de peón (lleva x) o coronación (lleva =), con jaque/mate opcional. Una jugada de peón SIN captura
+// ni coronación («e5», «d4» sueltos) no cuenta como jugada mencionada: en estos textos, en prosa, eso casi
+// siempre nombra la casilla que ataca o defiende la jugada recién hecha, no propone una jugada nueva — y
+// confundirlas daba miles de falsos «ilegal» (la casilla ya está jugada, claro que no se puede jugar de nuevo).
+const PATRON_JUGADA = /O-O-O|O-O|0-0-0|0-0|[KQBNRDTAC][a-h]?[1-8]?x?[a-h][1-8](?:=[KQBNRDTAC])?[+#]?|[a-h]x[a-h][1-8](?:=[KQBNRDTAC])?[+#]?|[a-h][1-8]=[KQBNRDTAC][+#]?/g
 
 /** Jugadas mencionadas en un texto, en el orden en que aparecen (en inglés, listas para `uciDeSan`). */
 function jugadasEnTexto(texto: string): string[] {
