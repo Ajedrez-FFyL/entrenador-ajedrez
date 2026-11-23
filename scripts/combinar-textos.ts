@@ -21,6 +21,7 @@ interface Resultado {
 const ilegales: Resultado[] = []
 const perdedoras: Resultado[] = []
 const noUbicables: Resultado[] = []
+const excepcionesUsadas = new Set<string>()
 
 const parciales = readdirSync(CARPETA).filter((f) => f.startsWith('.parcial-') && f.endsWith('.json'))
 if (!parciales.length) { console.log('No hay parciales para combinar.'); process.exit(1) }
@@ -29,6 +30,7 @@ for (const f of parciales) {
   ilegales.push(...p.ilegales)
   perdedoras.push(...p.perdedoras)
   noUbicables.push(...p.noUbicables)
+  for (const k of p.excepcionesUsadas ?? []) excepcionesUsadas.add(k)
 }
 
 const filaIlegal = (r: Resultado) => `| ${r.curso} | \`${r.campo}\` | ${r.texto.replace(/\|/g, '\\|')} | ${r.jugada} | \`${r.fen}\` |`
@@ -41,6 +43,8 @@ Generado por \`scripts/verificar-textos.ts\` (corrido en paralelo y combinado co
 con el motor del paquete npm \`stockfish\` (build \`single\`, id UCI "Stockfish 19 WASM" — ver el PR),
 profundidad ${PROFUNDIDAD}. Revisa las jugadas mencionadas en los textos en prosa de los ${CANTIDAD_CURSOS}
 cursos. No modifica ningún JSON. Metodología y limitaciones en la cabecera de \`scripts/verificar-textos.ts\`.
+${excepcionesUsadas.size} excepciones revisadas (\`docs/revision-aperturas/excepciones-textos.json\`): no
+entran en «perdedoras».
 
 ## Jugadas ilegales (${ilegales.length})
 
@@ -71,4 +75,6 @@ writeFileSync(SALIDA, md)
 // Sidecar para scripts/generar-para-opus.ts (no reparsea el .md).
 writeFileSync(`${CARPETA}/textos-dudosos.json`, JSON.stringify({ ilegales, perdedoras, noUbicables }))
 for (const f of parciales) unlinkSync(`${CARPETA}/${f}`)
-console.log(`${SALIDA}: ${ilegales.length} ilegales, ${perdedoras.length} perdedoras, ${noUbicables.length} no ubicables (${parciales.length} parciales combinados y borrados).`)
+console.log(
+  `${SALIDA}: ${ilegales.length} ilegales, ${perdedoras.length} perdedoras, ${noUbicables.length} no ubicables, ${excepcionesUsadas.size} excepciones revisadas (${parciales.length} parciales combinados y borrados).`,
+)

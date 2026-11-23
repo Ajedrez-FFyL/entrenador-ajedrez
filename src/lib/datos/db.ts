@@ -1,5 +1,5 @@
 import Dexie, { type Table } from 'dexie'
-import type { Ajuste, ErrorPartida, LineaRepertorio, Partida, Repaso, RepasoLinea } from './tipos.ts'
+import type { Ajuste, ErrorPartida, Intento, LineaRepertorio, Partida, Repaso, RepasoLinea } from './tipos.ts'
 import type { Usuarios } from './normalizar.ts'
 
 class BaseDatos extends Dexie {
@@ -9,6 +9,7 @@ class BaseDatos extends Dexie {
   ajustes!: Table<Ajuste, string>
   repertorio!: Table<LineaRepertorio, string>
   repasosLineas!: Table<RepasoLinea, string>
+  intentos!: Table<Intento, number>
 
   constructor() {
     super('entrenador-ajedrez')
@@ -21,6 +22,10 @@ class BaseDatos extends Dexie {
     this.version(2).stores({
       repertorio: 'id, color',
       repasosLineas: 'id, color, card.due',
+    })
+    // Historial de intentos (C4): tabla nueva, no toca ninguna de las anteriores.
+    this.version(3).stores({
+      intentos: '++id, ejercicioId, fecha, fuente',
     })
   }
 }

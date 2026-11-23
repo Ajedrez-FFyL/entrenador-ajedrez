@@ -17,8 +17,12 @@
   interface Props {
     problema: Problema
     alSeguir: (r: ResultadoIntento) => void
+    /** Modo repaso (desde la fila de cuadraditos del historial): no vuelve a contar para el repaso espaciado ni el historial. */
+    repaso?: boolean
   }
-  let { problema, alSeguir }: Props = $props()
+  let { problema, alSeguir, repaso = false }: Props = $props()
+  // Jugadas probadas en este problema, en orden (para el historial); no es reactivo, solo se lee al terminar.
+  let intentosUci: string[] = []
 
   /** Una jugada propia fuera de la línea del libro vale si gana igual: pierde menos que esto de chances. */
   const TOLERANCIA = 0.03
@@ -36,7 +40,7 @@
   let estado = $state<'inicio' | 'resolver' | 'verificando' | 'error' | 'resuelto'>('inicio')
   let resultado = $state<ResultadoIntento>()
   let pista = $state(false)
-  // Se equivocó al menos una vez: para el repaso cuenta como fallado, aunque después termine la línea.
+  // Se equivocó al menos una vez: si después se termina bien, el repaso lo cuenta como "difícil".
   let fallado = $state(false)
   let mensaje = $state('')
   let linea = $state<Linea>()
@@ -87,7 +91,7 @@
     tentativa = undefined
     linea = undefined
     vista = undefined
-    registrarIntento(idRepaso(problema), r)
+    if (!repaso) registrarIntento(idRepaso(problema), r, intentosUci)
     if (solucion) mostrarSolucion()
     else ex = new Exploracion(problema.fen, [...hist], hist.length)
   }
@@ -118,8 +122,11 @@
 
   async function aceptar(uci: string, despues: Position) {
     hist = [...hist, uci]
+    // Llegar hasta aquí ya significa que la jugada es correcta: si antes hubo un error o se usó la
+    // pista, el repaso lo cuenta como "difícil" (Hard), no como "otra vez" (Again) — eso es solo para
+    // cuando se pide ver la solución (terminar('mal', true), más abajo).
     if (despues.isCheckmate() || hist.length >= total) {
-      terminar(fallado ? 'mal' : pista ? 'pista' : 'bien')
+      terminar(fallado || pista ? 'pista' : 'bien')
       return
     }
     if (desvio === undefined) {
@@ -131,7 +138,7 @@
     estado = 'verificando'
     const r = await motorInteractivo().analizar(fenActual, { profundidad: 14 })
     if (!r.mejor) {
-      terminar(fallado ? 'mal' : pista ? 'pista' : 'bien')
+      terminar(fallado || pista ? 'pista' : 'bien')
       return
     }
     hist = [...hist, r.mejor]
@@ -147,6 +154,7 @@
     const pos = posDesdeFen(fenActual)
     const despues = jugarUci(pos, uci)
     if (!despues) return
+    intentosUci.push(uci)
     const san = sanDeUci(pos, uci)
     const esperada = desvio === undefined ? problema.jugadas[hist.length] : undefined
 
@@ -249,6 +257,7 @@
       <div class="fila">
         <button class="boton principal" onclick={() => { reintentar(); mensaje = '' }}>Volver a intentar</button>
         {#if tentativa?.porQue}<button class="boton" onclick={() => (linea = tentativa?.porQue)}>Ver por qué no</button>{/if}
+        <button class="boton" onclick={() => (pista = true)} disabled={pista || desvio !== undefined}>Pista</button>
         <button class="boton" onclick={() => terminar('mal', true)}>Ver la solución</button>
       </div>
       {#if linea}

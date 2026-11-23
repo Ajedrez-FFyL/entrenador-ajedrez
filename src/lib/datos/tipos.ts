@@ -101,6 +101,27 @@ export interface Ajuste {
   valor: unknown
 }
 
+/** Resultado de un intento de ejercicio, compartido por mis errores, problemas y finales. */
+export type ResultadoIntento = 'bien' | 'pista' | 'mal'
+
+/** Fuente del ejercicio de un intento (de dónde sale su `ejercicioId`, ver `repaso.ts`). */
+export type FuenteIntento = 'propios' | 'lichess' | 'libros' | 'final'
+
+/**
+ * Un intento de ejercicio (historial de sesión y de Progreso), uno por cada vez que se termina un
+ * ejercicio: al acertar, al fallar o al pedir la solución. No se usa para el repaso espaciado (eso
+ * es `Repaso`/`RepasoLinea`): es solo el registro para mostrar y para "Reintentar los fallados".
+ */
+export interface Intento {
+  id?: number // autoincremental de Dexie
+  ejercicioId: string // el mismo id que usa el repaso espaciado (Repaso.errorId)
+  fuente: FuenteIntento
+  fecha: number
+  resultado: ResultadoIntento
+  jugadas: string[] // UCI de todas las jugadas probadas, en orden (incluye las que no sirvieron)
+  puntaje?: number // para futuros modos con puntaje; no se usa todavía
+}
+
 export interface Respaldo {
   formato: 'entrenador-ajedrez'
   version: 1
@@ -111,4 +132,5 @@ export interface Respaldo {
   ajustes: Ajuste[]
   repertorio?: LineaRepertorio[]
   repasosLineas?: RepasoLinea[]
+  intentos?: Intento[]
 }

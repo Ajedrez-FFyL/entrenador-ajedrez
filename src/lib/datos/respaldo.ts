@@ -1,5 +1,5 @@
 import { db } from './db.ts'
-import type { Ajuste, ErrorPartida, Partida, Repaso, RepasoLinea, Respaldo } from './tipos.ts'
+import type { Ajuste, ErrorPartida, Intento, Partida, Repaso, RepasoLinea, Respaldo } from './tipos.ts'
 
 export async function crearRespaldo(): Promise<Respaldo> {
   return {
@@ -12,6 +12,7 @@ export async function crearRespaldo(): Promise<Respaldo> {
     ajustes: (await db.ajustes.toArray()).filter((a) => a.clave !== 'tokenLichess' && !a.clave.startsWith('masters:')),
     repertorio: await db.repertorio.toArray(),
     repasosLineas: await db.repasosLineas.toArray(),
+    intentos: await db.intentos.toArray(),
   }
 }
 
@@ -30,6 +31,7 @@ export interface ResumenImportacion {
   partidasNuevas: number
   erroresNuevos: number
   repasosActualizados: number
+  intentosNuevos: number
 }
 
 const RANGO_ESTADO: Record<Partida['estadoAnalisis'], number> = { omitida: 0, pendiente: 1, previo: 2, analizada: 3 }
@@ -48,9 +50,9 @@ function revivir<T extends { card: Repaso['card'] }>(r: T): T {
 export async function importarRespaldo(texto: string): Promise<ResumenImportacion> {
   const datos = JSON.parse(texto) as Respaldo
   if (datos.formato !== 'entrenador-ajedrez') throw new Error('El archivo no es un respaldo de esta app.')
-  const resumen: ResumenImportacion = { partidasNuevas: 0, erroresNuevos: 0, repasosActualizados: 0 }
+  const resumen: ResumenImportacion = { partidasNuevas: 0, erroresNuevos: 0, repasosActualizados: 0, intentosNuevos: 0 }
 
-  const tablas = [db.partidas, db.errores, db.repasos, db.ajustes, db.repertorio, db.repasosLineas]
+  const tablas = [db.partidas, db.errores, db.repasos, db.ajustes, db.repertorio, db.repasosLineas, db.intentos]
   await db.transaction('rw', tablas, async () => {
     const partidasExistentes = await db.partidas.bulkGet(datos.partidas.map((p) => p.id))
     const partidas: Partida[] = []
@@ -93,6 +95,24 @@ export async function importarRespaldo(texto: string): Promise<ResumenImportacio
 
     // El repertorio se suma: una línea borrada en un dispositivo no se borra en el otro.
     if (datos.repertorio?.length) await db.repertorio.bulkPut(datos.repertorio)
+
+    // Intentos: es un historial que solo crece (no tiene un id estable entre dispositivos, el `id`
+    // es autoincremental local), así que se suma por (ejercicioId, fecha) para no duplicar si se
+    // importa el mismo respaldo dos veces.
+    const intentosRespaldo = datos.intentos ?? []
+    if (intentosRespaldo.length) {
+      const existentes = new Set((await db.intentos.toArray()).map((i) => `${i.ejercicioId}\u0000${i.fecha}`))
+      const nuevos: Intento[] = []
+      for (const i of intentosRespaldo) {
+        const clave = `${i.ejercicioId}\u0000${i.fecha}`
+        if (existentes.has(clave)) continue
+        existentes.add(clave)
+        const { id, ...resto } = i
+        nuevos.push(resto)
+      }
+      if (nuevos.length) await db.intentos.bulkAdd(nuevos)
+      resumen.intentosNuevos = nuevos.length
+    }
 
     for (const a of datos.ajustes) await combinarAjuste(a)
   })

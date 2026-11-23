@@ -188,7 +188,7 @@
       "porQue": "El rey defiende g7 y deja el caballo de e4 en su lugar."
     },
     "e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 f8b4 e4e5 h7h6 g5d2 b4c3 b2c3 f6e4 d1g4 e8f8 d2c1": {
-      "porQue": "Retira el alfil para no perderlo con ...Cxd2."
+      "porQue": "Retira el alfil para no cambiarlo por el caballo: después de ...Cxd2 habría que retomar con el rey."
     },
     "e2e4 e7e6 d2d4 d7d5 b1c3 g8f6 c1g5 f8e7 e4e5 f6d7 g5e7 d8e7 f2f4 e8g8 g1f3 c7c5 d1d2 b8c6 e1c1 c5c4": {
       "porQue": "Gana espacio y avanza contra el enroque blanco.",

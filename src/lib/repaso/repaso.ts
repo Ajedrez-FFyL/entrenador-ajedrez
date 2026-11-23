@@ -2,13 +2,21 @@ import { createEmptyCard, fsrs, Rating, type Grade } from 'ts-fsrs'
 import type { Clasificacion } from '../ajedrez/evaluacion.ts'
 import type { Fase } from '../ajedrez/fase.ts'
 import { db, leerPreferencias } from '../datos/db.ts'
-import type { Color, ErrorPartida, Repaso } from '../datos/tipos.ts'
+import type { Color, ErrorPartida, FuenteIntento, Repaso, ResultadoIntento } from '../datos/tipos.ts'
+
+export type { ResultadoIntento } from '../datos/tipos.ts'
 
 const planificador = fsrs({ enable_fuzz: true })
 
-export type ResultadoIntento = 'bien' | 'pista' | 'mal'
-
 const NOTA: Record<ResultadoIntento, Grade> = { bien: Rating.Good, pista: Rating.Hard, mal: Rating.Again }
+
+/** De qué parte de la app sale un `errorId`/`ejercicioId` (para el historial de intentos). */
+function fuenteDeId(id: string): FuenteIntento {
+  if (id.startsWith('lichess-problema:')) return 'lichess'
+  if (id.startsWith('libro-problema:')) return 'libros'
+  if (id.startsWith('final:') || id.startsWith('final-propio:')) return 'final'
+  return 'propios'
+}
 
 export interface Filtros {
   clasificaciones: Clasificacion[]
@@ -94,7 +102,7 @@ export async function armarSesion(filtros: Filtros, maximo = 20): Promise<ErrorP
   return [...vencidos, ...nuevos].slice(0, maximo)
 }
 
-export async function registrarIntento(errorId: string, resultado: ResultadoIntento): Promise<Repaso> {
+export async function registrarIntento(errorId: string, resultado: ResultadoIntento, jugadas: string[] = []): Promise<Repaso> {
   const ahora = new Date()
   const actual = await db.repasos.get(errorId)
   const base: Repaso = actual ?? { errorId, card: createEmptyCard(ahora), creado: ahora.getTime(), intentos: 0, aciertos: 0 }
@@ -107,5 +115,7 @@ export async function registrarIntento(errorId: string, resultado: ResultadoInte
     ultimo: ahora.getTime(),
   }
   await db.repasos.put(repaso)
+  // Historial (independiente del repaso espaciado): un registro por cada vez que se termina un ejercicio.
+  await db.intentos.add({ ejercicioId: errorId, fuente: fuenteDeId(errorId), fecha: ahora.getTime(), resultado, jugadas: [...jugadas] })
   return repaso
 }

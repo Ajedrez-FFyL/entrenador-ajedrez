@@ -41,10 +41,16 @@
  * paralelo, uno por núcleo), revisa solo esos y, en vez del .md, escribe un JSON parcial en
  * docs/revision-aperturas/.parcial-<primer archivo>.json; después, `node scripts/combinar-textos.ts`
  * junta todos los parciales de esa carpeta en el .md final y los borra.
+ *
+ * Excepciones (docs/revision-aperturas/excepciones-textos.json, `{curso, campo, jugada}[]`): casos de
+ * "textos perdedores" ya revisados a mano (Opus, 23/11, ver docs/revision-aperturas/para-opus.md sección
+ * 1) que resultaron ser falsos positivos del extractor (una jugada del rival que el texto descarta, no
+ * una jugada propia perdedora). El verificador los omite de «perdedoras» y cuenta cuántos usó.
+ *
  * Motor: variable de entorno STOCKFISH (ruta al ejecutable); por defecto, el que ya estaba instalado.
  * Termina con código 1 si hay jugadas ilegales o perdedoras (para usarlo en CI).
  */
-import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs'
 import { invertir, textoEvaluacion, type Evaluacion } from '../src/lib/ajedrez/evaluacion.ts'
 import { fenDe, jugadaLegal, jugarUci, lineaSan, posDesdeFen, uciDeSan } from '../src/lib/ajedrez/posicion.ts'
 import { fensDeLinea } from '../src/lib/aperturas/arbol.ts'
@@ -70,8 +76,19 @@ const PROFUNDIDAD = Number(process.argv[2] ?? 16)
 const MAXIMO_PEONES = 1.5
 const CARPETA = 'src/contenido/aperturas'
 const SALIDA = 'docs/revision-aperturas/textos-dudosos.md'
+const ARCHIVO_EXCEPCIONES = 'docs/revision-aperturas/excepciones-textos.json'
 
 const motor = new MotorNativo(PROFUNDIDAD)
+
+interface Excepcion {
+  curso: string
+  campo: string
+  jugada: string
+}
+const excepciones: Excepcion[] = existsSync(ARCHIVO_EXCEPCIONES) ? JSON.parse(readFileSync(ARCHIVO_EXCEPCIONES, 'utf8')) : []
+const claveExcepcion = (curso: string, campo: string, jugada: string) => `${curso}\u0000${campo}\u0000${jugada}`
+const excepcionesSet = new Set(excepciones.map((x) => claveExcepcion(x.curso, x.campo, x.jugada)))
+const excepcionesUsadas = new Set<string>()
 
 // Letras de pieza: castellano (R D T A C) e inglés (K Q B N); la «R» castellana (Rey) y la inglesa (Rook)
 // no pueden distinguirse por la letra sola, y en estos textos (redactados en castellano) R siempre es Rey.
@@ -139,7 +156,11 @@ async function verificarJugada(curso: string, campo: string, texto: string, san:
     const refutacion = lineaSan(fenSig, despues.pv.slice(0, 5)).join(' ')
     detalle = `Stockfish (prof. ${PROFUNDIDAD}) prefiere ${antes.mejor}: ${textoEvaluacion(antes.ev)} contra ${textoEvaluacion(evDespues)} (pierde ${perdida.toFixed(2)} peones). Refutación: ${refutacion}`
   }
-  if (perdida > MAXIMO_PEONES) perdedoras.push({ curso, campo, texto, jugada: san, fen, detalle })
+  if (perdida > MAXIMO_PEONES) {
+    const k = claveExcepcion(curso, campo, san)
+    if (excepcionesSet.has(k)) excepcionesUsadas.add(k)
+    else perdedoras.push({ curso, campo, texto, jugada: san, fen, detalle })
+  }
 }
 
 /**
@@ -238,8 +259,10 @@ motor.cerrar()
 mkdirSync('docs/revision-aperturas', { recursive: true })
 if (SOLO.length) {
   const parcial = `docs/revision-aperturas/.parcial-${archivos[0]?.replace('.json', '') ?? 'vacio'}.json`
-  writeFileSync(parcial, JSON.stringify({ ilegales, perdedoras, noUbicables }))
-  console.log(`\n${parcial}: ${ilegales.length} ilegales, ${perdedoras.length} perdedoras, ${noUbicables.length} no ubicables.`)
+  writeFileSync(parcial, JSON.stringify({ ilegales, perdedoras, noUbicables, excepcionesUsadas: [...excepcionesUsadas] }))
+  console.log(
+    `\n${parcial}: ${ilegales.length} ilegales, ${perdedoras.length} perdedoras, ${noUbicables.length} no ubicables, ${excepcionesUsadas.size} excepciones revisadas.`,
+  )
   process.exit(ilegales.length || perdedoras.length ? 1 : 0)
 }
 
@@ -252,7 +275,8 @@ const md = `# Textos dudosos de aperturas (Fase C3, paso 2)
 Generado por \`scripts/verificar-textos.ts\` con el motor del paquete npm \`stockfish\` (build \`single\`, id
 UCI "Stockfish 19 WASM" — ver el PR), profundidad ${PROFUNDIDAD}. Revisa las jugadas mencionadas en los
 textos en prosa de los ${readdirSync(CARPETA).filter((f) => f.endsWith('.json')).length} cursos. No modifica ningún JSON. Metodología y limitaciones en la
-cabecera del script.
+cabecera del script. ${excepcionesUsadas.size} excepciones revisadas (de ${excepciones.length} definidas en
+\`docs/revision-aperturas/excepciones-textos.json\`): no entran en «perdedoras».
 
 ## Jugadas ilegales (${ilegales.length})
 
@@ -281,5 +305,7 @@ ${noUbicables.map(filaNoUbicable).join('\n')}
 writeFileSync(SALIDA, md)
 // Sidecar para scripts/generar-para-opus.ts (no reparsea el .md).
 writeFileSync('docs/revision-aperturas/textos-dudosos.json', JSON.stringify({ ilegales, perdedoras, noUbicables }))
-console.log(`\n${SALIDA}: ${ilegales.length} ilegales, ${perdedoras.length} perdedoras, ${noUbicables.length} no ubicables.`)
+console.log(
+  `\n${SALIDA}: ${ilegales.length} ilegales, ${perdedoras.length} perdedoras, ${noUbicables.length} no ubicables, ${excepcionesUsadas.size} excepciones revisadas.`,
+)
 process.exit(ilegales.length || perdedoras.length ? 1 : 0)
