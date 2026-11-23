@@ -13,6 +13,7 @@
   import TableroEval from '../../lib/ui/TableroEval.svelte'
   import BotonJugarDesdeAca from '../../lib/ui/BotonJugarDesdeAca.svelte'
   import Navegador from '../../lib/ui/Navegador.svelte'
+  import BotonReportarError from '../../lib/ui/BotonReportarError.svelte'
   import VisorLinea, { type Linea } from '../../lib/ui/VisorLinea.svelte'
 
   interface Props {
@@ -219,7 +220,10 @@
         <p>
           La evaluación (desde el lado que movió) pasa de <b>{textoEvaluacion(aviso.antes)}</b> a <b>{textoEvaluacion(aviso.despues)}</b>{#if aviso.motivo.length}: {aviso.motivo.join(', ')}{/if}.
         </p>
-        {#if aviso.texto}<p>{aviso.texto}</p>{/if}
+        {#if aviso.texto}
+          <p>{aviso.texto}</p>
+          <BotonReportarError curso={apertura ? nombreEnEspanol(apertura) : 'Posición inicial'} campo={`Por qué no ${aviso.san}`} texto={aviso.texto} fen={aviso.refutacion.fen} />
+        {/if}
         <button class="boton" onclick={() => (verLinea = aviso!.refutacion)}>Ver cómo se castiga</button>
       </section>
     {/if}
@@ -235,6 +239,12 @@
           <summary><h2>¿Por qué {sanDeUci(posDesdeFen(fens[idx - 1]), linea[idx - 1])}?</h2></summary>
           <p>{nota.nota.porQue}</p>
           {#if nota.nota.inferior}<p class="suave">Stockfish la considera algo inferior a la mejor jugada: es teoría reconocida y jugable, no la más precisa.</p>{/if}
+          <BotonReportarError
+            curso={apertura ? nombreEnEspanol(apertura) : 'Posición inicial'}
+            campo={`Por qué ${sanDeUci(posDesdeFen(fens[idx - 1]), linea[idx - 1])}`}
+            texto={nota.nota.porQue}
+            {fen}
+          />
         </details>
       {/key}
     {/if}
@@ -328,6 +338,19 @@
               {/each}
             </ul>
           {/if}
+          <BotonReportarError
+            curso={explicacion.nombre}
+            campo="Planes, estructura y trampas"
+            texto={[
+              explicacion.planesBlancas.length ? `Planes blancas: ${explicacion.planesBlancas.join(' ')}` : '',
+              explicacion.planesNegras.length ? `Planes negras: ${explicacion.planesNegras.join(' ')}` : '',
+              explicacion.estructura ? `Estructura: ${explicacion.estructura}` : '',
+              explicacion.rupturas.length ? `Rupturas: ${explicacion.rupturas.join(' ')}` : '',
+            ]
+              .filter(Boolean)
+              .join('\n')}
+            {fen}
+          />
           <h3>Fuentes</h3>
           <ul>
             {#each explicacion.fuentes as f (f.titulo + (f.capitulo ?? ''))}
