@@ -38,10 +38,9 @@ const filaNoUbicable = (r: Resultado) => `| ${r.curso} | \`${r.campo}\` | ${r.te
 const md = `# Textos dudosos de aperturas (Fase C3, paso 2)
 
 Generado por \`scripts/verificar-textos.ts\` (corrido en paralelo y combinado con \`combinar-textos.ts\`)
-con Stockfish 16 (no se consiguió Stockfish 18: GitHub y stockfishchess.org están bloqueados por la red de
-este entorno; ver el PR), profundidad ${PROFUNDIDAD}. Revisa las jugadas mencionadas en los textos en prosa
-de los ${CANTIDAD_CURSOS} cursos. No modifica ningún JSON. Metodología y limitaciones en la cabecera de
-\`scripts/verificar-textos.ts\`.
+con el motor del paquete npm \`stockfish\` (build \`single\`, id UCI "Stockfish 19 WASM" — ver el PR),
+profundidad ${PROFUNDIDAD}. Revisa las jugadas mencionadas en los textos en prosa de los ${CANTIDAD_CURSOS}
+cursos. No modifica ningún JSON. Metodología y limitaciones en la cabecera de \`scripts/verificar-textos.ts\`.
 
 ## Jugadas ilegales (${ilegales.length})
 
@@ -69,5 +68,7 @@ porque describen ideas generales, no la jugada exacta de un nodo (ver cabecera d
 ${noUbicables.map(filaNoUbicable).join('\n')}
 `
 writeFileSync(SALIDA, md)
+// Sidecar para scripts/generar-para-opus.ts (no reparsea el .md).
+writeFileSync(`${CARPETA}/textos-dudosos.json`, JSON.stringify({ ilegales, perdedoras, noUbicables }))
 for (const f of parciales) unlinkSync(`${CARPETA}/${f}`)
 console.log(`${SALIDA}: ${ilegales.length} ilegales, ${perdedoras.length} perdedoras, ${noUbicables.length} no ubicables (${parciales.length} parciales combinados y borrados).`)

@@ -135,4 +135,6 @@ ${[...ruidoPorCurso.entries()].sort((a, b) => b[1] - a[1]).map(([c, n]) => `| ${
 `
 mkdirSync('docs/revision-aperturas', { recursive: true })
 writeFileSync(SALIDA, md)
+// Sidecar para scripts/generar-para-opus.ts (no reparsea el .md).
+writeFileSync('docs/revision-aperturas/fallas-jugadas.json', JSON.stringify({ graves, discutibles, totalRuido }))
 console.log(`${SALIDA}: ${graves.length} graves, ${discutibles.length} discutibles, ${totalRuido} ruido.`)
