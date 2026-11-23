@@ -4,6 +4,7 @@
   import AvisoActualizacion from './lib/AvisoActualizacion.svelte'
   import Ajustes from './pantallas/Ajustes.svelte'
   import Aperturas from './pantallas/Aperturas.svelte'
+  import Editor from './pantallas/Editor.svelte'
   import Finales from './pantallas/Finales.svelte'
   import Progreso from './pantallas/Progreso.svelte'
   import MisPartidas from './pantallas/MisPartidas.svelte'
@@ -62,6 +63,8 @@
       <Aperturas />
     {:else if actual === 'finales'}
       <Finales />
+    {:else if actual === 'editor'}
+      <Editor />
     {:else if actual === 'progreso'}
       <Progreso />
     {:else if actual === 'tutoriales'}

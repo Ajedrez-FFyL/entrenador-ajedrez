@@ -1,9 +1,19 @@
+import { execSync } from 'node:child_process'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { defineConfig, type Plugin } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // En GitHub Pages la app vive en /entrenador-ajedrez/; en desarrollo, en la raíz.
 const base = process.env.GITHUB_ACTIONS ? '/entrenador-ajedrez/' : '/'
+
+/** Identifica la versión publicada (para diagnóstico en los reportes del botón de opiniones). */
+function versionApp(): string {
+  try {
+    return execSync('git rev-parse --short HEAD').toString().trim()
+  } catch {
+    return 'dev'
+  }
+}
 
 /**
  * Las explicaciones de aperturas guardan los resultados del verificador de Stockfish, que la app no usa
@@ -22,6 +32,9 @@ const sinVerificacion: Plugin = {
 
 export default defineConfig({
   base,
+  define: {
+    __APP_VERSION__: JSON.stringify(versionApp()),
+  },
   plugins: [
     sinVerificacion,
     svelte(),

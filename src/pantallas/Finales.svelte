@@ -4,20 +4,14 @@
   import type { ErrorPartida, Repaso } from '../lib/datos/tipos.ts'
   import type { Objetivo, PosicionFinal, Temario, TemaFinal } from '../lib/finales/tipos.ts'
   import temarioJson from '../contenido/finales/temario.json'
-  import EditorPosicion from '../lib/ui/EditorPosicion.svelte'
-  import JugarFinal from '../lib/ui/JugarFinal.svelte'
-  import JugarPosicion from '../lib/ui/JugarPosicion.svelte'
-  import { tomarPosicionPendiente } from '../lib/jugarDesdeAca.ts'
+  import JugarPosicion, { type ConfigFinal } from '../lib/ui/JugarPosicion.svelte'
 
   const temario = temarioJson as Temario
   const NIVELES = [...new Set(temario.temas.map((t) => t.nivel))].sort()
 
-  let vista = $state<'temario' | 'mis-finales' | 'editor'>('temario')
+  let vista = $state<'temario' | 'mis-finales'>('temario')
   let tema = $state<TemaFinal>()
-  let jugando = $state<{ fen: string; objetivo: Objetivo; consigna: string; pista?: string; maxJugadas: number; idRepaso?: string; clave: number }>()
-  // Posición mandada desde otra pantalla con "Jugar desde acá", o desde el editor con "Jugar libre".
-  // svelte-ignore state_referenced_locally
-  let libre = $state<{ fen: string; clave: number } | undefined>((() => { const f = tomarPosicionPendiente(); return f ? { fen: f, clave: 0 } : undefined })())
+  let jugando = $state<{ fen: string; config: ConfigFinal; clave: number }>()
   let repasos = $state(new Map<string, Repaso>())
   let propios = $state<ErrorPartida[]>([])
 
@@ -54,8 +48,8 @@
   }
 
   let clave = 0
-  function jugar(j: Omit<NonNullable<typeof jugando>, 'clave'>) {
-    jugando = { ...j, clave: ++clave }
+  function jugar(fen: string, config: ConfigFinal) {
+    jugando = { fen, config, clave: ++clave }
   }
 
   async function salir() {
@@ -68,19 +62,14 @@
 
 <h1>Finales</h1>
 
-{#if libre}
-  {#key libre.clave}
-    <JugarPosicion fen={libre.fen} alSalir={() => (libre = undefined)} />
-  {/key}
-{:else if jugando}
+{#if jugando}
   {#key jugando.clave}
-    <JugarFinal {...jugando} alSalir={salir} />
+    <JugarPosicion fen={jugando.fen} config={jugando.config} alSalir={salir} />
   {/key}
 {:else}
   <div class="pestanas" role="tablist">
     <button role="tab" aria-selected={vista === 'temario'} onclick={() => { vista = 'temario'; tema = undefined }}>Temario</button>
     <button role="tab" aria-selected={vista === 'mis-finales'} onclick={() => (vista = 'mis-finales')}>De mis partidas</button>
-    <button role="tab" aria-selected={vista === 'editor'} onclick={() => (vista = 'editor')}>Posición libre</button>
   </div>
 
   {#if vista === 'temario' && tema}
@@ -105,7 +94,7 @@
               <b>{p.consigna}</b>
               <div class="suave">{p.objetivo === 'ganar' ? 'Ganar' : 'Tablas'} · hasta {p.maxJugadas} jugadas · <span class="etiqueta {estado(id)}">{ETIQUETA[estado(id)]}</span></div>
             </div>
-            <button class="boton principal" onclick={() => jugar({ fen: p.fen, objetivo: p.objetivo, consigna: p.consigna, pista: p.pista, maxJugadas: p.maxJugadas, idRepaso: id })}>Jugar</button>
+            <button class="boton principal" onclick={() => jugar(p.fen, { objetivo: p.objetivo, consigna: p.consigna, pista: p.pista, maxJugadas: p.maxJugadas, idRepaso: id })}>Jugar</button>
           </li>
         {/each}
       </ul>
@@ -146,7 +135,7 @@
               </div>
               <button
                 class="boton principal"
-                onclick={() => jugar({ fen: e.fen, objetivo, consigna: objetivo === 'ganar' ? 'Ganá este final de tu partida.' : 'Hacé tablas en este final de tu partida.', maxJugadas: 40, idRepaso: id })}
+                onclick={() => jugar(e.fen, { objetivo, consigna: objetivo === 'ganar' ? 'Ganá este final de tu partida.' : 'Hacé tablas en este final de tu partida.', maxJugadas: 40, idRepaso: id })}
               >
                 Jugar
               </button>
@@ -154,10 +143,6 @@
           {/each}
         </ul>
       {/if}
-    </section>
-  {:else}
-    <section class="tarjeta">
-      <EditorPosicion alJugarLibre={(fen) => (libre = { fen, clave: ++clave })} alJugar={(fen, objetivo) => jugar({ fen, objetivo, consigna: 'Posición libre.', maxJugadas: 50 })} />
     </section>
   {/if}
 {/if}

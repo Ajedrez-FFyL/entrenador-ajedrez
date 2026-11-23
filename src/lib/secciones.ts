@@ -1,4 +1,4 @@
-export type IdSeccion = 'partidas' | 'aperturas' | 'tactica' | 'finales' | 'progreso' | 'tutoriales' | 'ajustes'
+export type IdSeccion = 'partidas' | 'aperturas' | 'tactica' | 'finales' | 'editor' | 'progreso' | 'tutoriales' | 'ajustes'
 
 export interface Seccion {
   id: IdSeccion
@@ -35,7 +35,13 @@ export const SECCIONES: Seccion[] = [
     titulo: 'Finales',
     icono: '♚',
     pieza: 'rey',
-    descripcion: 'Finales por temas, de tus partidas y posiciones propias para jugar contra Stockfish.',
+    descripcion: 'Finales por temas y de tus propias partidas, con repaso espaciado.',
+  },
+  {
+    id: 'editor',
+    titulo: 'Editor',
+    icono: '▦',
+    descripcion: 'Armá cualquier posición, analizala con Stockfish, jugala contra la computadora o llevala a Lichess.',
   },
   {
     id: 'progreso',
