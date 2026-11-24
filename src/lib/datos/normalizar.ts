@@ -1,4 +1,4 @@
-import { parsePgn, parseComment, startingPosition, type Game, type PgnNodeData } from 'chessops/pgn'
+import { parseComment, parsePgn, startingPosition, type Game, type PgnNodeData } from 'chessops/pgn'
 import { parseSan } from 'chessops/san'
 import type { Color, Partida, Resultado, Ritmo } from './tipos.ts'
 import { uciEstandar } from '../ajedrez/posicion.ts'
@@ -156,6 +156,11 @@ export function partidaDesdePgn(game: Game<PgnNodeData>, usuarios: Usuarios): Pa
   }
 }
 
+/**
+ * Convierte todo un archivo PGN de una sola vez (para scripts de desarrollo, sin UI que mostrar
+ * progreso). La app usa `importarArchivoPgn` (en `lib/importar/importar.ts`), que hace lo mismo
+ * pero de a tandas para no trabarse con archivos grandes.
+ */
 export function partidasDesdeTextoPgn(texto: string, usuarios: Usuarios): Partida[] {
   const partidas: Partida[] = []
   for (const game of parsePgn(texto)) {

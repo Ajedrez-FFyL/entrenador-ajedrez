@@ -3,7 +3,7 @@
   import { db, guardarAjuste, leerAjuste, leerPreferencias, leerUsuarios, PREFERENCIAS_INICIALES, type Preferencias } from '../lib/datos/db.ts'
   import type { Usuarios } from '../lib/datos/normalizar.ts'
   import { descargarRespaldo, importarRespaldo } from '../lib/datos/respaldo.ts'
-  import { completarRelojesLichess, importarArchivoPgn, mensajeDeError } from '../lib/importar/importar.ts'
+  import { completarRelojesLichess, importarArchivoPgn, mensajeDeError, type ProgresoImportacionPgn } from '../lib/importar/importar.ts'
   import { CLIENT_ID as DRIVE_CLIENT_ID, conectarDrive, desconectarDrive, driveHabilitado, leerCuentaDrive, leerUltimaSincroDrive, sincronizarDrive } from '../lib/drive/drive.ts'
   import { irAAyuda } from '../lib/ayuda.ts'
 
@@ -118,12 +118,16 @@
     }
   }
 
+  let progresoPgn = $state<ProgresoImportacionPgn>()
+
   async function alElegirPgn(e: Event) {
     const texto = await leerArchivo(e)
     if (!texto) return
     ocupado = true
+    progresoPgn = { leidas: 0, total: 0, nuevas: 0 }
+    mensajePgn = ''
     try {
-      const r = await importarArchivoPgn(texto)
+      const r = await importarArchivoPgn(texto, (p) => (progresoPgn = p))
       mensajePgn = `Leídas ${r.leidas} partidas tuyas, ${r.nuevas} nuevas. Se analizan desde Mis partidas.`
       await contarPendientes()
       await cargar()
@@ -131,6 +135,7 @@
       mensajePgn = `No se pudo leer el archivo: ${mensajeDeError(err)}`
     } finally {
       ocupado = false
+      progresoPgn = undefined
     }
   }
 </script>
@@ -229,6 +234,13 @@
     Elegir archivo PGN
     <input type="file" accept=".pgn,text/plain" onchange={alElegirPgn} disabled={ocupado} />
   </label>
+  {#if progresoPgn}
+    <p class="suave">
+      Leyendo partidas: {progresoPgn.leidas}{progresoPgn.total ? ` de ~${progresoPgn.total}` : ''}
+      ({progresoPgn.nuevas} nuevas por ahora). La pestaña sigue andando mientras tanto.
+    </p>
+    <progress max={progresoPgn.total || undefined} value={progresoPgn.total ? progresoPgn.leidas : undefined}></progress>
+  {/if}
   {#if mensajePgn}<p>{mensajePgn}</p>{/if}
 </section>
 

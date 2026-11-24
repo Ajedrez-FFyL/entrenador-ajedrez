@@ -1,5 +1,6 @@
+import { PgnParser, type Game, type PgnNodeData } from 'chessops/pgn'
 import { db, guardarAjuste, leerAjuste, leerUsuarios } from '../datos/db.ts'
-import { partidasDesdeTextoPgn } from '../datos/normalizar.ts'
+import { partidaDesdePgn } from '../datos/normalizar.ts'
 import type { Fuente, Partida } from '../datos/tipos.ts'
 import { importarChesscom } from './chesscom.ts'
 import { importarLichess } from './lichess.ts'
@@ -101,9 +102,69 @@ export async function completarRelojesLichess(alInformar: (mensaje: string) => v
   return completadas
 }
 
-export async function importarArchivoPgn(texto: string): Promise<{ leidas: number; nuevas: number }> {
-  const partidas = partidasDesdeTextoPgn(texto, await leerUsuarios())
-  return { leidas: partidas.length, nuevas: await guardarNuevas(partidas) }
+const TANDA_PGN = 500
+// Caracteres leídos entre cesiones del hilo: alcanza para notar el progreso sin trabar la pestaña.
+const CHUNK_TEXTO_PGN = 200_000
+
+function cederHilo(): Promise<void> {
+  return new Promise((r) => setTimeout(r, 0))
+}
+
+export interface ProgresoImportacionPgn {
+  leidas: number
+  total: number
+  nuevas: number
+}
+
+/**
+ * Cuenta las partidas del archivo (una por encabezado "[Event") para poder mostrar una barra de
+ * progreso real; es solo una estimación (un PGN sin ese encabezado sigue importándose igual).
+ */
+function contarPartidas(texto: string): number {
+  return (texto.match(/^\[Event /gm) ?? []).length
+}
+
+/**
+ * Importa un archivo PGN con muchas partidas (de Lichess, Chess.com u otra exportación) sin
+ * trabar la pestaña: usa el parser en streaming de chessops, que arma cada partida a medida que
+ * llega el texto, y guarda y cede el hilo cada 500 partidas leídas (archivos de 20.000+ partidas
+ * tardan igual, pero la interfaz sigue respondiendo y se puede ver cuánto falta).
+ */
+export async function importarArchivoPgn(
+  texto: string,
+  alProgresar?: (p: ProgresoImportacionPgn) => void,
+): Promise<{ leidas: number; nuevas: number }> {
+  const usuarios = await leerUsuarios()
+  const total = contarPartidas(texto)
+  let leidas = 0
+  let nuevas = 0
+  let pendientes: Partida[] = []
+
+  const guardarPendientes = async () => {
+    if (!pendientes.length) return
+    nuevas += await guardarNuevas(pendientes)
+    pendientes = []
+    alProgresar?.({ leidas, total, nuevas })
+  }
+
+  const parser = new PgnParser((game: Game<PgnNodeData>, err) => {
+    leidas++
+    if (err) return // partida demasiado compleja para el presupuesto del parser: se descarta
+    const p = partidaDesdePgn(game, usuarios)
+    if (p) pendientes.push(p)
+  })
+
+  for (let i = 0; i < texto.length; i += CHUNK_TEXTO_PGN) {
+    parser.parse(texto.slice(i, i + CHUNK_TEXTO_PGN), { stream: true })
+    if (pendientes.length >= TANDA_PGN) {
+      await guardarPendientes()
+      await cederHilo()
+    }
+  }
+  parser.parse('') // avisa el final del texto: emite la última partida si quedó abierta
+  await guardarPendientes()
+
+  return { leidas, nuevas }
 }
 
 export function mensajeDeError(e: unknown): string {
