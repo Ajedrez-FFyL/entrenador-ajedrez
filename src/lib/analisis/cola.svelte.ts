@@ -15,9 +15,38 @@ export const cola = $state({
   analizadas: 0,
   erroresNuevos: 0,
   error: '',
+  /** Tiempo estimado para terminar todo lo pendiente, en ms (undefined hasta tener una muestra). */
+  tiempoEstimadoMs: undefined as number | undefined,
 })
 
 let pausaPedida = false
+
+// Para estimar el tiempo restante: promedio de ms por posición y de posiciones por partida,
+// acumulados durante la sesión (sobreviven a una pausa, para no perder la estimación al reanudar).
+let msAcumulados = 0
+let posicionesAnalizadasSesion = 0
+
+function actualizarEstimado() {
+  if (posicionesAnalizadasSesion === 0) {
+    cola.tiempoEstimadoMs = undefined
+    return
+  }
+  const msPorPosicion = msAcumulados / posicionesAnalizadasSesion
+  const posicionesPorPartida = cola.analizadas > 0 ? posicionesAnalizadasSesion / cola.analizadas : cola.totalPosiciones || posicionesAnalizadasSesion
+  const restantesPartidaActual = Math.max(0, cola.totalPosiciones - cola.posicion)
+  const otrasPartidas = Math.max(0, cola.pendientes - 1)
+  cola.tiempoEstimadoMs = msPorPosicion * (restantesPartidaActual + otrasPartidas * posicionesPorPartida)
+}
+
+/** Texto corto para mostrar `tiempoEstimadoMs` ("≈ 2 min", "≈ 40 s"). */
+export function textoTiempoEstimado(ms: number): string {
+  const segundos = Math.round(ms / 1000)
+  if (segundos < 60) return `≈ ${segundos || 1} s`
+  const minutos = Math.round(segundos / 60)
+  if (minutos < 60) return `≈ ${minutos} min`
+  const horas = Math.round(minutos / 6) / 10
+  return `≈ ${horas} h`
+}
 
 export async function contarPendientes(): Promise<number> {
   cola.pendientes = await db.partidas.where('estadoAnalisis').equals('pendiente').count()
@@ -66,6 +95,7 @@ async function analizarPartida(partida: Partida, profundidad: number): Promise<b
   cola.posicion = 0
   for (const ply of [...necesarias].sort((a, b) => a - b)) {
     if (pausaPedida) return false
+    const inicio = performance.now()
     const p = posiciones[ply]
     if (p.isEnd()) analisis.set(ply, analisisTerminal(p))
     else {
@@ -73,6 +103,9 @@ async function analizarPartida(partida: Partida, profundidad: number): Promise<b
       analisis.set(ply, { ev: r.ev, mejor: r.mejor, linea: r.linea })
     }
     cola.posicion++
+    msAcumulados += performance.now() - inicio
+    posicionesAnalizadasSesion++
+    actualizarEstimado()
   }
 
   const errores: ErrorPartida[] = []
@@ -110,6 +143,7 @@ export async function iniciarCola(): Promise<void> {
       if (!completa) break
       cola.analizadas++
       await contarPendientes()
+      actualizarEstimado()
     }
   } catch (e) {
     cola.error = e instanceof Error ? e.message : String(e)
@@ -117,6 +151,7 @@ export async function iniciarCola(): Promise<void> {
     cola.activa = false
     cola.partida = ''
     await contarPendientes()
+    actualizarEstimado()
   }
 }
 
