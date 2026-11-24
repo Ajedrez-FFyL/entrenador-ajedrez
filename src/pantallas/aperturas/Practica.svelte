@@ -12,6 +12,7 @@
   import Tablero, { type Flecha } from '../../lib/ui/Tablero.svelte'
   import VisorLinea, { type Linea } from '../../lib/ui/VisorLinea.svelte'
   import BotonJugarDesdeAca from '../../lib/ui/BotonJugarDesdeAca.svelte'
+  import BotonReportarError from '../../lib/ui/BotonReportarError.svelte'
 
   interface Props {
     color: Color
@@ -34,6 +35,10 @@
   let erroresAca = $state(0)
   let mensaje = $state<{ tipo: 'bien' | 'mal' | 'info'; texto: string }>()
   let porQue = $state<string>()
+  /** Datos de la explicación mostrada en `porQue`, para el botón de reportar un error en el texto. */
+  let porQueReporte = $state<{ campo: string; texto: string; fen: string }>()
+  /** "Por qué no" de la última jugada equivocada, para el mismo botón. */
+  let porQueNoActual = $state<{ san: string; texto: string; fen: string }>()
   let refutacion = $state<Linea>()
   let vista = $state<{ fen: string; ultima?: string; proxima?: string }>()
   let verificando = $state(false)
@@ -70,6 +75,8 @@
     erroresAca = 0
     mensaje = undefined
     porQue = undefined
+    porQueReporte = undefined
+    porQueNoActual = undefined
     refutacion = undefined
     terminado = false
     verPly = undefined
@@ -106,6 +113,7 @@
     if (uci === esperada) {
       const nota = notaPara(objetivo.slice(0, ply + 1))
       porQue = nota ? nota.nota.porQue + (nota.nota.inferior ? " (Stockfish la considera algo inferior, pero es teoría jugable.)" : "") : undefined
+      porQueReporte = nota ? { campo: `¿Por qué ${san}?`, texto: nota.nota.porQue, fen: fens[ply + 1] } : undefined
       mensaje = { tipo: 'bien', texto: `✓ ${san}` }
       ply++
       erroresAca = 0
@@ -134,6 +142,7 @@
     const evDespues = invertir(despues.ev)
     const perdida = chancesDeGanar(antes.ev) - chancesDeGanar(evDespues)
     const texto = porQueNoPara(objetivo.slice(0, ply), uci)?.texto
+    porQueNoActual = texto ? { san, texto, fen: fenDespues } : undefined
     if (perdida >= 0.1) {
       const motivo = detectarMotivoError(fenDespues, despues.linea, despues.ev)
       mensaje = {
@@ -153,8 +162,10 @@
     const san = sanDeUci(posDesdeFen(fen), esperada)
     if (nota) {
       porQue = `${san}: ${nota.nota.porQue}${nota.nota.inferior ? " (Stockfish la considera algo inferior, pero es teoría jugable.)" : ""}`
+      porQueReporte = { campo: `¿Por qué ${san}?`, texto: nota.nota.porQue, fen: fens[ply + 1] }
       return
     }
+    porQueReporte = undefined
     const r = await motorInteractivo().analizar(fen, { profundidad: 16, multipv: 3 })
     const linea = r.lineas.find((l) => l.linea[0] === esperada)
     const nombre = catalogo ? nombreDeLinea(catalogo, objetivo.slice(0, ply + 1)) : undefined
@@ -238,7 +249,13 @@
       {/if}
 
       {#if mensaje}<p class={mensaje.tipo}>{mensaje.texto}</p>{/if}
+      {#if porQueNoActual}
+        <BotonReportarError curso={titulo} campo={`Por qué no ${porQueNoActual.san}`} texto={porQueNoActual.texto} fen={porQueNoActual.fen} />
+      {/if}
       {#if porQue}<p class="idea">{porQue}</p>{/if}
+      {#if porQueReporte}
+        <BotonReportarError curso={titulo} campo={porQueReporte.campo} texto={porQueReporte.texto} fen={porQueReporte.fen} />
+      {/if}
 
       {#if !terminado && turnoMio}
         <button class="boton" onclick={explicarEsperada} disabled={verificando}>¿Por qué esta jugada?</button>
