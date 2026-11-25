@@ -6,6 +6,7 @@
   import { completarRelojesLichess, importarArchivoPgn, mensajeDeError, type ProgresoImportacionPgn } from '../lib/importar/importar.ts'
   import { CLIENT_ID as DRIVE_CLIENT_ID, conectarDrive, desconectarDrive, driveHabilitado, leerCuentaDrive, leerUltimaSincroDrive, sincronizarDrive } from '../lib/drive/drive.ts'
   import { irAAyuda } from '../lib/ayuda.ts'
+  import { estaPersistido, estimarAlmacenamiento, formatoMB, type UsoAlmacenamiento } from '../lib/datos/almacenamiento.ts'
 
   let usuarios = $state<Usuarios>({})
   let token = $state('')
@@ -23,6 +24,11 @@
     conteo = { partidas: await db.partidas.count(), errores: await db.errores.count(), repasos: await db.repasos.count() }
   }
   cargar()
+
+  let persistido = $state<boolean>()
+  let uso = $state<UsoAlmacenamiento>()
+  estaPersistido().then((p) => (persistido = p))
+  estimarAlmacenamiento().then((u) => (uso = u))
 
   async function guardarUsuarios(e: SubmitEvent) {
     e.preventDefault()
@@ -255,6 +261,25 @@
 </section>
 
 <section class="tarjeta">
+  <h2>Almacenamiento</h2>
+  {#if persistido === undefined}
+    <p class="suave">Este navegador no informa si tus datos están protegidos contra el borrado automático.</p>
+  {:else if persistido}
+    <p class="suave">Tus datos están protegidos contra el borrado automático del navegador.</p>
+  {:else}
+    <p class="aviso">El navegador podría borrar tus datos si se queda sin espacio: hacé respaldos seguido.</p>
+  {/if}
+  {#if uso}
+    <p class="suave">
+      Usás {formatoMB(uso.usadoBytes)} de {formatoMB(uso.cuotaBytes)} disponibles en este navegador ({Math.round(uso.porcentaje)} %).
+    </p>
+    {#if uso.porcentaje >= 80}
+      <p class="aviso">Te estás quedando sin espacio: te conviene hacer un respaldo (exportarlo o a Drive) antes de que el navegador empiece a borrar datos.</p>
+    {/if}
+  {/if}
+</section>
+
+<section class="tarjeta">
   <h2>Acerca de</h2>
   <p class="suave">
     Código abierto (GPL-3.0): <a href="https://github.com/ajedrez-ffyl/entrenador-ajedrez" target="_blank" rel="noopener">github.com/ajedrez-ffyl/entrenador-ajedrez</a>.
@@ -291,5 +316,8 @@
     inset: 0;
     opacity: 0;
     cursor: pointer;
+  }
+  .aviso {
+    color: #c9483c;
   }
 </style>

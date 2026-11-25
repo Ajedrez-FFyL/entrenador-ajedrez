@@ -12,12 +12,17 @@
   import Tutoriales from './pantallas/Tutoriales.svelte'
   import Feedback from './lib/feedback/Feedback.svelte'
   import { driveHabilitado, leerCuentaDrive, sincronizarDrive } from './lib/drive/drive.ts'
+  import { pedirAlmacenamientoPersistente } from './lib/datos/almacenamiento.ts'
 
   // Si Drive ya está conectado, sincroniza en silencio al abrir la app (sin popup; si hace falta
   // interacción, no insiste: queda para que el usuario sincronice a mano desde Ajustes).
   if (driveHabilitado()) leerCuentaDrive().then((cuenta) => {
     if (cuenta) sincronizarDrive(false).catch(() => undefined)
   })
+
+  // Para que el navegador no borre los datos solos si el dispositivo se queda sin espacio.
+  // No hace falta esperar la respuesta acá: Ajustes muestra el resultado cuando se visita.
+  pedirAlmacenamientoPersistente()
 
   function seccionDesdeHash(): IdSeccion {
     const id = location.hash.replace('#/', '')
