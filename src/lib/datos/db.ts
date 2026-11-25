@@ -48,6 +48,32 @@ export async function guardarAjuste(clave: string, valor: unknown): Promise<void
 
 export const leerUsuarios = () => leerAjuste<Usuarios>('usuarios', {})
 
+/**
+ * Para decidir si mostrar la Bienvenida: ¿hay algo propio ya cargado? Todo por `count()` (nunca
+ * `toArray()`), así que es rápido incluso con miles de partidas.
+ */
+export async function hayDatosPropios(): Promise<boolean> {
+  const [partidas, errores, repasos, repasosLineas, intentos, repertorio, usuarios] = await Promise.all([
+    db.partidas.count(),
+    db.errores.count(),
+    db.repasos.count(),
+    db.repasosLineas.count(),
+    db.intentos.count(),
+    db.repertorio.count(),
+    leerUsuarios(),
+  ])
+  return (
+    partidas > 0 ||
+    errores > 0 ||
+    repasos > 0 ||
+    repasosLineas > 0 ||
+    intentos > 0 ||
+    repertorio > 0 ||
+    !!usuarios.lichess ||
+    !!usuarios.chesscom
+  )
+}
+
 export interface Preferencias {
   profundidad: number // profundidad del análisis de fondo
   nuevosPorDia: number
