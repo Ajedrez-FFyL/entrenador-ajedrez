@@ -1,4 +1,5 @@
 import Dexie, { type Table } from 'dexie'
+import { pedirAlmacenamientoPersistente } from './almacenamiento.ts'
 import type { Ajuste, ErrorPartida, Intento, LineaRepertorio, Partida, Repaso, RepasoLinea } from './tipos.ts'
 import type { Usuarios } from './normalizar.ts'
 
@@ -33,9 +34,8 @@ class BaseDatos extends Dexie {
 export const db = new BaseDatos()
 
 // Pide al navegador que no borre los datos por falta de espacio (en iOS ayuda instalar la app).
-if (typeof navigator !== 'undefined' && navigator.storage?.persist) {
-  navigator.storage.persist().catch(() => undefined)
-}
+// Ajustes.svelte muestra el resultado (estaPersistido()).
+pedirAlmacenamientoPersistente()
 
 export async function leerAjuste<T>(clave: string, porDefecto: T): Promise<T> {
   const fila = await db.ajustes.get(clave)
@@ -53,6 +53,8 @@ export interface Preferencias {
   nuevosPorDia: number
   /** Lecciones de aperturas: pasar solas a la línea siguiente en vez de esperar el botón «Seguir». */
   pasarSolo: boolean
+  /** Elegido en la bienvenida (nivel aproximado): rango de rating inicial para los ejercicios de táctica. */
+  rangoTactica?: { min: number; max: number }
 }
 
 export const PREFERENCIAS_INICIALES: Preferencias = { profundidad: 12, nuevosPorDia: 15, pasarSolo: false }

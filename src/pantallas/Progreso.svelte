@@ -168,7 +168,8 @@
 <section class="tarjeta">
   <h2>Historial</h2>
   {#if !historial.length}
-    <p class="suave">Todavía no hay ejercicios terminados.</p>
+    <p class="suave">Todavía no hay ejercicios terminados: el historial se llena jugando en Táctica, Aperturas o Finales.</p>
+    <a class="boton principal" href="#/tactica">Ir a Táctica</a>
   {:else}
     <div class="fila-filtros">
       <label>

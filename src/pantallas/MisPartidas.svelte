@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { cola, contarPendientes, iniciarCola, pausarCola } from '../lib/analisis/cola.svelte.ts'
+  import { cola, contarPendientes, iniciarCola, pausarCola, textoTiempoEstimado } from '../lib/analisis/cola.svelte.ts'
   import { db, leerAjuste, leerUsuarios } from '../lib/datos/db.ts'
   import type { Usuarios } from '../lib/datos/normalizar.ts'
   import type { Partida } from '../lib/datos/tipos.ts'
@@ -112,7 +112,7 @@
   {#if cola.activa}
     <p>
       Analizando {cola.partida}: posición {cola.posicion} de {cola.totalPosiciones}.
-      Quedan {cola.pendientes} partida{cola.pendientes === 1 ? '' : 's'}.
+      Quedan {cola.pendientes} partida{cola.pendientes === 1 ? '' : 's'}{#if cola.tiempoEstimadoMs !== undefined}, {textoTiempoEstimado(cola.tiempoEstimadoMs)}{/if}.
     </p>
     <progress max={cola.totalPosiciones} value={cola.posicion}></progress>
     <div class="fila">

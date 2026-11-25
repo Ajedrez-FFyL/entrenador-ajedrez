@@ -3,9 +3,11 @@
   import { db, guardarAjuste, leerAjuste, leerPreferencias, leerUsuarios, PREFERENCIAS_INICIALES, type Preferencias } from '../lib/datos/db.ts'
   import type { Usuarios } from '../lib/datos/normalizar.ts'
   import { descargarRespaldo, importarRespaldo } from '../lib/datos/respaldo.ts'
-  import { completarRelojesLichess, importarArchivoPgn, mensajeDeError } from '../lib/importar/importar.ts'
+  import { completarRelojesLichess, importarArchivoPgn, mensajeDeError, type ProgresoImportacionPgn } from '../lib/importar/importar.ts'
   import { CLIENT_ID as DRIVE_CLIENT_ID, conectarDrive, desconectarDrive, driveHabilitado, leerCuentaDrive, leerUltimaSincroDrive, sincronizarDrive } from '../lib/drive/drive.ts'
   import { irAAyuda } from '../lib/ayuda.ts'
+  import { pedirBienvenida } from '../lib/ui/bienvenidaBridge.svelte.ts'
+  import { estaPersistido, estimarAlmacenamiento, formatoMB, type UsoAlmacenamiento } from '../lib/datos/almacenamiento.ts'
 
   let usuarios = $state<Usuarios>({})
   let token = $state('')
@@ -23,6 +25,11 @@
     conteo = { partidas: await db.partidas.count(), errores: await db.errores.count(), repasos: await db.repasos.count() }
   }
   cargar()
+
+  let persistido = $state<boolean>()
+  let uso = $state<UsoAlmacenamiento>()
+  estaPersistido().then((p) => (persistido = p))
+  estimarAlmacenamiento().then((u) => (uso = u))
 
   async function guardarUsuarios(e: SubmitEvent) {
     e.preventDefault()
@@ -118,12 +125,16 @@
     }
   }
 
+  let progresoPgn = $state<ProgresoImportacionPgn>()
+
   async function alElegirPgn(e: Event) {
     const texto = await leerArchivo(e)
     if (!texto) return
     ocupado = true
+    progresoPgn = { leidas: 0, total: 0, nuevas: 0 }
+    mensajePgn = ''
     try {
-      const r = await importarArchivoPgn(texto)
+      const r = await importarArchivoPgn(texto, (p) => (progresoPgn = p))
       mensajePgn = `Leídas ${r.leidas} partidas tuyas, ${r.nuevas} nuevas. Se analizan desde Mis partidas.`
       await contarPendientes()
       await cargar()
@@ -131,6 +142,7 @@
       mensajePgn = `No se pudo leer el archivo: ${mensajeDeError(err)}`
     } finally {
       ocupado = false
+      progresoPgn = undefined
     }
   }
 </script>
@@ -229,6 +241,13 @@
     Elegir archivo PGN
     <input type="file" accept=".pgn,text/plain" onchange={alElegirPgn} disabled={ocupado} />
   </label>
+  {#if progresoPgn}
+    <p class="suave">
+      Leyendo partidas: {progresoPgn.leidas}{progresoPgn.total ? ` de ~${progresoPgn.total}` : ''}
+      ({progresoPgn.nuevas} nuevas por ahora). La pestaña sigue andando mientras tanto.
+    </p>
+    <progress max={progresoPgn.total || undefined} value={progresoPgn.total ? progresoPgn.leidas : undefined}></progress>
+  {/if}
   {#if mensajePgn}<p>{mensajePgn}</p>{/if}
 </section>
 
@@ -243,11 +262,32 @@
 </section>
 
 <section class="tarjeta">
+  <h2>Almacenamiento</h2>
+  {#if persistido === undefined}
+    <p class="suave">Este navegador no informa si tus datos están protegidos contra el borrado automático.</p>
+  {:else if persistido}
+    <p class="suave">Tus datos están protegidos contra el borrado automático del navegador.</p>
+  {:else}
+    <p class="aviso">El navegador podría borrar tus datos si se queda sin espacio: hacé respaldos seguido.</p>
+  {/if}
+  {#if uso}
+    <p class="suave">
+      Usás {formatoMB(uso.usadoBytes)} de {formatoMB(uso.cuotaBytes)} disponibles en este navegador ({Math.round(uso.porcentaje)} %).
+    </p>
+    {#if uso.porcentaje >= 80}
+      <p class="aviso">Te estás quedando sin espacio: te conviene hacer un respaldo (exportarlo o a Drive) antes de que el navegador empiece a borrar datos.</p>
+    {/if}
+  {/if}
+</section>
+
+<section class="tarjeta">
   <h2>Acerca de</h2>
   <p class="suave">
     Código abierto (GPL-3.0): <a href="https://github.com/ajedrez-ffyl/entrenador-ajedrez" target="_blank" rel="noopener">github.com/ajedrez-ffyl/entrenador-ajedrez</a>.
     Usa Stockfish 19 (motor que corre en el dispositivo), chessground y chessops.
   </p>
+  <p class="suave">Versión {new Date(__APP_BUILD_DATE__).toLocaleDateString('es-AR')} ({__APP_VERSION__}).</p>
+  <button class="boton enlace" onclick={pedirBienvenida}>Volver a ver la bienvenida</button>
 </section>
 
 <style>
@@ -279,5 +319,8 @@
     inset: 0;
     opacity: 0;
     cursor: pointer;
+  }
+  .aviso {
+    color: #c9483c;
   }
 </style>

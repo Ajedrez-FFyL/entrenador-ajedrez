@@ -17,6 +17,7 @@
   import TableroEval from '../../lib/ui/TableroEval.svelte'
   import VisorLinea, { type Linea } from '../../lib/ui/VisorLinea.svelte'
   import BotonJugarDesdeAca from '../../lib/ui/BotonJugarDesdeAca.svelte'
+  import BotonReportarError from '../../lib/ui/BotonReportarError.svelte'
 
   /**
    * Una sesión de práctica sobre un grupo de líneas. Al aprender, cada línea se presenta siguiendo la
@@ -62,6 +63,8 @@
   let catalogo = $state.raw<Catalogo>()
   cargarCatalogo().then((c) => (catalogo = c))
   let refutacion = $state<Linea>()
+  /** "Por qué no" de la última jugada equivocada, para el botón de reportar un error en el texto. */
+  let porQueNoActual = $state<{ san: string; texto: string; fen: string }>()
   let vista = $state<{ fen: string; ultima?: string; proxima?: string }>()
   let alternativa = $state<{ prefijo: string[]; uci: string; san: string }>()
   let verificando = $state(false)
@@ -99,6 +102,7 @@
     mensaje = undefined
     abiertas = new Set()
     refutacion = undefined
+    porQueNoActual = undefined
     vista = undefined
     alternativa = undefined
     lineaTerminada = false
@@ -179,6 +183,7 @@
     const pos = posDesdeFen(fen)
     const san = sanDeUci(pos, uci)
     refutacion = undefined
+    porQueNoActual = undefined
     vista = undefined
     alternativa = undefined
     const indiceMarca = misPlies.indexOf(ply)
@@ -224,6 +229,7 @@
     const evDespues = invertir(despues.ev)
     const perdida = chancesDeGanar(antes.ev) - chancesDeGanar(evDespues)
     const extra = porQueNoPara(prefijo, uci)?.texto
+    if (extra) porQueNoActual = { san, texto: extra, fen: fenDespues }
     if (perdida >= 0.1) {
       const motivo = detectarMotivoError(fenDespues, despues.linea, despues.ev)
       mensaje = {
@@ -359,6 +365,9 @@
       {#if verPly !== undefined && !lineaTerminada}<p class="aviso">Estás mirando una posición anterior (solo lectura). Volvé al final para seguir.</p>{/if}
 
       {#if mensaje}<p class={mensaje.tipo}>{mensaje.texto}</p>{/if}
+      {#if porQueNoActual}
+        <BotonReportarError curso={titulo} campo={`Por qué no ${porQueNoActual.san}`} texto={porQueNoActual.texto} fen={porQueNoActual.fen} />
+      {/if}
       {#if alternativa}
         {@const a = alternativa}
         <button class="boton" onclick={() => alCambiarEleccion(a.prefijo, a.uci)}>Guardar {a.san} como mi jugada en esta posición</button>
@@ -368,6 +377,7 @@
           <h3>¿Y ahora qué?</h3>
           <p class="suave">Planes típicos para {color === 'white' ? 'las blancas' : 'las negras'} en {ahoraQue.nombre}:</p>
           <ul>{#each ahoraQue.planes as p (p)}<li>{p}</li>{/each}</ul>
+          <BotonReportarError curso={ahoraQue.nombre} campo="¿Y ahora qué?" texto={ahoraQue.planes.join('\n')} {fen} />
         </div>
       {/if}
       {#if lineaTerminada}
@@ -389,6 +399,9 @@
               <b>{idea.jugada}</b>
               {#if abiertas.has(idea.ply)}<span>{idea.texto}</span>{:else}<span class="suave">Ver la idea</span>{/if}
             </button>
+            {#if abiertas.has(idea.ply)}
+              <BotonReportarError curso={variante ?? titulo} campo={`¿Por qué ${idea.jugada}?`} texto={idea.texto} fen={fens[idea.ply + 1] ?? fen} />
+            {/if}
           {/each}
         </div>
       {/if}

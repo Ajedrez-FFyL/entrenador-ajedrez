@@ -1,7 +1,7 @@
 <script lang="ts">
   import { db } from '../lib/datos/db.ts'
   import type { ErrorPartida, Partida } from '../lib/datos/tipos.ts'
-  import { armarSesionProblemas, estadoProblemas, FILTROS_PROBLEMAS, type Problema } from '../lib/problemas/problemas.ts'
+  import { armarSesionProblemas, estadoProblemas, filtrosIniciales, type Problema } from '../lib/problemas/problemas.ts'
   import { armarSesion, estadoRepaso, FILTROS_INICIALES, type Filtros, type ResultadoIntento } from '../lib/repaso/repaso.ts'
   import Ejercicio from '../lib/ui/Ejercicio.svelte'
   import HistorialSesion from '../lib/ui/HistorialSesion.svelte'
@@ -51,8 +51,8 @@
 
   async function contar() {
     const e = await estadoRepaso(filtrosPropios())
-    const l = await estadoProblemas({ ...FILTROS_PROBLEMAS, origen: 'lichess' })
-    const b = await estadoProblemas({ ...FILTROS_PROBLEMAS, origen: 'libros' })
+    const l = await estadoProblemas(await filtrosIniciales('lichess'))
+    const b = await estadoProblemas(await filtrosIniciales('libros'))
     disponibles = {
       propios: e.vencidos + Math.min(e.nuevosHoy, e.nuevosDisponibles),
       lichess: l.vencidos.length + Math.min(l.nuevosHoy, l.nuevos.length),
@@ -79,7 +79,7 @@
     if (elegidas.includes('propios')) for (const error of await armarSesion(filtrosPropios())) items.push({ tipo: 'error', error })
     for (const origen of ['lichess', 'libros'] as const) {
       if (!elegidas.includes(origen)) continue
-      for (const problema of await armarSesionProblemas({ ...FILTROS_PROBLEMAS, origen })) items.push({ tipo: 'problema', problema })
+      for (const problema of await armarSesionProblemas(await filtrosIniciales(origen))) items.push({ tipo: 'problema', problema })
     }
     // Mezcla al azar y recorta: cada fuente aporta parecido, sin que una tape a las otras.
     sesion = items.sort(() => Math.random() - 0.5).slice(0, MAXIMO)

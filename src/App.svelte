@@ -2,6 +2,8 @@
   import { SECCIONES, type IdSeccion } from './lib/secciones'
   import Marca from './lib/ui/Marca.svelte'
   import AvisoActualizacion from './lib/AvisoActualizacion.svelte'
+  import Bienvenida from './lib/ui/Bienvenida.svelte'
+  import { bienvenidaPedida, limpiarPedidoBienvenida } from './lib/ui/bienvenidaBridge.svelte.ts'
   import Ajustes from './pantallas/Ajustes.svelte'
   import Aperturas from './pantallas/Aperturas.svelte'
   import Editor from './pantallas/Editor.svelte'
@@ -12,6 +14,7 @@
   import Tutoriales from './pantallas/Tutoriales.svelte'
   import Feedback from './lib/feedback/Feedback.svelte'
   import { driveHabilitado, leerCuentaDrive, sincronizarDrive } from './lib/drive/drive.ts'
+  import { leerAjuste } from './lib/datos/db.ts'
 
   // Si Drive ya está conectado, sincroniza en silencio al abrir la app (sin popup; si hace falta
   // interacción, no insiste: queda para que el usuario sincronice a mano desde Ajustes).
@@ -27,6 +30,17 @@
   let actual = $state<IdSeccion>(seccionDesdeHash())
   let seccion = $derived(SECCIONES.find((s) => s.id === actual)!)
   let enLinea = $state(navigator.onLine)
+
+  // Bienvenida: solo la primera vez (o cuando se pide de nuevo desde Ajustes).
+  let vistaBienvenida = $state(true)
+  leerAjuste('bienvenidaVista', false).then((v) => (vistaBienvenida = v))
+  let mostrarBienvenida = $derived(!vistaBienvenida || bienvenidaPedida())
+
+  function alTerminarBienvenida(destino?: IdSeccion) {
+    vistaBienvenida = true
+    limpiarPedidoBienvenida()
+    if (destino) location.hash = `#/${destino}`
+  }
 </script>
 
 <svelte:window
@@ -82,6 +96,7 @@
 
 <AvisoActualizacion />
 <Feedback pestanaActual={actual} />
+{#if mostrarBienvenida}<Bienvenida alTerminar={alTerminarBienvenida} />{/if}
 
 <style>
   .marco {

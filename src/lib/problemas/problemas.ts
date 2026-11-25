@@ -134,6 +134,15 @@ export interface FiltrosProblemas {
 
 export const FILTROS_PROBLEMAS: FiltrosProblemas = { ratingMin: 1500, ratingMax: 2000 }
 
+/**
+ * Rango de rating inicial: el de la bienvenida (`preferencias.rangoTactica`, nivel aproximado)
+ * si se eligió, si no el de `FILTROS_PROBLEMAS`.
+ */
+export async function filtrosIniciales(origen?: Origen): Promise<FiltrosProblemas> {
+  const { rangoTactica } = await leerPreferencias()
+  return rangoTactica ? { ratingMin: rangoTactica.min, ratingMax: rangoTactica.max, origen } : { ...FILTROS_PROBLEMAS, origen }
+}
+
 function inicioDelDia(): number {
   const d = new Date()
   d.setHours(0, 0, 0, 0)
