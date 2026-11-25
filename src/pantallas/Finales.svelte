@@ -122,7 +122,8 @@
         si estaba pareja, aguantar las tablas. Jugás desde el momento anterior al error.
       </p>
       {#if propios.length === 0}
-        <p class="suave">Todavía no hay finales con errores detectados.</p>
+        <p class="suave">Todavía no hay finales con errores detectados: hacen falta partidas tuyas analizadas con Stockfish.</p>
+        <a class="boton principal" href="#/partidas">Ir a Mis partidas</a>
       {:else}
         <ul class="lista">
           {#each propios.slice(0, 40) as e (e.id)}

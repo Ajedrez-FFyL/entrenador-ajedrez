@@ -1,17 +1,17 @@
 <script lang="ts">
-  import { armarSesionProblemas, cargarProblemas, estadoProblemas, FILTROS_PROBLEMAS, nombreTema, TEMAS_FILTRO, TEMAS_LIBROS, type FiltrosProblemas, type Origen, type Problema } from '../lib/problemas/problemas.ts'
+  import { armarSesionProblemas, cargarProblemas, estadoProblemas, filtrosIniciales, FILTROS_PROBLEMAS, nombreTema, TEMAS_FILTRO, TEMAS_LIBROS, type FiltrosProblemas, type Origen, type Problema } from '../lib/problemas/problemas.ts'
   import type { ResultadoIntento } from '../lib/repaso/repaso.ts'
   import HistorialSesion from '../lib/ui/HistorialSesion.svelte'
   import ProblemaLichess from '../lib/ui/ProblemaLichess.svelte'
   import SelectorMultiple from '../lib/ui/SelectorMultiple.svelte'
 
-  const RANGOS: [number, number, string][] = [
+  let RANGOS = $state<[number, number, string][]>([
     [1400, 1700, '1400 a 1700'],
     [1500, 2000, '1500 a 2000 (alrededor de tu nivel)'],
     [1700, 2000, '1700 a 2000'],
     [2000, 2200, '2000 a 2200 (más difíciles)'],
     [1400, 2200, 'Todos'],
-  ]
+  ])
 
   let { origen = 'lichess' }: { origen?: Origen } = $props()
   let temas = $derived(origen === 'libros' ? TEMAS_LIBROS : TEMAS_FILTRO)
@@ -35,6 +35,14 @@
   cargarProblemas(origen).then((p) => {
     hayDatos = p.length > 0
     libros = [...new Set(p.map((x) => x.fuente?.titulo).filter((t): t is string => !!t))].sort()
+  })
+
+  // Si en la bienvenida se eligió un nivel aproximado, arranca con ese rango (se agrega como opción propia).
+  // svelte-ignore state_referenced_locally
+  filtrosIniciales(origen).then((f) => {
+    if (f.ratingMin === FILTROS_PROBLEMAS.ratingMin && f.ratingMax === FILTROS_PROBLEMAS.ratingMax) return
+    RANGOS = [[f.ratingMin, f.ratingMax, `${f.ratingMin} a ${f.ratingMax} (tu nivel)`], ...RANGOS]
+    rango = 0
   })
   let opcionesLibros = $derived(libros.map((l) => ({ valor: l, etiqueta: l })))
 

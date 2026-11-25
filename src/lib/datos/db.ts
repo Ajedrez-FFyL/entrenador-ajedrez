@@ -53,6 +53,8 @@ export interface Preferencias {
   nuevosPorDia: number
   /** Lecciones de aperturas: pasar solas a la línea siguiente en vez de esperar el botón «Seguir». */
   pasarSolo: boolean
+  /** Elegido en la bienvenida (nivel aproximado): rango de rating inicial para los ejercicios de táctica. */
+  rangoTactica?: { min: number; max: number }
 }
 
 export const PREFERENCIAS_INICIALES: Preferencias = { profundidad: 12, nuevosPorDia: 15, pasarSolo: false }

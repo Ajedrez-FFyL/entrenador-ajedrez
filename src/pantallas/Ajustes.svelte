@@ -6,6 +6,7 @@
   import { completarRelojesLichess, importarArchivoPgn, mensajeDeError, type ProgresoImportacionPgn } from '../lib/importar/importar.ts'
   import { CLIENT_ID as DRIVE_CLIENT_ID, conectarDrive, desconectarDrive, driveHabilitado, leerCuentaDrive, leerUltimaSincroDrive, sincronizarDrive } from '../lib/drive/drive.ts'
   import { irAAyuda } from '../lib/ayuda.ts'
+  import { pedirBienvenida } from '../lib/ui/bienvenidaBridge.svelte.ts'
   import { estaPersistido, estimarAlmacenamiento, formatoMB, type UsoAlmacenamiento } from '../lib/datos/almacenamiento.ts'
 
   let usuarios = $state<Usuarios>({})
@@ -286,6 +287,7 @@
     Usa Stockfish 19 (motor que corre en el dispositivo), chessground y chessops.
   </p>
   <p class="suave">Versión {new Date(__APP_BUILD_DATE__).toLocaleDateString('es-AR')} ({__APP_VERSION__}).</p>
+  <button class="boton enlace" onclick={pedirBienvenida}>Volver a ver la bienvenida</button>
 </section>
 
 <style>

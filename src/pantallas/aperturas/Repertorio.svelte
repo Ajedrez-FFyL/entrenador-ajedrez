@@ -100,6 +100,7 @@
   <h2>Mis líneas con {color === 'white' ? 'blancas' : 'negras'}</h2>
   {#if delColor.length === 0}
     <p class="suave">Todavía no hay líneas. Agregalas desde el explorador o pedí una sugerencia a partir de tus partidas.</p>
+    <button class="boton principal" onclick={() => alExplorar([])}>Ir al explorador</button>
   {:else}
     <ul class="lineas">
       {#each delColor as l (l.id)}
