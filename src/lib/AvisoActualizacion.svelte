@@ -28,7 +28,8 @@
     position: fixed;
     left: 16px;
     right: 16px;
-    bottom: calc(72px + env(safe-area-inset-bottom));
+    /* Arriba del botón flotante de Opiniones y reportes (fixed, bottom 76px, 48px de alto). */
+    bottom: calc(132px + env(safe-area-inset-bottom));
     max-width: 420px;
     margin: 0 auto;
     display: flex;
@@ -39,6 +40,13 @@
     border: 1px solid var(--borde);
     border-radius: var(--radio);
     box-shadow: 0 4px 16px rgb(0 0 0 / 0.2);
+  }
+
+  @media (min-width: 900px) {
+    .aviso {
+      /* En escritorio el botón de Opiniones y reportes baja a bottom: 16px. */
+      bottom: calc(72px + env(safe-area-inset-bottom));
+    }
   }
 
   span {
