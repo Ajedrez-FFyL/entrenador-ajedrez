@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { armarSesionProblemas, cargarProblemas, estadoProblemas, filtrosIniciales, FILTROS_PROBLEMAS, nombreTema, TEMAS_FILTRO, TEMAS_LIBROS, type FiltrosProblemas, type Origen, type Problema } from '../lib/problemas/problemas.ts'
+  import { armarSesionProblemas, bajarTema, cargarProblemas, estadoProblemas, filtrosIniciales, FILTROS_PROBLEMAS, nombreTema, temaEstaGuardado, TEMAS_FILTRO, TEMAS_LIBROS, type FiltrosProblemas, type Origen, type Problema } from '../lib/problemas/problemas.ts'
   import type { ResultadoIntento } from '../lib/repaso/repaso.ts'
   import HistorialSesion from '../lib/ui/HistorialSesion.svelte'
   import ProblemaLichess from '../lib/ui/ProblemaLichess.svelte'
@@ -31,6 +31,31 @@
   // Historial de la sesión: tocar un cuadradito vuelve a ver ese problema, en modo repaso.
   let revisando = $state<number>()
 
+  // C4d: cada tema (fuera de los 4.550 de siempre) se baja la primera vez que se elige en el filtro,
+  // y de ahí en más queda guardado para usarlo sin conexión (ver `bajarTema` en problemas.ts).
+  let descargando = $state<string>()
+  let faltaConexion = $state(false)
+
+  async function prepararTemas(temas: string[] | undefined) {
+    descargando = undefined
+    faltaConexion = false
+    if (origen !== 'lichess' || !temas?.length || temas.length >= TEMAS_FILTRO.length) return
+    for (const t of temas) {
+      if (await temaEstaGuardado(t)) continue
+      if (!navigator.onLine) {
+        faltaConexion = true
+        continue
+      }
+      descargando = nombreTema(t)
+      try {
+        await bajarTema(t)
+      } catch {
+        faltaConexion = true
+      }
+    }
+    descargando = undefined
+  }
+
   // svelte-ignore state_referenced_locally
   cargarProblemas(origen).then((p) => {
     hayDatos = p.length > 0
@@ -58,7 +83,7 @@
 
   $effect(() => {
     void [filtros.temas, filtros.libros, filtros.ratingMin, filtros.ratingMax]
-    actualizar()
+    prepararTemas(filtros.temas).then(actualizar)
   })
 
   async function empezar() {
@@ -112,6 +137,11 @@
   {/if}
   {#if resultados.length}
     <p><b>Sesión terminada: {resultados.filter((r) => r !== 'mal').length} de {resultados.length} bien.</b></p>
+  {/if}
+  {#if descargando}
+    <p class="suave">Bajando ejercicios de {descargando}…</p>
+  {:else if faltaConexion}
+    <p class="suave">Este tema necesita internet la primera vez.</p>
   {/if}
   <section class="tarjeta">
     {#if resumen}

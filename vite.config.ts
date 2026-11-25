@@ -60,6 +60,9 @@ export default defineConfig({
       workbox: {
         // Incluye el motor (stockfish.wasm, ~1,7 MB) para que funcione sin conexión.
         globPatterns: ['**/*.{js,css,html,svg,png,woff2,wasm,json}'],
+        // Los problemas por tema (C4d, ~8 MB en total) se bajan por separado cuando se eligen en el
+        // filtro, no de entrada: si entraran en el precache, instalar la app bajaría todo junto.
+        globIgnores: ['datos/problemas/**'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       },
     }),

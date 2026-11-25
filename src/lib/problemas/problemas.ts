@@ -110,13 +110,66 @@ export const TEMAS_FILTRO = [
 
 export const nombreTema = (t: string) => NOMBRE_TEMA[t] ?? t
 
-const promesas: Partial<Record<Origen, Promise<Problema[]>>> = {}
-/** Problemas de Lichess (`problemas.json`) o de libros (`problemas-libros.json`), cargados una sola vez. */
-export function cargarProblemas(origen: Origen = 'lichess'): Promise<Problema[]> {
-  promesas[origen] ??= fetch(`${import.meta.env.BASE_URL}datos/${origen === 'lichess' ? 'problemas' : 'problemas-libros'}.json`)
+const promesaLibros: { p?: Promise<Problema[]> } = {}
+let promesaBaseLichess: Promise<Problema[]> | undefined
+
+function cargarJson(url: string): Promise<Problema[]> {
+  return fetch(url)
     .then((r) => (r.ok ? (r.json() as Promise<Problema[]>) : []))
     .catch(() => [])
-  return promesas[origen]!
+}
+
+/**
+ * Ampliación C4d: por cada tema de `TEMAS_FILTRO` hay un archivo bajable aparte
+ * (`public/datos/problemas/<tema>.json`, ~2.000 problemas, rating 600-2400) que se guarda en esta
+ * caché del navegador la primera vez que se baja, para usarlo después sin conexión. Los 4.550 de
+ * siempre (`problemas.json`) no dependen de esto y siguen cargándose igual.
+ */
+const CACHE_TEMAS = 'problemas-por-tema-v1'
+const urlTema = (tema: string) => `${import.meta.env.BASE_URL}datos/problemas/${tema}.json`
+
+const hayCache = () => typeof caches !== 'undefined'
+
+/** Sin red: lo que ya esté guardado de bajadas anteriores (o `[]` si ese tema nunca se bajó). */
+async function temaDesdeCache(tema: string): Promise<Problema[]> {
+  if (!hayCache()) return []
+  try {
+    const cache = await caches.open(CACHE_TEMAS)
+    const resp = await cache.match(urlTema(tema))
+    return resp ? ((await resp.json()) as Problema[]) : []
+  } catch {
+    return []
+  }
+}
+
+export async function temaEstaGuardado(tema: string): Promise<boolean> {
+  if (!hayCache()) return false
+  try {
+    return (await (await caches.open(CACHE_TEMAS)).match(urlTema(tema))) !== undefined
+  } catch {
+    return false
+  }
+}
+
+/** Baja un tema y lo deja guardado para la próxima vez. Tira si no hay conexión o falla la bajada. */
+export async function bajarTema(tema: string): Promise<void> {
+  const resp = await fetch(urlTema(tema))
+  if (!resp.ok) throw new Error(`No se pudo bajar el tema ${tema} (${resp.status})`)
+  if (hayCache()) await (await caches.open(CACHE_TEMAS)).put(urlTema(tema), resp.clone())
+}
+
+/**
+ * Problemas de Lichess (`problemas.json`, siempre) o de libros (`problemas-libros.json`), cargados una
+ * sola vez. Para `lichess` suma además los temas que ya se hayan bajado (caché, sin red) con `bajarTema`.
+ */
+export async function cargarProblemas(origen: Origen = 'lichess'): Promise<Problema[]> {
+  if (origen === 'libros') {
+    promesaLibros.p ??= cargarJson(`${import.meta.env.BASE_URL}datos/problemas-libros.json`)
+    return promesaLibros.p
+  }
+  promesaBaseLichess ??= cargarJson(`${import.meta.env.BASE_URL}datos/problemas.json`)
+  const [base, ...porTema] = await Promise.all([promesaBaseLichess, ...TEMAS_FILTRO.map(temaDesdeCache)])
+  return [...base, ...porTema.flat()]
 }
 
 const PREFIJO: Record<Origen, string> = { lichess: 'lichess-problema:', libros: 'libro-problema:' }
