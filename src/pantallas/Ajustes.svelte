@@ -285,6 +285,7 @@
     Código abierto (GPL-3.0): <a href="https://github.com/ajedrez-ffyl/entrenador-ajedrez" target="_blank" rel="noopener">github.com/ajedrez-ffyl/entrenador-ajedrez</a>.
     Usa Stockfish 19 (motor que corre en el dispositivo), chessground y chessops.
   </p>
+  <p class="suave">Versión {new Date(__APP_BUILD_DATE__).toLocaleDateString('es-AR')} ({__APP_VERSION__}).</p>
 </section>
 
 <style>
