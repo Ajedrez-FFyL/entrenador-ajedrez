@@ -44,11 +44,21 @@
   let ex = $state<Exploracion>(new Exploracion(fenInicial))
   let pensando = $state(false)
   let rendida = $state(false)
-  // Modo libre: evaluación desde el lado de las blancas, mostrada solo si se pide (checkbox).
+  // Modo libre: evaluación desde el lado de las blancas, calculada con el mismo análisis que ya
+  // usa el motor para elegir su jugada (no cambia su fuerza ni su tiempo).
   let evaluacion = $state<Evaluacion>()
-  let evaluar = $state(false)
-  // Modo final: evaluación desde mi lado (siempre calculada, para decidir si el objetivo sigue vigente).
+  // Modo final: evaluación desde mi lado (siempre calculada, para decidir si el objetivo sigue vigente;
+  // se reutiliza para la barra).
   let evMia = $state<Evaluacion>()
+  // Mientras se juega, la barra funciona como pista: apagada por defecto, el dispositivo recuerda la
+  // elección. Al terminar la partida se ve igual, esté prendida o no.
+  function leerVerEvaluacion(): boolean {
+    try { return localStorage.getItem('ffyl-ver-evaluacion-al-jugar') === 'si' } catch { return false }
+  }
+  let evaluar = $state(leerVerEvaluacion())
+  $effect(() => {
+    try { localStorage.setItem('ffyl-ver-evaluacion-al-jugar', evaluar ? 'si' : 'no') } catch { /* sin almacenamiento */ }
+  })
   let resultado = $state<Resultado>({ estado: 'sigue' })
   let verPista = $state(false)
   let usoPista = $state(false)
@@ -201,6 +211,15 @@
     rendida = true
   }
 
+  // Evaluación para la barra, siempre desde el lado de las blancas: en modo final, la de evMia
+  // (desde mi lado) dada vuelta si juego con negras; en modo libre, la ya calculada por el motor.
+  let evaluacionBarra = $derived.by(() => {
+    if (!config) return evaluacion
+    if (!evMia) return undefined
+    return color === 'white' ? evMia : invertir(evMia)
+  })
+  // Se ve si el interruptor está prendido, o siempre que la partida ya terminó.
+  let evaluacionAMostrar = $derived(evaluar || fin ? evaluacionBarra : undefined)
   let puedeMover = $derived(empezada && !fin && !pensando && enElFinal && turnoMio ? color : undefined)
   let sanUltima = $derived(ex.ucis.length ? sanDeUci(posDesdeFen(ex.fens[ex.fens.length - 2]), ex.ucis[ex.ucis.length - 1]) : undefined)
   let flechas = $derived.by(() => (mejorTablebase ? [{ de: mejorTablebase.slice(0, 2), a: mejorTablebase.slice(2, 4), color: 'green' as const }] : []))
@@ -250,7 +269,7 @@
       ultimaJugada={ex.ultima}
       {flechas}
       {alJugar}
-      evaluacion={config ? undefined : evaluar ? evaluacion : undefined}
+      evaluacion={evaluacionAMostrar}
     />
 
     {#if pensando}<p class="suave">Pensando…</p>{/if}
@@ -261,9 +280,10 @@
     {#if verPista && config?.pista}<p class="idea">{config.pista}</p>{/if}
 
     <Navegador {etiquetas} idx={ex.idx} alIr={(i) => ex.ir(i)} vacio="Todavía no se jugó ninguna jugada." />
-    {#if !config}
-      <label class="check"><input type="checkbox" bind:checked={evaluar} /> Mostrar la evaluación de Stockfish (barra, aproximada según el nivel)</label>
-    {/if}
+    <label class="check">
+      <input type="checkbox" bind:checked={evaluar} />
+      Mostrar evaluación <span class="suave">(mientras jugás funciona como pista; al terminar se ve siempre)</span>
+    </label>
 
     <div class="fila">
       {#if config}

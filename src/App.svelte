@@ -14,7 +14,7 @@
   import Tutoriales from './pantallas/Tutoriales.svelte'
   import Feedback from './lib/feedback/Feedback.svelte'
   import { driveHabilitado, leerCuentaDrive, sincronizarDrive } from './lib/drive/drive.ts'
-  import { leerAjuste } from './lib/datos/db.ts'
+  import { guardarAjuste, hayDatosPropios, leerAjuste } from './lib/datos/db.ts'
 
   // Si Drive ya está conectado, sincroniza en silencio al abrir la app (sin popup; si hace falta
   // interacción, no insiste: queda para que el usuario sincronice a mano desde Ajustes).
@@ -31,10 +31,19 @@
   let seccion = $derived(SECCIONES.find((s) => s.id === actual)!)
   let enLinea = $state(navigator.onLine)
 
-  // Bienvenida: solo la primera vez (o cuando se pide de nuevo desde Ajustes).
-  let vistaBienvenida = $state(true)
-  leerAjuste('bienvenidaVista', false).then((v) => (vistaBienvenida = v))
-  let mostrarBienvenida = $derived(!vistaBienvenida || bienvenidaPedida())
+  // Bienvenida: solo a quien abre la app por primera vez sin ningún dato propio (o cuando se pide
+  // de nuevo desde Ajustes). No se dibuja hasta tener la respuesta, para que no parpadee.
+  let vistaBienvenida = $state(false)
+  let listaParaMostrarBienvenida = $state(false)
+  Promise.all([leerAjuste('bienvenidaVista', false), hayDatosPropios()]).then(async ([vista, hayDatos]) => {
+    if (!vista && hayDatos) {
+      await guardarAjuste('bienvenidaVista', true)
+      vista = true
+    }
+    vistaBienvenida = vista
+    listaParaMostrarBienvenida = true
+  })
+  let mostrarBienvenida = $derived(listaParaMostrarBienvenida && (!vistaBienvenida || bienvenidaPedida()))
 
   function alTerminarBienvenida(destino?: IdSeccion) {
     vistaBienvenida = true
