@@ -14,6 +14,8 @@
   let jugando = $state<{ fen: string; config: ConfigFinal; clave: number }>()
   let repasos = $state(new Map<string, Repaso>())
   let propios = $state<ErrorPartida[]>([])
+  // De qué lista salió la posición que se está jugando y en qué lugar, para el botón "Siguiente posición".
+  let colaOrigen = $state<{ lista: 'tema' | 'propios'; indice: number }>()
 
   async function cargar() {
     const lista = await db.repasos.where('errorId').startsWith('final').toArray()
@@ -36,6 +38,11 @@
   }
 
   const idPosicion = (t: TemaFinal, p: PosicionFinal) => `final:${t.id}/${p.id}`
+  const configDeTema = (t: TemaFinal, p: PosicionFinal): ConfigFinal => ({ objetivo: p.objetivo, consigna: p.consigna, pista: p.pista, maxJugadas: p.maxJugadas, idRepaso: idPosicion(t, p) })
+  const configDePropio = (e: ErrorPartida): ConfigFinal => {
+    const objetivo = objetivoDe(e)!
+    return { objetivo, consigna: objetivo === 'ganar' ? 'Ganá este final de tu partida.' : 'Hacé tablas en este final de tu partida.', maxJugadas: 40, idRepaso: `final-propio:${e.id}` }
+  }
 
   function estado(id: string): 'nuevo' | 'repasar' | 'logrado' {
     const r = repasos.get(id)
@@ -48,14 +55,33 @@
   }
 
   let clave = 0
-  function jugar(fen: string, config: ConfigFinal) {
+  function jugar(fen: string, config: ConfigFinal, origen?: { lista: 'tema' | 'propios'; indice: number }) {
     jugando = { fen, config, clave: ++clave }
+    colaOrigen = origen
   }
 
   async function salir() {
     jugando = undefined
+    colaOrigen = undefined
     await cargar()
   }
+
+  // Siguiente posición de la misma lista (temario de un tema, o "Mis finales"), si hay una: el
+  // botón "Siguiente posición" de JugarPosicion desaparece cuando esto da undefined.
+  let siguiente = $derived.by((): (() => void) | undefined => {
+    if (!colaOrigen) return undefined
+    if (colaOrigen.lista === 'tema') {
+      const sig = tema?.posiciones[colaOrigen.indice + 1]
+      if (!tema || !sig) return undefined
+      const t = tema
+      const indice = colaOrigen.indice + 1
+      return () => jugar(sig.fen, configDeTema(t, sig), { lista: 'tema', indice })
+    }
+    const sig = propios.slice(0, 40)[colaOrigen.indice + 1]
+    if (!sig) return undefined
+    const indice = colaOrigen.indice + 1
+    return () => jugar(sig.fen, configDePropio(sig), { lista: 'propios', indice })
+  })
 
   const ETIQUETA = { nuevo: 'sin intentar', repasar: 'para repasar', logrado: 'logrado' }
 </script>
@@ -64,7 +90,7 @@
 
 {#if jugando}
   {#key jugando.clave}
-    <JugarPosicion fen={jugando.fen} config={jugando.config} alSalir={salir} />
+    <JugarPosicion fen={jugando.fen} config={jugando.config} alSalir={salir} alSiguiente={siguiente} />
   {/key}
 {:else}
   <div class="pestanas" role="tablist">
@@ -87,14 +113,15 @@
     <section class="tarjeta">
       <h2>Posiciones para jugar</h2>
       <ul class="lista">
-        {#each tema.posiciones as p (p.id)}
-          {@const id = idPosicion(tema, p)}
+        {#each tema.posiciones as p, i (p.id)}
+          {@const t = tema}
+          {@const id = idPosicion(t, p)}
           <li>
             <div>
               <b>{p.consigna}</b>
               <div class="suave">{p.objetivo === 'ganar' ? 'Ganar' : 'Tablas'} · hasta {p.maxJugadas} jugadas · <span class="etiqueta {estado(id)}">{ETIQUETA[estado(id)]}</span></div>
             </div>
-            <button class="boton principal" onclick={() => jugar(p.fen, { objetivo: p.objetivo, consigna: p.consigna, pista: p.pista, maxJugadas: p.maxJugadas, idRepaso: id })}>Jugar</button>
+            <button class="boton principal" onclick={() => jugar(p.fen, configDeTema(t, p), { lista: 'tema', indice: i })}>Jugar</button>
           </li>
         {/each}
       </ul>
@@ -126,7 +153,7 @@
         <a class="boton principal" href="#/partidas">Ir a Mis partidas</a>
       {:else}
         <ul class="lista">
-          {#each propios.slice(0, 40) as e (e.id)}
+          {#each propios.slice(0, 40) as e, i (e.id)}
             {@const objetivo = objetivoDe(e)!}
             {@const id = `final-propio:${e.id}`}
             <li>
@@ -136,7 +163,7 @@
               </div>
               <button
                 class="boton principal"
-                onclick={() => jugar(e.fen, { objetivo, consigna: objetivo === 'ganar' ? 'Ganá este final de tu partida.' : 'Hacé tablas en este final de tu partida.', maxJugadas: 40, idRepaso: id })}
+                onclick={() => jugar(e.fen, configDePropio(e), { lista: 'propios', indice: i })}
               >
                 Jugar
               </button>

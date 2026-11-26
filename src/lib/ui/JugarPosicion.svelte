@@ -22,8 +22,10 @@
     fen: string
     config?: ConfigFinal
     alSalir?: () => void
+    /** Modo final: hay una próxima posición en la lista desde la que se entró (temario o mis finales). */
+    alSiguiente?: () => void
   }
-  let { fen: fenInicial, config, alSalir }: Props = $props()
+  let { fen: fenInicial, config, alSalir, alSiguiente }: Props = $props()
 
   type Nivel = 'facil' | 'medio' | 'dificil' | 'maximo'
   const NIVELES: Record<Nivel, { nombre: string; aprox: string; opciones: OpcionesAnalisis }> = {
@@ -66,6 +68,16 @@
   let mejorTablebase = $state<string>()
   let repeticionesMap = new Map<string, number>()
   let ficha = 0
+  // Para "Volver una jugada": el idx de la línea justo antes del último intento propio, así se
+  // puede deshacer esa jugada (y la respuesta de la computadora, si llegó a haberla) de un saque.
+  let idxAntesDeMiJugada = $state(0)
+  // Una vez que el ejercicio falló, el intento ya quedó registrado para el repaso espaciado (como
+  // "con errores"): si después de "Volver una jugada" se termina logrando, no se vuelve a registrar.
+  let registroDeEsteIntento = $state(false)
+  // "Seguir jugando igual": tras un "No salió", se puede seguir la partida sin objetivo (no cuenta
+  // para el repaso). El rival sigue jugando con tablebase/Stockfish fuerte, pero ya no se revisa el
+  // objetivo ni se corta por las tablebases: termina solo por las reglas (mate, tablas).
+  let siguiendoSinObjetivo = $state(false)
 
   // svelte-ignore state_referenced_locally
   const damasIniciales = config ? damasDe(posDesdeFen(fenInicial), turnoInicial) : 0
@@ -87,9 +99,11 @@
     const clave = clavePosicion(fenActual)
     return ex.fens.filter((f) => clavePosicion(f) === clave).length
   })
-  // Fin del modo libre: jaque mate, ahogado, material insuficiente, 50 jugadas, triple repetición o rendición.
+  // Fin por reglas del ajedrez (jaque mate, ahogado, material insuficiente, 50 jugadas, triple
+  // repetición o rendición): en modo libre, y también en modo final una vez que se eligió "Seguir
+  // jugando igual" (ahí ya no hay objetivo que revisar, solo el final de la partida en sí).
   let finLibre = $derived.by((): string | undefined => {
-    if (config) return undefined
+    if (config && !siguiendoSinObjetivo) return undefined
     if (rendida) return 'Te rendiste.'
     const pos = posDesdeFen(fenActual)
     if (pos.isCheckmate()) return pos.turn === color ? 'Jaque mate: ganó Stockfish.' : '¡Jaque mate! Ganaste.'
@@ -99,7 +113,7 @@
     if (repeticiones >= 3) return 'Tablas por triple repetición.'
     return undefined
   })
-  let fin = $derived(config ? resultado.estado !== 'sigue' : !!finLibre)
+  let fin = $derived(config && !siguiendoSinObjetivo ? resultado.estado !== 'sigue' : !!finLibre)
   let turnoMio = $derived(posDesdeFen(fenActual).turn === color)
   let etiquetas = $derived(etiquetasJugadas(fenInicial, ex.ucis))
   let jugadasPropias = $derived(Math.ceil(ex.ucis.length / 2))
@@ -115,14 +129,25 @@
     usoPista = false
     verPista = false
     repeticionesMap = new Map()
+    idxAntesDeMiJugada = 0
+    registroDeEsteIntento = false
+    siguiendoSinObjetivo = false
     if (config) contarRepeticion(fenInicial)
     empezada = true
     if (posDesdeFen(fenInicial).turn !== color) responderLibre()
   }
 
+  /** Modo final: evaluación fresca de una posición, desde mi lado, consultando al motor. */
+  async function evaluarMia(fen: string): Promise<Evaluacion> {
+    const pos = posDesdeFen(fen)
+    const r = await motorInteractivo().analizar(fen, { profundidad: 18, tiempoMs: 1200 })
+    return pos.turn === color ? r.ev : invertir(r.ev)
+  }
+
   /** Modo final: decide si el ejercicio sigue, se logró o se falló, y registra el repaso si corresponde. */
   async function terminarFinal(tablebase?: string): Promise<boolean> {
     const pos = posDesdeFen(ex.fen)
+    const repeticiones = repeticionesMap.get(clavePosicion(ex.fen)) ?? 1
     const r = revisar(pos, {
       objetivo: config!.objetivo,
       yo: color,
@@ -130,13 +155,26 @@
       maxJugadas: config!.maxJugadas,
       damasIniciales,
       exigirMate,
-      repeticiones: repeticionesMap.get(clavePosicion(ex.fen)) ?? 1,
+      repeticiones,
       evMia,
       tablebase,
     })
     if (r.estado === 'sigue') return false
+    // La partida termina por motivos distintos: jaque mate y tablas forzadas (ahogado, material
+    // insuficiente, repetición, 50 jugadas) tienen una evaluación obvia; en los demás casos (la
+    // jugada hizo que la posición dejara de estar ganada según las tablebases, se llegó al máximo
+    // de jugadas, etc.) la posición sigue siendo jugable y hay que consultarle al motor su
+    // evaluación real en vez de mostrar la que quedó calculada antes de esta jugada.
+    const tablasForzadas = pos.isStalemate() || pos.isInsufficientMaterial() || repeticiones >= 3 || pos.halfmoves >= 100
+    evMia = pos.isCheckmate() ? { mate: 0 } : tablasForzadas ? { cp: 0 } : await evaluarMia(ex.fen)
     resultado = r
-    if (config!.idRepaso) await registrarIntento(config!.idRepaso, r.estado === 'logrado' ? (usoPista ? 'pista' : 'bien') : 'mal')
+    // El intento ya cuenta para el repaso espaciado la primera vez que termina (incluido un "No
+    // salió"): si después, con "Volver una jugada", se termina logrando, no se registra de nuevo
+    // (el intento queda "con errores" igual, como pide Mati).
+    if (config!.idRepaso && !registroDeEsteIntento) {
+      await registrarIntento(config!.idRepaso, r.estado === 'logrado' ? (usoPista ? 'pista' : 'bien') : 'mal')
+      registroDeEsteIntento = true
+    }
     return true
   }
 
@@ -151,8 +189,39 @@
     if (!uci || !jugarUci(p, uci)) return
     ex.jugar(uci)
     contarRepeticion(ex.fen)
+    if (siguiendoSinObjetivo) {
+      // Sin objetivo: la computadora igual responde fuerte, pero no hay nada que revisar.
+      if (evaluar) evMia = await evaluarMia(ex.fen)
+      return
+    }
     const tbDespues = await consultarTablebase(ex.fen, posDesdeFen(ex.fen).board.occupied.size())
-    await terminarFinal(tbDespues?.category)
+    const termino = await terminarFinal(tbDespues?.category)
+    // Si sigue, la evaluación de arriba quedó calculada ANTES de esta jugada de la computadora
+    // (se usó para elegirla): con la barra pedida, se refresca para la posición ya jugada.
+    if (!termino && evaluar) evMia = await evaluarMia(ex.fen)
+  }
+
+  /** "Volver una jugada" tras un "No salió": deshace mi última jugada y, si la hubo, la respuesta
+   * de la computadora, y deja seguir intentando desde ahí. El intento ya quedó registrado como
+   * fallado para el repaso espaciado (ver terminarFinal). */
+  function volverUnaJugada() {
+    ex.cortarEn(idxAntesDeMiJugada)
+    repeticionesMap = new Map()
+    for (let i = 0; i <= ex.idx; i++) contarRepeticion(ex.fens[i])
+    resultado = { estado: 'sigue' }
+    consejo = undefined
+    mejorTablebase = undefined
+    pensando = false
+  }
+
+  /** "Seguir jugando igual" tras un "No salió": se sigue la partida sin objetivo (ya no cuenta
+   * para el repaso), con la barra de evaluación visible. */
+  function seguirJugandoIgual() {
+    siguiendoSinObjetivo = true
+    resultado = { estado: 'sigue' }
+    consejo = undefined
+    mejorTablebase = undefined
+    evaluar = true
   }
 
   /** Modo libre: el rival responde con Stockfish al nivel elegido. */
@@ -180,10 +249,11 @@
     if (!sig) return
     const san = sanDeUci(antes, uci)
 
-    if (config) {
+    if (config && !siguiendoSinObjetivo) {
       pensando = true
       consejo = undefined
       mejorTablebase = undefined
+      idxAntesDeMiJugada = ex.idx
       const fenAntes = fenDe(antes)
       const fenDespues = fenDe(sig)
       const [tbAntes, tbDespues] = await Promise.all([
@@ -198,6 +268,12 @@
         if (pierde) consejo = `Con ${san} se escapa el resultado. La jugada correcta era ${aEspanol(tbAntes.moves[0].san)}.`
       }
       if (!(await terminarFinal(tbDespues?.category))) await responderFinal()
+      pensando = false
+    } else if (config) {
+      // "Seguir jugando igual": modo final sin objetivo, pero el rival sigue jugando fuerte.
+      pensando = true
+      ex.jugar(uci)
+      if (!fin) await responderFinal()
       pensando = false
     } else {
       ex.jugar(uci)
@@ -250,7 +326,11 @@
       <p><b>{config?.consigna ?? 'Jugás desde esta posición.'}</b></p>
       <p class="suave">
         {#if config}
-          Objetivo: {config.objetivo === 'ganar' ? 'ganar' : 'hacer tablas'} · jugás con {color === 'white' ? 'blancas' : 'negras'} · jugada {jugadasPropias} de {config.maxJugadas}
+          {#if siguiendoSinObjetivo}
+            Seguís la partida sin objetivo: este intento ya no cuenta para el repaso.
+          {:else}
+            Objetivo: {config.objetivo === 'ganar' ? 'ganar' : 'hacer tablas'} · jugás con {color === 'white' ? 'blancas' : 'negras'} · jugada {jugadasPropias} de {config.maxJugadas}
+          {/if}
           {#if evMia}· Stockfish: {textoEvaluacion(evMia)}{/if}
         {:else}
           {#if fin}<b>{finLibre}</b>
@@ -285,8 +365,16 @@
       Mostrar evaluación <span class="suave">(mientras jugás funciona como pista; al terminar se ve siempre)</span>
     </label>
 
+    {#if resultado.estado === 'fallado'}
+      <div class="fila">
+        <button class="boton principal" onclick={volverUnaJugada}>Volver una jugada</button>
+        <button class="boton" onclick={seguirJugandoIgual}>Seguir jugando igual</button>
+      </div>
+    {/if}
+
     <div class="fila">
       {#if config}
+        {#if fin && alSiguiente}<button class="boton principal" onclick={alSiguiente}>Siguiente posición</button>{/if}
         {#if config.pista && !fin}<button class="boton" onclick={() => { verPista = true; usoPista = true }} disabled={verPista}>Pista</button>{/if}
         <button class="boton" onclick={empezar}>Empezar de nuevo</button>
       {:else}
