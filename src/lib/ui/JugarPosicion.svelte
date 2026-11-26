@@ -204,7 +204,7 @@
   /** "Volver una jugada" tras un "No salió": deshace mi última jugada y, si la hubo, la respuesta
    * de la computadora, y deja seguir intentando desde ahí. El intento ya quedó registrado como
    * fallado para el repaso espaciado (ver terminarFinal). */
-  function volverUnaJugada() {
+  async function volverUnaJugada() {
     ex.cortarEn(idxAntesDeMiJugada)
     repeticionesMap = new Map()
     for (let i = 0; i <= ex.idx; i++) contarRepeticion(ex.fens[i])
@@ -212,16 +212,28 @@
     consejo = undefined
     mejorTablebase = undefined
     pensando = false
+    // Por si tras deshacer queda el turno de la computadora: que juegue sin esperar otro toque.
+    if (!fin && !turnoMio) {
+      pensando = true
+      await responderFinal()
+      pensando = false
+    }
   }
 
   /** "Seguir jugando igual" tras un "No salió": se sigue la partida sin objetivo (ya no cuenta
-   * para el repaso), con la barra de evaluación visible. */
-  function seguirJugandoIgual() {
+   * para el repaso), con la barra de evaluación visible. Si le toca mover a la computadora (el
+   * caso típico: mi jugada falló y nunca llegó a responder), que juegue enseguida. */
+  async function seguirJugandoIgual() {
     siguiendoSinObjetivo = true
     resultado = { estado: 'sigue' }
     consejo = undefined
     mejorTablebase = undefined
     evaluar = true
+    if (!fin && !turnoMio) {
+      pensando = true
+      await responderFinal()
+      pensando = false
+    }
   }
 
   /** Modo libre: el rival responde con Stockfish al nivel elegido. */
@@ -327,7 +339,8 @@
       <p class="suave">
         {#if config}
           {#if siguiendoSinObjetivo}
-            Seguís la partida sin objetivo: este intento ya no cuenta para el repaso.
+            {#if fin}<b>{finLibre}</b>
+            {:else}Seguís la partida sin objetivo: este intento ya no cuenta para el repaso.{/if}
           {:else}
             Objetivo: {config.objetivo === 'ganar' ? 'ganar' : 'hacer tablas'} · jugás con {color === 'white' ? 'blancas' : 'negras'} · jugada {jugadasPropias} de {config.maxJugadas}
           {/if}
