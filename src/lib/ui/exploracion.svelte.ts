@@ -46,4 +46,11 @@ export class Exploracion {
   ir(i: number) {
     this.idx = Math.max(0, Math.min(i, this.fens.length - 1))
   }
+
+  /** Vuelve a la jugada i y descarta todo lo jugado después (a diferencia de ir(), que solo mira). */
+  cortarEn(i: number) {
+    const idx = Math.max(0, Math.min(i, this.ucis.length))
+    this.ucis = this.ucis.slice(0, idx)
+    this.idx = idx
+  }
 }
