@@ -120,9 +120,17 @@
     if (posDesdeFen(fenInicial).turn !== color) responderLibre()
   }
 
+  /** Modo final: evaluación fresca de una posición, desde mi lado, consultando al motor. */
+  async function evaluarMia(fen: string): Promise<Evaluacion> {
+    const pos = posDesdeFen(fen)
+    const r = await motorInteractivo().analizar(fen, { profundidad: 18, tiempoMs: 1200 })
+    return pos.turn === color ? r.ev : invertir(r.ev)
+  }
+
   /** Modo final: decide si el ejercicio sigue, se logró o se falló, y registra el repaso si corresponde. */
   async function terminarFinal(tablebase?: string): Promise<boolean> {
     const pos = posDesdeFen(ex.fen)
+    const repeticiones = repeticionesMap.get(clavePosicion(ex.fen)) ?? 1
     const r = revisar(pos, {
       objetivo: config!.objetivo,
       yo: color,
@@ -130,11 +138,18 @@
       maxJugadas: config!.maxJugadas,
       damasIniciales,
       exigirMate,
-      repeticiones: repeticionesMap.get(clavePosicion(ex.fen)) ?? 1,
+      repeticiones,
       evMia,
       tablebase,
     })
     if (r.estado === 'sigue') return false
+    // La partida termina por motivos distintos: jaque mate y tablas forzadas (ahogado, material
+    // insuficiente, repetición, 50 jugadas) tienen una evaluación obvia; en los demás casos (la
+    // jugada hizo que la posición dejara de estar ganada según las tablebases, se llegó al máximo
+    // de jugadas, etc.) la posición sigue siendo jugable y hay que consultarle al motor su
+    // evaluación real en vez de mostrar la que quedó calculada antes de esta jugada.
+    const tablasForzadas = pos.isStalemate() || pos.isInsufficientMaterial() || repeticiones >= 3 || pos.halfmoves >= 100
+    evMia = pos.isCheckmate() ? { mate: 0 } : tablasForzadas ? { cp: 0 } : await evaluarMia(ex.fen)
     resultado = r
     if (config!.idRepaso) await registrarIntento(config!.idRepaso, r.estado === 'logrado' ? (usoPista ? 'pista' : 'bien') : 'mal')
     return true
@@ -152,7 +167,10 @@
     ex.jugar(uci)
     contarRepeticion(ex.fen)
     const tbDespues = await consultarTablebase(ex.fen, posDesdeFen(ex.fen).board.occupied.size())
-    await terminarFinal(tbDespues?.category)
+    const termino = await terminarFinal(tbDespues?.category)
+    // Si sigue, la evaluación de arriba quedó calculada ANTES de esta jugada de la computadora
+    // (se usó para elegirla): con la barra pedida, se refresca para la posición ya jugada.
+    if (!termino && evaluar) evMia = await evaluarMia(ex.fen)
   }
 
   /** Modo libre: el rival responde con Stockfish al nivel elegido. */
