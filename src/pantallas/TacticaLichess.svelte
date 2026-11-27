@@ -3,6 +3,8 @@
   import type { ResultadoIntento } from '../lib/repaso/repaso.ts'
   import HistorialSesion from '../lib/ui/HistorialSesion.svelte'
   import ProblemaLichess from '../lib/ui/ProblemaLichess.svelte'
+  import { hashTactica } from '../lib/enlaces.ts'
+  import BotonCopiarLink from '../lib/ui/BotonCopiarLink.svelte'
   import SelectorMultiple from '../lib/ui/SelectorMultiple.svelte'
 
   let RANGOS = $state<[number, number, string][]>([
@@ -13,7 +15,7 @@
     [1400, 2200, 'Todos'],
   ])
 
-  let { origen = 'lichess' }: { origen?: Origen } = $props()
+  let { origen = 'lichess', temaPedido }: { origen?: Origen; temaPedido?: string } = $props()
   let temas = $derived(origen === 'libros' ? TEMAS_LIBROS : TEMAS_FILTRO)
   let opcionesTemas = $derived(temas.map((t) => ({ valor: t, etiqueta: nombreTema(t) })))
 
@@ -157,12 +159,19 @@
   </section>
   <section class="tarjeta">
     <h2>Filtros</h2>
+    {#if filtros.temas?.length === 1 && temas.includes(filtros.temas[0])}
+      <div class="campo">
+        <span class="suave">Tema: <b>{nombreTema(filtros.temas[0])}</b></span>
+        <BotonCopiarLink hash={hashTactica(filtros.temas[0], origen, TEMAS_FILTRO.includes(filtros.temas[0]) && TEMAS_LIBROS.includes(filtros.temas[0]))} />
+      </div>
+    {/if}
     <div class="campo">
       <span class="rotulo">Tema</span>
       <SelectorMultiple
         opciones={opcionesTemas}
         etiqueta="tema"
-        claveStorage={`tactica-temas-${origen}`}
+        inicial={temaPedido ? [temaPedido] : undefined}
+        claveStorage={temaPedido ? undefined : `tactica-temas-${origen}`}
         alCambiar={(v) => (filtros.temas = v)}
       />
     </div>

@@ -6,8 +6,32 @@
   import { armarSesion, estadoRepaso, FILTROS_INICIALES, type EstadoRepaso, type Filtros, type ResultadoIntento } from '../lib/repaso/repaso.ts'
   import Ejercicio from '../lib/ui/Ejercicio.svelte'
   import HistorialSesion from '../lib/ui/HistorialSesion.svelte'
+  import { interpretarTactica } from '../lib/enlaces.ts'
+  import { avisar } from '../lib/ui/avisos.svelte.ts'
+  import { TEMAS_FILTRO, TEMAS_LIBROS } from '../lib/problemas/temas.ts'
   import TacticaLichess from './TacticaLichess.svelte'
   import TacticaMezclada from './TacticaMezclada.svelte'
+
+  // Link directo `#/tactica/tema/<tema>[/libros]`: abre esos ejercicios con el tema elegido.
+  let { resto = [] }: { resto?: string[] } = $props()
+  let temaPedido = $state<string>()
+
+  $effect(() => {
+    const clave = resto.join('/')
+    if (!clave) {
+      temaPedido = undefined
+      return
+    }
+    const pedido = interpretarTactica(clave.split('/'), TEMAS_FILTRO, TEMAS_LIBROS)
+    if (!pedido) {
+      temaPedido = undefined
+      avisar('No encontré ese tema')
+      return
+    }
+    temaPedido = pedido.tema
+    fuente = pedido.origen
+    enSesion = false
+  })
 
   let fuente = $state<'propios' | 'lichess' | 'libros' | 'mezcla'>(cargarFuente())
 
@@ -147,11 +171,11 @@
 {#if enSesion && sesion[indice]}
   <!-- sesión en curso: ya se mostró arriba -->
 {:else if fuente === 'lichess'}
-  <TacticaLichess />
+  {#key temaPedido}<TacticaLichess {temaPedido} />{/key}
 {:else if fuente === 'mezcla'}
   <TacticaMezclada />
 {:else if fuente === 'libros'}
-  {#key fuente}<TacticaLichess origen="libros" />{/key}
+  {#key `${fuente}-${temaPedido}`}<TacticaLichess origen="libros" {temaPedido} />{/key}
 {:else}
   <p class="suave">
     Ejercicios armados con tus propios errores: la posición antes de la jugada mala, para encontrar la buena. Lo que

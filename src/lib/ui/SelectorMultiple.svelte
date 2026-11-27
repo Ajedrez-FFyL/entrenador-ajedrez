@@ -10,13 +10,17 @@
     etiquetaPlural?: string // por si el plural no es solo agregar "s"
     /** Si se pasa, recuerda la última selección en localStorage con esta clave. */
     claveStorage?: string
+    /** Selección inicial (p. ej. por un link directo): tiene prioridad sobre lo guardado y sobre «todo». */
+    inicial?: string[]
     alCambiar: (seleccionados: string[]) => void
   }
 
-  let { opciones, etiqueta, etiquetaPlural, claveStorage, alCambiar }: Props = $props()
+  let { opciones, etiqueta, etiquetaPlural, claveStorage, inicial, alCambiar }: Props = $props()
   let plural = $derived(etiquetaPlural ?? `${etiqueta}s`)
 
   function cargar(): string[] {
+    const pedidos = inicial?.filter((v) => opciones.some((o) => o.valor === v))
+    if (pedidos?.length) return pedidos
     if (claveStorage) {
       try {
         const guardado = JSON.parse(localStorage.getItem(claveStorage) ?? 'null')

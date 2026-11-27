@@ -110,6 +110,15 @@
   </div>
 
   <div class="item">
+    <h3>Links directos</h3>
+    <p class="suave">
+      Cada tema de Táctica o de Finales, curso de Aperturas y ficha de la Biblioteca se puede abrir con un link: tocá
+      «Copiar link» dentro de ese tema, curso o ficha y pegalo donde quieras (por ejemplo, en el sitio de un curso).
+      La lista completa está en <code>docs/links-directos.md</code> del repositorio.
+    </p>
+  </div>
+
+  <div class="item">
     <h3>Ajustes</h3>
     <p class="suave">Tu usuario de Lichess/Chess.com, preferencias del motor y exportar/importar tu respaldo.</p>
   </div>

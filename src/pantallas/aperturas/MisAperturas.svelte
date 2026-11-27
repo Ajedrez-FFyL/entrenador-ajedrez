@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { untrack } from 'svelte'
+  import { hashCurso } from '../../lib/enlaces.ts'
+  import BotonCopiarLink from '../../lib/ui/BotonCopiarLink.svelte'
   import { fensDeLinea } from '../../lib/aperturas/arbol.ts'
   import { armarCurso, estadoCurso, guardarMisAperturas, leerMisAperturas, type MisAperturas } from '../../lib/aperturas/curso.ts'
   import { EXPLICACIONES, type Explicacion } from '../../lib/aperturas/explicaciones.ts'
@@ -11,6 +14,9 @@
    * Inicio de la práctica de aperturas: una fila para blancas y otra para negras con las aperturas que
    * eligió el usuario. Cada apertura se abre en su curso, con secciones y lecciones.
    */
+  /** Curso pedido por el hash (`#/aperturas/curso/<id>/<color>`): abrir y cerrar un curso es cambiar el hash, así «atrás» funciona. */
+  let { cursoId, cursoColor }: { cursoId?: string; cursoColor?: Color } = $props()
+
   let mias = $state<MisAperturas>({ white: [], black: [] })
   let progreso = $state<Record<string, string>>({})
   let abierta = $state<{ explicacion: Explicacion; color: Color }>()
@@ -32,6 +38,19 @@
   }
   cargar()
 
+  $effect(() => {
+    const id = cursoId
+    const color = cursoColor
+    untrack(() => {
+      const e = id ? porId.get(id) : undefined
+      if (e && color) abierta = { explicacion: e, color }
+      else if (abierta) {
+        abierta = undefined
+        cargar()
+      }
+    })
+  })
+
   async function agregar(color: Color, id: string) {
     const nuevas = { ...mias, [color]: [...mias[color].filter((x) => x !== id), id] }
     await guardarMisAperturas(nuevas)
@@ -41,7 +60,7 @@
 
   async function quitar(color: Color, id: string) {
     await guardarMisAperturas({ ...mias, [color]: mias[color].filter((x) => x !== id) })
-    abierta = undefined
+    location.hash = '#/aperturas'
     await cargar()
   }
 </script>
@@ -53,8 +72,7 @@
       explicacion={a.explicacion}
       color={a.color}
       alVolver={() => {
-        abierta = undefined
-        cargar()
+        location.hash = '#/aperturas'
       }}
       alQuitar={() => quitar(a.color, a.explicacion.id)}
     />
@@ -78,7 +96,7 @@
           {@const e = porId.get(id)}
           {#if e}
             <li>
-              <button class="carta" onclick={() => (abierta = { explicacion: e, color: c })}>
+              <button class="carta" onclick={() => (location.hash = hashCurso(e.id, c))}>
                 <span class="nombre">{e.nombre}</span>
                 <MiniTablero fen={fenFinal(e)} orientacion={c} />
                 <span class="suave detalle">{progreso[`${c}:${id}`] ?? '…'}</span>

@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { hashFicha, idFichaDeResto } from '../lib/enlaces.ts'
+  import BotonCopiarLink from '../lib/ui/BotonCopiarLink.svelte'
+  import { avisar } from '../lib/ui/avisos.svelte.ts'
   import { cargarBiblioteca, citaLibro, hayEnApp, type LibroBiblioteca } from '../lib/biblioteca/biblioteca.ts'
 
   const POR_PAGINA = 40
@@ -13,7 +16,16 @@
   let idioma = $state('')
   let soloEnApp = $state(false)
   let pagina = $state(0)
-  let elegido = $state<LibroBiblioteca>()
+  // Link directo `#/biblioteca/<ID>`: la ficha abierta sale del hash, así el botón «atrás» del navegador vuelve a la lista.
+  let { resto = [] }: { resto?: string[] } = $props()
+  const idPedido = $derived(idFichaDeResto(resto))
+  let elegido = $derived(idPedido ? todos.find((l) => l.id.toUpperCase() === idPedido) : undefined)
+  let avisado = ''
+  $effect(() => {
+    if (cargando || !idPedido || elegido || avisado === idPedido) return
+    avisado = idPedido
+    avisar('No encontré esa ficha')
+  })
 
   cargarBiblioteca().then((l) => {
     todos = l
@@ -57,7 +69,10 @@
 
 {#if elegido}
   {@const l = elegido}
-  <button class="boton enlace" onclick={() => (elegido = undefined)}>← Volver a la lista</button>
+  <div class="barra-ficha">
+    <button class="boton enlace" onclick={() => (location.hash = '#/biblioteca')}>← Volver a la lista</button>
+    <BotonCopiarLink hash={hashFicha(l.id)} />
+  </div>
   <article class="ficha">
     <h1>{l.titulo}</h1>
     {#if l.autor}<p class="autor">{l.autor}</p>{/if}
@@ -187,7 +202,7 @@
       <ul class="lista">
         {#each visibles as l (l.id)}
           <li>
-            <button onclick={() => (elegido = l)}>
+            <button onclick={() => (location.hash = hashFicha(l.id))}>
               <b>{l.titulo}</b>
               <span class="suave">
                 {[l.autor, l.tema, l.nivel, l.dificultad ? `dificultad ${l.dificultad}` : '', l.idioma].filter(Boolean).join(' · ')}
@@ -208,6 +223,12 @@
 {/if}
 
 <style>
+  .barra-ficha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
   .filtros {
     display: flex;
     flex-wrap: wrap;
