@@ -102,6 +102,14 @@
   </div>
 
   <div class="item">
+    <h3>Biblioteca</h3>
+    <p class="suave">
+      Una ficha por cada libro de la biblioteca (qué cubre, nivel, dificultad, idioma y qué hay de él en la app), con búsqueda
+      por título o autor y filtros por tema, nivel, dificultad e idioma. Es solo de consulta: no tiene los libros.
+    </p>
+  </div>
+
+  <div class="item">
     <h3>Ajustes</h3>
     <p class="suave">Tu usuario de Lichess/Chess.com, preferencias del motor y exportar/importar tu respaldo.</p>
   </div>

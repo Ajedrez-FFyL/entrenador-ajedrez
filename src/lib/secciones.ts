@@ -1,4 +1,4 @@
-export type IdSeccion = 'partidas' | 'aperturas' | 'tactica' | 'finales' | 'editor' | 'progreso' | 'tutoriales' | 'ajustes'
+export type IdSeccion = 'partidas' | 'aperturas' | 'tactica' | 'finales' | 'editor' | 'progreso' | 'biblioteca' | 'tutoriales' | 'ajustes'
 
 export interface Seccion {
   id: IdSeccion
@@ -48,6 +48,12 @@ export const SECCIONES: Seccion[] = [
     titulo: 'Progreso',
     icono: '◔',
     descripcion: 'Dominio por apertura y tema, y cola de repaso de lo fallado.',
+  },
+  {
+    id: 'biblioteca',
+    titulo: 'Biblioteca',
+    icono: '▤',
+    descripcion: 'Fichas de los libros de la biblioteca: qué cubre cada uno, nivel, dificultad y qué hay de él en la app.',
   },
   {
     id: 'tutoriales',
