@@ -5,6 +5,7 @@
   import Bienvenida from './lib/ui/Bienvenida.svelte'
   import { bienvenidaPedida, limpiarPedidoBienvenida } from './lib/ui/bienvenidaBridge.svelte.ts'
   import Ajustes from './pantallas/Ajustes.svelte'
+  import Biblioteca from './pantallas/Biblioteca.svelte'
   import Aperturas from './pantallas/Aperturas.svelte'
   import Editor from './pantallas/Editor.svelte'
   import Finales from './pantallas/Finales.svelte'
@@ -90,6 +91,8 @@
       <Editor />
     {:else if actual === 'progreso'}
       <Progreso />
+    {:else if actual === 'biblioteca'}
+      <Biblioteca />
     {:else if actual === 'tutoriales'}
       <Tutoriales />
     {:else if actual === 'ajustes'}

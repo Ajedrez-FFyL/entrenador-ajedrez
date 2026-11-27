@@ -1,0 +1,43 @@
+{
+ "titulo": {
+  "L101": "Playing the Queen's Gambit",
+  "L103": "Colle System (1990)",
+  "L148": "1001 Brilliant Chess Sacrifices and Combinations (Sterling, 1955)",
+  "L199": "Mis geniales predecesores, vol. 1: De Steinitz a Alekhine (Ediciones Merán, 2003; con Dimitri Plisetsky; trad. Antonio Gude)",
+  "L200": "Mis geniales predecesores, vol. 5: Karpov y Korchnoi (Ediciones Merán, 2008; con Dimitri Plisetsky; trad. Antonio Gude)",
+  "L121": "The Complete Manual of Positional Chess, vol. 2: Middlegame Structures and Dynamics",
+  "L207": "Los años locos del ajedrez argentino, parte 2 (caps. XXIII a XL)",
+  "L125": "Comprender el juego de peones en ajedrez (vol. 1)",
+  "L127": "Introducción y Peón Aislado (fragmento de Comprender el juego de peones en ajedrez, 2000)",
+  "L122": "Winning Chess Middlegames: An Essential Guide to Pawn Structures",
+  "L203": "El aprendiz de brujo (Paidotribo, col. Caissa, 2.ª ed., 1998)",
+  "L225": "Dinámica y psicología en ajedrez I (Buenos Aires, 2013)",
+  "L211": "Martínez Estrada: ajedrez e ideas",
+  "L182": "Lecturas de ajedrez (col. Escaques n.º 23, Martínez Roca, 1969; trad. Agustín Puig)",
+  "L224": "Psicología del jugador de ajedrez (col. Escaques, Martínez Roca, 1974; trad. Ignacio Gaos)",
+  "L144": "Finales prácticos (edición en notación algebraica)",
+  "L189": "Computers in Chess: Solving Inexact Search Problems (Springer, 1984)",
+  "L236": "Escuela de ajedrez 1",
+  "L238": "Motivos tácticos básicos",
+  "L149": "Tactics Time! 1001 Chess Tactics from the Games of Everyday Chess Players (2012)"
+ },
+ "autor": {
+  "L203": "David Bronstein y Tom Fürstenberg"
+ },
+ "paginas": {
+  "L060": null,
+  "L085": null,
+  "L098": null,
+  "L122": null,
+  "L093": null,
+  "L054": null,
+  "L141": null,
+  "L194": null,
+  "L225": 209,
+  "L149": null,
+  "L236": null,
+  "L238": null,
+  "L202": null,
+  "L111": null
+ }
+}

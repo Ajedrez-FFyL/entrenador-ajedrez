@@ -2,6 +2,12 @@
 
 Resumen para retomar el trabajo en cualquier sesión. El detalle de métodos y herramientas está en `CLAUDE.md`.
 
+## Fase A1 — Pestaña «Biblioteca» (2026-11-27, en revisión: PR «Fase A1 — Biblioteca»)
+
+- 243 fichas (`public/datos/biblioteca.json`) generadas con `node scripts/preparar-biblioteca.ts "<CSV del catálogo>"` (el CSV es privado y no va al repo). Solo campos públicos; sin rutas ni notas.
+- Correcciones que sobreviven a un CSV nuevo: `scripts/biblioteca-que-cubre.json` (texto final por id), `scripts/biblioteca-correcciones.json` (títulos, autores y páginas) y `scripts/biblioteca-equivalencias.json` (fuente de la app → id del libro).
+- Pantalla `src/pantallas/Biblioteca.svelte`: buscador, filtros (tema, nivel, dificultad, idioma), ficha con «En la app» y cita. Capturas en `docs/capturas/a1/`.
+
 ## Orden de trabajo pedido por el usuario (2026-10-07)
 
 1. **Libros**: táctica → problemas con cita del libro; partidas → "Partidas de libros" (si no están ya); finales → módulo de finales; aperturas → explicaciones, siempre verificando con Stockfish.

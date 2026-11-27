@@ -1,0 +1,5789 @@
+[
+ {
+  "id": "L108",
+  "titulo": "Apertura Trompowsky, una desconocida (artículo de Ajedrez 6000 n.º 77, 1977, ampliado)",
+  "autor": "Salomão Rovedo",
+  "tema": "Aperturas",
+  "subtema": "1.d4 Cf6",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 59,
+  "queCubre": "Trompowsky 1.d4 Cf6 2.Ag5: origen (Octavio Trompowsky, Torneo de las Naciones 1939), idea de cambiar el alfil por el caballo, relación con el Veresov.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L107",
+  "titulo": "Attacking Chess: The King's Indian, vol. 2",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "1.d4 Cf6",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 370,
+  "queCubre": "Segundo volumen de la serie Attacking Chess, dedicado a la India de Rey.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L111",
+  "titulo": "Fianchetto Grünfeld (1998)",
+  "autor": "Mikhalchishin y Beliavsky",
+  "tema": "Aperturas",
+  "subtema": "1.d4 Cf6",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": null,
+  "queCubre": "Grünfeld con fianchetto de rey (3.g3 Ag7 4.Ag2). Estudia la línea 4...d5 5.cxd5 Cxd5 6.Cf3 Cb6 7.O-O Cc6, las variantes con 5.Cf3 y el sistema 4...c6 5.Cf3 d5 6.O-O O-O.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "grunfeld-fianchetto",
+     "nombre": "Grünfeld con fianchetto (Neo-Grünfeld)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L021",
+  "titulo": "Fighting the Anti-King's Indians (Everyman)",
+  "autor": "Yelena Dembo",
+  "tema": "Aperturas",
+  "subtema": "1.d4 Cf6",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 208,
+  "queCubre": "Cómo jugar la India de Rey contra los sistemas que la evitan: Trompowsky (cap. 1), Veresov (2), Barry (3), Londres (4), Torre (5), Colle (6), fianchetto contra la India de Rey (7) y contra la Grünfeld (8), Blackmar-Diemer (9), segundas jugadas varias (10), fianchetto contra la Inglesa (11), Inglesa con estructura de India de Rey (12).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "trompowsky",
+     "nombre": "Ataque Trompowsky"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L110",
+  "titulo": "La Defensa Benoni, Variante Moderna (pack, oct. 2006)",
+  "autor": "EDAMI",
+  "tema": "Aperturas",
+  "subtema": "1.d4 Cf6",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 12,
+  "queCubre": "Pack de clases sobre la Benoni, variante moderna: presentación y primera clase (historia y origen del nombre).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L106",
+  "titulo": "La India de Rey (Hispano Europea, col. Jaque Mate, 2006; trad. Sergio Picatoste)",
+  "autor": "David Bronstein y Ken Neat",
+  "tema": "Aperturas",
+  "subtema": "1.d4 Cf6",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 211,
+  "queCubre": "India de Rey: una mirada al pasado, las funciones de los dos ejércitos, las jugadas corrientes de piezas y peones de ambos bandos, exámenes de posiciones, la India de Rey en acción (distintos planes del blanco y del negro) y 64 partidas adicionales con soluciones. Enfoque muy didáctico.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L017",
+  "titulo": "Opening Repertoire: Nimzo and Bogo Indian (Everyman, 2015)",
+  "autor": "Christof Sielecki",
+  "tema": "Aperturas",
+  "subtema": "1.d4 Cf6",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 442,
+  "queCubre": "Repertorio para el negro. Nimzoindia: líneas raras (1), Sämisch 4.a3 (2), 4.f3 (3), Kasparov-Romanishin 4.Cf3 y 5.g3 (4), Rubinstein 4.e3 (5-8, incluida la Hübner), Clásica 4.Dc2 (9-11, Zúrich). Bogoindia 4.Ad2 a5 (12), 4.Cbd2 (13), Catalana-Bogo (14).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "bogoindia",
+     "nombre": "Defensa Bogoindia"
+    },
+    {
+     "id": "nimzoindia",
+     "nombre": "Defensa Nimzoindia"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L109",
+  "titulo": "Starting Out: Benoni Systems (Everyman)",
+  "autor": "Alexander Raetsky y Maxim Chetverik",
+  "tema": "Aperturas",
+  "subtema": "1.d4 Cf6",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 240,
+  "queCubre": "Sistemas de Benoni y Benko: Volga/Benko aceptado (con y sin 5.bxa6) y rehusado, Blumenfeld e híbridos, Benoni cerrada y checa, 1.d4 Cf6 2.Cf3 c5 3.d5, Benoni Schmid, híbrido Benoni-India de Rey y otras Benonis.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "benoni",
+     "nombre": "Defensa Benoni Moderna"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L016",
+  "titulo": "Starting Out: The Nimzo-Indian (Everyman, 2002)",
+  "autor": "Chris Ward",
+  "tema": "Aperturas",
+  "subtema": "1.d4 Cf6",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 178,
+  "queCubre": "Nimzoindia: Rubinstein 4.e3 con ...b6 (cap. 1), ...O-O (2) y ...c5 (3); Clásica 4.Dc2 con ...d5 (4), ...O-O (5) y ...c5 (6); 4.Cf3 con ...b6, ...O-O y ...c5 (7-9); Sämisch 4.a3 (10); Leningrado 4.Ag5 (11); otras (12).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "nimzoindia",
+     "nombre": "Defensa Nimzoindia"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L018",
+  "titulo": "Tango! A Dynamic Answer to 1 d4 (Everyman, 2005)",
+  "autor": "Richard Palliser",
+  "tema": "Aperturas",
+  "subtema": "1.d4 Cf6",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 195,
+  "queCubre": "Defensa Mexicana / Tango (1.d4 Cf6 2.c4 Cc6): centro de casillas negras (caps. 1-2), el avance d5 (3), sistemas raros (4), transposición a la Nimzoindia (5-7, Zúrich), el fianchetto contra la Catalana (8), la India de Rey flexible contra 4.a3 (9).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "mexicana",
+     "nombre": "Defensa Mexicana (Tango)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L020",
+  "titulo": "The Makogonov Variation",
+  "autor": "Lakdawala y Hansen",
+  "tema": "Aperturas",
+  "subtema": "1.d4 Cf6",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 321,
+  "queCubre": "India de Rey, Makogonov (5.h3): los fundadores (cap. 1), estructura ...e5 (2), sistemas con ...Cfd7 (3), ...Ca6 antes de ...a5 (4), otros con ...e5 (5), contra la Benoni (6) y el Benko (7), sistemas menores (8), el alfil en g5 (9), repertorio rápido.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "india-de-rey",
+     "nombre": "Defensa India de Rey"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L019",
+  "titulo": "The Mexican Defense (ICE, 1997)",
+  "autor": "Georgi Orlov",
+  "tema": "Aperturas",
+  "subtema": "1.d4 Cf6",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 24,
+  "queCubre": "Monografía breve sobre la Defensa Mexicana (1.d4 Cf6 2.c4 Cc6), asociada a Carlos Torre.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L013",
+  "titulo": "Easy Guide to the Queen's Gambit Accepted (Cadogan, 1998)",
+  "autor": "Graeme Buckley",
+  "tema": "Aperturas",
+  "subtema": "1.d4 d5 y Gambito de Dama",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 65,
+  "queCubre": "Introducción al GDA (cap. 1), Variante Central 3.e4 (2), Cc3 y e4 (3), Clásica con e4 rápido (4), fianchetto de dama (5), Clásica con a4 (6), medio juego sin damas (7), peón aislado blanco en d4 (8), otros sistemas (9).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "gambito-de-dama",
+     "nombre": "Gambito de Dama"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L015",
+  "titulo": "Queen's Pawn: Veresov System (Batsford, 1983)",
+  "autor": "Robert Bellin",
+  "tema": "Aperturas",
+  "subtema": "1.d4 d5 y Gambito de Dama",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 98,
+  "queCubre": "Veresov (1.d4 Cf6 2.Cc3 d5 3.Ag5): introducción (cap. 1), 3...h6, 3...g6 y 3...c5 (2), 3...c6 y 3...Af5 (3), 3...Cbd7 (4).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "veresov",
+     "nombre": "Apertura Veresov"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L012",
+  "titulo": "Starting Out: Queen's Gambit Declined (Everyman, 2006)",
+  "autor": "Neil McDonald",
+  "tema": "Aperturas",
+  "subtema": "1.d4 d5 y Gambito de Dama",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 191,
+  "queCubre": "Jugadas iniciales y estrategia (cap. 1), Tartakower (2), Lasker (3), Clásica (4), Cambridge Springs (5), Variante del Cambio (6), 5.Af4 (7).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L011",
+  "titulo": "Starting Out: The Queen's Gambit (Everyman, 2002)",
+  "autor": "John Shaw",
+  "tema": "Aperturas",
+  "subtema": "1.d4 d5 y Gambito de Dama",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 144,
+  "queCubre": "Gambito de Dama Rehusado (cap. 1), Variante del Cambio (2), Tarrasch (3), Semieslava (4), orden \"triángulo\" (5), Eslava (6), Gambito de Dama Aceptado (7), Chigorin (8), otras (9).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "gambito-de-dama",
+     "nombre": "Gambito de Dama"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L014",
+  "titulo": "The Catalan (Everyman, 2004)",
+  "autor": "Raetsky y Chetverik",
+  "tema": "Aperturas",
+  "subtema": "1.d4 d5 y Gambito de Dama",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 194,
+  "queCubre": "Catalana (1.d4 d5 2.c4 e6 3.Cf3 Cf6 4.g3): Cerrada 4...Ae7 (cap. 1), 4...c6 (2), Abierta 4...dxc4 con 5.Da4+ (3) y con 5.Ag2 y las distintas respuestas: ...Ae7, ...a6, ...Cc6, ...c5, ...b5, ...c6, ...Ab4+, ...Cbd7, ...Ad7 (4-12).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "catalana",
+     "nombre": "Apertura Catalana"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L103",
+  "titulo": "Colle System (1990)",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "1.d4 d5 y sistemas de peón dama",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 90,
+  "queCubre": "Sistema Colle, de Edgard Colle: nueve lecciones con respuestas, juego práctico, el Colle contra la India de Rey, un resumen y puntos para recordar.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "colle",
+     "nombre": "Sistema Colle"
+    },
+    {
+     "id": "peon-dama-cf3",
+     "nombre": "Peón dama con 2.Cf3"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L104",
+  "titulo": "Dealing with d4 Deviations: Fighting the Trompowsky, Torre, Blackmar-Diemer, Stonewall, Colle and Other Problem Openings (Everyman, 2005)",
+  "autor": "John Cox",
+  "tema": "Aperturas",
+  "subtema": "1.d4 d5 y sistemas de peón dama",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 146,
+  "queCubre": "Repertorio para el negro contra los sistemas de 1.d4: 1 Trompowsky (10); 2 seudo-Trompowsky (33); 3 Torre (39); 4 Torre de Hebden (54); 5 Londres (59); 6 Colle (79); 7 Veresov (101); 8 Blackmar-Diemer (111); 9 líneas anti-Benoni (118); 10 líneas raras (137); índice de variantes (143).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "blackmar-diemer",
+     "nombre": "Gambito Blackmar-Diemer"
+    },
+    {
+     "id": "londres",
+     "nombre": "Sistema Londres"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L099",
+  "titulo": "Gambito de Dama Rehusado, Variante Blackburne 5.Af4 (pack)",
+  "autor": "EDAMI",
+  "tema": "Aperturas",
+  "subtema": "1.d4 d5 y sistemas de peón dama",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 115,
+  "queCubre": "10 clases: 1 introducción e historia del GD (3); 2 la Blackburne con blancas (7); 3 con negras (28); 4 cómo jugarla con ambos colores (51); 5 ejemplos de juego correcto (54); 6 medios juegos típicos (60); 7 finales típicos (65); 8-9 partidas demostrativas (73, 81); 10 teoría de 5.Af4 (87). Mismo formato que la Siciliana Cerrada de EDAMI.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "gdr-clasico",
+     "nombre": "Gambito de Dama Rehusado: Clásico (Cambridge Springs y Lasker)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L101",
+  "titulo": "Playing the Queen's Gambit",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "1.d4 d5 y sistemas de peón dama",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 250,
+  "queCubre": "Repertorio para el blanco con el Gambito de Dama. Cubre la Eslava (4.Cc3 dxc4 5.a4, con 5...Af5, 5...Ag4, 5...Ca6 y 5...e6) y la Semieslava con 5.Ag5: Moscú y Anti-Moscú, Botvinnik (5...dxc4 6.e4 b5) y Cambridge Springs (5...Cbd7 6.e3 Da5).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "albin",
+     "nombre": "Contragambito Albin"
+    },
+    {
+     "id": "chigorin",
+     "nombre": "Defensa Chigorin"
+    },
+    {
+     "id": "eslava",
+     "nombre": "Defensa Eslava"
+    },
+    {
+     "id": "gambito-de-dama",
+     "nombre": "Gambito de Dama"
+    },
+    {
+     "id": "gdr-cambio",
+     "nombre": "Gambito de Dama Rehusado: Variante del Cambio"
+    },
+    {
+     "id": "gdr-clasico",
+     "nombre": "Gambito de Dama Rehusado: Clásico (Cambridge Springs y Lasker)"
+    },
+    {
+     "id": "semieslava",
+     "nombre": "Defensa Semieslava"
+    },
+    {
+     "id": "tarrasch",
+     "nombre": "Defensa Tarrasch"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L105",
+  "titulo": "Resumen teoría Gambito 1.d4 e5!? (proletario.cl)",
+  "autor": "Job Sepúlveda (MF)",
+  "tema": "Aperturas",
+  "subtema": "1.d4 d5 y sistemas de peón dama",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 10,
+  "queCubre": "1.d4 e5 (Englund): 2.dxe5, 2.d5, 2.c3, 2.e3, 2.e4, con planes típicos y diagramas.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "englund",
+     "nombre": "Gambito Englund"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L100",
+  "titulo": "The Cambridge Springs",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "1.d4 d5 y sistemas de peón dama",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 195,
+  "queCubre": "Gambito de Dama Rehusado, Variante Cambridge Springs.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "gdr-clasico",
+     "nombre": "Gambito de Dama Rehusado: Clásico (Cambridge Springs y Lasker)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L102",
+  "titulo": "The Queen's Gambit Accepted (Batsford Chess Opening Guides, 1999)",
+  "autor": "Chris Ward",
+  "tema": "Aperturas",
+  "subtema": "1.d4 d5 y sistemas de peón dama",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 162,
+  "queCubre": "Gambito de Dama Aceptado (1.d4 d5 2.c4 dxc4). Cubre 3.e4 (3...Cc6, 3...Cf6, 3...c5 y 3...e5), la línea clásica 3.Cf3 Cf6 4.e3 con y sin De2 temprano, 4.Cc3, 3.Da4+ y otras terceras jugadas.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L059",
+  "titulo": "A Spanish Repertoire for Black",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 234,
+  "queCubre": "Española Cerrada con la defensa Chigorin para el negro: ideas generales, sistemas Rubinstein y Petrosian, variante Yates (con 10.d5 y 10.Ae3), sistema d3, Ataque Worrall, Cambio diferido, sistemas con a4 y con c3, y Ataque Central.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "espanola-cerrada",
+     "nombre": "Española Cerrada y Ataque Marshall"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L063",
+  "titulo": "Archangel and New Archangel",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 162,
+  "queCubre": "Defensa Española, Variante Arkhangelsk (...b5 y ...Ab7).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "espanola",
+     "nombre": "Apertura Española (Ruy López)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L005",
+  "titulo": "Bologan's Ruy Lopez for Black",
+  "autor": "Victor Bologan",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Inglés",
+  "paginas": 1110,
+  "queCubre": "Repertorio con la Española para el negro. Parte I: ideas estratégicas y la 3...a6 sin la línea cerrada (Cambio, Wormald 5.De2, 5.d3, 5.d4). Parte II: anti-Marshall tras 7...O-O (8.a3, 8.d3, 8.d4, 8.h3, 8.a4). Parte III: el Ataque Marshall (8.c3 d5) con sus líneas principales.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "espanola-cerrada",
+     "nombre": "Española Cerrada y Ataque Marshall"
+    },
+    {
+     "id": "espanola",
+     "nombre": "Apertura Española (Ruy López)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L072",
+  "titulo": "Critical Lines in the Halloween Gambit (UON 13, 31-10-2005)",
+  "autor": "Paul Keiser",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 48,
+  "queCubre": "Gambito Halloween (Cuatro Caballos con 4.Cxe5): partida modelo, estrategia; gambito rehusado 4...Cxe4; aceptado 4...Cxe5 5.d4 Cc6 6.d5 Ce5 7.f4 Cg6 (líneas A a G, con 12...Ch6!) y 5...Cg6 6.e5 Cg8 7.Ac4.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "cuatro-caballos",
+     "nombre": "Partida de los cuatro caballos"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L064",
+  "titulo": "Cuadernos de Ajedrez n.º 34 (oct. 2010)",
+  "autor": "Horacio Sistac",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 22,
+  "queCubre": "Defensa de los Dos Caballos, Variante Clásica (3...Cf6): historia y análisis.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "dos-caballos",
+     "nombre": "Defensa de los Dos Caballos"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L065",
+  "titulo": "Cuadernos de Ajedrez n.º 64 (abr. 2013)",
+  "autor": "Horacio Sistac",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 19,
+  "queCubre": "Defensa Philidor: línea del cambio y Variante Hanham, con historia (Morphy en la Ópera de París).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "philidor",
+     "nombre": "Defensa Philidor"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L007",
+  "titulo": "Defensa de los Dos Caballos (2013)",
+  "autor": "Lenyb",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 773,
+  "queCubre": "Compilación de partidas de la Defensa de los Dos Caballos, desde Greco y sin comentarios: Fried Liver, Traxler, 5...Ca5 y 4.d4.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 335,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L060",
+  "titulo": "Easy Guide to the Ruy Lopez (Everyman, 1999)",
+  "autor": "John Emms",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": null,
+  "queCubre": "Guía de la Española: terceras jugadas raras, Schliemann, Clásica, Berlinesa, Steinitz diferida, Möller y Arkhangelsk, Abierta, Anti-Marshall 8.a4, ideas de la Cerrada y las defensas Karpov, Zaitsev, Smyslov, Breyer y Chigorin.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L006",
+  "titulo": "La Defensa de los Dos Caballos (Aguilera, 1973)",
+  "autor": "J. B. Estrin",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 207,
+  "queCubre": "Teoría de los Dos Caballos (4.Cg5 y 4.d4) con prólogo y partidas comentadas por Petrosian. Notación descriptiva.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "dos-caballos",
+     "nombre": "Defensa de los Dos Caballos"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L074",
+  "titulo": "Return of the Elephant Gambit (Blackmar Press, 1997)",
+  "autor": "Rasmus Pape, Jensen y Tom Purser",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 96,
+  "queCubre": "Gambito Elefante (1.e4 e5 2.Cf3 d5), segundo volumen de la obra; el primero, de 1988, está agotado y este es material nuevo. Cubre 3.Cxe5 (con 3...Ad6 y 3...dxe4), 3.exd5 (con 3...Ad6 y 3...e4) y 4.De2 Cf6.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "abiertas-otras",
+     "nombre": "Otras partidas abiertas (1.e4 e5)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L008",
+  "titulo": "Starting Out: The Scotch Game (Everyman)",
+  "autor": "John Emms",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 223,
+  "queCubre": "Escocesa de Cuatro Caballos 4...Cf6 5.Cc3 (cap. 1), Variante Mieses con 8...Cb6 (2) y con 8...Aa6 (3), 4...Ac5 5.Cxc6 (4), 5.Ae3 (5), 5.Cb3 y otras (6), jugadas raras (7).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "escocesa",
+     "nombre": "Apertura Escocesa"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L073",
+  "titulo": "The Attack with the Halloween Gambit (número especial de UON, ed. Davide Rozzoni)",
+  "autor": "Paul Keiser",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 24,
+  "queCubre": "Número especial sobre el Gambito Halloween (Cuatro Caballos con 4.Cxe5): introducción, partida modelo e índice de variantes.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L069",
+  "titulo": "The Bishop's Opening Explained (Batsford, 2004)",
+  "autor": "Gary Lane",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 160,
+  "queCubre": "Apertura de Alfil y sus transposiciones: Defensa Paulsen, Gambito Urusov, Gambito Boden-Kieseritzky, Dos Caballos, Giuoco Piano cerrado, Vienesa (con la línea \"copycat\" y 3...Cf6), Gambito Evans aceptado y rehusado, y respuestas inusuales.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "apertura-del-alfil",
+     "nombre": "Apertura del Alfil"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L068",
+  "titulo": "The Four Knights",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 194,
+  "queCubre": "Cuatro Caballos.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "cuatro-caballos",
+     "nombre": "Partida de los cuatro caballos"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L067",
+  "titulo": "The King's Gambit",
+  "autor": "John Shaw",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Inglés",
+  "paginas": 682,
+  "queCubre": "Gambito de Rey.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "gambito-de-rey",
+     "nombre": "Gambito de Rey"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L071",
+  "titulo": "The Latvian Gambit Lives!",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 227,
+  "queCubre": "Gambito Letón (1.e4 e5 2.Cf3 f5): línea principal 3.Cxe5 Df6, variantes Nimzowitsch, Bronstein y Leonhardt, 3...Cc6, 3.Ac4 fxe4 4.Cxe5 Dg5, Variante Svedenborg 4...d5, 3.exf5, 3.d4, Variante Mlotkowski 3.Cc3 y terceras jugadas raras del blanco.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "leton",
+     "nombre": "Gambito Letón"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L061",
+  "titulo": "The Marshall Attack (Everyman, 2003)",
+  "autor": "Bogdan Lalic",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 178,
+  "queCubre": "Parte 1, línea principal (8.c3 d5 9.exd5 Cxd5 10.Cxe5 Cxe5 11.Txe5 c6): 1 la vieja línea principal, 12.d4 y 15.Ae3 (7); 2 el método moderno, 12.d4 y 15.Te4 (20); 3 12.d3 (34); 4 opciones del blanco en las jugadas 12 y 13 (63). Parte 2: 5 alternativas a 11...c6 (84); 6 Variante Steiner 9...e4 (104). Parte 3, Anti-Marshall: 7 8.h3 (113); 8 8.a4 (136); 9 8.d4 (151); 10 otros (161).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 1,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L066",
+  "titulo": "The Petroff Defence (Gambit, 2001; trad. Graham Burgess, material adicional de John Nunn)",
+  "autor": "Lasha Janjgava",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 241,
+  "queCubre": "Petrov: terceras jugadas raras, 3.d4 (con y sin 3...Cxe4), 4.Ad3 d5 5.Cxe5 Cd7, 3.Cxe5 y sus secundarias, 3...d6 4.Cf3 Cxe4, 5.d4 d5 6.Ad3 (con ...Cc6, ...Ad6 y ...Ae7) y la línea principal 7.O-O Cc6 8.c4 Cb4.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "petrov",
+     "nombre": "Defensa Petrov"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L062",
+  "titulo": "The Ruy Lopez: A Guide for Black (Gambit, 2007)",
+  "autor": "Sverre Johnsen y Leif Erlend Johannessen",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 212,
+  "queCubre": "Española Cerrada con la Zaitsev. Parte 1 introducción y estrategia (23). Parte 2: 1 Zaitsev principal (51); 2 Zaitsev con 17...c4 (82); 3 otras Zaitsev (91); 4 \"Imperfection\" (107); 5 sistema de reagrupamiento (117). Parte 3: 6 octavas y novenas raras (133); 7 alternativas en las jugadas 5 y 6 (156). Parte 4: 8 Variante del Cambio (178); 9 Cambio diferido (194).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "espanola-cerrada",
+     "nombre": "Española Cerrada y Ataque Marshall"
+    },
+    {
+     "id": "espanola",
+     "nombre": "Apertura Española (Ruy López)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L070",
+  "titulo": "Vienna Game",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "1.e4 e5",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 101,
+  "queCubre": "Vienesa (1.e4 e5 2.Cc3). Incluye un capítulo sobre 1.e4 e5 2.Cc3 Cf6 3.Ac4 con otras terceras jugadas del negro y un índice de partidas completas, con partidas hasta 1999 (Adams, Anand, Bronstein, Fedorov…).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "vienesa",
+     "nombre": "Partida Vienesa"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L117",
+  "titulo": "How to Play the English Opening (Batsford, 2007; orig. Russian Chess House, 2006)",
+  "autor": "Anatoly Karpov",
+  "tema": "Aperturas",
+  "subtema": "Aperturas de flanco",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 194,
+  "queCubre": "Inglesa a través de 30 partidas comentadas de elite (Kasparov-Karpov, Kramnik-Anand, Karpov-Topalov, Korchnoi, Gelfand…). No hay capítulos temáticos.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L118",
+  "titulo": "Symmetrical English 1...c5",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Aperturas de flanco",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 227,
+  "queCubre": "Inglesa simétrica.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "inglesa",
+     "nombre": "Apertura Inglesa"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L116",
+  "titulo": "The Dynamic English (Gambit, 1999)",
+  "autor": "Tony Kosten",
+  "tema": "Aperturas",
+  "subtema": "Aperturas de flanco",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 145,
+  "queCubre": "Inglesa para el blanco. Parte 1: Siciliana invertida (1...e5), con Botvinnik, Grand Prix invertido, Tres Caballos, Dragón invertido y Keres. Parte 2: Simétrica (1...c5), con ...g6, Rubinstein y Keres-Parma. Parte 3: otras defensas (seudo-Grünfeld, Holandesa, 1...g6, 1...c6, 1...e6 y 1...b6).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "inglesa",
+     "nombre": "Apertura Inglesa"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L119",
+  "titulo": "The Polar Bear System",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Aperturas de flanco",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 120,
+  "queCubre": "Bird 1.f4 con fianchetto de rey (una Holandesa Leningrado invertida): prefacio e introducción; posiciones tipo (11); respuestas del negro en la jugada 8: ...d4 (19), ...Te8 (29), ...b6 (44), ...Ag4 (63), ...Af5 (71), ...Dc7 (73), ...a6 (76), ...Tb8 (84); esquemas con Ch6 (91); \"cazando\" con 1.f4 (107).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "bird",
+     "nombre": "Apertura Bird"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L085",
+  "titulo": "Beating the Caro-Kann",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Caro-Kann",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": null,
+  "queCubre": "Variante del Avance de la Caro-Kann para el blanco: ideas del Avance (centro, actividad en el flanco, puntos fuertes, cambios, maniobras), 4...Af5 5.g4 Ag6 6.Cge2 con once partidas, otras cuartas jugadas del negro (4...h5, 4...Ad7) y 3...c5.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L086",
+  "titulo": "Caro-Kann: Smyslov System 4...Cd7 (Cadogan, 1998; trad. Ken Neat)",
+  "autor": "Eduard Gufeld y Oleg Stetsko",
+  "tema": "Aperturas",
+  "subtema": "Caro-Kann",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 132,
+  "queCubre": "Caro-Kann 4...Cd7 (Sistema Smyslov). Parte I: 5.Cg5 con 5...Cgf6 y 5...Cdf6. Parte II: 5.Ac4 Cgf6 6.Cg5 e6 7.De2 Cb6. Parte III: 5.Cf3 Cgf6 con 6.Cxf6+ y 6.Cg3.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "caro-kann",
+     "nombre": "Defensa Caro-Kann"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L088",
+  "titulo": "Defensa Caro-Kann",
+  "autor": "Damián Reca",
+  "tema": "Aperturas",
+  "subtema": "Caro-Kann",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 55,
+  "queCubre": "Estudio del Ataque Panov (cambio central seguido de c4): concluye que en teoría no refuta la Caro-Kann aunque sea jugable en la práctica. Notación descriptiva; cierra con \"Una consulta\" de lectores. Pieza histórica del ajedrez argentino.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "caro-kann",
+     "nombre": "Defensa Caro-Kann"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L087",
+  "titulo": "Main Line Caro-Kann",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Caro-Kann",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 144,
+  "queCubre": "Línea principal de la Caro-Kann (3.Cc3 o 3.Cd2 dxe4).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "caro-kann",
+     "nombre": "Defensa Caro-Kann"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L081",
+  "titulo": "How to Play Against 1.e4",
+  "autor": "Neil McDonald",
+  "tema": "Aperturas",
+  "subtema": "Francesa",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 240,
+  "queCubre": "Repertorio con la Defensa Francesa: Avance, Cambio, Fort Knox, Clásica 4.e5, McCutcheon, Tarrasch con 3...Ae7, Ataque Indio de Rey y otras líneas.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "francesa-clasica",
+     "nombre": "Francesa Clásica y Steinitz"
+    },
+    {
+     "id": "francesa",
+     "nombre": "Defensa Francesa"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L082",
+  "titulo": "La Defensa Francesa",
+  "autor": "Viktor Moskalenko",
+  "tema": "Aperturas",
+  "subtema": "Francesa",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 247,
+  "queCubre": "Estrategia y armas sorpresa en la Defensa Francesa, en castellano.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "francesa-winawer",
+     "nombre": "Francesa Winawer"
+    },
+    {
+     "id": "francesa",
+     "nombre": "Defensa Francesa"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L083",
+  "titulo": "Play the French",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Francesa",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 274,
+  "queCubre": "Libro sobre la Defensa Francesa.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "francesa-tarrasch",
+     "nombre": "Francesa Tarrasch"
+    },
+    {
+     "id": "francesa-winawer",
+     "nombre": "Francesa Winawer"
+    },
+    {
+     "id": "francesa",
+     "nombre": "Defensa Francesa"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L084",
+  "titulo": "The French: Tarrasch Variation",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Francesa",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 193,
+  "queCubre": "Variante Tarrasch de la Francesa (3.Cd2). Tras 3...c5 estudia 7.Ce2 y 7.Cgf3; además trata 3...Ae7, 3...a6, 3...c6 y otras terceras jugadas del negro. Cita partidas hasta 2005.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "francesa-tarrasch",
+     "nombre": "Francesa Tarrasch"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L113",
+  "titulo": "Play the Classical Dutch",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Holandesa y Polaca",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 130,
+  "queCubre": "Holandesa clásica (Stonewall).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 1,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "holandesa",
+     "nombre": "Defensa Holandesa"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L112",
+  "titulo": "Play the Dutch",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Holandesa y Polaca",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 177,
+  "queCubre": "Holandesa Leningrado: gambitos y rarezas, 2.Cc3, 2.Ag5, el blanco que evita g3 temprano, secundarias de la Leningrado, la línea principal 7.Cc3 con 7...c6 y 7...Cc6, y la Holandesa contra 1.Cf3 y 1.c4.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "holandesa",
+     "nombre": "Defensa Holandesa"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L115",
+  "titulo": "The Polish Defense 1...b5",
+  "autor": "Tomasz Kapitaniak",
+  "tema": "Aperturas",
+  "subtema": "Holandesa y Polaca",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 63,
+  "queCubre": "Polaca 1.d4 b5.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L114",
+  "titulo": "Understanding the Leningrad Dutch (Gambit, 2002; trad. Laurence Webb)",
+  "autor": "Valeri Beim",
+  "tema": "Aperturas",
+  "subtema": "Holandesa y Polaca",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 193,
+  "queCubre": "Leningrado, \"guía de un entrenador\": 1 1.Cf3 f5 sin 2.d4 (13); 2 1.d4 f5: gambitos (21); 3 el blanco evita g3 (42); 4 Leningrado: desvíos tempranos (61); 5 con b3 o b4 temprano (78); 6 el blanco juega c4: secundarias (96); 7 línea principal con 7...c6 (107); 8 línea principal con 7...De8 (137); 9 ejercicios (169); soluciones (176); índice de variantes (189).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "holandesa",
+     "nombre": "Defensa Holandesa"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L003",
+  "titulo": "El error en la apertura (5.ª ed., 1988)",
+  "autor": "Ricardo Aguilera",
+  "tema": "Aperturas",
+  "subtema": "Obras generales",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Castellano",
+  "paginas": 203,
+  "queCubre": "Partidas cortas perdidas por un error de apertura, cada una con la jugada errónea según la teoría y la línea correcta. Ordenadas en cinco grupos: 1.e4 e5 (Española con todas sus defensas, Italiana, Evans, Escocesa, Dos Caballos…), 1.e4 con otras respuestas, 1.d4 d5, 1.d4 con otras respuestas, y ni 1.e4 ni 1.d4 (Réti, etc.).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L002",
+  "titulo": "El espíritu de la apertura (1973)",
+  "autor": "Ricardo Aguilera",
+  "tema": "Aperturas",
+  "subtema": "Obras generales",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Castellano",
+  "paginas": 202,
+  "queCubre": "Manual de aperturas para principiantes: síntesis de la teoría (estilos, objetivos, ventaja, plan), la idea fundamental de cada apertura (Española y Defensa Morphy, Giuoco Piano, Gambito Evans, Dos Caballos, Philidor, Contragambito Greco, Siciliana, Caro-Kann, Alekhine, Nimzowitsch, India de Rey) y partidas comentadas.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "leton",
+     "nombre": "Gambito Letón"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L001",
+  "titulo": "Fundamental Chess Openings (Gambit, 2009)",
+  "autor": "Paul van der Sterren",
+  "tema": "Aperturas",
+  "subtema": "Obras generales",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 480,
+  "queCubre": "Todas las aperturas, explicadas por ideas y no por variantes: 1.d4 d5 y 1.d4 Cf6 (Nimzoindia, India de Dama, Bogoindia, India de Rey, Grünfeld, Benoni, Benko), Holandesa, aperturas de flanco, 1.e4 e5 (Española, Italiana, Escocesa, Petrov, Gambito de Rey), Francesa, Caro-Kann, Siciliana, Alekhine y Pirc.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "abiertas-otras",
+     "nombre": "Otras partidas abiertas (1.e4 e5)"
+    },
+    {
+     "id": "albin",
+     "nombre": "Contragambito Albin"
+    },
+    {
+     "id": "alekhine",
+     "nombre": "Defensa Alekhine"
+    },
+    {
+     "id": "apertura-g3",
+     "nombre": "Apertura 1.g3 (Húngara o Benko)"
+    },
+    {
+     "id": "ataque-indio-de-rey",
+     "nombre": "Ataque Indio de Rey"
+    },
+    {
+     "id": "ataque-torre",
+     "nombre": "Ataque Torre"
+    },
+    {
+     "id": "benko",
+     "nombre": "Gambito Benko"
+    },
+    {
+     "id": "benoni",
+     "nombre": "Defensa Benoni Moderna"
+    },
+    {
+     "id": "berlina",
+     "nombre": "Defensa Berlinesa"
+    },
+    {
+     "id": "bird",
+     "nombre": "Apertura Bird"
+    },
+    {
+     "id": "blackmar-diemer",
+     "nombre": "Gambito Blackmar-Diemer"
+    },
+    {
+     "id": "bogoindia",
+     "nombre": "Defensa Bogoindia"
+    },
+    {
+     "id": "budapest",
+     "nombre": "Gambito Budapest"
+    },
+    {
+     "id": "caro-kann",
+     "nombre": "Defensa Caro-Kann"
+    },
+    {
+     "id": "catalana",
+     "nombre": "Apertura Catalana"
+    },
+    {
+     "id": "chigorin",
+     "nombre": "Defensa Chigorin"
+    },
+    {
+     "id": "colle",
+     "nombre": "Sistema Colle"
+    },
+    {
+     "id": "cuatro-caballos",
+     "nombre": "Partida de los cuatro caballos"
+    },
+    {
+     "id": "danes",
+     "nombre": "Gambito Danés"
+    },
+    {
+     "id": "dos-caballos",
+     "nombre": "Defensa de los Dos Caballos"
+    },
+    {
+     "id": "dragon-acelerado",
+     "nombre": "Siciliana Dragón Acelerado"
+    },
+    {
+     "id": "escandinava",
+     "nombre": "Defensa Escandinava"
+    },
+    {
+     "id": "escocesa",
+     "nombre": "Apertura Escocesa"
+    },
+    {
+     "id": "eslava",
+     "nombre": "Defensa Eslava"
+    },
+    {
+     "id": "espanola-cerrada",
+     "nombre": "Española Cerrada y Ataque Marshall"
+    },
+    {
+     "id": "espanola",
+     "nombre": "Apertura Española (Ruy López)"
+    },
+    {
+     "id": "evans",
+     "nombre": "Gambito Evans"
+    },
+    {
+     "id": "francesa-clasica",
+     "nombre": "Francesa Clásica y Steinitz"
+    },
+    {
+     "id": "francesa-tarrasch",
+     "nombre": "Francesa Tarrasch"
+    },
+    {
+     "id": "francesa-winawer",
+     "nombre": "Francesa Winawer"
+    },
+    {
+     "id": "francesa",
+     "nombre": "Defensa Francesa"
+    },
+    {
+     "id": "gambito-de-dama",
+     "nombre": "Gambito de Dama"
+    },
+    {
+     "id": "gambito-de-rey",
+     "nombre": "Gambito de Rey"
+    },
+    {
+     "id": "gdr-cambio",
+     "nombre": "Gambito de Dama Rehusado: Variante del Cambio"
+    },
+    {
+     "id": "gdr-clasico",
+     "nombre": "Gambito de Dama Rehusado: Clásico (Cambridge Springs y Lasker)"
+    },
+    {
+     "id": "grand-prix",
+     "nombre": "Siciliana Grand Prix (ataque con f4)"
+    },
+    {
+     "id": "grunfeld",
+     "nombre": "Defensa Grünfeld"
+    },
+    {
+     "id": "holandesa",
+     "nombre": "Defensa Holandesa"
+    },
+    {
+     "id": "india-antigua",
+     "nombre": "Defensa India Antigua"
+    },
+    {
+     "id": "india-de-dama",
+     "nombre": "Defensa India de Dama"
+    },
+    {
+     "id": "india-de-rey",
+     "nombre": "Defensa India de Rey"
+    },
+    {
+     "id": "inglesa",
+     "nombre": "Apertura Inglesa"
+    },
+    {
+     "id": "italiana",
+     "nombre": "Apertura Italiana (Giuoco Piano)"
+    },
+    {
+     "id": "larsen",
+     "nombre": "Apertura Larsen"
+    },
+    {
+     "id": "leton",
+     "nombre": "Gambito Letón"
+    },
+    {
+     "id": "londres",
+     "nombre": "Sistema Londres"
+    },
+    {
+     "id": "mexicana",
+     "nombre": "Defensa Mexicana (Tango)"
+    },
+    {
+     "id": "moderna",
+     "nombre": "Defensa Moderna"
+    },
+    {
+     "id": "nimzoindia",
+     "nombre": "Defensa Nimzoindia"
+    },
+    {
+     "id": "nimzowitsch",
+     "nombre": "Defensa Nimzowitsch"
+    },
+    {
+     "id": "owen",
+     "nombre": "Defensa Owen"
+    },
+    {
+     "id": "petrov",
+     "nombre": "Defensa Petrov"
+    },
+    {
+     "id": "philidor",
+     "nombre": "Defensa Philidor"
+    },
+    {
+     "id": "pirc",
+     "nombre": "Defensa Pirc"
+    },
+    {
+     "id": "polaca",
+     "nombre": "Apertura Polaca"
+    },
+    {
+     "id": "ponziani",
+     "nombre": "Apertura Ponziani"
+    },
+    {
+     "id": "reti",
+     "nombre": "Apertura Réti"
+    },
+    {
+     "id": "schliemann",
+     "nombre": "Defensa Schliemann (Gambito Jaenisch)"
+    },
+    {
+     "id": "semieslava",
+     "nombre": "Defensa Semieslava"
+    },
+    {
+     "id": "siciliana-alapin",
+     "nombre": "Siciliana Alapin (2.c3)"
+    },
+    {
+     "id": "siciliana-cerrada",
+     "nombre": "Siciliana Cerrada"
+    },
+    {
+     "id": "siciliana-clasica",
+     "nombre": "Siciliana Clásica (Richter-Rauzer y Sozin)"
+    },
+    {
+     "id": "siciliana-cuatro-caballos",
+     "nombre": "Siciliana de los Cuatro Caballos"
+    },
+    {
+     "id": "siciliana-dragon",
+     "nombre": "Siciliana Dragón"
+    },
+    {
+     "id": "siciliana-kan",
+     "nombre": "Siciliana Kan (Paulsen)"
+    },
+    {
+     "id": "siciliana-moscu",
+     "nombre": "Siciliana Moscú (3.Ab5+)"
+    },
+    {
+     "id": "siciliana-najdorf",
+     "nombre": "Siciliana Najdorf"
+    },
+    {
+     "id": "siciliana-rossolimo",
+     "nombre": "Siciliana Rossolimo"
+    },
+    {
+     "id": "siciliana-scheveningen",
+     "nombre": "Siciliana Scheveningen"
+    },
+    {
+     "id": "siciliana-sveshnikov",
+     "nombre": "Siciliana Sveshnikov"
+    },
+    {
+     "id": "siciliana-taimanov",
+     "nombre": "Siciliana Taimanov"
+    },
+    {
+     "id": "siciliana",
+     "nombre": "Defensa Siciliana"
+    },
+    {
+     "id": "tarrasch",
+     "nombre": "Defensa Tarrasch"
+    },
+    {
+     "id": "trompowsky",
+     "nombre": "Ataque Trompowsky"
+    },
+    {
+     "id": "veresov",
+     "nombre": "Apertura Veresov"
+    },
+    {
+     "id": "vienesa",
+     "nombre": "Partida Vienesa"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L004",
+  "titulo": "Teoría y práctica en los juegos abiertos (1979)",
+  "autor": "Bent Larsen",
+  "tema": "Aperturas",
+  "subtema": "Obras generales",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 45,
+  "queCubre": "Folleto sobre la Española, Variante Abierta (5...Cxe4): cómo encarar el juego, el estilo personal, consideraciones posicionales tras 9.c3 y 9.De2 (caps. IV-VIII), otras posibilidades de las blancas (IX-X) y la Berlinesa (VII).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "espanola",
+     "nombre": "Apertura Española (Ruy López)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L054",
+  "titulo": "An Opening Repertoire for Black (Batsford, col. Club Player's Library, 1978)",
+  "autor": "Drazen Marovic y Bruno Parma",
+  "tema": "Aperturas",
+  "subtema": "Obras generales y repertorios",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": null,
+  "queCubre": "Repertorio para el negro: Gambito de Dama, Catalana, peón dama sin c4, Benoni e India de Rey, Ataque Nimzowitsch-Larsen, Bird, otras con 1.Cf3, Inglesa, Francesa y Pirc. Explica los planes estratégicos además de las variantes.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L058",
+  "titulo": "Chess: The Complete Guide to Chess",
+  "autor": "Logan Donovan",
+  "tema": "Aperturas",
+  "subtema": "Obras generales y repertorios",
+  "nivel": "Inicial",
+  "dificultad": 1,
+  "idioma": "Inglés",
+  "paginas": 144,
+  "queCubre": "Divulgación básica: historia y notación; 1 aperturas principales en una página cada una (Española, Italiana, Siciliana, Francesa, Caro-Kann, Pirc, Inglesa, Alekhine, Gambito de Dama, Moderna, India de Rey, Ataque Indio de Rey, Holandesa); 2 pautas estratégicas; 3 14 consejos de finales; 4 principios (piezas, centro, rey, alfil contra caballo, estructura); 5 táctica.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L057",
+  "titulo": "Curso de ajedrez, Lección 5",
+  "autor": "Rafa C. M.",
+  "tema": "Aperturas",
+  "subtema": "Obras generales y repertorios",
+  "nivel": "Inicial",
+  "dificultad": 1,
+  "idioma": "Castellano",
+  "paginas": 12,
+  "queCubre": "30 ejercicios tácticos con la jugada inicial de la solución y tareas de análisis; V. La apertura: principios fundamentales (avanzar los peones centrales, caballos antes que alfiles, desarrollo con amenaza, ocupar el centro, enrocar pronto, conectar las torres).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 24,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L049",
+  "titulo": "How to Win in the Chess Openings (Cornerstone Library, 1951; reimpr. 1961)",
+  "autor": "I. A. Horowitz",
+  "tema": "Aperturas",
+  "subtema": "Obras generales y repertorios",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 194,
+  "queCubre": "Principios de apertura y sus excepciones, y luego Giuoco Piano, Española (abierta y Steinitz), Francesa (clásica, Winawer, Tarrasch), Siciliana Dragón, Gambito de Dama Rehusado, Réti, Inglesa, Alekhine y Escandinava. Cada capítulo cierra con una partida ilustrativa.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L053",
+  "titulo": "Opening for Black According to Karpov",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Obras generales y repertorios",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Inglés",
+  "paginas": 194,
+  "queCubre": "Repertorio para el negro basado en el de Karpov.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "caro-kann",
+     "nombre": "Defensa Caro-Kann"
+    },
+    {
+     "id": "india-de-dama",
+     "nombre": "Defensa India de Dama"
+    },
+    {
+     "id": "nimzoindia",
+     "nombre": "Defensa Nimzoindia"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L055",
+  "titulo": "Secrets of Opening Surprises",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Obras generales y repertorios",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 73,
+  "queCubre": "Colección de ideas sorpresivas de apertura.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "apertura-del-alfil",
+     "nombre": "Apertura del Alfil"
+    },
+    {
+     "id": "caro-kann",
+     "nombre": "Defensa Caro-Kann"
+    },
+    {
+     "id": "escandinava",
+     "nombre": "Defensa Escandinava"
+    },
+    {
+     "id": "eslava",
+     "nombre": "Defensa Eslava"
+    },
+    {
+     "id": "espanola-cerrada",
+     "nombre": "Española Cerrada y Ataque Marshall"
+    },
+    {
+     "id": "francesa",
+     "nombre": "Defensa Francesa"
+    },
+    {
+     "id": "grunfeld",
+     "nombre": "Defensa Grünfeld"
+    },
+    {
+     "id": "peon-dama-cf3",
+     "nombre": "Peón dama con 2.Cf3"
+    },
+    {
+     "id": "siciliana-najdorf",
+     "nombre": "Siciliana Najdorf"
+    },
+    {
+     "id": "siciliana",
+     "nombre": "Defensa Siciliana"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L051",
+  "titulo": "The Alterman Gambit Guide: Black Gambits 1",
+  "autor": "Boris Alterman",
+  "tema": "Aperturas",
+  "subtema": "Obras generales y repertorios",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 362,
+  "queCubre": "Gambitos para el negro: Benko, Blumenfeld, Vaganian, líneas secundarias tras 1.d4 Cf6 y Gambito de la Defensa Inglesa. Incluye índices de partidas y de variantes.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "blumenfeld",
+     "nombre": "Gambito Blumenfeld"
+    },
+    {
+     "id": "gambito-vaganian",
+     "nombre": "Gambito Vaganian"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L052",
+  "titulo": "The Alterman Gambit Guide: Black Gambits 2",
+  "autor": "Boris Alterman",
+  "tema": "Aperturas",
+  "subtema": "Obras generales y repertorios",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 378,
+  "queCubre": "Gambitos para el negro (vol. 2): Ataque Marshall, Gambito Héctor, Contraataque Traxler, Frankenstein-Drácula, Contragambito Falkbeer, Gambito From y otros sistemas tras 1.e4 e5.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "dos-caballos",
+     "nombre": "Defensa de los Dos Caballos"
+    },
+    {
+     "id": "gambito-de-rey",
+     "nombre": "Gambito de Rey"
+    },
+    {
+     "id": "vienesa",
+     "nombre": "Partida Vienesa"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L050",
+  "titulo": "The Complete Idiot's Guide to Chess Openings",
+  "autor": "William Aramil",
+  "tema": "Aperturas",
+  "subtema": "Obras generales y repertorios",
+  "nivel": "Inicial",
+  "dificultad": 1,
+  "idioma": "Inglés",
+  "paginas": 206,
+  "queCubre": "Parte 1 Fundamentos de la apertura; Parte 2 Aperturas de 1.e4; Parte 3 Aperturas de 1.d4; Parte 4 Cómo elegir aperturas; apéndices.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L056",
+  "titulo": "Winning Chess Openings",
+  "autor": "Yasser Seirawan",
+  "tema": "Aperturas",
+  "subtema": "Obras generales y repertorios",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 261,
+  "queCubre": "Quinto libro de la serie Winning Chess de Seirawan: principios básicos de la apertura, aperturas clásicas y defensas modernas de peón rey y de peón dama, y una propuesta de repertorio para cada caso. Incluye glosario.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "espanola",
+     "nombre": "Apertura Española (Ruy López)"
+    },
+    {
+     "id": "gambito-de-dama",
+     "nombre": "Gambito de Dama"
+    },
+    {
+     "id": "italiana",
+     "nombre": "Apertura Italiana (Giuoco Piano)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L089",
+  "titulo": "Black to Play and Win with 1...g6",
+  "autor": "Andrew Soltis",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas contra 1.e4",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 131,
+  "queCubre": "Moderna como repertorio completo. Secc. I, 1.e4 g6 2.d4 Ag7: A 3.Cc3 c6; B 3.Cf3 c6; C 3.c3. Secc. II, 1.d4: c4 demorado; 2.c4 Ag7 3.Cc3 d6 4.e4 Cc6. Secc. III: d4 sin c4; Inglesa; Réti y Ataque Indio de Rey; fianchetto de dama; Bird.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "moderna",
+     "nombre": "Defensa Moderna"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L094",
+  "titulo": "Center Counter Defence",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas contra 1.e4",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 97,
+  "queCubre": "Variante Portuguesa de la Escandinava (1.e4 d5 2.exd5 Cf6 3.d4 Ag4): 4.Cf3 Dxd5 con 5.Ae2 y 5.Cc3, 4.Ab5+ y otras terceras jugadas del blanco (3.Ab5+, 3.c3, 3.c4). Incluye bibliografía de la Escandinava.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L098",
+  "titulo": "Defensa hipopótamo",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas contra 1.e4",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "Defensa Hipopótamo, un sistema defensivo de formación flexible. Primera etapa: la idea, por qué jugarla, hipopótamo o semi-hipopótamo, elementos estratégicos y tres hipopótamos famosos. Segunda: historia, clasificación y partidas instructivas por estructura (India de Rey, francesa, siciliana, Benoni).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "hipopotamo",
+     "nombre": "Defensa Hipopótamo"
+    },
+    {
+     "id": "owen",
+     "nombre": "Defensa Owen"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L096",
+  "titulo": "Play 1...b6: A Dynamic and Hypermodern Opening System for Black (Everyman, 2005)",
+  "autor": "Christian Bauer",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas contra 1.e4",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 226,
+  "queCubre": "Repertorio completo con 1...b6 (Owen y Defensa Inglesa) contra 1.e4, 1.d4, 1.c4 y 1.Cf3: 1.e4 b6 2.d4 Ab7, 1.d4 b6 y 1.d4 e6 2.c4 b6, 1.c4 b6 2.Cc3 Ab7 y 1.Cf3 b6 2.g3 Ab7.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "owen",
+     "nombre": "Defensa Owen"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L097",
+  "titulo": "Play the St. George",
+  "autor": "Michael Basman",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas contra 1.e4",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 123,
+  "queCubre": "St. George (1.e4 e6 2.d4 a6 3.Cf3 b5 o 1.e4 a6 2.d4 b5). Parte I: 1 introducción (3); 2 teoría (8); 3 el intento de refutación tranquilo (14). Parte II: 4 ataque de tres peones (25); 5 línea principal (36); 6 con Ae3 (57); 7 formaciones polaca y francesa (67); 8 formaciones de Siciliana cerrada con blancas (80). Ap. I Defensa Baker (98); Ap. II Defensa Owen 1...b6 (107).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "san-jorge",
+     "nombre": "Defensa San Jorge"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L095",
+  "titulo": "Portuguese Variation",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas contra 1.e4",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 116,
+  "queCubre": "Escandinava, Variante Portuguesa.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "escandinava",
+     "nombre": "Defensa Escandinava"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L093",
+  "titulo": "The Complete Pirc (Batsford, 1989; reimpr. 1990)",
+  "autor": "John Nunn",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas contra 1.e4",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": null,
+  "queCubre": "Pirc en 22 capítulos: Ataque Austriaco (5.Cf3 con 5...O-O y 5...c5), Clásica (6.O-O con ...Ag4 y ...c6) y otros sistemas del blanco (Ae3 y Dd2, g3, h3), más sistemas inusuales y ...c6 temprano. Cierra con un índice de variantes.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "pirc",
+     "nombre": "Defensa Pirc"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L090",
+  "titulo": "The Sniper: Play 1...g6, ...Ag7 and ...c5",
+  "autor": "Charlie Storey",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas contra 1.e4",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 177,
+  "queCubre": "1 3.Cc3 c5 (16): dragones del Sniper, ...Db6 de Kupreichik (24), el Dragón de Carlsen (34), sacrificio 4...Axc3+ (46), otras cuartas (64); 2 3.Cf3 c5 (70): Maroczy 4.c4 (70), 4.dxc5 (75), 4.c3 (87), 4.d5 (88); 3 3.c3, gambito Storey (91); 4 3.f4 (99); 5 otras 1.e4: Siciliana Cerrada, ataque tipo Pastor, Grand Prix, 3.Ae3, 3.Ac4 (108-124); 6 d4 y c4 (129).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "moderna",
+     "nombre": "Defensa Moderna"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L091",
+  "titulo": "Tiger's Modern (Quality Chess, 2005)",
+  "autor": "Tiger Hillarp Persson",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas contra 1.e4",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 212,
+  "queCubre": "Moderna. El índice alfabético de partidas completas confirma el libro: 69 partidas principales, muchas del propio Hillarp Persson, más otras de Azmaiparashvili, Gurevich, Speelman, Chernin, Tkachiev, Bologan…",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "moderna",
+     "nombre": "Defensa Moderna"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L092",
+  "titulo": "Winning with the Modern (Batsford, 1994)",
+  "autor": "David Norwood",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas contra 1.e4",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 142,
+  "queCubre": "Moderna como sistema universal: 1.e4 g6 2.d4 Ag7 (3.Cc3 c6, 3.Cf3 y otras terceras jugadas), 1.d4 g6 con 2.c4 Ag7 3.Cc3 (3...d6 y 3...c5), 1.c4 y otras primeras jugadas del blanco (1.Cf3, 1.g3, 1.f4, 1.b3).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L027",
+  "titulo": "Modern King's Indian Attack (Hays, 1996)",
+  "autor": "Hall y Cartier",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas y sistemas",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 162,
+  "queCubre": "Ataque Indio de Rey para las blancas: contra la Siciliana (cap. 1), Sistema Keres (2), Sistema Karpov (3), contra la Francesa (4), otras defensas (5).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "ataque-indio-de-rey",
+     "nombre": "Ataque Indio de Rey"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L025",
+  "titulo": "Starting Out: The Modern (Everyman, 2008)",
+  "autor": "Nigel Davies",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas y sistemas",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 190,
+  "queCubre": "Defensa Moderna (1...g6 y 2...Ag7): Austriaco y otras f4 (cap. 1), sistemas con Ag5 (2), Ae3 y h4 (3), Ac4 (4), g3 (5), Clásica 4.Cf3 (6), c3 temprano (7), Averbakh (8), Averbakh menor (9), otras 1.d4 (10), aperturas de flanco (11), posiciones de prueba.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "moderna",
+     "nombre": "Defensa Moderna"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L026",
+  "titulo": "The Hedgehog",
+  "autor": "Mihai Suba",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas y sistemas",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 157,
+  "queCubre": "La estructura del Erizo a través de partidas: historia (cap. 1), la \"Edad Media\" (2), el Erizo con colores invertidos (3) y capítulos posteriores. Útil para el Dragón Acelerado con Maroczy y la Inglesa simétrica.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "inglesa",
+     "nombre": "Apertura Inglesa"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L024",
+  "titulo": "The Pirc in Black and White (Everyman, 2007)",
+  "autor": "James Vigus",
+  "tema": "Aperturas",
+  "subtema": "Otras defensas y sistemas",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 383,
+  "queCubre": "Pirc: Ataque Austriaco 4.f4 con 5...c5 (caps. 1-3) y 5...O-O (4-5); Fianchetto 4.g3 (6); Clásica 4.Cf3 Ag7 5.Ae2 (7); Clásica acelerada (8); sistema con Ae3 y f3 (9); Ataque 150 con Ae3 y Dd2 (10); 4.Ag5 (11); 4.Ac4, 4.f4 y otras (12).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "pirc",
+     "nombre": "Defensa Pirc"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L009",
+  "titulo": "Anti-Sicilians: A Guide for Black (Gambit, 2003)",
+  "autor": "Dorian Rogozenko",
+  "tema": "Aperturas",
+  "subtema": "Siciliana",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 194,
+  "queCubre": "Desvíos tempranos (cap. 1), Grand Prix (2), Siciliana Cerrada (3), Alapin 2.c3 (4), varias tras 2.Cf3 (5), 3.Ab5(+): Rossolimo y Moscú (6), 2.Cf3 d6 3.d4 cxd4 4.Dxd4 (7).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "grand-prix",
+     "nombre": "Siciliana Grand Prix (ataque con f4)"
+    },
+    {
+     "id": "siciliana-alapin",
+     "nombre": "Siciliana Alapin (2.c3)"
+    },
+    {
+     "id": "siciliana-cerrada",
+     "nombre": "Siciliana Cerrada"
+    },
+    {
+     "id": "siciliana",
+     "nombre": "Defensa Siciliana"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L077",
+  "titulo": "Challenging the Sicilian with 2.a3",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Siciliana",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 212,
+  "queCubre": "",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "siciliana",
+     "nombre": "Defensa Siciliana"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L080",
+  "titulo": "Chess Explained: The c3 Sicilian (Gambit, 2007)",
+  "autor": "Sam Collins",
+  "tema": "Aperturas",
+  "subtema": "Siciliana",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 113,
+  "queCubre": "Alapin 2.c3: 2...Cf6 (líneas con cxd4, línea principal con 6.Ac4 y el blanco que evita d4 temprano), 2...d5 (con ...Cf6 y ...e6, con 5.Cf3 Ag4 y alternativas a 4...Cf6) y otras segundas jugadas del negro. Incluye índice de variantes y lista de partidas.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "siciliana-alapin",
+     "nombre": "Siciliana Alapin (2.c3)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L010",
+  "titulo": "El Dragón Hiperacelerado (La Casa del Ajedrez, 2019)",
+  "autor": "Raja Panjwani",
+  "tema": "Aperturas",
+  "subtema": "Siciliana",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 166,
+  "queCubre": "Dragón Acelerado e Hiperacelerado (2...g6), incluida la Formación Maroczy, con partidas comentadas.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "dragon-acelerado",
+     "nombre": "Siciliana Dragón Acelerado"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L076",
+  "titulo": "How to Beat the Sicilian Defence",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Siciliana",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 352,
+  "queCubre": "Repertorio contra la Siciliana para el blanco.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "siciliana-moscu",
+     "nombre": "Siciliana Moscú (3.Ab5+)"
+    },
+    {
+     "id": "siciliana-rossolimo",
+     "nombre": "Siciliana Rossolimo"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L075",
+  "titulo": "La Variante Cerrada de la Defensa Siciliana (pack, sept. 2006)",
+  "autor": "EDAMI",
+  "tema": "Aperturas",
+  "subtema": "Siciliana",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 76,
+  "queCubre": "Siciliana Cerrada en 10 clases: 1 introducción e historia (3); 2 el Sistema Cerrado con blancas (6); 3 con negras (19); 4 cómo jugarlo con ambos colores (31); 5 ejemplos de juego correcto en la apertura (33); 6 medios juegos típicos (37); 7 finales típicos (39); 8-9 partidas demostrativas (44, 49); 10 teoría (54).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "siciliana-cerrada",
+     "nombre": "Siciliana Cerrada"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L078",
+  "titulo": "Sicilian Grand Prix Attack",
+  "autor": "",
+  "tema": "Aperturas",
+  "subtema": "Siciliana",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 146,
+  "queCubre": "Grand Prix (2.Cc3 y f4), organizado en unas 91 partidas modelo. El último capítulo trata 1.e4 c5 2.f4 sin 2.Cc3 (2...e6 y 3...d5, 2...g6, 2...Cf6, 2...b6); entre las partidas dominan las de Hebden y Hodgson.",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "grand-prix",
+     "nombre": "Siciliana Grand Prix (ataque con f4)"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L079",
+  "titulo": "Starting Out: Sicilian Grand Prix Attack (Everyman, 2008)",
+  "autor": "Gawain Jones",
+  "tema": "Aperturas",
+  "subtema": "Siciliana",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 178,
+  "queCubre": "Grand Prix con 2.Cc3: 1 2...Cc6 3.f4 g6 4.Cf3 Ag7 5.Ac4 (13); 2 ídem con 5.Ab5 (29); 3 2...d6 3.f4 (68); 4 2...e6 3.f4 (87); 5 otras segundas del negro (114); 6 2...Cc6 3.Ab5: introducción (128); 7 2...Cc6 3.Ab5 Cd4 (146); índices de variantes (167) y de partidas (173).",
+  "destino": "Aperturas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": [
+    {
+     "id": "grand-prix",
+     "nombre": "Siciliana Grand Prix (ataque con f4)"
+    },
+    {
+     "id": "siciliana-cerrada",
+     "nombre": "Siciliana Cerrada"
+    }
+   ]
+  }
+ },
+ {
+  "id": "L148",
+  "titulo": "1001 Brilliant Chess Sacrifices and Combinations (Sterling, 1955)",
+  "autor": "Fred Reinfeld",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 252,
+  "queCubre": "Edición original en inglés de la colección de Reinfeld: 20 temas de combinación, de la clavada y el ataque doble a los sacrificios de dama, los rayos X, el zugzwang y la debilidad del enroque, con soluciones al final.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 208,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L038",
+  "titulo": "1001 sacrificios y combinaciones brillantes (Bruguera)",
+  "autor": "Fred Reinfeld",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 320,
+  "queCubre": "Edición en castellano de la colección de Reinfeld: 20 temas de combinación, de la clavada y el ataque doble a los sacrificios de dama, los rayos X, el zugzwang y la debilidad del enroque, con soluciones al final.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L042",
+  "titulo": "50 mates en 3, 4 y 5 (David Schloss)",
+  "autor": "",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 107,
+  "queCubre": "50 problemas de mate en 3, 4 y 5 jugadas, en cuatro capítulos.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 49,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L152",
+  "titulo": "Attacking Technique",
+  "autor": "",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 107,
+  "queCubre": "",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L155",
+  "titulo": "Chess Exam and Training Guide: Rate Yourself and Learn How to Improve",
+  "autor": "Igor Khmelnitsky",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 320,
+  "queCubre": "Examen de diagnóstico para todos los niveles, de principiante a maestro, que puntúa por áreas (apertura, medio juego, final, ataque, defensa, contraataque, táctica, estrategia, cálculo, reconocer amenazas, sacrificio y posiciones estándar) con recomendaciones de entrenamiento y de libros.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L147",
+  "titulo": "Chess: 5334 Problems, Combinations and Games",
+  "autor": "László Polgár",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 1184,
+  "queCubre": "1 mate en 1 (9); 2 mate en 2 (62), combinaciones 451-3514 y 3515-3718; 3 mate en 3 (636); 4 600 miniaturas por casilla atacada: f3/f6, g3/g6, h3/h6, f2/f7, g2/g7, h2/h7 (762); 5 finales simples: el blanco entabla (5063-5104) y gana (5105-5206) (921); 6 combinaciones de las hermanas Polgár (949); soluciones (974).",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 5128,
+   "partidas": 467,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L164",
+  "titulo": "El acertijo del mandarín y otras diversiones matemáticas (Zugarto, col. Juegos & Co.)",
+  "autor": "Henry E. Dudeney",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 182,
+  "queCubre": "Matemática recreativa: selección de Amusements in Mathematics de Dudeney, con nota biográfica que lo compara con Sam Loyd. No es específicamente de ajedrez.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L153",
+  "titulo": "Improve Your Attacking Chess: 250 Puzzle Positions to Train Your King-Hunting Skills (Gambit, 2004)",
+  "autor": "Simon Williams",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 163,
+  "queCubre": "250 ejercicios de ataque en 6 capítulos, cada uno con sus soluciones: 1 atacar al rey que quedó en el centro (8); 2 atacar al rey enrocado (30); 3 el golpe en el centro (58); 4 ¡el tiempo lo es todo! (84); 5 enroques opuestos (107); 6 esperar lo inesperado (134); índice de jugadores (158).",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 93,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L161",
+  "titulo": "Juegos de ajedrez y los misteriosos caballos de Arabia (1981)",
+  "autor": "Raymond Smullyan",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 200,
+  "queCubre": "Problemas de lógica y de análisis retrógrado con piezas de ajedrez.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L162",
+  "titulo": "Los acertijos de Sam Loyd",
+  "autor": "Martin Gardner",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 166,
+  "queCubre": "Acertijos matemáticos de Loyd, compositor de problemas de ajedrez.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L158",
+  "titulo": "Maestría en el cálculo",
+  "autor": "Jacob Aagaard",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Castellano",
+  "paginas": 242,
+  "queCubre": "Entrenamiento del cálculo de variantes.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 15,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L157",
+  "titulo": "Middlegames (Könemann, 1998; textos en inglés, alemán, francés y castellano)",
+  "autor": "László Polgár",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 1016,
+  "queCubre": "Banco de ejercicios, 54 por tema y numerados. Táctica: mate de las hombreras, última fila, ataque doble, desviación, despeje, clavada, sacrificios en h7, h6, g7, g6, f7 y f6, enroques opuestos, contraataque. Estrategia: peón aislado, colgantes, pasado, pareja de alfiles, alfiles de distinto color, ataque de minorías, erizo, Stonewall.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 505,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L163",
+  "titulo": "Nuevos acertijos de Sam Loyd",
+  "autor": "Martin Gardner",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 174,
+  "queCubre": "Nueva selección de acertijos de Sam Loyd.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L160",
+  "titulo": "Problemas de ajedrez (Martínez Roca)",
+  "autor": "Camil Seneca",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 103,
+  "queCubre": "Libro de problemas de ajedrez.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L159",
+  "titulo": "Problemas de cálculo",
+  "autor": "Antonio Gude",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 50,
+  "queCubre": "Ejercicios de cálculo.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 31,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L154",
+  "titulo": "Tactical Chess Exchanges (Macmillan Chess Library / Collier, 1991)",
+  "autor": "Gennady Nesis",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 128,
+  "queCubre": "Los cambios de piezas, a partir de la idea de Fischer de cambiar las piezas malas: cómo se enlazan las fases de la partida, el papel del cambio, el cambio en la apertura y en el medio juego (para realizar una ventaja material o posicional, en el ataque y la defensa y como parte de la combinación) y los cambios desiguales.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L149",
+  "titulo": "Tactics Time! 1001 Chess Tactics from the Games of Everyday Chess Players (2012)",
+  "autor": "Tim Brennan y Anthea Carson",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": null,
+  "queCubre": "1001 ejercicios tomados de partidas de aficionados.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 795,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L151",
+  "titulo": "The Chess Puzzle Book 4: Mastering the Positional Principles",
+  "autor": "",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 187,
+  "queCubre": "Ejercicios posicionales.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L150",
+  "titulo": "The Complete Chess Workout: 1200 puzzles",
+  "autor": "",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 320,
+  "queCubre": "1200 ejercicios.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 844,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L039",
+  "titulo": "The Manual of Chess Combinations 1b",
+  "autor": "Ivashchenko",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 1,
+  "idioma": "Inglés",
+  "paginas": 114,
+  "queCubre": "Ejercicios de 4.° y 5.° grado (n.º 720 en adelante), por tema (ganar la dama, mate, etc.). Cuadrilingüe.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 255,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L040",
+  "titulo": "The Manual of Chess Combinations 2",
+  "autor": "Ivashchenko",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 260,
+  "queCubre": "Grados 6 a 11: combinaciones más profundas y estudios artísticos.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 485,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L041",
+  "titulo": "The Manual of Chess Combinations 3",
+  "autor": "Alexander Mazja",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 188,
+  "queCubre": "Cálculo: visión combinatoria, variantes cortas, cálculo forzado largo, jugadas candidatas, jugadas fuertes durante el cálculo, recursos del rival, soluciones inusuales, cálculo complicado.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 348,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L156",
+  "titulo": "Táctica del medio juego (col. Escaques n.º 19, Martínez Roca, 1972; trad. Mariano Orta Manzano)",
+  "autor": "Igor Bondarewsky",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 83,
+  "queCubre": "Teoría de la combinación: los elementos de la combinación, el sacrificio como elemento básico, el cálculo y la valoración de la posición final, génesis y naturaleza lógica de las combinaciones y celadas; después, ideas combinativas como la atracción y el bloqueo. Notación descriptiva.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 2,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L030",
+  "titulo": "Ajedrez posicional explicado: cómo se ganan las partidas",
+  "autor": "Zenón Franco",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 320,
+  "queCubre": "El arte del sacrificio (cap. 1); debilidades, segunda debilidad, ventaja permanente contra temporal, reagrupación, el destino del rey (2); la simplificación y el cambio de damas (3); los peones: cesión de casillas, el centro de peones de Kasparov en la India de Dama, la ruptura central (4). Partidas modernas, muchas Sicilianas, Españolas e Indias de Dama.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L125",
+  "titulo": "Comprender el juego de peones en ajedrez (vol. 1)",
+  "autor": "Drazen Marovic",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 188,
+  "queCubre": "Primer volumen de la obra sobre el juego de peones.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L034",
+  "titulo": "El arte de maniobrar con las piezas (Russell, 2016)",
+  "autor": "Mark Dvoretsky",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Castellano",
+  "paginas": 431,
+  "queCubre": "Ejercicios de maniobras de piezas: estudios de calentamiento, la apertura, el final, posiciones sin dama, medio juego de dama y torres, pequeñas obras maestras, ejercicios difíciles.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 80,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L031",
+  "titulo": "El arte del ataque",
+  "autor": "Zenón Franco",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 234,
+  "queCubre": "El rey en el centro (cap. 1), enroques opuestos (2), ataques con enroques del mismo lado (3), aprovechar ventajas temporales (4), los alfiles de Horwitz (5), el caballo en f5, maniobras de piezas pesadas, el centro de peones (6). Problemas con soluciones.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 20,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L033",
+  "titulo": "El poder del rey en el ajedrez (1999)",
+  "autor": "Edmar Mednis",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 341,
+  "queCubre": "El rey en la apertura (enroque, pérdida del enroque, caps. 1-3), frente a los sacrificios (4), el rey activo (6), movimientos correctos e incorrectos (9, 22), el rey encerrado (10, 23), el rey agresivo (19), y en los finales: el rey activo gana (24: finales de rey y peones, piezas menores, mixtos) o entabla (25), el rey en la defensa (26).",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L133",
+  "titulo": "Entrenamiento sistemático en ajedrez: métodos de entrenamiento, estrategias y combinaciones (Hispano Europea, col. Jaque Mate, 2008; trad. Sergio Picatoste; orig. Das systematische Schachtraining, Edition Olms)",
+  "autor": "Sergiu Samarian",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 188,
+  "queCubre": "Manual oficial de la Federación Alemana de Ajedrez, organizado por temas con ejercicios y soluciones: casillas fuertes y débiles y estructuras de peones (retrasados, doblados, peón de dama aislado como virtud y como debilidad, pareja c3/d4, colgantes). Índices de aperturas (ECO) y de jugadores.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L131",
+  "titulo": "Grandmaster Preparation: Positional Play (Quality Chess, 2012; prólogo de Artur Yusupov)",
+  "autor": "Jacob Aagaard",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Castellano",
+  "paginas": 312,
+  "queCubre": "Método de \"las tres preguntas\": introducción de la serie (6); mis intenciones (7); visualizar las tres preguntas (11); las tres preguntas en la práctica (15). 1 Debilidades (23); 2 Piezas (71); 3 Profilaxis (119); 4 Ejercicios (153); 5 Soluciones (179); índice de nombres (308).",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L127",
+  "titulo": "Introducción y Peón Aislado (fragmento de Comprender el juego de peones en ajedrez, 2000)",
+  "autor": "Drazen Marovic",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 6,
+  "queCubre": "Fragmento de Comprender el juego de peones en ajedrez: la introducción, sobre la historia de la teoría de los peones (Philidor, Staunton, Steinitz, Nimzowitsch y Réti).",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L126",
+  "titulo": "Juego dinámico de peones en ajedrez",
+  "autor": "Drazen Marovic",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 70,
+  "queCubre": "",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L128",
+  "titulo": "La estructura de peones centrales (col. Escaques n.º 20, Martínez Roca, 1972; reimpr. 1984; trad. del ruso de Agustín Puig)",
+  "autor": "Boris Persits",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 81,
+  "queCubre": "El dominio del centro con los peones: cuándo ocuparlo y cuándo cederlo para atacarlo con piezas. Notación descriptiva.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L130",
+  "titulo": "La toma de decisiones en el ajedrez dinámico",
+  "autor": "Boris Gelfand",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Castellano",
+  "paginas": 298,
+  "queCubre": "Continuación de La toma de decisiones en el ajedrez posicional, dedicada al ajedrez dinámico.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L028",
+  "titulo": "La toma de decisiones en el ajedrez posicional",
+  "autor": "Boris Gelfand",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Castellano",
+  "paginas": 304,
+  "queCubre": "Jugar como Rubinstein (cap. 1), el estrangulamiento (2), ventaja de espacio (3), transformación de la estructura de peones (4), transformación de las ventajas (5), entrevista de Aagaard. Índice de aperturas en p. 299.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L124",
+  "titulo": "Los secretos de la estrategia moderna",
+  "autor": "John Watson",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 200,
+  "queCubre": "Primera parte: el perfeccionamiento de la teoría tradicional. Trata el centro y el desarrollo (centro y tiempos, avance de peones en la apertura, la masa de peones centrales móviles, el abandono del centro), minorías, mayorías y peones pasados, y cadenas y peones doblados según Nimzowitsch.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L029",
+  "titulo": "Mejore su ajedrez posicional (2008)",
+  "autor": "Carsten Hansen",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 224,
+  "queCubre": "Desequilibrios, iniciativa, debilidades (caps. 1-3); caballos y alfiles, torres, calidad, dama (4-7); debilidades estructurales, sacrificios de peón (8-9); dónde y cómo atacar (10); ejercicios y soluciones (11-12).",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L129",
+  "titulo": "Pawn Power",
+  "autor": "Angus Dunnington",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 109,
+  "queCubre": "Los peones en general: peones en la defensa, el centro, el peón pasado y la coronación, la masa de peones, el mate, partidas ilustrativas y problemas con soluciones.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L123",
+  "titulo": "Pawn Power in Chess (ed. 1990)",
+  "autor": "Hans Kmoch",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 281,
+  "queCubre": "Parte 1 elementos del juego de peones; Parte 2 peones y piezas; Parte 3 el poder de los peones en la partida.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L035",
+  "titulo": "Rock Solid Chess, tomo 1: estructuras de peones (NIC)",
+  "autor": "Tiviakov y Gökbulut",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 496,
+  "queCubre": "Ajedrez humano contra ajedrez de computadora (introducción); mayoría de peones en un flanco (cap. 1), peones doblados (2-3), columnas semiabiertas en el centro (4), una columna abierta (5), dos columnas abiertas (6), doble fianchetto (7).",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L036",
+  "titulo": "Rock Solid Chess, tomo 2: juego de piezas (NIC, 2024)",
+  "autor": "Tiviakov y Gökbulut",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 520,
+  "queCubre": "Efecto de mover un peón (cap. 1), valor de los tiempos (2), valor relativo de las piezas (3), pareja de alfiles (4), alfiles de distinto color (5), centralización (6), dominación (7), posiciones pasivas (8), flexibilidad en el enroque (9), elegir plan según el rival y el torneo (10).",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L032",
+  "titulo": "The Amateur's Mind",
+  "autor": "Jeremy Silman",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 228,
+  "queCubre": "Errores típicos del aficionado por tema: desequilibrios, alfiles contra caballos, centro y espacio, estructura de peones, material, desarrollo e iniciativa, cómo jugar la apertura, torres, el rey, en qué flanco jugar, fortaleza mental, tests.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L120",
+  "titulo": "The Complete Manual of Positional Chess, vol. 1: Opening and Middlegame (Russian Chess School 2.0)",
+  "autor": "Konstantin Sakaev",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 320,
+  "queCubre": "Apertura: ventaja de desarrollo, el centro, la dama temprana, el rey en el centro y el ataque sin preparación. Medio juego: cálculo, coordinación, iniciativa, profilaxis, espacio, cambios, casillas débiles, columnas abiertas, pareja de alfiles, alfiles de distinto color, puestos avanzados y métodos de defensa.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L037",
+  "titulo": "The Seven Deadly Chess Sins (Gambit)",
+  "autor": "Jonathan Rowson",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 210,
+  "queCubre": "Psicología del error: pensar, \"parpadear\" (oportunidades perdidas), querer, materialismo, egoísmo, perfeccionismo, \"flojedad\" (incluye apuro de tiempo).",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L132",
+  "titulo": "The Ultimate Chess Strategy Book, vol. 1: How to Play the Closed Openings like a Virtuoso (Gambit, 2008; prólogo de Topalov)",
+  "autor": "Alfonso Romero y Amador González de la Nava",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 210,
+  "queCubre": "Estrategia de las aperturas cerradas en forma de test: tests 1-90 (7), cada uno con opciones puntuadas (A, B, C); soluciones con partidas modelo (68); índices de jugadores (206) y de aperturas (207).",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L122",
+  "titulo": "Winning Chess Middlegames: An Essential Guide to Pawn Structures",
+  "autor": "Ivan Sokolov",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "Estructuras de peones del medio juego: peones doblados (12 estructuras), aislados (10), colgantes (4) y mayoría central (7).",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L121",
+  "titulo": "The Complete Manual of Positional Chess, vol. 2: Middlegame Structures and Dynamics",
+  "autor": "Konstantin Sakaev",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 368,
+  "queCubre": "Peones: pasado, pasado protegido, bloqueo, cuña, coronación, ruptura de cadenas, retrasados, doblados, aislados, conectados, colgantes, mayoría y minoría con el ataque de minorías, rupturas y ataques con el peón de torre. Dinámica: ataque abierto, jaque descubierto, clavada, horquilla, interferencia, desviación, sobrecarga, combinación de Lasker y mate ahogado.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L145",
+  "titulo": "360 Brilliant and Instructive End Games (Dover, 1968; introducción de Fred Reinfeld; orig. Sterling, 1961)",
+  "autor": "A. A. Troitzky",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Castellano",
+  "paginas": 194,
+  "queCubre": "360 estudios de Troitzky, los que consideraba sus mejores, numerados y con solución. Notación descriptiva.",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L136",
+  "titulo": "Bishop v. Knight Endings",
+  "autor": "Yuri Averbakh",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 173,
+  "queCubre": "Finales de alfil contra caballo.",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [
+    {
+     "id": "alfil-contra-caballo",
+     "titulo": "Alfil contra caballo con un solo peón"
+    },
+    {
+     "id": "caballo-y-peon-contra-alfil",
+     "titulo": "Caballo y peón contra alfil"
+    }
+   ],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L140",
+  "titulo": "Capablanca's Best Chess Endings",
+  "autor": "Irving Chernev",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 302,
+  "queCubre": "Finales de Capablanca partida por partida, desde 1901 (Corzo, Marshall, Janowsky, Nimzowitsch, Villegas…).",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 39,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L141",
+  "titulo": "Chess Endings: Essential Knowledge (Everyman, 3.ª ed. 1993, reimpr. 1997 y 1999; con prólogo del traductor)",
+  "autor": "Yuri Averbakh",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "Finales esenciales: mate al rey solo (con dama, torre, dos alfiles, alfil y caballo), piezas en combate, piezas contra peón, coronación de un peón (rey y peón, torre y peón contra torre, dama y peón contra dama) y finales prácticos de peones, caballo, alfil, torres y damas.",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L146",
+  "titulo": "Domination in 2,545 Endgame Studies (Progress Publishers, Moscú, 1980; trad. del ruso; orig. 1974)",
+  "autor": "Genrikh M. Kasparyan",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Castellano",
+  "paginas": 273,
+  "queCubre": "Antología de estudios en los que el blanco gana atrapando piezas: primero las menores, después la torre y la dama, y por último con otras fuerzas.",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L143",
+  "titulo": "Dvoretsky's Endgame Manual (Russell Enterprises, 2003; prólogo de Artur Yusupov, prefacio de Jacob Aagaard)",
+  "autor": "Mark Dvoretsky",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Castellano",
+  "paginas": 388,
+  "queCubre": "Manual de finales que empieza por los finales de peones: casillas clave y correspondientes, oposición, casillas minadas, triangulación, regla del cuadrado, idea de Réti, cuadrado flotante, carreras de peones, rey activo y zugzwang.",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [
+    {
+     "id": "hombro-y-pendulo",
+     "titulo": "Finales de peones: el hombro y el péndulo"
+    }
+   ],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L134",
+  "titulo": "El curso de finales completo de Silman: de principiante a maestro (Siles Press, 2007)",
+  "autor": "Jeremy Silman",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Castellano",
+  "paginas": 617,
+  "queCubre": "Curso de finales organizado por nivel de ELO, de principiante a maestro. La Parte Uno (ELO 0-999) enseña los mates básicos (la escalera, R+2D, R+D+T, R+2T, la caja, R+D y R+T contra R) y cómo cuidarse del ahogado.",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [
+    {
+     "id": "mates-basicos",
+     "titulo": "Mates básicos: dama y torre"
+    },
+    {
+     "id": "regla-del-cuadrado",
+     "titulo": "La regla del cuadrado"
+    },
+    {
+     "id": "oposicion",
+     "titulo": "Rey y peón: oposición y casillas clave"
+    },
+    {
+     "id": "peon-de-torre",
+     "titulo": "El peón de torre"
+    },
+    {
+     "id": "lucena",
+     "titulo": "Finales de torres: la posición de Lucena"
+    },
+    {
+     "id": "philidor",
+     "titulo": "Finales de torres: la posición de Philidor"
+    },
+    {
+     "id": "alfil-equivocado",
+     "titulo": "Alfil y peón de torre del color equivocado"
+    },
+    {
+     "id": "fortalezas-alfil",
+     "titulo": "Fortalezas contra el alfil de más"
+    },
+    {
+     "id": "dama-contra-peon",
+     "titulo": "Dama contra peón en séptima"
+    },
+    {
+     "id": "caballo-contra-peon",
+     "titulo": "Caballo contra peón"
+    },
+    {
+     "id": "torre-contra-peon",
+     "titulo": "Torre contra peón"
+    },
+    {
+     "id": "torre-en-septima",
+     "titulo": "Finales de torres: la torre en séptima"
+    },
+    {
+     "id": "torre-delante-del-peon",
+     "titulo": "Finales de torres: torre delante de su peón en séptima"
+    },
+    {
+     "id": "peon-pasado-alejado",
+     "titulo": "Finales de peones: el peón pasado alejado"
+    },
+    {
+     "id": "ruptura",
+     "titulo": "La ruptura de peones"
+    },
+    {
+     "id": "carreras",
+     "titulo": "Carreras de peones: contar y el doble objetivo"
+    },
+    {
+     "id": "dama-contra-torre",
+     "titulo": "Dama contra torre"
+    },
+    {
+     "id": "alfil-mismo-color",
+     "titulo": "Alfil y peón contra alfil del mismo color"
+    },
+    {
+     "id": "alfiles-distinto-color",
+     "titulo": "Alfiles de distinto color con dos peones"
+    },
+    {
+     "id": "triangulacion",
+     "titulo": "Finales de peones: triangulación"
+    },
+    {
+     "id": "zorro-en-el-gallinero",
+     "titulo": "Finales de peones: el zorro en el gallinero"
+    },
+    {
+     "id": "congelacion",
+     "titulo": "Finales de peones: cuando un peón congela a dos"
+    },
+    {
+     "id": "dos-alfiles",
+     "titulo": "Mate con dos alfiles"
+    },
+    {
+     "id": "lucena-peon-de-torre",
+     "titulo": "Finales de torres: «Lucena» con peón de torre"
+    },
+    {
+     "id": "torre-dos-peones",
+     "titulo": "Finales de torres: dos peones conectados contra torre"
+    },
+    {
+     "id": "torre-dos-contra-uno",
+     "titulo": "Finales de torres: dos peones contra uno en el mismo flanco"
+    }
+   ],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L144",
+  "titulo": "Finales prácticos (edición en notación algebraica)",
+  "autor": "Paul Keres",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 334,
+  "queCubre": "Finales prácticos de Keres: elementales, de peones, de damas, de torre, de alfil y de caballo.",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [
+    {
+     "id": "alfil-mismo-color",
+     "titulo": "Alfil y peón contra alfil del mismo color"
+    },
+    {
+     "id": "peones-doblados",
+     "titulo": "Peones doblados contra rey solo"
+    },
+    {
+     "id": "peon-pasado-protegido",
+     "titulo": "El peón pasado protegido"
+    },
+    {
+     "id": "dama-y-peon-contra-dama",
+     "titulo": "Dama y peón en séptima contra dama"
+    },
+    {
+     "id": "caballo-y-peon-contra-caballo",
+     "titulo": "Caballo y peón contra caballo"
+    },
+    {
+     "id": "alfil-contra-peones",
+     "titulo": "Alfil contra peones"
+    }
+   ],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L043",
+  "titulo": "Los 100 finales que hay que saber",
+  "autor": "Jesús de la Villa",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 191,
+  "queCubre": "Los 100 finales teóricos básicos, numerados y con exámenes: finales básicos, caballo contra peón, dama contra peón, torre contra peón, alfil y peón contra alfil, alfil contra caballo, torre y peón contra torre (Philidor, Lucena, Vancura), torre y dos peones contra torre, finales de peones y otras relaciones de material.",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [
+    {
+     "id": "regla-del-cuadrado",
+     "titulo": "La regla del cuadrado"
+    },
+    {
+     "id": "oposicion",
+     "titulo": "Rey y peón: oposición y casillas clave"
+    },
+    {
+     "id": "peon-de-torre",
+     "titulo": "El peón de torre"
+    },
+    {
+     "id": "lucena",
+     "titulo": "Finales de torres: la posición de Lucena"
+    },
+    {
+     "id": "philidor",
+     "titulo": "Finales de torres: la posición de Philidor"
+    },
+    {
+     "id": "dama-contra-peon",
+     "titulo": "Dama contra peón en séptima"
+    },
+    {
+     "id": "casillas-criticas",
+     "titulo": "Casillas críticas, oposición a distancia y tiempo de reserva"
+    },
+    {
+     "id": "peon-de-caballo",
+     "titulo": "El peón de caballo y el ahogado"
+    },
+    {
+     "id": "torre-contra-pieza-menor",
+     "titulo": "Torre contra alfil y torre contra caballo"
+    },
+    {
+     "id": "caballo-contra-peon",
+     "titulo": "Caballo contra peón"
+    },
+    {
+     "id": "torre-contra-peon",
+     "titulo": "Torre contra peón"
+    },
+    {
+     "id": "vancura",
+     "titulo": "Finales de torres: la defensa Vancura"
+    },
+    {
+     "id": "torre-delante-del-peon",
+     "titulo": "Finales de torres: torre delante de su peón en séptima"
+    },
+    {
+     "id": "peon-pasado-alejado",
+     "titulo": "Finales de peones: el peón pasado alejado"
+    },
+    {
+     "id": "regla-de-bahr",
+     "titulo": "Peones de torre bloqueados y un peón pasado: la regla de Bähr"
+    },
+    {
+     "id": "ruptura",
+     "titulo": "La ruptura de peones"
+    },
+    {
+     "id": "carreras",
+     "titulo": "Carreras de peones: contar y el doble objetivo"
+    },
+    {
+     "id": "alfil-y-caballo",
+     "titulo": "Mate de alfil y caballo"
+    },
+    {
+     "id": "dama-contra-torre",
+     "titulo": "Dama contra torre"
+    },
+    {
+     "id": "peones-bloqueados",
+     "titulo": "Finales de peones: peones bloqueados"
+    },
+    {
+     "id": "entregar-el-peon",
+     "titulo": "Peón contra peón: entregar el peón para salvarse"
+    },
+    {
+     "id": "lado-largo",
+     "titulo": "Finales de torres: el lado largo"
+    },
+    {
+     "id": "alfil-mismo-color",
+     "titulo": "Alfil y peón contra alfil del mismo color"
+    },
+    {
+     "id": "alfiles-distinto-color",
+     "titulo": "Alfiles de distinto color con dos peones"
+    },
+    {
+     "id": "triangulacion",
+     "titulo": "Finales de peones: triangulación"
+    },
+    {
+     "id": "lucena-peon-de-torre",
+     "titulo": "Finales de torres: «Lucena» con peón de torre"
+    },
+    {
+     "id": "torre-dos-peones",
+     "titulo": "Finales de torres: dos peones conectados contra torre"
+    },
+    {
+     "id": "alfil-contra-caballo",
+     "titulo": "Alfil contra caballo con un solo peón"
+    },
+    {
+     "id": "torre-contra-dos-peones",
+     "titulo": "Torre contra dos peones ligados"
+    },
+    {
+     "id": "rey-cortado",
+     "titulo": "Torre y peón contra torre: el rey cortado"
+    },
+    {
+     "id": "peones-doblados",
+     "titulo": "Peones doblados contra rey solo"
+    },
+    {
+     "id": "peones-aislados",
+     "titulo": "Dos peones separados contra rey solo"
+    },
+    {
+     "id": "defensa-primera-fila",
+     "titulo": "Peón de caballo: la defensa de la primera fila"
+    },
+    {
+     "id": "peon-pasado-protegido",
+     "titulo": "El peón pasado protegido"
+    },
+    {
+     "id": "cuadrado-errante",
+     "titulo": "El rey contra dos peones pasados: el cuadrado errante"
+    },
+    {
+     "id": "regla-de-steinitz",
+     "titulo": "Peones de caballo y torre contra peón de torre: la regla de Steinitz"
+    },
+    {
+     "id": "kling-horwitz",
+     "titulo": "Finales de torres: torre detrás del peón y lado largo"
+    }
+   ],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L138",
+  "titulo": "Practical Chess Endings: A Basic Guide to Endgame Strategy...",
+  "autor": "",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 317,
+  "queCubre": "Estrategia general de finales.",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L137",
+  "titulo": "Practical Knight Endings",
+  "autor": "",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 192,
+  "queCubre": "Finales de caballo.",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [
+    {
+     "id": "caballo-contra-peon",
+     "titulo": "Caballo contra peón"
+    },
+    {
+     "id": "caballo-y-peon-contra-caballo",
+     "titulo": "Caballo y peón contra caballo"
+    }
+   ],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L139",
+  "titulo": "Preparación de finales",
+  "autor": "Jonathan Speelman",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 188,
+  "queCubre": "Ideas tácticas, combinaciones para forzar tablas, zugzwang y la teoría de las casillas conjugadas y la oposición.",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [
+    {
+     "id": "triangulacion",
+     "titulo": "Finales de peones: triangulación"
+    },
+    {
+     "id": "torre-contra-dos-peones",
+     "titulo": "Torre contra dos peones ligados"
+    },
+    {
+     "id": "recursos-de-ahogado",
+     "titulo": "Combinaciones para forzar tablas: el ahogado"
+    },
+    {
+     "id": "gana-el-que-mueve",
+     "titulo": "Finales de peones: gana el que mueve primero"
+    },
+    {
+     "id": "jaque-a-traves",
+     "titulo": "El jaque a través: una pieza que controla dos líneas"
+    },
+    {
+     "id": "casillas-conjugadas",
+     "titulo": "Casillas conjugadas y oposición distante"
+    }
+   ],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L135",
+  "titulo": "Starting Out: Pawn Endgames",
+  "autor": "Glenn Flear",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 2,
+  "idioma": "Inglés",
+  "paginas": 194,
+  "queCubre": "Finales de peones: el último peón, juego en un área limitada, el poder del peón pasado, carreras, maniobras de reyes, temas posicionales, cuándo coronan los peones y cómo pasar a un final de peones. Con ejercicios y soluciones.",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [
+    {
+     "id": "peones-separados",
+     "titulo": "Dos peones pasados separados: el cuadrado común"
+    },
+    {
+     "id": "ruptura",
+     "titulo": "La ruptura de peones"
+    },
+    {
+     "id": "carreras",
+     "titulo": "Carreras de peones: contar y el doble objetivo"
+    },
+    {
+     "id": "ventaja-de-espacio",
+     "titulo": "Finales de peones: espacio y tiempos de reserva"
+    },
+    {
+     "id": "pasar-a-final-de-peones",
+     "titulo": "Cambiar o sacrificar para llegar a un final de peones ganado"
+    }
+   ],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L142",
+  "titulo": "Teoría de los finales de partida",
+  "autor": "Yuri Averbach",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 98,
+  "queCubre": "",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L047",
+  "titulo": "Ajedrez en los ochenta",
+  "autor": "Bronstein y Smolyan",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 74,
+  "queCubre": "Ensayo: el ajedrez como deporte y como juego, decisiones e imágenes, las computadoras y el futuro.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L044",
+  "titulo": "El ajedrez de torneo: Zúrich 1953",
+  "autor": "David Bronstein",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 540,
+  "queCubre": "El torneo de Candidatos de 1953, ronda por ronda, con comentarios clásicos sobre la estrategia del medio juego.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 41,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L203",
+  "titulo": "El aprendiz de brujo (Paidotribo, col. Caissa, 2.ª ed., 1998)",
+  "autor": "David Bronstein y Tom Fürstenberg",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 452,
+  "queCubre": "40 recomendaciones para el principiante, 40 combinaciones explicadas, 50 partidas comentadas, 60 partidas en diagramas y 70 partidas notables, con un apéndice a la 2.ª edición inglesa e índices de adversarios y aperturas.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 29,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L201",
+  "titulo": "El camino hacia la cumbre (Ediciones Tutor, 1999; trad. Antonio Gude; notas y revisión de John Nunn; orig. The Road to the Top, Batsford, 1996)",
+  "autor": "Paul Keres",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 250,
+  "queCubre": "Primer tomo de las partidas comentadas de Keres, desde sus primeros pasos en 1929 hasta el Campeonato del Mundo de 1948-1950, con prólogo de Nunn.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L197",
+  "titulo": "El rey de los gambitos",
+  "autor": "Antonio Gude",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 333,
+  "queCubre": "",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L202",
+  "titulo": "En busca de la perfección (Ediciones Tutor, 1999; trad. Antonio Gude; orig. The Quest for Perfection, Batsford, 1997)",
+  "autor": "Paul Keres y John Nunn",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "Segundo tomo de Keres, de 1950 a su muerte en 1975: torneos de Candidatos, intentos por el título mundial y éxitos hasta 1971. Los últimos capítulos son de Nunn.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L196",
+  "titulo": "Heroic Tales: The Best of ChessCafe.com 1996-2001",
+  "autor": "",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Inglés",
+  "paginas": 443,
+  "queCubre": "Antología de artículos de ChessCafe.com, 1996-2001.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L198",
+  "titulo": "Mis geniales predecesores, vol. 2: De Euwe a Tal (Ediciones Merán; con Dimitri Plisetsky; trad. Antonio Gude)",
+  "autor": "Garry Kasparov",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 456,
+  "queCubre": "Dramas de los reyes del ajedrez: Euwe, Botvinnik, Smyslov y Tal y, según el prólogo, también Keres, Bronstein y Geller.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L191",
+  "titulo": "Modern Chess: Move by Move",
+  "autor": "",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 417,
+  "queCubre": "25 partidas de elite 2005-2007 explicadas jugada a jugada (Kasimdzhanov-Kasparov, Topalov-Anand, Kramnik-Leko, Carlsen-Tiviakov, Kamsky-Carlsen…).",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L190",
+  "titulo": "My 60 Memorable Games",
+  "autor": "Bobby Fischer",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 555,
+  "queCubre": "60 partidas comentadas desde 1957 (Sherwin, Larsen, Petrosian, Pilnik, Rossetto y Shocron en Mar del Plata 1959, Keres, Tal, Spassky…), cada una con título propio.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 50,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L048",
+  "titulo": "Partidas de personajes históricos",
+  "autor": "",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Castellano",
+  "paginas": 7,
+  "queCubre": "Partidas atribuidas a figuras célebres (Einstein, Chaplin, Federico II, el Che Guevara…), de ajedrezdeataque.com.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 33,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L194",
+  "titulo": "Rubinstein's Chess Masterpieces",
+  "autor": "",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": null,
+  "queCubre": "Biografía \"An Eventful and Tragic Life\" y 100 partidas seleccionadas, con una lista de partidas por apertura al final.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L195",
+  "titulo": "Selected Chess Games of Mikhail Tal (Dover; trad. Robert Ejuri; © 1961 Pitman)",
+  "autor": "J. Hajtun",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 80,
+  "queCubre": "Nota biográfica de Tal y partidas comentadas (al final, Tal-Botvinnik con la Réti). Notación descriptiva.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L192",
+  "titulo": "The Life & Games of Akiva Rubinstein, vol. 1 (2.ª ed.)",
+  "autor": "John Donaldson y Nikolay Minev",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 404,
+  "queCubre": "Partidas de 1882 a 1920, torneo por torneo; índices de jugadores, de aperturas y de códigos ECO.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L045",
+  "titulo": "Todas las piezas atacan, vol. 1 (Chessy, 2006)",
+  "autor": "Bent Larsen",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 277,
+  "queCubre": "Autobiografía de Larsen en partidas, de sus comienzos a 1973, con capítulos sobre su estilo y sobre Fischer.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L046",
+  "titulo": "Yo juego para ganar (1974)",
+  "autor": "Bent Larsen",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 244,
+  "queCubre": "Unas 60 partidas comentadas de Larsen ordenadas por etapas de su carrera, con un índice temático final (pareja de alfiles, alfil malo, alfiles de distinto color, sacrificios de calidad, mayoría central, peones débiles). Aperturas variadas: Siciliana, India de Rey, Grünfeld, Bird, Alekhine con blancas, Inglesa.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L199",
+  "titulo": "Mis geniales predecesores, vol. 1: De Steinitz a Alekhine (Ediciones Merán, 2003; con Dimitri Plisetsky; trad. Antonio Gude)",
+  "autor": "Kasparov",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 467,
+  "queCubre": "Primer volumen de la obra: el ajedrez antes de Steinitz (la Escuela Italiana y Philidor, los primeros matches por la corona) y los campeones que encarnaron una época, de Steinitz a Alekhine.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L200",
+  "titulo": "Mis geniales predecesores, vol. 5: Karpov y Korchnoi (Ediciones Merán, 2008; con Dimitri Plisetsky; trad. Antonio Gude)",
+  "autor": "Kasparov",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 560,
+  "queCubre": "Karpov y Korchnoi y su lucha por el título; el primer capítulo es \"La vida después de Fischer\". Incluye índices de maestros y de aperturas (ECO).",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L204",
+  "titulo": "Бобби Фишер бежит на войну (en ruso)",
+  "autor": "",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Otro",
+  "paginas": 384,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L167",
+  "titulo": "Ajedrez lógico, jugada a jugada (Diana, México; 1.ª ed. 1959, 10.ª impr. 1971; trad. Manuel Arce)",
+  "autor": "Irving Chernev",
+  "tema": "Manuales y enseñanza",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Castellano",
+  "paginas": 259,
+  "queCubre": "Partidas explicadas jugada por jugada.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L165",
+  "titulo": "Build Up Your Chess: The Fundamentals",
+  "autor": "Artur Yusupov",
+  "tema": "Manuales y enseñanza",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 266,
+  "queCubre": "21 lecciones con ejercicios: motivos de mate, principios de apertura, finales de peones simples, jaque doble, valor de las piezas, ataque descubierto, centralización, oposición, clavada, ataque doble, columnas abiertas, combinaciones, dama contra peón, ahogado, puntos débiles y combinaciones de peones.",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 109,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L166",
+  "titulo": "Fundamentos del ajedrez (trad. Enrique P. Falcón; rev. Fernando Pérez, 2010)",
+  "autor": "José Raúl Capablanca",
+  "tema": "Manuales y enseñanza",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Castellano",
+  "paginas": 281,
+  "queCubre": "Clásico de principios básicos con partidas comentadas.",
+  "destino": "Partidas comentadas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 14,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L177",
+  "titulo": "How I Became Grandmaster at Age 14 (Moscú, 2001)",
+  "autor": "Alexandra Kosteniuk",
+  "tema": "Manuales y enseñanza",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Castellano",
+  "paginas": 254,
+  "queCubre": "Autobiografía con material didáctico para principiantes y artículos de Sveshnikov, Korotylev y Bebchuk.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L168",
+  "titulo": "Las mil y una lecciones de ajedrez (EDAMI)",
+  "autor": "MI Ángel Martín",
+  "tema": "Manuales y enseñanza",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Castellano",
+  "paginas": 2170,
+  "queCubre": "Lecciones temáticas con tests intercalados: desarrollo, enroques opuestos, sacrificio Axh6, alfil malo, pareja de alfiles, columnas abiertas, séptima fila, peones doblados, retrasados, aislados, colgantes y pasados, mayoría de flanco de dama, sacrificio de calidad, alfiles de distinto color, islas y cadenas de peones y estructura Maroczy.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L174",
+  "titulo": "Nunca olvides que tienes un rival enfrente (2013)",
+  "autor": "Mark Dvoretsky",
+  "tema": "Manuales y enseñanza",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Castellano",
+  "paginas": 420,
+  "queCubre": "",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L173",
+  "titulo": "Secretos del entrenamiento en ajedrez (1.ª ed., 3/2002)",
+  "autor": "Mark Dvoretsky",
+  "tema": "Manuales y enseñanza",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 5,
+  "idioma": "Castellano",
+  "paginas": 288,
+  "queCubre": "Método de entrenamiento de Dvoretsky: análisis de posiciones aplazadas, análisis de finales y juego de posiciones determinadas contra un rival.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L176",
+  "titulo": "Starting Out: Defensive Play",
+  "autor": "",
+  "tema": "Manuales y enseñanza",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": 147,
+  "queCubre": "Introducción a la defensa en el medio juego.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L175",
+  "titulo": "What It Takes to Become a Chess Master",
+  "autor": "Andrew Soltis",
+  "tema": "Manuales y enseñanza",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Inglés",
+  "paginas": 209,
+  "queCubre": "Qué hace falta para llegar a maestro: lo que más importa, hábitos, pequeñas tácticas y saber, con respuestas a los ejercicios.",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L188",
+  "titulo": "An Example of Human Chess Play in the Light of Chess Playing Programs (Carnegie Institute of Technology, 1964)",
+  "autor": "Allen Newell y Herbert A. Simon",
+  "tema": "Ajedrez y computación",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Inglés",
+  "paginas": 92,
+  "queCubre": "Texto clásico de inteligencia artificial que compara el juego humano con el de los programas de ajedrez.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L187",
+  "titulo": "Collaborative Computer Personalities in the Game of Chess (tesis, DCU)",
+  "autor": "",
+  "tema": "Ajedrez y computación",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Inglés",
+  "paginas": 142,
+  "queCubre": "Cómo juegan las computadoras (árbol, evaluación, minimax, alfa-beta, tablas de transposición, búsqueda de quietud), Kasparov contra el Mundo, personalidades de programa que colaboran.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L189",
+  "titulo": "Computers in Chess: Solving Inexact Search Problems (Springer, 1984)",
+  "autor": "M. M. Botvinnik",
+  "tema": "Ajedrez y computación",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 171,
+  "queCubre": "El método de Botvinnik para programar el ajedrez: el ajedrez como sistema de control de tres niveles, horizonte, campos y trayectorias, poda de ramas, biblioteca de finales y de fragmentos.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L215",
+  "titulo": "Ajedrez brillante: historia, anécdotas, curiosidades (Bruguera, col. Libro Práctico, 1.ª ed. feb. 1975)",
+  "autor": "Máximo Borrell",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 260,
+  "queCubre": "Historia del ajedrez y de las piezas, juegos asiáticos, el ajedrez en la literatura, el arte y la ciencia, personajes que jugaron, humor, curiosidades, ajedrez de competición, modalidades, pasatiempos y ajedrez no ortodoxo.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L220",
+  "titulo": "Arte y gestualidad en el Libro del acedrex, dados e tablas (Laboratorio de Arte 29, 2017)",
+  "autor": "María Teresa López de Guereño Sanz",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 30,
+  "queCubre": "La gestualidad de los jugadores en las miniaturas.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L205",
+  "titulo": "Birth of the Chess Queen",
+  "autor": "Marilyn Yalom",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Inglés",
+  "paginas": 271,
+  "queCubre": "Historia de la dama de ajedrez en cinco partes, más epílogo, notas e índice.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L213",
+  "titulo": "Chess History and Reminiscences",
+  "autor": "",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Inglés",
+  "paginas": 83,
+  "queCubre": "Teorías del origen, tradiciones indias, Persia, Vida, Chaucer, el siglo XIX, ciegas, Philidor, costumbres de los jugadores.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L209",
+  "titulo": "El impresionante Torneo de Ajedrez de las Naciones 1939, separatas (Ajedrez de Estilo, 2019)",
+  "autor": "Juan Sebastián Morgado",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "Cronología del torneo en su contexto sociopolítico, con ideas de Martínez Estrada.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L212",
+  "titulo": "Historia del ajedrez",
+  "autor": "",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 12,
+  "queCubre": "Origen del ajedrez (chaturanga, teoría india, teorías alternativas) y leyendas persas.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L216",
+  "titulo": "La Valencia literaria del siglo XV: el manuscrito de Scachs d'amor y sus tres autores",
+  "autor": "M. C. Romeo",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 13,
+  "queCubre": "El poema de 1475 y el nacimiento de la dama moderna.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L214",
+  "titulo": "Le Livre du jeu d'échecs (ed. Jean-Michel Mehl)",
+  "autor": "Jacques de Cessoles",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 221,
+  "queCubre": "El sermón medieval que compara la sociedad con el ajedrez.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L206",
+  "titulo": "Los años locos del ajedrez argentino, parte 1",
+  "autor": "",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 190,
+  "queCubre": "I los protagonistas (Club Argentino y Círculo de Ajedrez); II-IV la visión de Damián Reca: 1905-1912, 1913-1922 (Gran Torneo Nacional, I Sudamericano, fundación de la FADA, Reca primer campeón argentino, Club Argentino contra el Manhattan) y 1923-1925 (primer Torneo Mayor, matches Villegas-Reca y Lynch-Portela, equipo argentino a París, la visita de Réti).",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L210",
+  "titulo": "Martínez Estrada. Sociabilidades (Dunken, 2015)",
+  "autor": "Juan Sebastián Morgado",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 144,
+  "queCubre": "Martínez Estrada ajedrecista federado y bibliotecario de la FADA; Gombrowicz y el ajedrez; epistolario.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L211",
+  "titulo": "Martínez Estrada: ajedrez e ideas",
+  "autor": "",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 326,
+  "queCubre": "Sobre Filosofía del ajedrez de Martínez Estrada y sus raíces ajedrecísticas en Radiografía de la pampa.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L219",
+  "titulo": "Retratos de Alfonso X en el Libro de los Juegos (Alcanate VII, 2010-2011)",
+  "autor": "Ana Domínguez Rodríguez",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 15,
+  "queCubre": "Historia del arte: las miniaturas alfonsíes.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L208",
+  "titulo": "Sangre y ajedrez en el Parque",
+  "autor": "",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 183,
+  "queCubre": "Ajedrez porteño de 1880 a 1893: primeros clubes, la Exposición Continental de 1882, el Club del Progreso, el Café de Lloveras, el Club de Ajedrez de Buenos Aires, el match Tagliaferro-Gijena y la Revolución del Parque de 1890.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L217",
+  "titulo": "Scachs d'amor",
+  "autor": "Castellví, Fenollar y Vinyoles",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Otro",
+  "paginas": 17,
+  "queCubre": "Texto del poema (s. XV), en valenciano.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L223",
+  "titulo": "Shall We Play Fischerandom Chess? (Batsford, 2002)",
+  "autor": "Svetozar Gligoric",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Inglés",
+  "paginas": 144,
+  "queCubre": "Ajedrez 960: Fischer como creador del Fischerandom, el nacimiento del nuevo juego (precursores, primer torneo de 1996, historia de la colocación aleatoria, reglas), el certamen de Fráncfort y las partidas de exhibición en San Francisco.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L222",
+  "titulo": "StrongChess: The Evolution of Chess",
+  "autor": "",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Inglés",
+  "paginas": 44,
+  "queCubre": "Variante inventada por el autor en un tablero de 10×8; un capítulo de presentación y una partida ilustrativa.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L221",
+  "titulo": "Terminología del ajedrez",
+  "autor": "Tapani Sammalvuo",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 81,
+  "queCubre": "Trabajo de lingüística de corpus: construcción del corpus, extracción y análisis de términos ajedrecísticos en castellano.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L218",
+  "titulo": "Tres partidas, tres épocas",
+  "autor": "",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 17,
+  "queCubre": "Tres partidas de los siglos XV-XVI (ajedrez antiguo y \"de la dama\"), empezando por Le livre des échecs amoureux.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L207",
+  "titulo": "Los años locos del ajedrez argentino, parte 2 (caps. XXIII a XL)",
+  "autor": "",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 194,
+  "queCubre": "Continúa desde el match Ibáñez-Portela (1923), con crónicas de La Prensa y La Nación.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L181",
+  "titulo": "Ajedrología",
+  "autor": "Julio Ganzo",
+  "tema": "Lectura y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 176,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L185",
+  "titulo": "David Bronstein",
+  "autor": "La Escuela Soviética de Ajedrez",
+  "tema": "Lectura y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Inglés",
+  "paginas": 5,
+  "queCubre": "Artículo de recuerdos de un discípulo sobre su encuentro con Bronstein en 1965.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L183",
+  "titulo": "Del ajedrez al fútbol",
+  "autor": "Diego Salamanca Vera",
+  "tema": "Lectura y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 38,
+  "queCubre": "Analogías ajedrez-fútbol: piezas y posiciones, táctica y juego posicional, campeones del mundo comparados con entrenadores (Kasparov-Karpov y Guardiola-Mourinho, Bielsa y Tal…).",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L186",
+  "titulo": "El juego de los paisajes",
+  "autor": "",
+  "tema": "Lectura y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 1,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L180",
+  "titulo": "How Life Imitates Chess",
+  "autor": "Garry Kasparov",
+  "tema": "Lectura y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Inglés",
+  "paginas": 122,
+  "queCubre": "Toma de decisiones: estrategia, cálculo, talento, preparación; material, tiempo y calidad; cambios y desequilibrios; fases de la partida; la ventaja del atacante; intuición; hombre contra máquina.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L179",
+  "titulo": "Larousse del ajedrez: descubrir, profundizar, dominar (Larousse, 2000; trad. Paulino Rodríguez Blimenes, adaptación de Abel Segura Fontarnau; orig. Larousse du jeu d'échecs, 1998)",
+  "autor": "",
+  "tema": "Lectura y cultura",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Castellano",
+  "paginas": 449,
+  "queCubre": "Enciclopedia general del ajedrez.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L182",
+  "titulo": "Lecturas de ajedrez (col. Escaques n.º 23, Martínez Roca, 1969; trad. Agustín Puig)",
+  "autor": "Yuri Averbach",
+  "tema": "Lectura y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 98,
+  "queCubre": "Ensayos breves con humor e historia: el ajedrez en la literatura, los niños prodigio, el descubrimiento del abate, el enigma de una posición, el ajedrez animado, el desenmascaramiento de un autómata ajedrecista y otros.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L178",
+  "titulo": "Mosaico ajedrecístico (Raduga, Moscú, 1984)",
+  "autor": "Karpov y Guik",
+  "tema": "Lectura y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 437,
+  "queCubre": "Mezcla de géneros: matches por el título, problemas, historia y ajedrez recreativo.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L226",
+  "titulo": "Ajedrez para cebras: pensar de forma diferente sobre blancas y negras (La Casa del Ajedrez, Madrid, 2008; trad. Antonio Gude; orig. Chess for Zebras, Gambit, 2005)",
+  "autor": "Jonathan Rowson",
+  "tema": "Psicología",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": 273,
+  "queCubre": "Primera parte, mejorar nuestra capacidad de progresar (aprender y desaprender, psicología, contar historias, qué mito guía el juego, concentración); segunda, herramientas mentales (por qué es tan difícil el ajedrez, material, oportunidad, tiempo y calidad de posición, hacer y ser).",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L225",
+  "titulo": "Dinámica y psicología en ajedrez I (Buenos Aires, 2013)",
+  "autor": "Rodolfo Garbarino y Maximiliano Preuss",
+  "tema": "Psicología",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": 209,
+  "queCubre": "Libro argentino que analiza momentos críticos de partidas de jugadores famosos (secciones como \"Ceguera momentánea\"), por ejemplo Fischer-Bernstein, Nueva York 1959, con el Gambito Marshall. Primer tomo de una serie anunciada de unos siete libros.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L224",
+  "titulo": "Psicología del jugador de ajedrez (col. Escaques, Martínez Roca, 1974; trad. Ignacio Gaos)",
+  "autor": "Reuben Fine",
+  "tema": "Psicología",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": 127,
+  "queCubre": "Lectura psicoanalítica del ajedrez y de sus campeones: reseña de textos (parte del ensayo de Ernest Jones sobre Paul Morphy), comentarios generales, campeones del mundo, psicosis entre los ajedrecistas, teoría del ajedrez y dos cartas de Ernest Jones.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L228",
+  "titulo": "Tratado general de ajedrez, tomo I: Rudimentos",
+  "autor": "Roberto G. Grau",
+  "tema": "Manuales y enseñanza",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 1,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L229",
+  "titulo": "Tratado general de ajedrez, tomo II: Táctica",
+  "autor": "Roberto G. Grau",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L230",
+  "titulo": "Tratado general de ajedrez, tomo III: Conformación de peones",
+  "autor": "Roberto G. Grau",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L231",
+  "titulo": "Tratado general de ajedrez, tomo IV: Estrategia superior",
+  "autor": "Roberto G. Grau",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L232",
+  "titulo": "La estrategia en el ajedrez. Cómo valorar posiciones y trazar planes",
+  "autor": "A. Karpov y A. Matsukévich",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L233",
+  "titulo": "Mi sistema",
+  "autor": "Aaron Nimzowitsch",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Avanzado",
+  "dificultad": 4,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L234",
+  "titulo": "Disculpen las aperturas, los finales son fundamentales. Parte 1: peones y piezas menores",
+  "autor": "D. Barlov y N. Karaklajic",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L235",
+  "titulo": "Disculpen las aperturas, los finales son fundamentales. Parte 2: piezas pesadas",
+  "autor": "D. Barlov y N. Karaklajic",
+  "tema": "Finales",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Finales",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L236",
+  "titulo": "Escuela de ajedrez 1",
+  "autor": "Antonio Gude",
+  "tema": "Manuales y enseñanza",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 1,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L237",
+  "titulo": "Improve Your Chess Pattern Recognition",
+  "autor": "Arthur van de Oudeweetering",
+  "tema": "Estrategia",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Inglés",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Estrategia (módulo nuevo)",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L238",
+  "titulo": "Motivos tácticos básicos",
+  "autor": "Caramia",
+  "tema": "Táctica",
+  "subtema": "",
+  "nivel": "Inicial",
+  "dificultad": 2,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Problemas",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L239",
+  "titulo": "Maestros y campeones",
+  "autor": "Oscar Panno",
+  "tema": "Partidas y biografías",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L249",
+  "titulo": "Adaptación de modelos de aprendizaje profundo para ajedrez",
+  "autor": "H. Bernal Martí",
+  "tema": "Ajedrez y computación",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L250",
+  "titulo": "A History of Chess",
+  "autor": "H. J. R. Murray",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Inglés",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L251",
+  "titulo": "Historia general del ajedrez",
+  "autor": "Julio Ganzo",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L252",
+  "titulo": "Mitología del ajedrez",
+  "autor": "Francesc-Lluís Cardona",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L253",
+  "titulo": "La batalla de las ideas en ajedrez",
+  "autor": "Anthony Saidy",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Intermedio",
+  "dificultad": 3,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L254",
+  "titulo": "El ajedrez. Tratado de sus principios fundamentales (1858)",
+  "autor": "G. Borao",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L255",
+  "titulo": "Filosofía del ajedrez",
+  "autor": "Ezequiel Martínez Estrada",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L256",
+  "titulo": "Movimientos en blanco y negro: historia, literatura y arte en el ajedrez argentino",
+  "autor": "Biblioteca Nacional (2017)",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L257",
+  "titulo": "Ajedrez en la historia argentina, tomos 2 y 4",
+  "autor": "",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L258",
+  "titulo": "Libro de axedrez, dados e tablas, y El libro de las tablas",
+  "autor": "Alfonso X",
+  "tema": "Historia y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L259",
+  "titulo": "Cuentos de ajedrez",
+  "autor": "",
+  "tema": "Lectura y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L260",
+  "titulo": "Juegos y problemas de ajedrez para Sherlock Holmes",
+  "autor": "Raymond Smullyan",
+  "tema": "Lectura y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Castellano",
+  "paginas": null,
+  "queCubre": "",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ },
+ {
+  "id": "L261",
+  "titulo": "The Chess Mysteries of the Arabian Knights",
+  "autor": "Raymond Smullyan",
+  "tema": "Lectura y cultura",
+  "subtema": "",
+  "nivel": "Todos",
+  "dificultad": null,
+  "idioma": "Inglés",
+  "paginas": null,
+  "queCubre": "Original en inglés de Juegos de ajedrez y los misteriosos caballos de Arabia: problemas de lógica y de análisis retrógrado.",
+  "destino": "Solo ficha",
+  "enApp": {
+   "problemas": 0,
+   "partidas": 0,
+   "finales": [],
+   "aperturas": []
+  }
+ }
+]
