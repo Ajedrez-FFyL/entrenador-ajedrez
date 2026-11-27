@@ -9,6 +9,8 @@
   import type { Explicacion } from '../../lib/aperturas/explicaciones.ts'
   import { idLinea } from '../../lib/aperturas/repertorio.ts'
   import type { Color } from '../../lib/datos/tipos.ts'
+  import { hashCurso } from '../../lib/enlaces.ts'
+  import BotonCopiarLink from '../../lib/ui/BotonCopiarLink.svelte'
   import LeccionPantalla from './Leccion.svelte'
 
   interface Props {
@@ -167,7 +169,10 @@
       <h2>{explicacion.nombre}</h2>
       <span class="suave">Con {color === 'white' ? 'blancas' : 'negras'} · {lineaConNumeros(INICIAL, explicacion.raiz.split(' '))}</span>
     </div>
-    <button class="boton enlace" onclick={alVolver}>Mis aperturas</button>
+    <div class="acciones-cabecera">
+      <BotonCopiarLink hash={hashCurso(explicacion.id, color)} />
+      <button class="boton enlace" onclick={alVolver}>Mis aperturas</button>
+    </div>
   </div>
 
   {#if !curso || !estado}
@@ -330,6 +335,12 @@
   }
   .cabecera h2 {
     margin: 0;
+  }
+  .acciones-cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 4px 12px;
   }
   .resumen p {
     margin: 0 0 10px;
