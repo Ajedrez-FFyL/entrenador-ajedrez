@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { urlCompleta } from '../enlaces.ts'
   import { avisar } from './avisos.svelte.ts'
 
   /** Hash del destino (`#/finales/tema/…`); se copia con el sitio y la carpeta actuales. */
   let { hash, texto = 'Copiar link' }: { hash: string; texto?: string } = $props()
 
   async function copiar() {
-    const url = urlCompleta(hash)
+    // URL completa con el sitio y la carpeta actuales.
+    const url = `${location.origin}${location.pathname}${hash}`
     try {
       await navigator.clipboard.writeText(url)
     } catch {

@@ -5,7 +5,7 @@
  *   #/aperturas/curso/<curso>[/blancas|/negras]
  *   #/finales/tema/<tema>
  *   #/biblioteca/<ID de ficha>
- * Sin dependencias de Svelte ni del navegador (salvo `urlCompleta`), para que lo use también `scripts/listar-links.ts`.
+ * Sin dependencias de Svelte ni del navegador, para que lo use también `scripts/listar-links.ts`.
  */
 import { SECCIONES, type IdSeccion } from './secciones.ts'
 
@@ -29,9 +29,6 @@ function decodificar(s: string): string {
 }
 
 export const hashDe = (seccion: IdSeccion, ...resto: string[]) => `#/${[seccion, ...resto].map(encodeURIComponent).join('/')}`
-
-/** URL completa (con el sitio y la carpeta actuales) para un hash. */
-export const urlCompleta = (hash: string) => `${location.origin}${location.pathname}${hash}`
 
 export const SITIO = 'https://ajedrez-ffyl.github.io/entrenador-ajedrez/'
 
