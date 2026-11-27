@@ -2,6 +2,15 @@
 
 Resumen para retomar el trabajo en cualquier sesión. El detalle de métodos y herramientas está en `CLAUDE.md`.
 
+## Aparte: barrido completo de Stockfish (2026-11-27)
+
+Fuera del orden de abajo (Libros → Finales → Aperturas): `scripts/barrido-completo.ts` evalúa con
+Stockfish nativo todas las jugadas propias de las 5.752 partidas analizables (no solo los momentos
+de pérdida de material de `analisis-previo.json`). Probado con 50 partidas reales (11 ms/posición
+con 15 procesos en paralelo, ≈55 min estimados para completarlo todo). Falta: correr el barrido
+completo (`datos-privados/barrido/correr-barrido.bat`) e importar su resultado en la app. Detalle
+completo en `CLAUDE.md` → "Datos previos" → "Barrido completo".
+
 ## Orden de trabajo pedido por el usuario (2026-10-07)
 
 1. **Libros**: táctica → problemas con cita del libro; partidas → "Partidas de libros" (si no están ya); finales → módulo de finales; aperturas → explicaciones, siempre verificando con Stockfish.
