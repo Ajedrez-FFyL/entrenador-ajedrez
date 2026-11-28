@@ -1,10 +1,13 @@
 <script lang="ts">
   import { SECCIONES, type IdSeccion } from './lib/secciones'
+  import { parsearHash, type Ruta } from './lib/enlaces.ts'
+  import Avisos from './lib/ui/Avisos.svelte'
   import Marca from './lib/ui/Marca.svelte'
   import AvisoActualizacion from './lib/AvisoActualizacion.svelte'
   import Bienvenida from './lib/ui/Bienvenida.svelte'
   import { bienvenidaPedida, limpiarPedidoBienvenida } from './lib/ui/bienvenidaBridge.svelte.ts'
   import Ajustes from './pantallas/Ajustes.svelte'
+  import Biblioteca from './pantallas/Biblioteca.svelte'
   import Aperturas from './pantallas/Aperturas.svelte'
   import Editor from './pantallas/Editor.svelte'
   import Finales from './pantallas/Finales.svelte'
@@ -22,12 +25,13 @@
     if (cuenta) sincronizarDrive(false).catch(() => undefined)
   })
 
-  function seccionDesdeHash(): IdSeccion {
-    const id = location.hash.replace('#/', '')
-    return SECCIONES.some((s) => s.id === id) ? (id as IdSeccion) : 'partidas'
-  }
-
-  let actual = $state<IdSeccion>(seccionDesdeHash())
+  // El hash es `#/<seccion>` o `#/<seccion>/<resto>` (links directos): cada pantalla interpreta el resto.
+  let ruta = $state<Ruta>(parsearHash(location.hash))
+  let actual = $derived(ruta.seccion)
+  let resto = $derived(ruta.resto)
+  // Quien abre la app con un link directo no ve la bienvenida encima del destino: queda para la próxima
+  // vez que entre sin link (no se marca como vista).
+  const abrioConLink = parsearHash(location.hash).resto.length > 0
   let seccion = $derived(SECCIONES.find((s) => s.id === actual)!)
   let enLinea = $state(navigator.onLine)
 
@@ -43,7 +47,7 @@
     vistaBienvenida = vista
     listaParaMostrarBienvenida = true
   })
-  let mostrarBienvenida = $derived(listaParaMostrarBienvenida && (!vistaBienvenida || bienvenidaPedida()))
+  let mostrarBienvenida = $derived(listaParaMostrarBienvenida && ((!vistaBienvenida && !abrioConLink) || bienvenidaPedida()))
 
   function alTerminarBienvenida(destino?: IdSeccion) {
     vistaBienvenida = true
@@ -53,7 +57,7 @@
 </script>
 
 <svelte:window
-  onhashchange={() => (actual = seccionDesdeHash())}
+  onhashchange={() => (ruta = parsearHash(location.hash))}
   ononline={() => (enLinea = true)}
   onoffline={() => (enLinea = false)}
 />
@@ -81,15 +85,17 @@
     {#if actual === 'partidas'}
       <MisPartidas />
     {:else if actual === 'tactica'}
-      <Tactica />
+      <Tactica {resto} />
     {:else if actual === 'aperturas'}
-      <Aperturas />
+      <Aperturas {resto} />
     {:else if actual === 'finales'}
-      <Finales />
+      <Finales {resto} />
     {:else if actual === 'editor'}
       <Editor />
     {:else if actual === 'progreso'}
       <Progreso />
+    {:else if actual === 'biblioteca'}
+      <Biblioteca {resto} />
     {:else if actual === 'tutoriales'}
       <Tutoriales />
     {:else if actual === 'ajustes'}
@@ -104,6 +110,7 @@
 </div>
 
 <AvisoActualizacion />
+<Avisos />
 <Feedback pestanaActual={actual} />
 {#if mostrarBienvenida}<Bienvenida alTerminar={alTerminarBienvenida} />{/if}
 

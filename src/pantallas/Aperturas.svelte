@@ -3,10 +3,34 @@
   import { cargarCatalogo } from '../lib/aperturas/catalogo.ts'
   import { EXPLICACIONES } from '../lib/aperturas/explicaciones.ts'
   import type { Color } from '../lib/datos/tipos.ts'
+  import { colorPorDefecto, interpretarCurso } from '../lib/enlaces.ts'
+  import { avisar } from '../lib/ui/avisos.svelte.ts'
   import MisAperturas from './aperturas/MisAperturas.svelte'
   import Explorador from './aperturas/Explorador.svelte'
   import Practica from './aperturas/Practica.svelte'
   import Repertorio from './aperturas/Repertorio.svelte'
+
+  // Link directo `#/aperturas/curso/<id>[/blancas|/negras]`: abre ese curso (el color, si falta, se deduce del nombre).
+  let { resto = [] }: { resto?: string[] } = $props()
+  let cursoPedido = $state<{ id: string; color: Color }>()
+
+  $effect(() => {
+    const clave = resto.join('/')
+    if (!clave) {
+      cursoPedido = undefined
+      return
+    }
+    const pedido = interpretarCurso(clave.split('/'))
+    const e = pedido && EXPLICACIONES.find((x) => x.id === pedido.id)
+    if (!pedido || !e) {
+      cursoPedido = undefined
+      avisar('No encontré ese curso')
+      return
+    }
+    cursoPedido = { id: e.id, color: pedido.color ?? colorPorDefecto(e.nombre) }
+    modo = 'practica'
+    practica = undefined
+  })
 
   let modo = $state<'practica' | 'explorar' | 'repertorio'>('practica')
   let inicial = $state<string[]>([])
@@ -90,5 +114,5 @@
     <Practica {...practica} autoEmpezar alSalir={() => (practica = undefined)} />
   {/key}
 {:else}
-  <MisAperturas />
+  <MisAperturas cursoId={cursoPedido?.id} cursoColor={cursoPedido?.color} />
 {/if}

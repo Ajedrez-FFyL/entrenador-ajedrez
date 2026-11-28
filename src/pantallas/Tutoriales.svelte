@@ -102,6 +102,23 @@
   </div>
 
   <div class="item">
+    <h3>Biblioteca</h3>
+    <p class="suave">
+      Una ficha por cada libro de la biblioteca (qué cubre, nivel, dificultad, idioma y qué hay de él en la app), con búsqueda
+      por título o autor y filtros por tema, nivel, dificultad e idioma. Es solo de consulta: no tiene los libros.
+    </p>
+  </div>
+
+  <div class="item">
+    <h3>Links directos</h3>
+    <p class="suave">
+      Cada tema de Táctica o de Finales, curso de Aperturas y ficha de la Biblioteca se puede abrir con un link: tocá
+      «Copiar link» dentro de ese tema, curso o ficha y pegalo donde quieras (por ejemplo, en el sitio de un curso).
+      La lista completa está en <code>docs/links-directos.md</code> del repositorio.
+    </p>
+  </div>
+
+  <div class="item">
     <h3>Ajustes</h3>
     <p class="suave">Tu usuario de Lichess/Chess.com, preferencias del motor y exportar/importar tu respaldo.</p>
   </div>

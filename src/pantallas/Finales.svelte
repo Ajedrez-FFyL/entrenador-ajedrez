@@ -4,13 +4,31 @@
   import type { ErrorPartida, Repaso } from '../lib/datos/tipos.ts'
   import type { Objetivo, PosicionFinal, Temario, TemaFinal } from '../lib/finales/tipos.ts'
   import temarioJson from '../contenido/finales/temario.json'
+  import { hashFinal, idFinalDeResto } from '../lib/enlaces.ts'
+  import BotonCopiarLink from '../lib/ui/BotonCopiarLink.svelte'
+  import { avisar } from '../lib/ui/avisos.svelte.ts'
   import JugarPosicion, { type ConfigFinal } from '../lib/ui/JugarPosicion.svelte'
 
   const temario = temarioJson as Temario
   const NIVELES = [...new Set(temario.temas.map((t) => t.nivel))].sort()
 
+  // Link directo `#/finales/tema/<id>`: el tema abierto sale del hash, así el botón «atrás» del navegador vuelve al temario.
+  let { resto = [] }: { resto?: string[] } = $props()
+  const claveResto = $derived(resto.join('/'))
+  const idPedido = $derived(idFinalDeResto(resto))
+  let tema = $derived(idPedido ? temario.temas.find((t) => t.id === idPedido) : undefined)
+
+  $effect(() => {
+    void claveResto
+    // Cualquier cambio del hash saca de la posición que se esté jugando.
+    jugando = undefined
+    colaOrigen = undefined
+    if (!claveResto) return
+    if (tema) vista = 'temario'
+    else avisar('No encontré ese tema')
+  })
+
   let vista = $state<'temario' | 'mis-finales'>('temario')
-  let tema = $state<TemaFinal>()
   let jugando = $state<{ fen: string; config: ConfigFinal; clave: number }>()
   let repasos = $state(new Map<string, Repaso>())
   let propios = $state<ErrorPartida[]>([])
@@ -94,12 +112,15 @@
   {/key}
 {:else}
   <div class="pestanas" role="tablist">
-    <button role="tab" aria-selected={vista === 'temario'} onclick={() => { vista = 'temario'; tema = undefined }}>Temario</button>
+    <button role="tab" aria-selected={vista === 'temario'} onclick={() => { vista = 'temario'; if (tema) location.hash = '#/finales' }}>Temario</button>
     <button role="tab" aria-selected={vista === 'mis-finales'} onclick={() => (vista = 'mis-finales')}>De mis partidas</button>
   </div>
 
   {#if vista === 'temario' && tema}
-    <button class="boton enlace" onclick={() => (tema = undefined)}>← Temario</button>
+    <div class="barra-tema">
+      <button class="boton enlace" onclick={() => (location.hash = '#/finales')}>← Temario</button>
+      <BotonCopiarLink hash={hashFinal(tema.id)} />
+    </div>
     <section class="tarjeta">
       <h2>{tema.titulo}</h2>
       {#each tema.explicacion as parrafo (parrafo)}<p>{parrafo}</p>{/each}
@@ -133,7 +154,7 @@
         <ul class="lista">
           {#each temario.temas.filter((t) => t.nivel === nivel) as t (t.id)}
             <li>
-              <button class="tema" onclick={() => (tema = t)}>
+              <button class="tema" onclick={() => (location.hash = hashFinal(t.id))}>
                 <b>{t.titulo}</b>
                 <span class="suave">{t.posiciones.length} {t.posiciones.length === 1 ? 'posición' : 'posiciones'} · dominio {Math.round(100 * dominioTema(t))} %</span>
               </button>
@@ -176,6 +197,12 @@
 {/if}
 
 <style>
+  .barra-tema {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
   .lista {
     list-style: none;
     margin: 0;
