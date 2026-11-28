@@ -2,7 +2,7 @@
 
 Resumen para retomar el trabajo en cualquier sesión. El detalle de métodos y herramientas está en `CLAUDE.md`.
 
-## Fase A2 — Links directos (2026-11-27, en revisión: PR «Fase A2 — Links directos»)
+## Fase A2 — Links directos (2026-11-27, mergeado: PR #16)
 
 - El hash admite `#/<seccion>/<resto>` (los links viejos, como `#/tactica`, siguen igual): `#/tactica/tema/<tema>[/libros]`, `#/aperturas/curso/<curso>[/blancas|/negras]`, `#/finales/tema/<id>`, `#/biblioteca/<ID>`. Reglas en `src/lib/enlaces.ts`; cada pantalla recibe `resto`. Un id desconocido abre la pestaña normal con un aviso («No encontré ese tema»).
 - Finales, Biblioteca y cursos de Aperturas se abren cambiando el hash (también al tocarlos en la lista), así el botón «atrás» del navegador funciona. En Táctica el link deja elegido el tema (baja el archivo del tema si hace falta) y la persona toca «Empezar».
@@ -11,11 +11,21 @@ Resumen para retomar el trabajo en cualquier sesión. El detalle de métodos y h
 - `node scripts/listar-links.ts` genera `docs/links-directos.md` (422 links: Táctica 26, Aperturas 96, Finales 57, Biblioteca 243). Volver a correrlo si cambian cursos, temario o fichas. El color de un curso sin sufijo sale del nombre (`colorPorDefecto`).
 - `NOMBRE_TEMA`, `TEMAS_FILTRO` y `TEMAS_LIBROS` pasaron a `src/lib/problemas/temas.ts` (sin dependencias, para que los lea Node); `problemas.ts` los reexporta. Capturas en `docs/capturas/a2/`.
 
-## Fase A1 — Pestaña «Biblioteca» (2026-11-27, en revisión: PR «Fase A1 — Biblioteca»)
+## Fase A1 — Pestaña «Biblioteca» (2026-11-27, mergeado: PR #15)
 
 - 243 fichas (`public/datos/biblioteca.json`) generadas con `node scripts/preparar-biblioteca.ts "<CSV del catálogo>"` (el CSV es privado y no va al repo). Solo campos públicos; sin rutas ni notas.
 - Correcciones que sobreviven a un CSV nuevo: `scripts/biblioteca-que-cubre.json` (texto final por id), `scripts/biblioteca-correcciones.json` (títulos, autores y páginas) y `scripts/biblioteca-equivalencias.json` (fuente de la app → id del libro).
 - Pantalla `src/pantallas/Biblioteca.svelte`: buscador, filtros (tema, nivel, dificultad, idioma), ficha con «En la app» y cita. Capturas en `docs/capturas/a1/`.
+
+## Aparte: barrido completo de Stockfish (2026-11-27)
+
+Fuera del orden de abajo (Libros → Finales → Aperturas): `scripts/barrido-completo.ts` evalúa con
+Stockfish nativo todas las jugadas propias de las 5.752 partidas analizables (no solo los momentos
+de pérdida de material de `analisis-previo.json`). Probado con 50 partidas reales (11 ms/posición
+con 15 procesos en paralelo, ≈55 min estimados para completarlo todo). Corrido completo el 2026-11-27
+(294.176 posiciones en 48,9 min, 31.720 errores) e importado en la app de Mati en la compu (5.937 errores
+nuevos; 38.255 en total). Detalle
+completo en `CLAUDE.md` → "Datos previos" → "Barrido completo".
 
 ## Orden de trabajo pedido por el usuario (2026-10-07)
 
